@@ -1,0 +1,296 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amssymb,amsmath, dsfont,relsize,accents,caption }
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{mathrsfs}  % curly fonts
+\usepackage{upgreek}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{shapes,arrows}
+\selectlanguage{english}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{microtype}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue,pagebackref=false]{hyperref}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{pdfpages}
+\usetikzlibrary{
+calc}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+
+%\usepackage[notcite,notref,color]{showkeys}
+\definecolor{labelkey}{gray}{.8}
+\definecolor{refkey}{gray}{.8}
+
+
+\topmargin -0.5in
+\textheight 9 in
+\oddsidemargin 0.15in
+\evensidemargin 0.25in
+\textwidth 6.15in
+
+
+\definecolor{darkred}{rgb}{0.9,0.1,0.1}
+\newcommand{\comment}[1]{\marginpar{\raggedright\scriptsize{\textcolor{darkred}{#1}}}}
+
+%%%%%%%%%  LABELS FOR THEOREMS AND EQUATIONS SEPARATELY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \makeatletter
+ \@addtoreset{equation}{section}
+ \makeatother
+
+ \makeatletter
+ \@addtoreset{enunciato}{section}
+ \makeatother
+
+ \newcounter{enunciato}[section]
+
+ \renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+ \newtheorem{ittheorem}{Theorem}
+ \newtheorem{itlemma}{Lemma}
+ \newtheorem{itproposition}{Proposition}
+ \newtheorem{itcorollary}{Corollary}
+ \newtheorem{itdefinition}{Definition}
+ \newtheorem{itremark}{Remark}
+ \newtheorem{itclaim}{Claim}
+ \newtheorem{itfact}{Fact}
+ \newtheorem{itconjecture}{Conjecture}
+
+ \renewcommand{\theittheorem}{\thesection.\arabic{enunciato}}
+ \renewcommand{\theitlemma}{\thesection.\arabic{enunciato}}
+ \renewcommand{\theitproposition}{\thesection.\arabic{enunciato}}
+ \renewcommand{\theitcorollary}{\thesection.\arabic{enunciato}}
+ \renewcommand{\theitdefinition}{\thesection.\arabic{enunciato}}
+ \renewcommand{\theitremark}{\thesection.\arabic{enunciato}}
+ \renewcommand{\theitclaim}{\thesection.\arabic{enunciato}}
+ \renewcommand{\theitfact}{\thesection.\arabic{enunciato}}
+ \renewcommand{\theitconjecture}{\thesection.\arabic{enunciato}}
+
+\newcommand\myworries[1]{\textcolor{red}{[#1]}}
+
+ \newenvironment{theorem}{\addtocounter{enunciato}{1}
+ \begin{ittheorem}}{\end{ittheorem}}
+
+ \newenvironment{lemma}{\addtocounter{enunciato}{1}
+ \begin{itlemma}}{\end{itlemma}}
+
+ \newenvironment{proposition}{\addtocounter{enunciato}{1}
+ \begin{itproposition}}{\end{itproposition}}
+
+ \newenvironment{corollary}{\addtocounter{enunciato}{1}
+ \begin{itcorollary}}{\end{itcorollary}}
+
+ \newenvironment{definition}{\addtocounter{enunciato}{1}
+ \begin{itdefinition}}{\end{itdefinition}}
+
+ \newenvironment{remark}{\addtocounter{enunciato}{1}
+ \begin{itremark}}{\end{itremark}}
+
+ \newenvironment{claim}{\addtocounter{enunciato}{1}
+ \begin{itclaim}}{\end{itclaim}}
+
+ \newenvironment{fact}{\addtocounter{enunciato}{1}
+ \begin{itfact}}{\end{itfact}}
+
+ \newenvironment{conjecture}{\addtocounter{enunciato}{1}
+ \begin{itconjecture}}{\end{itconjecture}}
+
+ \newcommand{\be}[1]{\begin{equation}\label{#1}}
+ \newcommand{\ee}{\end{equation}}
+
+ \newcommand{\bl}[1]{\begin{lemma}\label{#1}}
+ \newcommand{\el}{\end{lemma}}
+
+ \newcommand{\br}[1]{\begin{remark}\label{#1}}
+ \newcommand{\er}{\end{remark}}
+
+ \newcommand{\bt}[1]{\begin{theorem}\label{#1}}
+ \newcommand{\et}{\end{theorem}}
+
+ \newcommand{\bd}[1]{\begin{definition}\label{#1}}
+ \newcommand{\ed}{\end{definition}}
+
+ \newcommand{\bcl}[1]{\begin{claim}\label{#1}}
+ \newcommand{\ecl}{\end{claim}}
+
+ \newcommand{\bfact}[1]{\begin{fact}\label{#1}}
+ \newcommand{\efact}{\end{fact}}
+
+ \newcommand{\bp}[1]{\begin{proposition}\label{#1}}
+ \newcommand{\ep}{\end{proposition}}
+
+ \newcommand{\bc}[1]{\begin{corollary}\label{#1}}
+ \newcommand{\ec}{\end{corollary}}
+
+ \newcommand{\bcj}[1]{\begin{conjecture}\label{#1}}
+ \newcommand{\ecj}{\end{conjecture}}
+
+ \newcommand{\bpr}{\begin{proof}}
+ \newcommand{\epr}{\end{proof}}
+
+ \newcommand{\bprlem}[1]{\begin{proofof}{\it Lemma \ref{#1}}.\,\,}
+ \newcommand{\eprlem}{\end{proofof}}
+
+ \newcommand{\bprthm}[1]{\begin{proofof}{\it Theorem \ref{#1}}.\,\,}
+ \newcommand{\eprthm}{\end{proofof}}
+
+ \newcommand{\bprprop}[1]{\begin{proofof}{\it Proposition \ref{#1}}.\,\,}
+ \newcommand{\eprprop}{\end{proofof}}
+
+ \newcommand{\bi}{\begin{itemize}}
+ \newcommand{\ei}{\end{itemize}}
+
+ \newcommand{\ben}{\begin{enumerate}}
+ \newcommand{\een}{\end{enumerate}}
+
+ \newcommand{\reff}[1]{(\ref{#1})}
+ 
+ \newcommand\eqdist{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny d}}}{=}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+ \newenvironment{proof}{\noindent {\em Proof}.\,\,}{\hspace*{\fill}$\halmos$\medskip}
+ \newenvironment{proofof}{\noindent {\em Proof of\,\,}}{\hspace*{\fill}$\halmos$\medskip}
+ \newcommand{\halmos}{\rule{1ex}{1.4ex}}
+ \def \qed {{\hspace*{\fill}$\halmos$\medskip}}
+
+ \parskip=3pt plus 1pt minus 1pt
+
+ \newcommand{\one}{{\mathchoice {1\mskip-4mu\mathrm l}
+         {1\mskip-4mu\mathrm l}
+         {1\mskip-4.5mu\mathrm l}
+         {1\mskip-5mu\mathrm l}}}
+
+
+%%%%%%%%%% ABBREVIATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\def \qed {{\hspace*{\fill}$\halmos$\medskip}}
+
+
+
+\def \C {{\mathbb C}}
+\def \D {{\mathbb D}}
+\def \E {{\mathbb E}}
+\def \N {{\mathbb N}}
+\def \P {{\mathbb P}}
+\def \Q {{\mathbb Q}}
+\def \R {{\mathbb R}}
+\def \Z {{\mathbb Z}}
+\def \T {{\mathbb T}}
+\def \I {{\mathbb I}}
+
+
+\def \lra \leftrightarrow
+
+\def \ra {\rightarrow}
+\def \ba {\begin{array}}
+\def \ea {\end{array}}
+\def \da {\downarrow}
+\def \ua {\uparrow}
+\def \lra {\longrightarrow}
+
+\def \Id {{\rm Id}}
+\def \ES {{\rm E}}
+\def \PS {{\rm P}}
+\def \Sp {{\rm Sp}}
+\def \SES {{\hbox{\footnotesize\rm SES}}}
+\def \IRW {{\hbox{\tiny\rm IRW}}}
+\def \RW {{\hbox{\tiny\rm RW}}}
+\def \maj {{\rm maj}}
+\def \new {{\rm new}}
+\def \var {{\rm var}}
+\def \Var {{\rm Var}}
+\def \osc {{\rm osc}}
+\def \diag {{\rm diag}}
+\def \off {{\rm off}}
+\def \c {{\rm c}}
+
+\def \cA {{\mathcal A}}
+\def \cC {{\mathcal C}}
+\def \cD {{\mathcal D}}
+\def \cE {{\mathcal E}}
+\def \cF {{\mathcal F}}
+\def \cG {{\mathcal G}}
+\def \cH {{\mathcal H}}
+\def \cI {{\mathcal I}}
+\def \cJ {{\mathcal J}}
+\def \cK {{\mathcal K}}
+\def \cL {{\mathcal L}}
+\def \cM {{\mathcal M}}
+\def \cN {{\mathcal N}}
+\def \cO {{\mathcal O}}
+\def \cP {{\mathcal P}}
+\def \cQ {{\mathcal Q}}
+\def \cR {{\mathcal R}}
+\def \cS {{\mathcal S}}
+\def \cT {{\mathcal T}}
+\def \cSb {{\mathcal S}_b}
+\def \Q {{\mathbb{Q}}}
+\def \T {{\mathbb{T}}}
+\def \lra {{\leftrightarrow}}
+
+\def \un {\underline}
+\def \ov {\overline}
+\def \td {\tilde}
+\def \Ll {\left}
+\def \Rr {\right}
+\def \subset {\subseteq}
+\def \supset {\supseteq}
+\def \d {\mathrm d}
+\def \tdj {\td{\jmath}}
+\def \emptyset {\varnothing}
+\def \t {\mathsf{t}}
+\def \mcl {\mathcal}
+
+\def\one{\rlap{\mbox{\small\rm 1}}\kern.15em 1}
+\def\ind#1{\1_{#1}}
+
+\def\*#1{\mathbf{#1}}
+
+\def\embf#1{\emph{\bf #1}}
+
+\newlength{\dhatheight}
+\newcommand{\doublehat}[1]{%
+    \settoheight{\dhatheight}{\ensuremath{\hat{#1}}}%
+    \addtolength{\dhatheight}{-0.35ex}%
+    \hat{\vphantom{\rule{1pt}{\dhatheight}}%
+    \smash{\hat{#1}}}}
+ \captionsetup{width=.9\linewidth}  
+
+%%%%%%%%%%%%%%% Document-specific commands
+
+\def \Tn {\cT_{2n}}
+
+
+%%%%%%%%%%%%%%
+\title{Metric space convergence under scaling of the strongly connected components of an uniform directed graph with an i.i.d. degree sequence}
+\author{Serte Donderwinkel and Zheneng Xie}
+\date{Version: \today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\input{Content/StuffSerte.tex}
+
+
+\appendix
+\input{Content/Resultsweuse.tex}
+\input{Content/Support/Bibliography.tex}
+
+
+
+\end{document}
