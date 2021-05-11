@@ -1,20 +1,20 @@
-\section{The model}
-\subsection{Introduction}
-We consider a uniform directed graph (or digraph) with a random degree sequence. We consider $n$ vertices, to any of which corresponds a tuple $(d^-,d^+)$, where $d^-$ and $d^+$ are the in-degree and out-degree of the vertex respectively. The tuples are independent and identically distributed. Let $(D^-,D^+)$ be a random variable in $\N\times \N$ with this distribution. We are interested in the limit under scaling of the strongly connected components as $n\to \infty$.  \\
-To investigate this, we will use a version of the configuration model for digraphs that was introduced in \cite{Cooper2004}. The output of the configuration model, conditioned on being simple, is a uniform digraph with the given degree sequence. Note that in order for a digraph with the a sampled degree sequence to exist, we need the sum of the in-edges to be equal to the the sum of the out-edges, so we need some conditioning on the degree sequence.\\
+\section{Introduction}
+\subsection{The model}
+We study a uniform directed graph (or digraph) with a random degree sequence. We consider $n$ vertices, to each of which we assign an in-degree and an out-degree. The degree tuples are independent and identically distributed. Let $\mathbf{D}=(D^-,D^+)$ be a random variable in $\N\times \N$ with this distribution, and for each $i\in [n]$, let $\mathbf{D}_i=(D^-_i,D^+_i)$  be the in- and out-degree of vertex $i$. In order for a graph with this degree sequence to exist, we require that $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, so we will condition on this event. We are interested in the limit under scaling of the strongly connected components as $n\to \infty$.  \\
+To investigate this, we will use a version of the configuration model for digraphs that was introduced in \cite{Cooper2004}. The output of the configuration model, conditioned on being simple, is a uniform digraph with the given degree sequence. \\
 The techniques we will use to investigate the graph model are a combination of the techniques introduced by Conchon-Kerjan and Goldschmidt in \cite{Conchon2018} and the strategy of Goldschmidt and Stephenson in \cite{Goldschmidt2019}. The former work discusses the scaling limit of an undirected uniform graph with i.i.d.\ degrees at criticality, and the latter discusses the scaling limit of the strongly connected components of a directed Erd\H{o}s-Renyi graph at criticality.\\
-We will explore the components in a depth-first manner, with the out-edges of a vertex playing the role of its children. The next vertex to be explored is selected with probability proportional to the number of in-edges it possesses. This is illustrated in Figure \ref{fig.configuration model}. We move on to the next 'out-component' when we have matched all out-edges of vertices that we have seen so far. The out-component will have unmatched in-edges that will be matched to out-components that are explored later, but these edges between out-components will not be part of a strongly connected component, so considering out-components suits our purpose. \\
+\myworries{Description of exploration written by Zheneng} This is illustrated in Figure \ref{fig.configuration model}. We move on to the next 'out-component' when we have matched all out-edges of vertices that we have seen so far. The out-component will have unmatched in-edges that will be matched to out-components that are explored later, but these edges between out-components will not be part of a strongly connected component, so considering out-components suits our purpose. \\
 The preliminary definition of the degree distribution is as follows. 
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{Content/Pictures/Configuration model.png}
-    \caption{The red arrows represent unmatched out-edges. One by one, in depth first order, these are connected to a uniform available in-edge.}
+    \caption{The red arrows represent unpaired out-edges. One by one, in depth first order, these are connected to a uniform available in-edge.}
     \label{fig.configuration model}
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{Content/Pictures/Configuration model out-forest.png}
-    \caption{By removing the surplus edges and in-edges we obtain the out-forest. The red edges lead to vertices of which the degree has not yet been sampled. For every sampled surplus edge, we add an extra leaf.}
+    \includegraphics[scale=0.8]{Content/Pictures/Configuration model out-forest.png}
+    \caption{By removing the surplus edges and in-edges we obtain the out-forest. For every sampled surplus edge, we add an extra leaf, which we colour purple. The red edges lead to vertices of which we do not know whether they are purple, and we do not know their degree yet. This corresponds to out-half-edges that have not been paired yet. The dashed lines are not part of the out-forest, but are there to illustrate the connection between the digraph and the out-forest.}
     \label{fig.configuration modeloutforest}
 \end{figure}
 \begin{enumerate}
@@ -29,6 +29,8 @@ The preliminary definition of the degree distribution is as follows.
 As noted earlier, in order for a digraph with a given degree sequence to exist, we need that the total number of in-edges is equal to the total number of out-edges. We hope that if the degree distribution satisfies condition \ref{cond.mu}, conditioning on an equal number of in-edges and out-edges does not effect the early stages of the exploration. 
 Conditions \ref{cond.beta} and \ref{cond.gamma} ensure that the Central Limit Theorem applies to the fluctuations of the first explored in-degrees around their mean. Condition \ref{cond.critical} ensures that the branching process corresponding to the depth-first exploration (i.e. the exploration of the out-components) is critical. Condition \ref{cond.rho} ensures that this branching process has Brownian scaling. Condition \ref{cond.tau} ensures that the covariance of the in- and out-degrees that are discovered first is finite. Condition \ref{cond.iota} ensures that the strongly connected components are $3$-regular. 
 \end{remark}
+\subsection{Proof outline}
+
 
 \subsection{Some first results}
 \subsubsection{The in-degrees in order of discovery}
@@ -236,7 +238,7 @@ $$p_{k+1}=\frac{X^{blue,-}(k-P(k))-I^+(\theta^{n}(k))-P(k)}{\mu n-k-I^+(\theta^{
 where 
 $E(\theta^{n}(k))$ counts the red children of the $\theta^n(k)^{th}$ vertex. We will argue that the size of $E$ is negligible on the scale we are interested in. $X^-(\theta^{n}(k))$ corresponds to the process encoding the available in-edges in the blue and purple forest.
 \end{enumerate} 
-We will now show the convergence under scaling of $(\tilde{X}^+(\theta^{n}(k)),H(\theta^{n}(k)),k\leq m)$ to the \L ukasiewicz path and height process of an $\R$-forest. 
+
  \begin{lemma}\label{lemma.tightnesssurplus edges}
  For every $T>0$, $$\left(n^{-1/3}P\left(\lfloor  n^{2/3}T\rfloor \right) \right)_{n\geq 1}$$ 
  is tight.
@@ -445,168 +447,8 @@ in $D(\R_+,\R)$ as $n\to \infty$.
 This follows from Theorem \ref{thm.convergencetohatBeff} and the continuous mapping theorem.
 \end{proof}
 
-\subsubsection{Convergence of the positions of the ancestral surplus edges}
-In this subsubsection, we will prove that the law of the position of the ancestral surplus edges converges under scaling. Note that the probability that the $k^{th}$ out-edge is paired to an in-edge of vertex $v$ at time $k$ is proportional to the number of available in-edges of vertex $v$ at time $k$. Therefore, to understand the distribution of the position of the endpoints of ancestral backedges, we need to understand where the available in-edges are. We will study this by modifying the edge lengths in the tree: for a vertex with in-degree $m$, the edges connecting it to its children will have length $m-1$. The height of vertex $w$ in this forest with edge lengths approximately corresponds to the number of available in-edges that would form an ancestral backedge if one of the out-edges of $w$ is paired to it. Denote the height in the forest with edge lengths of the vertex visited at time $k$ by $H^\ell_{eff}(k)$. Then, we get the following extension of Theorem \ref{thm.convergenceSeff}.
-\begin{lemma}\label{convergence.adaptedheightprocess}
-Let $(B_t,t\geq 0)$ be a Brownian motion and set $$(B^{eff}_t,t\geq 0)=\left(B_t-\frac{\beta - \mu}{2\lambda \mu^2}t^2,t\geq 0\right).$$ Then,
-\begin{align*}
-    &\left(n^{-1/3}S^+_{eff}\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}H^+_{eff}\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}H^\ell_{eff}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^-_{eff}\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\\
-    &\overset{d}{\to}\left(\lambda B^{eff}_t,  \frac{2}{\lambda} \left(B^{eff}_{t}-\inf\{B^{eff}_{s}:s\leq t\}\right),\frac{2(\tau-\mu)}{\lambda\mu} \left(B^{eff}_{t}-\inf\{B^{eff}_{s}:s\leq t\}\right), \frac{\beta-\mu}{\mu} t, t\geq 0\right)
-\end{align*}
-in $D([0,T],\R)^4$ as $n\to \infty$.
-\end{lemma}
-\begin{proof}
-We use Theorem 1 in \cite{Deraphelis2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We apply this result to the forest with offspring and 'offspring length' distributed as $(D^+(Z^-),Z^--1)$. Let $H^\ell$ be the equivalent of $H^\ell_{eff}$ for this process. We will translate the conditions of Theorem 1 in \cite{Deraphelis2017} to our setting and check them. 
-\begin{enumerate}
-    \item $\E[D^+(Z^-)]=1$
-    \item $1<\E[(D^+(Z^-))^2]<\infty$
-    \item $\E\left[D^+(Z^-)\one_{(Z^--1-1)>x}\right]=o(x^{-2})$ as $x\to \infty$
-\end{enumerate}
-Under these conditions, using the notation from Subsubsection \ref{subsubsection.out-degrees},
-\begin{align}\begin{split}\label{eq.convmodifiedheightprocess}
-&\left(n^{-1/3}S^+\left(\lfloor t n^{2/3}\rfloor \right),n^{-1/3}H\left(\lfloor t n^{2/3}\rfloor \right), n^{-1/3}H^\ell\left(\lfloor t n^{2/3}\rfloor \right),t\geq 0\right)\\
-&\overset{d}{\to}\left(\lambda B_s, \frac{2}{\lambda}\left(B_s-\inf\left\{B_u:u\leq s\right\}\right), \frac{2\kappa}{\lambda}\left(B_s-\inf\left\{B_u:u\leq s\right\}\right),t\geq 0\right)
-\end{split}\end{align}
-in $D(\R_+,\R)^3$ as $n\to\infty$, where $$\kappa=\E\left[D^+(Z^-)(Z^--1-1)\right]=\frac{\E\left[(D^-)^2D^+-D^-D^+\right]}{\E[D^-]}=\frac{\tau-\mu}{\mu}.$$
-If we show that \eqref{eq.convmodifiedheightprocess} holds, we notice that the rest of the argument in Subsubsection \ref{subsubsection.out-degrees}, that uses the embedding of the effective forest in a Galton-Watson forest, and the measure change that translates results on a forest with size-biased degrees to a forest with size-biased ordered degrees, can be extended to include joint convergence with $H^\ell_{eff}$, which yields the result. 
-Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{Deraphelis2017} to hold. The conditions are equivalent to 
-\begin{enumerate}
-    \item $\E[D^+D^-]=\E[D^-]$
-    \item $1<\frac{\E[(D^+)^2D^-]}{\E[D^-]}<\infty$
-    \item $\E\left[D^+D^-\one_{D^->x}\right]=o(x^{-2})$ as $x\to \infty$. 
-\end{enumerate}
-Note that the first and second condition follow directly from the assumptions, and the third condition is implied by $\E[D^+(D^-)^3]<\infty$.
-\end{proof}
-The proposition above allows us to study the convergence of the position of the ancestral backedges. We use the following definitions. Let $N^n(k)$ denote the number of ancestral backedges sampled up to time $k$, and if an ancestral backedge is sampled, let $U^n(k)$ denote the height of the vertex to which the backedge connects. $N^n(k)-N^n(k-1)=0$, declare $U^n(k)=\delta$. Note that by definition, an ancestral backedge always connects to a vertex on the path to the root of the vertex visited at time $k$, so the position is uniquely determined by the height on the path. We will show that the law of $(N^(k),U^n(k))$ converges under scaling, which is the content of the following theorem. 
-
-\begin{theorem}
-We have that 
-\begin{align*}&\left(n^{-1/3}\hat{R}^n_{eff}\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}\hat{C}^n_{eff}\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}\hat{H}_{eff}\left(\lfloor tn^{2/3}\rfloor\right), N^n\left(\lfloor tn^{2/3}\rfloor\right), n^{-1/3}U^n\left(\lfloor tn^{2/3}\rfloor\right),t\geq 0\right)\\
-&\overset{d}{\to}\left(\hat{R}^{eff}_t,\hat{C}^{eff}_t, \frac{2}{\lambda^2}\hat{R}^{eff}_t, N_t,U_t,t\geq 0\right),\end{align*}
-as $n\to \infty$, where $(N_t,U_t,t\geq 0)$ is a marked Cox process of intensity $2\frac{(\tau-\mu)}{\lambda^2\mu^2}R_t$ at time $t$, and the marks are uniform on $[0,\frac{2}{\lambda^2}\hat{R}^{eff}_t]$. Here, the convergence is in $D(\R_+,\R)$ for the first four coordinates, and in the topology of vague convergence for counting measures on $\R_+\cup \{\delta\}$ for the fifth. The convergence is jointly with 
-$$\left(n^{-2/3}\hat{S}^-_{eff}\left(\lfloor n^{2/3}t\rfloor \right), t\geq 0\right)\overset{p}{\to}\left(\frac{\beta-\mu}{\mu}t, t\geq 0\right)$$ 
-as $n\to \infty$ in $D(\R_+,\R)$.
-\end{theorem}
-\begin{proof}
-Let $\mathcal{P}_k$ denote the set of vertices on the path from the vertex visited at time $k$ to the root of the out-component. For $S$ a set of vertices, let $E_k(S)$ denote number of in-edges of vertices in $S$ that are part of a surplus edge at time $k$. Then, at step $k$, the conditional probability of pairing an ancestral surplus edge is 
-\begin{equation*}\label{eq.condprobsurplusedge}\frac{H^\ell_{eff}(k)+1-E_k(\mathcal{P}_k)}{\sum_{i=1}^n D^-_i-k+1+\hat{C}^n_{eff}(k)}.\end{equation*}
-We note that, by definition, $H^\ell_{eff}(k)+1$ is equal to the number of in-edges of $\P_k$ that are not used to connect a vertex to its parent. Then, it is easy to see that the numerator counts the number of unused in-edges on the path to the root from the vertex visited at time $k$, while the denominator counts the total number of unused in-edges. \\
-We claim that for all $t>0$, $$n^{-1/3}\sup_{k\leq tn^{2/3}}E_k(\mathcal{P}_k)\overset{p}{\to}0$$ as $n\to \infty$. Fix $\epsilon>0$. Note that the probability that a given in-edge of a vertex discovered before time $\lfloor t n^{2/3}\rfloor$ is part of a surplus edge before time $\lfloor t n^{2/3}\rfloor$ is bounded above by $$\frac{\sum_{i=1}^{\lfloor t n^{2/3}\rfloor} \hat{D}_i^+}{\sum_{i=1}^n D_i}.$$ Note that $$\left(n^{-1/3}\frac{\sum_{i=1}^{\lfloor t n^{2/3}\rfloor} \hat{D}_i^+}{\sum_{i=1}^n D_i}\right)_{n\geq 0}$$ is tight, so  there exists a $c$ such that the probability that any given in-edge of a vertex discovered before time $\lfloor t n^{2/3}\rfloor$ is part of a surplus edge before time $\lfloor t n^{2/3}\rfloor$ is bounded above $cn^{-1/3}$ with probability at least $1-\epsilon$ for all $n$. Call this event $\mathcal{E}^n_1$. Let $n$ be large enough such that $n^{-1/3}c\leq 1$. This means that on $\mathcal{E}^n_1$, there exists a coupling such that we can colour every in-edge pink with probability $n^{-1/3}c$ independently, such that the in-edges that are part of a surplus edge are a subset of the pink in-edges. We claim that the maximum number of pink in-edges on a path to the root up to time $\lfloor n^{2/3}t\rfloor$ is $o(n^{1/3})$ in probability. Note that the number of pink vertices on the path to the root from the vertex visited at time $k$ is the sum of $H^\ell_{eff}(k)+1$ $\operatorname{Bernoulli}(cn^{-1/3})$ random variables. The sets of Bernoulli random variables that are counted at different times $k$ have a possibly non-empty intersection. To deal with this, we use the following fact. For $A_1,\dots, A_k$ i.i.d random variables and $B_1,\dots,B_k$ i.i.d. random variables, $\max_{i\leq k} (A_i+B_1)$ is stochastically dominated by $\max_{i\leq k}(A_i+B_i)$. Hence, the maximum number of pink in-edges on a path to the root up to time $\lfloor n^{2/3}t\rfloor$ is  stochastically dominated by $\max_{k\leq \lfloor n^{2/3} t \rfloor} B_k$, with the $B_k$ being independent and $\mathcal{L}(B_k)=\operatorname{Binom}(H^\ell_{eff}(k)+1,n^{-1/3}c)$. However, we know that $\left(n^{-1/3}\max_{k\leq \lfloor tn^{2/3}\rfloor}H^\ell_{eff}(k)\right)_{n\geq 1}$ is tight, and
- $\max_{k\leq \lfloor n^{2/3} K \rfloor} \operatorname{Binom}(n^{1/3}K',n^{-1/3}c)$ is of order $\log(n)/\log(\log(n))$, so, indeed, for all $t>0$, $$n^{-1/3}\sup_{k\leq tn^{2/3}}E_k(\mathcal{P}_k)\overset{p}{\to}0$$ as $n\to \infty$. \\
-Then, Slutzky's lemma, the convergence in Corollary \ref{cor.convergencereflected}, and the strong law of large numbers imply that 
-\begin{align*}&\left(n^{2/3}\frac{H^\ell_{eff}\left(\lfloor t n^{2/3}\rfloor \right)+1-E_{\lfloor t n^{2/3}\rfloor}(\mathcal{P}_{\lfloor t n^{2/3}\rfloor})}{\sum_{i=1}^n D^-_i-\lfloor t n^{2/3}\rfloor+1+\hat{C}^n_{eff}(\lfloor t n^{2/3}\rfloor)}, t\geq 0\right)\\
-&\overset{d}{\to} \left(2\frac{(\tau-\mu)}{\lambda^2\mu^2}R_t,t\geq 0\right)\end{align*}
-in $D(\R_+,R)$ as $n\to\infty$.
-Let $\cS_k$ be the set of surplus edges sampled up to time $k$, and consider the filtration $\cF_k^n=\sigma(D^-_1,\dots,D^-_n,S^+_{eff}(i), \cS_i, 0\leq i \leq k)$. Then, note that $(N^n(k),k\geq 0)$ is a counting process with compensator 
-$$N^n_{comp}(k)=\sum_{j=1}^k\frac{H^\ell_{eff}(j)+1-E_j(\mathcal{P}_j)}{\sum_{i=1}^n D^-_i-j+1+\hat{C}^n_{eff}(j)},$$
-so by the continuous mapping theorem,
-$$\left(N^n_{comp}\left(\lfloor t n^{2/3}\rfloor\right),t\geq 0\right)\overset{d}{\to}\left(2\frac{(\tau-\mu)}{\lambda^2\mu^2}\int_0^tR_sds,t\geq 0\right)$$
-in $D(\R_+,\R)$ as $n\to\infty$. Then, Theorem 14.2.VIII of Daley and Vere-Jones \cite{DaleyVereJones} implies the convergence of the counting process. The position of the marks is uniform on the available in-edges on the path to the root. Therefore, since, asymptotically, $H^\ell_{eff}$ and $H_{eff}$ only differ by a constant factor, the position of the marks in the limit is in fact uniform on the path to the root. 
-\end{proof}
-\subsubsection{Convergence of the positions of the other surplus edges that are part of a strongly connected component}
 
 
-\subsubsection{Anomalous edges}
-We will now show that the parts of the multigraph we observe up until the timescale in which we are interested are, with high probability, simple. We let $A^n(k)$ be the number of loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k^{th}$ vertex. We call these anomalous edges. 
-\begin{proposition}\label{prop.anomalousedges}
-Suppose $\beta<3/4$. Then we have 
-$$\P\left(A^n(\lfloor n^\beta \rfloor)>0\right)\to 0$$
-as $n\to \infty$.
-\end{proposition}
-\begin{proof}
-We adapt the proof of Lemma 7.1 of \cite{Joseph2014} and of Proposition 5.3 of \cite{Conchon2018} to the adapted setting. Self-loops occur when the out-edge of a vertex is matched to an in-edge of the same vertex.  For $v$ explored up to time $\lfloor n^\beta\rfloor$, a vertex with in-degree $d^-_v$ and out-degree $d^+_v$, there are $d^-_v d^+_v$ possible combinations of an in-edge and an out-edge that form a self-loop connected to $v$. Any of these combinations of half-edges is matched with probability bounded above by 
-$$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n\hat{D}^-_i}.$$
-Parallel edges can occur when an out-edge of a vertex is matched to an in-edge of one of its previously explored children. For any vertex $v$ with in-degree $d^-_v$, and a parent $p(v)$ with out-degree $d^+_{p(v)}$, there are at most $d^-_v d^+_{p(v)}$ possible combinations of an in-edge and an out-edge that form a parallel edge from $p(v)$ to $v$. Again, any of these combinations of half-edges is matched with probability bounded above by 
-$$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}.$$
-The last type of an anomalous edge is a surplus edge with multiplicity greater than 1. For a vertex $w$ with out-degree $d^+_w$ and a vertex $v$ with in-degree $d^-_v$, a multiple surplus edge from $w$ to $v$ can only occur if $v$ is discovered before $w$. In that case, there are at most $(d^+_w)^2(d^-_v)^2$ possible pairs of combinations of half-edges, and each of these pairs appears with probability bounded above by
-$$\left(\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\right)^2.$$
-Let $p(i)$ denote the index of the parent of the vertex with index $i$. Also, denote $\cF^n=\sigma(\hat{D}^-_1,\hat{D}^+_1,\dots,\hat{D}^-_n,\hat{D}^+_n)$. Then, by a conditional version of Markov's inequality, 
-
-\begin{align*}&\P\left(\left.A^n(\lfloor n^\beta \rfloor)>0\right| \cF^n \right)\\&\leq \left(\frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \left(\hat{D}^-_i\hat{D}^+_i+\hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cF^n\right] \right)}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}+\frac{\sum_{i=1}^{\lfloor n^\beta \rfloor}\sum_{j<1} (\hat{D}^+_i)^2 (\hat{D}^-_j)^2 }{\left(\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i\right)^2 }\right)\wedge 1,\end{align*}
-where we note that $p(i)$ is not adapted to $\cF^n$, because ancestral relations in the tree also depend on the sampled surplus edges. By Lemma 6.5 in \cite{Conchon2018}, we get that 
-$$\frac{1}{n}\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i\overset{p}{\to}\mu$$
-as $n\to \infty$, so the denominator is of order $n$. If we show that $$\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor} \left(\hat{D}^-_i\hat{D}^+_i+\hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cF^n \right]\right)\overset{p}{\to}0$$
-as $n\to\infty$, and 
-
-$$\frac{1}{n^2}\sum_{i=1}^{\lfloor n^\beta \rfloor}\sum_{j<1} (\hat{D}^+_i)^2 (\hat{D}^-_j)^2 \overset{p}{\to}0,$$ the bounded convergence theorem gives us that 
-$$\P\left(A^n(\lfloor n^\beta \rfloor)>0\right)\to 0$$
-as $n\to \infty$.
-We will show that 
-\begin{align}
-\label{eq.expectationtozero1}\E\left[ \frac{1}{n} \sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\hat{D}^+_i\right]&\to 0,\\
-\label{eq.expectationtozero2}\E\left[ \frac{1}{n} \sum_{i=1}^{\lfloor n^\beta \rfloor}\hat{D}^-_i\hat{D}^+_{p(i)}\right]&\to 0\text{, and}\\
-\label{eq.expectationtozero3}\E\left[\frac{1}{n^2}\sum_{i=1}^{\lfloor n^\beta \rfloor}\sum_{j<1} (\hat{D}^+_i)^2 (\hat{D}^-_j)^2\right]&\to 0
-\end{align}
-as $n\to \infty$, which will be sufficient.\\
-We will first prove \eqref{eq.expectationtozero1}. Let $k$ be the smallest integer such that $Z^-_1$ is supported on $k$. Then, for any $m$,
-\begin{align*}
-    \E\left[\hat{D}^-_m\hat{D}^+_m\right]&= \E\left[Z^-_m D^+(Z^-_m)\E\left[\prod\limits_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^m Z^-_j + \Xi_{n-m}}\right]\right]\\
-    &\leq \E\left[Z^-_m D^+(Z^-_m)\E\left[\prod\limits_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^{m-1} Z^-_j +k + \Xi_{n-m}}\right]\right]\\
-    &=\E\left[Z^-_m D^+(Z^-_m)\right]\E\left[\one_{Z_m=k}\prod\limits_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^{m} Z^-_j + \Xi_{n-m}}\right]\\
-    &\leq \frac{\tau}{\mu\P[Z^-_1=k]}<\infty.
-\end{align*}
-Since this upper bound does not depend on $m$, this proves that 
-$$\E\left[ \frac{1}{n} \sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\hat{D}^+_i\right]\to 0$$
-as $n\to \infty$.\\
-We will now prove \eqref{eq.expectationtozero2}. As argued before, $p(i)$ does not just depend on $\cF^n$, but also on the sampled surplus edges. Since the probability of forming a surplus edge depends on the total number of in-edges $\sum_{i=1}^n D^-_i$, this makes the distribution of $\hat{D}^-_i\hat{D}^+_{p(i)}$ complicated to understand. Therefore, we argue that we can replace the stack-size by $\mu n$ without noticing the difference on the time scale that we are interested. By a similar argument as in the proof of Theorem \ref{thm.convergencetohatBeff}, we can show that there exists a coupling such that the probability of a 'mistake` before reaching vertex $n^{\beta}$ due to changing the surplus edge probability is $O(n^{2\beta-3/2})$, which is $o(1)$. Therefore, in the rest of the argument, we will work with stack size $\mu n$. \\
-Let $B_i$ denote the surplus edges that have been sampled until the $i^{th}$ vertex is discovered. Define $\cF^n_{i-1}=\sigma(\hat{D}^-_1,\hat{D}^+_1,\dots,\hat{D}^-_{i-1},\hat{D}^+_{i-1}, B_i)$, such that
-$$\E\left[\sum_{i=1}^{n^\beta} \hat{D}^-_i\hat{D}^+_{p(i)}\right]=\sum_{i=1}^{n^\beta}\E\left[\hat{D}^+_{p(i)}\E\left[\left.\hat{D}^-_i\right|\cF^n_i\right]\right].$$
-Then, note that $\hat{D}^-_i$ only depends on $\hat{D}^+_1,\dots,\hat{D}^+_{i-1}$ through $\hat{D}^-_1,\dots,\hat{D}^-_{i-1}$, and
-\begin{align*}
-  &\E\left[\hat{D}^-_i\left|\hat{D}^-_1=d_1,\dots,\hat{D}^-_{i-1}=d_{i-1}, B_i=\mathcal{S}\right.\right]\\
-  &=\frac{\E\left[Z_i^-\one_{\{Z^-_1=d_1,\dots,Z^-_{i-1}=d_{i-1}, B_i=\mathcal{S} \}} \phi^n_m(Z_1^-,\dots,Z_i^-)\right]}{\E\left[\one_{\{Z^-_1=d_1,\dots,Z^-_{i-1}=d_{i-1}, B_i=\mathcal{S} \} }\phi^n_m(Z_1^-,\dots,Z_i^-)\right]}\\
-  &\leq\frac{\E\left[Z_i^-\right]\E\left[\one_{\{Z^-_1=d_1,\dots,Z^-_{i-1}=d_{i-1}, B_i=\mathcal{S} \}} \phi^n_m(Z_1^-,\dots,Z_i^-)\right]}{\E\left[\one_{\{Z^-_1=d_1,\dots,Z^-_{i-1}=d_{i-1}, B_i=\mathcal{S} \}} \phi^n_m(Z_1^-,\dots,Z_i^-)\right]}\\
- &=\frac{\beta}{\mu}
-\end{align*}
-where the inequality follows from the fact that $B_i$ does not depend on $Z_i$, because we use a deterministic stack-size, the fact that $\phi^n_m$ is decreasing in $Z_i$, and the FKG-inequality.
-Hence, 
-\begin{align*}\E\left[\sum_{i=1}^{n^\beta} \hat{D}^-_i\hat{D}^+_{p(i)}\right]&\leq \frac{\beta}{\mu} \E\left[ \sum_{i=1}^{n^\beta}\hat{D}^+_{p(i)}\right]\\
-&\leq \frac{\beta}{\mu} \E\left[ \sum_{i=1}^{n^\beta}\left(\hat{D}^+_{i}\right)^2\right]\end{align*}
-We are done if we show that $\E\left[(\hat{D}^+_m)^2 \right]$ can be bounded uniformly in $m$. 
-Like before, let $k$ be the smallest integer such that $Z^-_1$ is supported on $k$. Then,
-\begin{align*}
-    \E\left[(\hat{D}^+_m)^2 \right]&=\E\left[(D^+(Z^-_m))^2\E\left[\prod\limits_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^m Z^-_j + \Xi_{n-l}}\right]\right]\\
-    &\leq \E\left[(D^+(Z^-_m))^2\E\left[\prod\limits_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^{m-1} Z^-_j + k+ \Xi_{n-l}}\right]\right ]\\
-    &\leq \frac{\E\left[(D^+(Z^-_m))^2\right]}{\P[Z^-_m=k]}\\
-    &= \frac{\rho}{\mu \P[Z^-_1=k]}, 
-\end{align*}
-which proves the \eqref{eq.expectationtozero2}.\\
-For \eqref{eq.expectationtozero3}, we note that 
-$$\E\left[\sum_{i\leq n^{\beta}}\sum_{j<i}(\hat{D}^+_i)^2(\hat{D}^-_j)^2\right]=\sum_{i\leq n^{\beta}}\sum_{j<i}\E\left[\E\left[\left.\hat{D}^+_i)^2\right|\hat{D}^-_1,\hat{D}^+_1\dots, \hat{D}^-_{i-1},\hat{D}^+_{i-1}\right](\hat{D}^-_j)^2\right]$$
-and proceed as before, which proves \eqref{eq.expectationtozero3}, and concludes the proof.
-\end{proof}
-
-Let $\rho(n)=\inf\{k\geq 0:A^n(k)>0\}$, and note that the event that the multigraph formed by the configuration model on $n$ vertices is simple is equal to $\{\rho(n)=\infty\}$. Proposition \ref{prop.anomalousedges} shows that we do not observe any anomalous edges far beyond the timescale in which we explore the largest components of the graph. This allows us to conclude that all of the results we prove using only the timescale $n^{2/3}$ are also true conditionally on $\{\rho(n)=\infty\}$. This is the content of the following theorem.
-\begin{theorem}
-Conditionally on $\{\rho(n)=\infty\}$, as $n\to \infty$, 
-\begin{align*}&\left(n^{-1/3}\hat{R}^n_{eff}\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}\hat{C}^n_{eff}\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}\hat{H}\left( \lfloor n^{2/3} t \rfloor \right),n^{-2/3}\hat{S}^-_{eff}\left(\lfloor n^{2/3}t\rfloor \right), t\geq 0\right)\\
-&\overset{d}{\to}\left(\hat{R}^{eff}_t,\hat{C}^{eff}_t, \frac{2}{\lambda^2}\hat{R}^{eff}_t ,\frac{\beta-\mu}{\mu}t,  t\geq 0\right),\end{align*}
-in $D(\R_+,\R)^4$ as $n\to \infty$.
-\end{theorem}
-\begin{proof}
-Given Corollary \ref{cor.convergencereflected} and Proposition \ref{prop.anomalousedges}, This follows in the same manner as Theorem 3.2 follows from Theorem 3.1 in \cite{Joseph2014}.
-\end{proof}
-\subsection{We see all large SCCs before time $Tn^{2/3}$ with large probability}
-We claim that exploring the out-components up to time $O(n^{2/3})$ is sufficient to see all large components. This is the content of the following theorem. The proof and notation are an adaptation of Lemma 9 in \cite{Aldous1991}.
-\begin{lemma}
-Let $p(n,y,\delta)$ be the change that the multigraph contains a strongly connected component such its size is greater than or equal to $\delta n^{1/3}$, but none of its in-edges are amongst the first $\lfloor yn^{2/3}\rfloor$ in-edges to be paired. Then,
-$$\lim_{y\to \infty}\limsup_{n} p(n,y,\delta)=0\text{ for all }\delta>0.$$
-\end{lemma}
-\begin{proof}
-Fix $\delta>0$. For an interval $I$, define $q(n,I)$ to be the mean number of strongly connected components with the total in-degree of its vertices (including edges that are not part of the SCC) greater than or equal to $\delta n^{1/3}$ whose first discovered in-edge is in $n^{2/3}I$. Suppose there is a strongly connected component $C$ with $vn^{1/3}$ total in-edges. Conditional on this fact, the in-edges that are paired up to the first in-edge of $C$ is paired, are uniform picks (without replacement) from the total set of in-edges. Denote the time of discovery of the first in-edge of $C$ times $n^{-2/3}$ by $\Xi_n$. Then, $\Xi_n\overset{d}{\to}\operatorname{Exp}(v)$. Let $SCC(n,I,\delta)$ denote the number of SCCs with at least $\delta n^{1/3}$ in-edges that are discovered in $n^{2/3}I$. Fix $\epsilon>0$. We see that 
-$$\P\left(SCC\left(n,(s,2s),\delta\right)=0|SCC\left(n,(s,\infty),\delta\right)\geq 1\right)$$
-is asymptotically bounded from above by 
-$\exp(-s\delta)$, such that we can find an $s>0$ such that for all $n$ large enough,
-$$\P\left(SCC\left(n,(s,\infty),\delta\right)\geq 1 \text{ and }SCC\left(n,(s,2s),\delta\right)=0\right)<\epsilon.$$
-We claim that by potentially choosing larger $s$ and $n$, we also get that 
-$$\P\left(SCC\left(n,(s,2s),\delta\right)=0\right)>1-\epsilon,$$
-which proves the statement.
-Firstly, note that it is clear from the description of the limit process that, for $s$ large enough, with probability at most $\epsilon/2$, an SCC with total length at least \myworries{$\delta$ divided by ratio in-edges count vs length} is discovered after time $s$. By convergence of the exploration process on compact time intervals, by choosing $n$ large enough, we can then ensure that 
-$$\P\left(SCC\left(n,(s,2s),\delta\right)=0\right)>1-\epsilon.$$
-We conclude that 
-$$\P(SCC\left(n,(s,\infty),\delta\right)\geq 1)\leq 2\epsilon.$$
-
-\myworries{make notation consistent}
 % $$\P(\Xi_n>y)\sim \frac{e^{-vy}\P(\Xi_n\leq 1)}{1-e^{-v}}.$$
 
 % Summing over strongly connected components yields
