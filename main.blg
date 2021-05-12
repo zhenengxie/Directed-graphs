@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+The style file: acm.bst
+Reallocating 'name_of_file' (item size: 1) to 33 items.
+Database file #1: Content/Support/Bibliography.bib
+Warning--empty journal in Duquesne2005
+You've used 13 entries,
+            2253 wiz_defined-function locations,
+            622 strings with 6206 characters,
+and the built_in function-call counts, 3852 in all, are:
+= -- 377
+> -- 154
+< -- 0
++ -- 67
+- -- 50
+* -- 281
+:= -- 633
+add.period$ -- 37
+call.type$ -- 13
+change.case$ -- 61
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 134
+empty$ -- 335
+format.name$ -- 50
+if$ -- 799
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 12
+newline$ -- 64
+num.names$ -- 28
+pop$ -- 74
+preamble$ -- 1
+purify$ -- 50
+quote$ -- 0
+skip$ -- 86
+stack$ -- 0
+substring$ -- 255
+swap$ -- 31
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 48
+warning$ -- 1
+while$ -- 42
+width$ -- 15
+write$ -- 127
+(There was 1 warning)

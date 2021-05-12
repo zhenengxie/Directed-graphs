@@ -47,7 +47,7 @@ Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{Der
     \item $\E\left[D^+D^-\one_{D^->x}\right]=o(x^{-2})$ as $x\to \infty$. 
 \end{enumerate}
 Note that the first and second condition follow directly from the assumptions, and the third condition is implied by $\E[D^+(D^-)^3]<\infty$.
-\end{proof}\\
+\end{proof}
 
 
 
@@ -195,7 +195,7 @@ $$(N^n_{m+1}(\lfloor t n^{2/3} \rfloor ),t\geq 0)\overset{d}{\to} (N_{m+1}(t),t\
 $$n^{-2/3}C_{m+1}^n\overset{a.s.}{\to}C_{m+1}.$$
 If $N_m(\infty)=0$, set $\mathbf{C}(G)=(C_1,\dots,C_m)$, $\mathbf{C}_n(G_n)=(C^n_1,\dots,C^n_m)$, and the statement follows. If $N_m(\infty)>0$, apply the induction step to $(C_1,\dots,C_{m+1})$ and $(C^n_1,\dots,C^n_{m+1})$. The fact that $|\mathbf{C}(G)|<\infty$ almost surely, as shown in Subsubsection \ref{subsubsec.samplecontinuousobject}, implies that the induction terminates.
 \end{proof}
-\\
+
 The following proposition shows that the law of the heads of the candidates converges as well under rescaling, and that the convergence holds in the pointed Gromov-Hausdorff topology. 
 \begin{proposition}\label{prop.convergenceheadscandidates}
 Suppose the convergence in Propositions \ref{prop.convergenceancestraledges}, \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates} holds almost surely. Then, for $\mathbf{C}_n(G_n)=(C^n_1,\dots, C^n_{M_n})$, $\mathbf{C}(G)=(C_1,\dots, C_{M})$, let $D^n_i$ be the index of the vertex that the surplus edge corresponding to $C^n_i$ connects to. Similarly, let $D_i$ be the index of the vertex that the surplus edge corresponding to $C_i$ connects to. Then, 
@@ -211,7 +211,7 @@ Note that, by Theorem \ref{thm.convoutforest} and  Propositions \ref{prop.extrac
 $$\left(n^{-1/3}\cT^{G_n}_n,n^{-2/3}G_n+1,n^{-2/3}C^n_1,\dots,n^{-2/3}C^n_{m}\right)\overset{a.s.}{\to}\left(\cT^G, G,C_1,\dots,C_m\right)$$
 in the $m+1$-pointed Gromov-Hausdorff topology. Since the relation $$\left|\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}\}\right)\right|=\left|\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}, D^n_{m}\}\right)\right|$$ passes to the limit, with $|\cdot|$ denoting the length in the tree as encoded by $(\hat{H}_n(k),k\geq 1)$, the limit in distribution of $n^{-2/3}D^n_m$ is a uniform point on $$\cT^G\left(G,C_1,\dots,C_m\right),$$
 which proves the statement.
-\end{proof}\\
+\end{proof}
 
 \myworries{Convergence after identifications and cuttings follows from results by Christina and Robin. Quote the right things here.}
 
@@ -247,7 +247,7 @@ which proves the statement.
 
 
 
-\subsection{For large $T$, we see all SCCs with large length before time $Tn^{2/3}$ with high probability}
+\subsection{For large \texorpdfstring{$T$}{T}, we see all SCCs with large length before time \texorpdfstring{$Tn^{2/3}$}{T n**2/3} with high probability}
 We claim that exploring the out-components up to time $O(n^{2/3})$ is sufficient to see all large components. This is the content of the following theorem. The proof is in the same spirit as Lemma 9 in \cite{Aldous1991} by Aldous. 
 \begin{lemma}
 For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of SCCs whose vertices have at total of at least $\delta n^{1/3}$ in-edges and whose time of first discovery is in $n^{2/3}I$. Then,
