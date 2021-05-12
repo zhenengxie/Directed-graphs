@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.9)  12 MAY 2021 12:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.9)  12 MAY 2021 13:01
 entering extended mode
 **c:/Users/Zhene/Documents/Directed-graphs/main.tex
 (c:/Users/Zhene/Documents/Directed-graphs/main.tex
@@ -400,7 +400,6 @@ LaTeX Info: Redefining \Ref on input line 520.
 LaTeX Info: Redefining \ref on input line 110.
 LaTeX Info: Redefining \pageref on input line 110.
 LaTeX Info: Redefining \nameref on input line 110.
- (c:/Users\Zhene\Documents\Directed-graphs\main.out) (c:/Users\Zhene\Documents\Directed-graphs\main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
@@ -414,7 +413,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 113.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 113.
- (C:\Users\Zhene\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd) (c:/Users\Zhene\Documents\Directed-graphs\main.toc)
+ (C:\Users\Zhene\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
@@ -426,38 +425,140 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 [1
 
 {C:/Users/Zhene/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-<Content/Pictures/Configuration model.png, id=165, 554.07pt x 284.06125pt>
+
+LaTeX Warning: Citation `Conchon2018' on page 2 undefined on input line 33.
+
+
+LaTeX Warning: Citation `Goldschmidt2019' on page 2 undefined on input line 33.
+
+
+LaTeX Warning: Citation `Cooper2004' on page 2 undefined on input line 34.
+
+
+LaTeX Warning: Reference `fig.configuration model' on page 2 undefined on input line 35.
+
+<Content/Pictures/Configuration model.png, id=33, 554.07pt x 284.06125pt>
 File: Content/Pictures/Configuration model.png Graphic file (type png)
 <use Content/Pictures/Configuration model.png>
 Package pdftex.def Info: Content/Pictures/Configuration model.png  used on input line 38.
 (pdftex.def)             Requested size: 332.44456pt x 170.43805pt.
- [2]
-<Content/Pictures/Configuration model out-forest.png, id=189, 376.40625pt x 498.86375pt>
+
+LaTeX Warning: Reference `fig.configuration modeloutforest' on page 2 undefined on input line 42.
+
+[2 <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/Configuration model.png>]
+<Content/Pictures/Configuration model out-forest.png, id=47, 376.40625pt x 498.86375pt>
 File: Content/Pictures/Configuration model out-forest.png Graphic file (type png)
 <use Content/Pictures/Configuration model out-forest.png>
 Package pdftex.def Info: Content/Pictures/Configuration model out-forest.png  used on input line 52.
 (pdftex.def)             Requested size: 301.1254pt x 399.09154pt.
- [3 <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/Configuration model.png>] [4 <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/Configuration model out-forest.png>]) (c:/Users\Zhene\Documents\Directed-graphs\Content/Sections/The important edges in the discrete and continuum.tex
+) (c:/Users\Zhene\Documents\Directed-graphs\Content/Sections/The important edges in the discrete and continuum.tex [3] [4 <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/Configuration model out-forest.png>]
+
+LaTeX Warning: Reference `subfigure.typesofsurplusedges' on page 5 undefined on input line 8.
+
+
+LaTeX Warning: Reference `subfigure.sccinexample' on page 5 undefined on input line 8.
+
+
+LaTeX Warning: Reference `lemma.whatispartofscc' on page 5 undefined on input line 8.
+
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 9.
 
 Overfull \hbox (6.69089pt too wide) in paragraph at lines 12--13
 []\OT1/cmr/m/it/10.95 The ver-tices of a strongly com-po-nent are con-tained in one of the com-po-nents of $\OT1/cmr/m/n/10.95 ([](\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; k \OMS/cmsy/m/n/10.95 
  []
 
-[5]
+
+LaTeX Warning: Reference `item.factsonsccs1' on page 5 undefined on input line 20.
+
+
+LaTeX Warning: Reference `item.factsonsccs2' on page 5 undefined on input line 21.
+
+
+LaTeX Warning: Reference `item.factsonsccs4' on page 5 undefined on input line 22.
+
+
+LaTeX Warning: Reference `item.factsonsccs2' on page 5 undefined on input line 22.
+
+
+LaTeX Warning: Reference `item.factsonsccs4andabit' on page 5 undefined on input line 23.
+
+
+LaTeX Warning: Reference `item.factsonsccs2' on page 5 undefined on input line 24.
+
+
+LaTeX Warning: Reference `item.factsonsccs4' on page 5 undefined on input line 24.
+
+
+LaTeX Warning: Reference `item.factsonsccs5' on page 5 undefined on input line 24.
+
+
+LaTeX Warning: Reference `lemma.whatispartofscc' on page 5 undefined on input line 27.
+
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 28.
+[5]
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 36.
-<Content/Pictures/Types of surplus edges.png, id=239, 533.995pt x 475.7775pt>
+
+
+LaTeX Warning: Reference `def.candidate' on page 6 undefined on input line 40.
+
+
+LaTeX Warning: Reference `item.factsonsccs1' on page 6 undefined on input line 40.
+
+
+LaTeX Warning: Reference `cond.excursions2' on page 6 undefined on input line 40.
+
+
+LaTeX Warning: Reference `item.factsonsccs4' on page 6 undefined on input line 40.
+
+
+LaTeX Warning: Reference `item.factsonsccs5' on page 6 undefined on input line 40.
+
+
+LaTeX Warning: Reference `lemma.whatispartofscc' on page 6 undefined on input line 40.
+
+<Content/Pictures/Types of surplus edges.png, id=81, 298.11375pt x 265.99374pt>
 File: Content/Pictures/Types of surplus edges.png Graphic file (type png)
 <use Content/Pictures/Types of surplus edges.png>
 Package pdftex.def Info: Content/Pictures/Types of surplus edges.png  used on input line 46.
-(pdftex.def)             Requested size: 217.78351pt x 194.03914pt.
-<Content/Pictures/SCC in example.png, id=240, 507.8975pt x 452.69125pt>
+(pdftex.def)             Requested size: 217.78351pt x 194.31993pt.
+<Content/Pictures/SCC in example.png, id=82, 633.36626pt x 565.11125pt>
 File: Content/Pictures/SCC in example.png Graphic file (type png)
 <use Content/Pictures/SCC in example.png>
 Package pdftex.def Info: Content/Pictures/SCC in example.png  used on input line 52.
-(pdftex.def)             Requested size: 217.78351pt x 194.10774pt.
- [6] [7 <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/Types of surplus edges.png> <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/SCC in example.png>] [8] [9] [10]
+(pdftex.def)             Requested size: 217.78351pt x 194.30824pt.
+
+LaTeX Warning: Reference `cor.edgesinSCCs' on page 6 undefined on input line 59.
+
+
+LaTeX Warning: Reference `subsec.measurechange' on page 6 undefined on input line 61.
+
+[6] [7 <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/Types of surplus edges.png> <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/SCC in example.png>] [8]
+
+LaTeX Warning: Reference `def.candidate' on page 9 undefined on input line 105.
+
+[9]
+
+LaTeX Warning: Reference `lemma.sampleoutforest' on page 10 undefined on input line 116.
+
+
+LaTeX Warning: Reference `lemma.probancestral' on page 10 undefined on input line 116.
+
+
+LaTeX Warning: Reference `lemma.samplecandidates' on page 10 undefined on input line 116.
+
+
+LaTeX Warning: Reference `lemma.sampleheadcandidates' on page 10 undefined on input line 116.
+
+
+LaTeX Warning: Reference `lemma.samplecandidates' on page 10 undefined on input line 126.
+
+
+LaTeX Warning: Reference `lemma.sampleheadcandidates' on page 10 undefined on input line 127.
+
+
+LaTeX Warning: Citation `Goldschmidt2019' on page 10 undefined on input line 140.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
@@ -467,17 +568,38 @@ Overfull \hbox (13.22218pt too wide) in paragraph at lines 3--4
 []\OT1/cmr/m/n/10.95 There ex-ists a unique isom-e-try $\OML/cmm/m/it/10.95 f[] \OT1/cmr/m/n/10.95 : [0\OML/cmm/m/it/10.95 ; d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a; b\OT1/cmr/m/n/10.95 )] \OMS/cmsy/m/n/10.95 ! T$ \OT1/cmr/m/n/10.95 such that $\OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 (0) = \OML/cmm/m/it/10.95 a$ \OT1/cmr/m/n/10.95 and $\OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a; b\OT1/cmr/m/n/10.95 )) =
  []
 
-) [11]) (c:/Users\Zhene\Documents\Directed-graphs\Content/Sections/Convergence of out-forest.tex [12]
+[10])
+
+LaTeX Warning: Citation `AddarioBerry2010' on page 11 undefined on input line 149.
+
+[11]) (c:/Users\Zhene\Documents\Directed-graphs\Content/Sections/Convergence of out-forest.tex
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 6.
+ [12]
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 20.
 
 Overfull \hbox (3.6776pt too wide) in paragraph at lines 20--21
 []\OT1/cmr/bx/n/10.95 Remark 3.2. []\OT1/cmr/m/it/10.95 Note that the sign of the parabolic drift is the same as the sign of $\OML/cmm/m/it/10.95  \OMS/cmsy/m/n/10.95   \U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 D[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 D[]\OT1/cmr/m/n/10.95 )[]]$\OT1/cmr/m/it/10.95 ,
  []
 
+
+LaTeX Warning: Reference `thm.convoutforest' on page 13 undefined on input line 24.
+
+
+LaTeX Warning: Reference `subsec.measurechange' on page 13 undefined on input line 29.
+
+
+LaTeX Warning: Reference `item.measurechangeexists' on page 13 undefined on input line 30.
+
+
+LaTeX Warning: Reference `thm.convoutforest' on page 13 undefined on input line 32.
+
 [13]
-Overfull \hbox (8.83797pt too wide) in paragraph at lines 52--53
-[]\OT1/cmr/m/n/10.95 This is a slight adap-ta-tion of Lemma [][]2.4[][], with $([]\OML/cmm/m/it/10.95 ; [] ; []\OT1/cmr/m/n/10.95 )$ re-placed by $(\OT1/cmr/bx/n/10.95 Z[]\OML/cmm/m/it/10.95 ; [] ; \OT1/cmr/bx/n/10.95 Z[]\OT1/cmr/m/n/10.95 )$,
+
+LaTeX Warning: Reference `lemma.sampleoutforest' on page 14 undefined on input line 52.
+
+
+Overfull \hbox (6.7391pt too wide) in paragraph at lines 52--53
+[]\OT1/cmr/m/n/10.95 This is a slight adap-ta-tion of Lemma [], with $([]\OML/cmm/m/it/10.95 ; [] ; []\OT1/cmr/m/n/10.95 )$ re-placed by $(\OT1/cmr/bx/n/10.95 Z[]\OML/cmm/m/it/10.95 ; [] ; \OT1/cmr/bx/n/10.95 Z[]\OT1/cmr/m/n/10.95 )$,
  []
 
 [14]
@@ -485,75 +607,553 @@ Overfull \hbox (17.1308pt too wide) in paragraph at lines 72--73
 \OT1/cmr/m/n/10.95 and note that this up-per bound is in-creas-ing in $\OML/cmm/m/it/10.95 k$\OT1/cmr/m/n/10.95 . Con-se-quently, con-di-tional on $(\OML/cmm/m/it/10.95 Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 j\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 j\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; j \OMS/cmsy/m/n/10.95 
  []
 
+
+LaTeX Warning: Reference `lemma.tightnesssurplusedges' on page 15 undefined on input line 86.
+
+
+LaTeX Warning: Reference `eq.convergenceGWforest' on page 15 undefined on input line 86.
+
+
+LaTeX Warning: Reference `eq.convergenceGWforest' on page 15 undefined on input line 92.
+
+
+LaTeX Warning: Reference `lemma.tightnesssurplusedges' on page 15 undefined on input line 92.
+
 [15] [16]
+
+LaTeX Warning: Reference `eq.convergenceGWforest' on page 17 undefined on input line 120.
+
+
+LaTeX Warning: Reference `lemma.convergenceQandP' on page 17 undefined on input line 120.
+
+
+LaTeX Warning: Reference `cor.lukasiewiczpathpurplevertices' on page 17 undefined on input line 125.
+
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 126.
 
 Overfull \hbox (44.19377pt too wide) detected at line 132
 []
  []
 
+
+LaTeX Warning: Citation `Duquesne2005' on page 17 undefined on input line 137.
+
+
+LaTeX Warning: Citation `Broutin2020' on page 17 undefined on input line 137.
+
+
+LaTeX Warning: Reference `fig.blackpurpleredforest' on page 17 undefined on input line 138.
+
 [17]
-<Content/Pictures/black-purple-red tree.png, id=372, 518.93875pt x 351.3125pt>
+<Content/Pictures/black-purple-red tree.png, id=196, 518.93875pt x 351.3125pt>
 File: Content/Pictures/black-purple-red tree.png Graphic file (type png)
 <use Content/Pictures/black-purple-red tree.png>
 Package pdftex.def Info: Content/Pictures/black-purple-red tree.png  used on input line 142.
 (pdftex.def)             Requested size: 311.36565pt x 210.78911pt.
- [18] [19 <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/black-purple-red tree.png>] [20]
+ [18 <c:/Users/Zhene/Documents/Directed-graphs/Content/Pictures/black-purple-red tree.png>]
+
+LaTeX Warning: Reference `cor.lukasiewiczpathpurplevertices' on page 19 undefined on input line 164.
+
+
+LaTeX Warning: Reference `prop.convheightprocesspurple' on page 19 undefined on input line 164.
+
+[19]
+
+LaTeX Warning: Reference `lemma.convergenceX+' on page 20 undefined on input line 190.
+
+
+LaTeX Warning: Citation `Ethier1986' on page 20 undefined on input line 200.
+
+
+LaTeX Warning: Reference `lemma.convergenceX+' on page 20 undefined on input line 204.
+
+
+LaTeX Warning: Citation `Legall2005' on page 20 undefined on input line 205.
+
+
 Overfull \hbox (20.6896pt too wide) detected at line 206
 [][] [] [] []
  []
+
+
+LaTeX Warning: Citation `Chaumont2010' on page 20 undefined on input line 207.
+
+[20]
+
+LaTeX Warning: Reference `lemma.technicalcomposedfunctions' on page 21 undefined on input line 215.
+
+
+LaTeX Warning: Reference `eq.convergencebychaumont' on page 21 undefined on input line 215.
+
+
+LaTeX Warning: Reference `lemma.convergenceQandP' on page 21 undefined on input line 215.
 
 
 Overfull \hbox (18.76033pt too wide) detected at line 216
 [] [] []
  []
 
-[21]
+
+LaTeX Warning: Reference `eq.convergencebychaumont' on page 21 undefined on input line 217.
+
+
+LaTeX Warning: Reference `eq.convergencebychaumont' on page 21 undefined on input line 220.
+
+
+LaTeX Warning: Reference `eq.hittingtimestableprocess' on page 21 undefined on input line 222.
+
+
+LaTeX Warning: Reference `eq.convergencebychaumont' on page 21 undefined on input line 224.
+
+
+LaTeX Warning: Reference `eq.convergencetheta' on page 21 undefined on input line 224.
+
+
+LaTeX Warning: Reference `lemma.tightnesssurplusedges' on page 21 undefined on input line 224.
+
+
+LaTeX Warning: Reference `eq.convergencebychaumont' on page 21 undefined on input line 226.
+
+
+LaTeX Warning: Reference `eq.convergencetheta' on page 21 undefined on input line 226.
+
+
+LaTeX Warning: Reference `eq.definitionY^{pr}' on page 21 undefined on input line 227.
+
+
+LaTeX Warning: Reference `eq.definitionBpr' on page 21 undefined on input line 227.
+
+
+LaTeX Warning: Reference `lemma.technicalcomposedfunctions' on page 21 undefined on input line 228.
+
+
+LaTeX Warning: Reference `eq.convergenceX' on page 21 undefined on input line 230.
+
+
+LaTeX Warning: Reference `eq.convergenceYpr' on page 21 undefined on input line 230.
+
+
+LaTeX Warning: Reference `lemma.technicalcomposedfunctions' on page 21 undefined on input line 230.
+
+
+LaTeX Warning: Reference `eq.convergencecompSprandtheta' on page 21 undefined on input line 230.
+
+
 Overfull \hbox (50.01352pt too wide) detected at line 235
 [] [] []
  []
 
 
-Overfull \hbox (29.16454pt too wide) in paragraph at lines 253--254
+LaTeX Warning: Reference `eq.constructionSp' on page 21 undefined on input line 241.
+
+
+LaTeX Warning: Reference `lemma.convergenceX+' on page 21 undefined on input line 241.
+
+[21]
+
+LaTeX Warning: Reference `eq.convergenceSpr' on page 22 undefined on input line 248.
+
+
+LaTeX Warning: Reference `prop.convheightprocesspurple' on page 22 undefined on input line 248.
+
+
+LaTeX Warning: Citation `Legall2005' on page 22 undefined on input line 253.
+
+
+Overfull \hbox (24.16093pt too wide) in paragraph at lines 253--254
 []\OT1/cmr/m/n/10.95 From [[]], we know that $[]$ is the height pro-cess cor-re-spond-ing to $[]$.
  []
 
-[22] [23] [24] [25]
+[22]
+
+LaTeX Warning: Reference `thm.convoutforest' on page 23 undefined on input line 268.
+
+
+LaTeX Warning: Reference `prop.convheightprocesspurple' on page 23 undefined on input line 270.
+
+
+LaTeX Warning: Reference `thm.convoutforest' on page 23 undefined on input line 270.
+
+
+LaTeX Warning: Reference `thm.convoutforest' on page 23 undefined on input line 273.
+
+
+LaTeX Warning: Reference `lemma.sampleoutforest' on page 23 undefined on input line 274.
+
+
+LaTeX Warning: Reference `lemma.tightnesssurplusedges' on page 23 undefined on input line 283.
+
+[23]
+
+LaTeX Warning: Reference `prop.convheightprocesspurple' on page 24 undefined on input line 303.
+
+
+LaTeX Warning: Citation `Conchon2018' on page 24 undefined on input line 303.
+
+[24]
+
+LaTeX Warning: Reference `prop.convheightprocesspurple' on page 25 undefined on input line 309.
+
+
+LaTeX Warning: Citation `Joseph2014' on page 25 undefined on input line 313.
+
+
+LaTeX Warning: Reference `thm.convoutforest' on page 25 undefined on input line 313.
+
+
+LaTeX Warning: Citation `Joseph2014' on page 25 undefined on input line 320.
+
+
+LaTeX Warning: Citation `Conchon2018' on page 25 undefined on input line 320.
+
+
+LaTeX Warning: Citation `Joseph2014' on page 25 undefined on input line 320.
+
+
+LaTeX Warning: Citation `Conchon2018' on page 25 undefined on input line 320.
+
+
+LaTeX Warning: Citation `Joseph2014' on page 25 undefined on input line 323.
+
+[25]
+
+LaTeX Warning: Citation `Joseph2014' on page 26 undefined on input line 333.
+
+
 Overfull \hbox (0.17233pt too wide) in paragraph at lines 338--338
 \OT1/cmr/m/n/10.95 the points of $[]$ or-dered by time are dis-tributed as $([]\OML/cmm/m/it/10.95 ; [] ; []\OT1/cmr/m/n/10.95 )$ con-di-tioned on $[][] \OML/cmm/m/it/10.95 D[] \OT1/cmr/m/n/10.95 =
  []
 
-[26] [27] [28] [29]) (c:/Users\Zhene\Documents\Directed-graphs\Content/Sections/Convergence of SSC.tex [30] [31] [32] [33]
+[26] [27]
+
+LaTeX Warning: Reference `eq.convergencemomentpointprocess1' on page 28 undefined on input line 366.
+
+
+LaTeX Warning: Reference `eq.convergencemomentpointprocess1' on page 28 undefined on input line 367.
+
+
+LaTeX Warning: Reference `eq.expectationtobound' on page 28 undefined on input line 379.
+
+[28]
+
+LaTeX Warning: Reference `eq.expectationtobound' on page 29 undefined on input line 387.
+
+
+LaTeX Warning: Reference `eq.convergencemomentpointprocess2' on page 29 undefined on input line 388.
+
+
+LaTeX Warning: Reference `eq.convergencemomentpointprocess3' on page 29 undefined on input line 388.
+
+
+LaTeX Warning: Reference `eq.convergencemomentpointprocess4' on page 29 undefined on input line 388.
+
+
+LaTeX Warning: Reference `eq.convergencemomentpointprocess5' on page 29 undefined on input line 388.
+
+
+LaTeX Warning: Reference `thm.convoutforest' on page 29 undefined on input line 393.
+
+
+LaTeX Warning: Reference `prop.anomalousedges' on page 29 undefined on input line 396.
+
+
+LaTeX Warning: Citation `Joseph2014' on page 29 undefined on input line 396.
+
+) (c:/Users\Zhene\Documents\Directed-graphs\Content/Sections/Convergence of SSC.tex
+
+LaTeX Warning: Reference `sec.convoutforest' on page 29 undefined on input line 3.
+
+
+LaTeX Warning: Reference `subsubsec.samplecandidates' on page 29 undefined on input line 14.
+
+
+LaTeX Warning: Reference `thm.convoutforest' on page 29 undefined on input line 15.
+
+[29]
+
+LaTeX Warning: Citation `Deraphelis2017' on page 30 undefined on input line 28.
+
+
+LaTeX Warning: Reference `subsubsec.convheightprocess' on page 30 undefined on input line 28.
+
+
+LaTeX Warning: Citation `Deraphelis2017' on page 30 undefined on input line 30.
+
+
+LaTeX Warning: Reference `subsubsec.convheightprocess' on page 30 undefined on input line 36.
+
+
+LaTeX Warning: Reference `subsubsec.convheightprocess' on page 30 undefined on input line 42.
+
+
+LaTeX Warning: Reference `subsubsec.convaftermeasurechange' on page 30 undefined on input line 42.
+
+
+LaTeX Warning: Citation `Deraphelis2017' on page 30 undefined on input line 43.
+
+[30]
+
+LaTeX Warning: Reference `lemma.heightprocesswithlengths' on page 31 undefined on input line 55.
+
+
+LaTeX Warning: Citation `DaleyVereJones' on page 31 undefined on input line 67.
+
+
+LaTeX Warning: Reference `lemma.heightprocesswithlengths' on page 31 undefined on input line 71.
+
+
+LaTeX Warning: Reference `eq.convergencecompensator' on page 31 undefined on input line 71.
+
+
+LaTeX Warning: Reference `lemma.heightprocesswithlengths' on page 31 undefined on input line 78.
+
+
+LaTeX Warning: Reference `lemma.technicalcomposedfunctions' on page 31 undefined on input line 78.
+
+
+LaTeX Warning: Reference `lemma.technicalcomposedfunctions' on page 31 undefined on input line 82.
+
+
+LaTeX Warning: Reference `eq.convergencecompensator' on page 31 undefined on input line 82.
+
+
+LaTeX Warning: Reference `prop.convergenceancestraledges' on page 31 undefined on input line 86.
+
+
+LaTeX Warning: Reference `lemma.extractexcursions' on page 31 undefined on input line 86.
+
+[31]
+
+LaTeX Warning: Reference `cond.excursions1' on page 32 undefined on input line 108.
+
+
+LaTeX Warning: Reference `cond.excursions2' on page 32 undefined on input line 108.
+
+
+LaTeX Warning: Reference `cond.excursions3' on page 32 undefined on input line 108.
+
+
+LaTeX Warning: Reference `cond.excursions1' on page 32 undefined on input line 108.
+
+
+LaTeX Warning: Reference `cond.excursions2' on page 32 undefined on input line 108.
+
+
+LaTeX Warning: Reference `cond.excursions4' on page 32 undefined on input line 108.
+
+
+LaTeX Warning: Reference `cond.excursions1' on page 32 undefined on input line 108.
+
+
+LaTeX Warning: Reference `cond.excursions2' on page 32 undefined on input line 113.
+
+
+LaTeX Warning: Reference `cond.excursions3' on page 32 undefined on input line 113.
+
+
+LaTeX Warning: Reference `cond.excursions4' on page 32 undefined on input line 113.
+
+[32]
 Overfull \hbox (34.00598pt too wide) detected at line 128
 []
  []
 
 
-Overfull \hbox (9.28145pt too wide) in paragraph at lines 134--134
-\OT1/cmr/m/n/10.95 surely, and claim that we can ap-ply Lemma [][]4.3[][] to the sam-ple paths of $[]$
+LaTeX Warning: Reference `lemma.extractexcursions' on page 33 undefined on input line 129.
+
+
+LaTeX Warning: Reference `prop.convergenceancestraledges' on page 33 undefined on input line 131.
+
+
+LaTeX Warning: Reference `prop.convergenceancestraledges' on page 33 undefined on input line 134.
+
+
+LaTeX Warning: Reference `lemma.extractexcursions' on page 33 undefined on input line 134.
+
+
+Overfull \hbox (7.18259pt too wide) in paragraph at lines 134--134
+\OT1/cmr/m/n/10.95 surely, and claim that we can ap-ply Lemma [] to the sam-ple paths of $[]$
  []
 
-[34]
+
+LaTeX Warning: Reference `lemma.extractexcursions' on page 33 undefined on input line 137.
+
+[33]
+
+LaTeX Warning: Reference `prop.extractexcursions' on page 34 undefined on input line 166.
+
+
+LaTeX Warning: Reference `lemma.samplecandidates' on page 34 undefined on input line 166.
+
+
+LaTeX Warning: Reference `prop.convergenceancestraledges' on page 34 undefined on input line 178.
+
+
+LaTeX Warning: Reference `prop.extractexcursions' on page 34 undefined on input line 178.
+
+
+LaTeX Warning: Reference `lemma.samplecandidates' on page 34 undefined on input line 178.
+
+
+LaTeX Warning: Reference `subsubsec.samplecontinuousobject' on page 34 undefined on input line 178.
+
+
+LaTeX Warning: Reference `prop.extractexcursions' on page 34 undefined on input line 178.
+
+
+LaTeX Warning: Reference `prop.convergenceancestraledges' on page 34 undefined on input line 183.
+
+
+LaTeX Warning: Reference `prop.extractexcursions' on page 34 undefined on input line 183.
+
+
+LaTeX Warning: Reference `prop.extractexcursions' on page 34 undefined on input line 190.
+
+
 Overfull \hbox (2.99684pt too wide) in paragraph at lines 189--190
 \OT1/cmr/m/n/10.95 for $\OML/cmm/m/it/10.95 t \OMS/cmsy/m/n/10.95 2 \OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 C[]; G \OT1/cmr/m/n/10.95 + ]$ and $0$ oth-er-wise, where $\OML/cmm/m/it/10.95 T[]$ \OT1/cmr/m/n/10.95 is the sub-tree of $\OMS/cmsy/m/n/10.95 T[]$ \OT1/cmr/m/n/10.95 spanned by $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 G; C[]; [] ; C[]; t\OMS/cmsy/m/n/10.95 g$\OT1/cmr/m/n/10.95 ,
  []
 
-[35] [36] [37]) (c:/Users\Zhene\Documents\Directed-graphs\Content/Support/Bibliography.tex (c:/Users\Zhene\Documents\Directed-graphs\main.bbl [38])) [39] (c:/Users\Zhene\Documents\Directed-graphs\main.aux)
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 96F235CAA4EBBBB8928EC7AD37CB526E;6921.
+[34]
+
+LaTeX Warning: Reference `prop.convergenceancestraledges' on page 35 undefined on input line 191.
+
+
+LaTeX Warning: Reference `subsubsec.samplecontinuousobject' on page 35 undefined on input line 196.
+
+
+LaTeX Warning: Reference `prop.convergenceancestraledges' on page 35 undefined on input line 201.
+
+
+LaTeX Warning: Reference `prop.extractexcursions' on page 35 undefined on input line 201.
+
+
+LaTeX Warning: Reference `prop.convergencestartingpointscandidates' on page 35 undefined on input line 201.
+
+
+LaTeX Warning: Reference `thm.convoutforest' on page 35 undefined on input line 210.
+
+
+LaTeX Warning: Reference `prop.extractexcursions' on page 35 undefined on input line 210.
+
+
+LaTeX Warning: Reference `prop.convergencestartingpointscandidates' on page 35 undefined on input line 210.
+
+[35]
+
+c:/Users\Zhene\Documents\Directed-graphs\Content/Sections/Convergence of SSC.tex:216: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.216 T
+       he proof of Propositions \ref{prop.convergencestartingpointscandidate...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Reference `prop.convergencestartingpointscandidates' on page 36 undefined on input line 216.
+
+
+LaTeX Warning: Reference `prop.convergenceheadscandidates' on page 36 undefined on input line 216.
+
+
+LaTeX Warning: Reference `prop.convergencestartingpointscandidates' on page 36 undefined on input line 218.
+
+
+LaTeX Warning: Reference `prop.convergenceheadscandidates' on page 36 undefined on input line 218.
+
+
+LaTeX Warning: Reference `subsubsec.samplecandidates' on page 36 undefined on input line 225.
+
+
+LaTeX Warning: Reference `prop.convergencestartingpointscandidates' on page 36 undefined on input line 227.
+
+
+LaTeX Warning: Reference `prop.convergenceheadscandidates' on page 36 undefined on input line 227.
+
+
+LaTeX Warning: Citation `Goldschmidt2019' on page 36 undefined on input line 232.
+
+
+LaTeX Warning: Reference `prop.convergencestartingpointscandidates' on page 36 undefined on input line 235.
+
+
+LaTeX Warning: Reference `prop.convergenceheadscandidates' on page 36 undefined on input line 235.
+
+
+LaTeX Warning: Citation `Goldschmidt2019' on page 36 undefined on input line 238.
+
+
+LaTeX Warning: Citation `Goldschmidt2019' on page 36 undefined on input line 238.
+
+[36]
+
+LaTeX Warning: Reference `prop.extractexcursions' on page 37 undefined on input line 247.
+
+
+LaTeX Warning: Reference `cor.sccsinonetreeconverge' on page 37 undefined on input line 247.
+
+
+LaTeX Warning: Citation `Goldschmidt2019' on page 37 undefined on input line 247.
+
+
+LaTeX Warning: Citation `Aldous1991' on page 37 undefined on input line 250.
+
+
+LaTeX Warning: Reference `prop.convergenceheadscandidates' on page 37 undefined on input line 264.
+
+
+c:/Users\Zhene\Documents\Directed-graphs\Content/Sections/Convergence of SSC.tex:269: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.269 
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Reference `cor.sccordereduptotimeT' on page 37 undefined on input line 270.
+
+
+LaTeX Warning: Reference `lemma.largesccfoundfirst' on page 37 undefined on input line 270.
+
+) (c:/Users\Zhene\Documents\Directed-graphs\Content/Support/Bibliography.tex
+No file main.bbl.
+) [37] [38] (c:/Users\Zhene\Documents\Directed-graphs\main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  396159E44F7F5C3417C680B1E7CE905A;6115.
  ) 
 Here is how much of TeX's memory you used:
- 14279 strings out of 479334
- 234028 string characters out of 2857085
- 539631 words of memory out of 3000000
- 31279 multiletter control sequences out of 15000+200000
- 417852 words of font info for 82 fonts, out of 3000000 for 9000
+ 14223 strings out of 479334
+ 232995 string characters out of 2857085
+ 538336 words of memory out of 3000000
+ 31241 multiletter control sequences out of 15000+200000
+ 417551 words of font info for 81 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,18n,74p,1467b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Zhene\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on c:/Users\Zhene\Documents\Directed-graphs\main.pdf (39 pages, 568847 bytes).
+ 71i,18n,74p,1467b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Zhene\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Zhene/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
+Output written on c:/Users\Zhene\Documents\Directed-graphs\main.pdf (38 pages, 504123 bytes).
 PDF statistics:
- 777 PDF objects out of 1000 (max. 8388607)
- 225 named destinations out of 1000 (max. 500000)
- 250 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 479 PDF objects out of 1000 (max. 8388607)
+ 216 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
