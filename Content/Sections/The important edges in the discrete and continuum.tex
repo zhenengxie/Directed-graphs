@@ -97,7 +97,7 @@ Therefore, the number of unpaired in-half-edges corresponding to ancestors of $k
 
 We now illustrate how to find the other candidates in a component of $(\hat{\cF}_n(k),k\geq 1)$. 
 \begin{lemma}\label{lemma.samplecandidates}
-Let $\cT^n_g$ be a component of $(\hat{\cF}_n(k),k\geq 1)$ with root $g+1$ and component length $\sigma$. Suppose the first ancestral surplus edge in $\cT^n_g$ corresponds to purple vertex $c^n_1\in [g+2,g+\sigma]$. Let $c^n_1<k\leq g+\sigma$, and suppose the candidates found up to time $k$ are given by $c^n_1,\dots,c^n_l$. Let $T^n_k$ be the subtree of $\cT^n_g$ spanned by $\{g+1,c^n_1,\dots,c^n_l,k\}$, and let $\ell_n(T^n_k)$ be its total length with edge lengths as defined by $(\hat{H}^\ell_n(m),m\in [g+1,g+\sigma])$. Then, the probability that $k$ is a candidate is given by 
+Let $\cT^M$ be a component of $(\hat{\cF}_n(k),k\geq 1)$ with root $g+1$ and component length $\sigma$. Suppose the first ancestral surplus edge in $\cT^M$ corresponds to purple vertex $c^n_1\in [g+2,g+\sigma]$. Let $c^n_1<k\leq g+\sigma$, and suppose the candidates found up to time $k$ are given by $c^n_1,\dots,c^n_l$. Let $T^n_k$ be the subtree of $\cT^M$ spanned by $\{g+1,c^n_1,\dots,c^n_l,k\}$, and let $\ell_n(T^n_k)$ be its total length with edge lengths as defined by $(\hat{H}^\ell_n(m),m\in [g+1,g+\sigma])$. Then, the probability that $k$ is a candidate is given by 
 $$\frac{\ell_n\left(T_{k}\right)-l}{\hat{S}^-(k)}\one_{\{\hat{P}_n(k)=\hat{P}_n(k-1)+1\}}.$$
 \end{lemma}
 \begin{proof}
@@ -106,7 +106,7 @@ Note that if $k$ is purple, it gets paired to a uniform pick from the $\hat{S}^-
 
 Note that the probability that a purple vertex corresponds to a candidate only depends on the out-forest and the number of candidates that have been found in the component so far. The position of the heads of the candidates can be found as follows.
 \begin{lemma}\label{lemma.sampleheadcandidates}
-Let $\cT^n_g$ be a component of $(\hat{\cF}_n(k),k\geq 1)$ with root $g+1$ and component length $\sigma$. Suppose its candidates are given by $\{c^n_1,\dots,c^n_{N}\}$. Then, for $1\leq i\leq {N}$, suppose the heads of the surplus edges corresponding to $c^n_1,\dots,c^n_{i-1}$ are given by $d_1^n,\dots,d^n_{i-1}$ respectively. Then, the in-half-edge that $c^n_{i}$ gets paired to is a uniform pick from the $$\ell\left(T_{c^n_{i}}\right)-(i-1)$$ unpaired in-half-edges of $T_{c^n_{i}}$ that remain. Call the corresponding vertex $d^n_i$.
+Let $\cT^M$ be a component of $(\hat{\cF}_n(k),k\geq 1)$ with root $g+1$ and component length $\sigma$. Suppose its candidates are given by $\{c^n_1,\dots,c^n_{N}\}$. Then, for $1\leq i\leq {N}$, suppose the heads of the surplus edges corresponding to $c^n_1,\dots,c^n_{i-1}$ are given by $d_1^n,\dots,d^n_{i-1}$ respectively. Then, the in-half-edge that $c^n_{i}$ gets paired to is a uniform pick from the $$\ell\left(T_{c^n_{i}}\right)-(i-1)$$ unpaired in-half-edges of $T_{c^n_{i}}$ that remain. Call the corresponding vertex $d^n_i$.
 \end{lemma}
 \begin{proof}
 Given that $c_{i}$ is a candidate, its head will be in $T_{c_{i}}$. Then, the distribution follows.
@@ -120,11 +120,11 @@ Lemmas \ref{lemma.sampleoutforest}, \ref{lemma.probancestral}, \ref{lemma.sample
 \begin{align*}G_i^n&=\min\left\{k\geq 1:\hat{S}^{+}_n(k)=\min\{\hat{S}^{+}_n(l):l\leq X_i^n\}\right\}\text{ for }i\geq 1\\
 D_i^n&=\min\left\{k \geq 1: \min\left\{\hat{S}^{+}_n(l):l\leq k\right\} < \min\left\{\hat{S}^{+}_n(l):l\leq X_i^n\right\}\right\}\text{ for }i\geq 1,
 \end{align*}
-such that for each $i\geq 1$, $\left(\hat{S}^+(k),k\in [G_i^n+1,D_i^n]\right)$ encodes a tree. For each $[g,d]\in \{[G_i^n,D_i^n]\}$, let $\cT^n_g$ be the tree in $(\hat{\cF}_n(k),k\geq 1)$ with root $g+1$, and do the following.
+such that for each $i\geq 1$, $\left(\hat{S}^+(k),k\in [G_i^n+1,D_i^n]\right)$ encodes a tree. For each $[g,d]\in \{[G_i^n,D_i^n]\}$, let $\cT^M$ be the tree in $(\hat{\cF}_n(k),k\geq 1)$ with root $g+1$, and do the following.
     \begin{enumerate}
-    \item \label{item.procedure3} Set $c_1^n=\min\{m\geq 1:A_n(m)=A_n(g)+1\}$, and find the other candidates $\{c_2^n,\dots ,c_{N}^n\}$ according to the procedure described in the statement of Lemma \ref{lemma.samplecandidates}.
-    \item \label{item.procedure4} For $c_1^n,\dots, c_{N}^n$, sample their heads $d_1^n,\dots ,d_N^n$ respectively according to the procedure described in the statement of Lemma \ref{lemma.sampleheadcandidates}.
-    \item Let $T^n_{c^n_N}$ be the subtree of $\cT^n_g$ spanned by $\{g+1,c_1^n,\dots ,c_N^n\}$, say $c_i^n\sim d_i^n$ for each $1\leq i\leq N$, and set $\cM^n_g:=T^n_{c_N}/\sim$, which we note is a directed graph with surplus $N$. 
+    \item \label{item.procedure3} Set $c_1^n=\min\{m\geq 1:A_n(m)=A_n(g)+1\}$, and find the other candidates $\{c_2^n,\dots ,c_{M_n}^n\}$ according to the procedure described in the statement of Lemma \ref{lemma.samplecandidates}.
+    \item \label{item.procedure4} For $c_1^n,\dots, c_{M_n}^n$, sample their heads $d_1^n,\dots ,d_N^n$ respectively according to the procedure described in the statement of Lemma \ref{lemma.sampleheadcandidates}.
+    \item Let $T^{n,\text{mk}}_{g}$ be the subtree of $\cT^{g}_n$ spanned by $\{g+1,c_1^n,\dots ,c_{M_n}^n\}$, say $c_i^n\sim d_i^n$ for each $1\leq i\leq N$, and set $\cM^M:=T^{n,\text{mk}}_g/\sim$, which we note is a directed graph with surplus $M_n$. 
 \end{enumerate}
 \end{enumerate}
 Then, all strongly connected components of $(G_n(k),k\geq 1)$ are subgraphs of $\left\{\cM^n_{G_i^n}, i\geq 1 \right\}$. Observe that we may view $\cM^n_{G_i^n}$ as a finite rooted directed multigraph $M^n_{G_i^n}$ whose edges are endowed with lengths: \myworries{Finish this} The following section discusses how to retrieve the strongly connected components from a directed graph $\cM_g$.
@@ -150,16 +150,19 @@ D_i&=\inf\left\{ t\geq 0: \inf\{\hat{B}_s:s\leq t\} < \inf\{\hat{B}_s:s\leq X_i\
 \end{align*}
 such that for each $i$ in $\left[A_T\right]$, $\left(\frac{2}{\sigma_+}\hat{R}_t,t\in [G_i,D_i]\right)$ encodes an $\R$-tree. For each element of $\{[G_i,D_i]:i\in A_T\}$ we will sample the candidates in the $\R$-tree. Fix $i$, set $[g,d]=[G_i,D_i]$, define $\sigma=d-g$. Let $c_1=\inf\{s>0:A(s)=A(g)+1\}$, such that $g\leq c_1\leq g+\sigma$ by definition of $[g,d]$. Let $\cT_g$ be the $R$-tree encoded by $\left(\frac{2}{\sigma_+}\hat{R}_t,t\in [g,d]\right)$ and let $p_g:[g,d]\to \cT_g$ be the projection onto $\cT_g$ given by the encoding. Set $$||\cT_g||=\sup\left\{\frac{2}{\sigma_+}\hat{R}_t,t\in [g,d]\right\},$$
 which we note is the height of $\cT_g$. \\
-Suppose we have found candidates $\{c_1,\dots,c_l\}$. For $c_l\leq s\leq g+\sigma$, let $T_s$ be the subtree of $\cT_g$ spanned by $p_g\left(\{g,c_1,\dots,c_l,s\}\right)$, and let $\ell(T_s)$ be its total length. Then, let $c_{l+1}$ be the first arrival time of a Poisson process on $[c_l,g+\sigma]$ of intensity $$\frac{\sigma_{-+}+\nu_-}{\mu^2}\ell(T_s)ds.$$ If the process does not contain a point, let $\{c_1,\dots,c_l\}$ be the candidates of $\cT_g$, and set $N_g=l$. Otherwise, we repeat the inductive step for $\{c_1,\dots,c_{l+1}\}.$ If the induction does not terminate, we set $N_g=\infty$.\\
-We claim that $\P(N_g=\infty)=0$. Indeed, note that for $c_l\leq s\leq c_{l+1}$, $\ell(T_s)<(l+1)||\cT_g||$. Therefore, 
-$$\P\left(\left.N_g\geq l+1,c_{l+1}-c_l<t \right|N_g\geq l\right)\leq \P(E_{l+1}<t),$$
+Suppose we have found candidates $\{c_1,\dots,c_l\}$. For $c_l\leq s\leq g+\sigma$, let $T_s$ be the subtree of $\cT_g$ spanned by $p_g\left(\{g,c_1,\dots,c_l,s\}\right)$, and let $\ell(T_s)$ be its total length. Then, let $c_{l+1}$ be the first arrival time of a Poisson process on $[c_l,g+\sigma]$ of intensity $$\frac{\sigma_{-+}+\nu_-}{\mu^2}\ell(T_s)ds.$$ If the process does not contain a point, let $\{c_1,\dots,c_l\}$ be the candidates of $\cT_g$, and set $M=l$. Otherwise, we repeat the inductive step for $\{c_1,\dots,c_{l+1}\}.$ If the induction does not terminate, we set $M=\infty$.\\
+We claim that $\P(M=\infty)=0$. Indeed, note that for $c_l\leq s\leq c_{l+1}$, $\ell(T_s)<(l+1)||\cT_g||$. Therefore, 
+$$\P\left(\left.M\geq l+1,c_{l+1}-c_l<t \right|M\geq l\right)\leq \P(E_{l+1}<t),$$
 for $(E_{k},k\geq 1)$ a sequence of exponential random variables with respective rates $$\frac{\sigma_{-+}+\nu_-}{\mu^2}k||\cT_g||.$$ 
 Then,
-$$\P\left(N_g=\infty \right)=\P\left(N_g=\infty\text{ and }\sup\{c_i:i\in \N\}<g+\sigma\right)\leq \P\left(\sum_{i=2}^\infty E_k\leq g+\sigma-c_1\right).$$
-However, $\sum_{i=2}^\infty E_k=\infty$ a.s., because the harmonic series diverges, so, indeed, $\P\left(N_g<\infty \right)=1$. \\
-Finally, for $1\leq i \leq N_g$, let the head corresponding to $c_i$, which we call $d_i$, be a uniform pick from the length measure on $T_{c_i}$. \\
-Then, define $c_i\sim d_i$ for $1\leq i \leq N_g$, and set $M_g:=T_{c_{N_g}}/\sim$, which we note is a directed $\R$-graph with surplus $N_g$. 
+$$\P\left(M=\infty \right)=\P\left(M=\infty\text{ and }\sup\{c_i:i\in \N\}<g+\sigma\right)\leq \P\left(\sum_{i=2}^\infty E_k\leq g+\sigma-c_1\right).$$
+However, $\sum_{i=2}^\infty E_k=\infty$ a.s., because the harmonic series diverges, so, indeed, $\P\left(M<\infty \right)=1$. \\
+Finally, for $1\leq i \leq M$, let the head corresponding to $c_i$, which we call $d_i$, be a uniform pick from the length measure on $T_{c_i}$. \\
+Let $T^{\text{mk}}_g$ be the subtree of $\cT^{g}$ spanned by $\{g,c_1,\dots,c_M\}$ 
 \subsubsection{The cutting procedure}
+
+\subsubsection{The limit object}
+
 
 
 
