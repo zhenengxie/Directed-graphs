@@ -1,5 +1,6 @@
 \section{Introduction}
 \myworries{Mention somewhere: Note that the SCC in the critical directed Erd\H{o}s-Renyi model as studied in \cite{Goldschmidt2019} has the same limit under rescaling as the model studied in this work with $D^+$ and $D^-$ independent $\operatorname{Poisson}(1)$ random variables.}
+
 \subsection{The model}
 We study a uniform directed graph (or digraph) with a random degree sequence. We consider $n$ vertices, to each of which we assign an in-degree and an out-degree. The degree tuples are independent and identically distributed. Let $\mathbf{D}=(D^-,D^+)$ be a random variable in $\N\times \N$ with this distribution, and for each $i\in [n]$, let $\mathbf{D}_i=(D^-_i,D^+_i)$  be the in- and out-degree of vertex $i$. In order for a graph with this degree sequence to exist, we require that $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, so we will condition on this event. We are interested in the limit under scaling of the strongly connected components as $n\to \infty$.  \\
 
@@ -25,8 +26,10 @@ We define the following parameters, that will determine the behaviour of the str
 % \begin{remark}
 % Conditions \ref{cond.beta} and \ref{cond.gamma} ensure that the Central Limit Theorem applies to the fluctuations of the first explored in-degrees around their mean. Condition \ref{cond.critical} ensures that the branching process corresponding to the depth-first exploration (i.e. the exploration of the out-components) is critical. Condition \ref{cond.rho} ensures that this branching process has Brownian scaling. Condition \ref{cond.tau} ensures that the covariance of the in- and out-degrees that are discovered first is finite. Condition \ref{cond.iota} ensures that the strongly connected components are $3$-regular. 
 % \end{remark}
-\subsection{Results}
-+explanation topology
+\subsection{Strongly connected components}
+
+\input{Content/Sections/Toplogy.tex}
+
 \subsection{Previous work}
 
 
