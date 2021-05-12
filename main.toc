@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The model}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Results}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Previous work}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Proof outline}{2}{subsection.1.4}%
+\contentsline {section}{\numberline {2}The important edges in the discrete and continuum}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The discrete case}{5}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Necessary conditions for an edge to be part of an SCC}{5}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Sampling the out-forest}{6}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Sampling the candidates}{9}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}The cutting procedure}{11}{subsubsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.2}The continuum case}{11}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}${\mathbb R}$-trees and their encoding}{11}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}The limit object}{11}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}The cutting procedure}{13}{subsubsection.2.2.3}%
+\contentsline {section}{\numberline {3}Convergence of the out-forest}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The measure change and its convergence}{14}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Adding purple vertices to a Galton-Watson forest}{14}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Convergence of the \L ukasiewicz path}{15}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Convergence of the height process}{17}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Applying the measure change to prove Theorem \ref {thm.convoutforest}}{23}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Convergence of the out-forest holds conditional on the multigraph being simple}{25}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Convergence of the strongly connected components under rescaling}{30}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Convergence of the out-components that contain an ancestral surplus edge}{30}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Extracting the important components of the out-forest}{32}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Convergence of the set of candidates}{35}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}For large $T$, we see all SCCs with large length before time $Tn^{2/3}$ with high probability}{37}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Convergence of the cutting procedure}{38}{subsection.4.5}%

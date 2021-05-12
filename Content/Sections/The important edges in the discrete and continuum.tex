@@ -91,9 +91,10 @@ This event is independent of the position of the heads of the surplus edges that
 % If $k$ is the tail of an ancestral surplus edge, then the position of the end point $Y$ has the following law. Let $U$ be uniform on $[0,\hat{H}^\ell(k)]$. Then, let $Y_k$ be the height of youngest ancestor $l$ of $k$ such that $H^{\ell}(l)<U$. 
 \end{lemma}
 \begin{proof}
-We claim that if no ancestral surplus edge has been sampled in the current component, none of the ancestors of $k$ are the end point of a surplus edge. Indeed, for $x$ an ancestor of $k$, all vertices that are visited since the discovery of $x$ up to time $k$ are descendants of $x$, because $(\hat{\cF}_n(k),k\geq 1)$ is explored in a depth-first manner. Therefore, any surplus edge with head $x$ sampled up to time $k$ is ancestral. This implies that for $d^-$ the in-degree of $x$, the number of unpaired in-half-edges of $x$ at time $k$ is equal to $d^--1$ (unless $x$ is the root of the out-component, in which case it has $d^-$ unpaired in-half-edges).\\
+We claim that if no ancestral surplus edge has been sampled in the current component, none of the ancestors of $k$ are the end point of a surplus edge. Indeed, for $x$ an ancestor of $k$, all vertices that are visited since the discovery of $x$ up to time $k$ are descendants of $x$, because $(\hat{\cF}_n(k),k\geq 1)$ is explored in a depth-first manner. Therefore, any surplus edge with head $x$ sampled up to time $k$ is ancestral. This implies that for $d^-$ the in-degree of $x$, the number of unpaired in-half-edges of $x$ at time $k$ is equal to $d^--1$ (unless $x$ is the root of the out-component, in which case it has $d^-$ unpaired in-half-edges).
+
 Therefore, the number of unpaired in-half-edges corresponding to ancestors of $k$ is equal to $H^\ell(k)$. Moreover, note that, by definition of the purple vertices, $k$ is the tail of a surplus edge if and only if $k$ is purple, i.e. if and only if $\hat{P}_n(k)-\hat{P}_n(k-1)=1$. In that case, the probability that it connects to given unpaired in-half-edge of a visited vertex is equal to $1/\hat{S}_n^-(k)$. The stated probability follows. The independence on the position of the heads of earlier surplus edges is immediate.
-\end{proof}\\
+\end{proof}
 
 We now illustrate how to find the other candidates in a component of $(\hat{\cF}_n(k),k\geq 1)$. 
 \begin{lemma}\label{lemma.samplecandidates}
@@ -134,10 +135,13 @@ Then, all strongly connected components of $(G_n(k),k\geq 1)$ are subgraphs of $
 
 \subsubsection{The cutting procedure}
 \myworries{To add by Zheneng}
+
 \subsection{The continuum case}
 We will define now define the continuous counterpart of the sampling procedure of the out-forest and the candidates. This is a slight modification of the procedure defined in Subsubsection 3.2.2 of \cite{Goldschmidt2019}. \\
-\subsubsection{$\R$-trees and their encoding}
-\myworries{To add by Zheneng}
+
+\subsubsection{\texorpdfstring{$\R$}{R}-trees and their encoding}
+\input{Content/Sections/Real Trees.tex}
+
 \subsubsection{The limit object}\label{subsubsec.samplecontinuousobject}
 Let $(B_t,t\geq 0)$ be a Brownian motion, and set $$\left(\hat{B}_t,t\geq 0\right)=\left(B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+\mu}t^2,t\geq 0\right).$$
 Define 

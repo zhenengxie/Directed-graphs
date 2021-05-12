@@ -47,7 +47,7 @@ Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{Der
     \item $\E\left[D^+D^-\one_{D^->x}\right]=o(x^{-2})$ as $x\to \infty$. 
 \end{enumerate}
 Note that the first and second condition follow directly from the assumptions, and the third condition is implied by $\E[D^+(D^-)^3]<\infty$.
-\end{proof}\\
+\end{proof}
 
 
 
@@ -195,7 +195,7 @@ $$(N^n_{m+1}(\lfloor t n^{2/3} \rfloor ),t\geq 0)\overset{d}{\to} (N_{m+1}(t),t\
 $$n^{-2/3}C_{m+1}^n\overset{a.s.}{\to}C_{m+1}.$$
 If $N_m(\infty)=0$, set $\mathbf{C}(G)=(C_1,\dots,C_m)$, $\mathbf{C}_n(G_n)=(C^n_1,\dots,C^n_m)$, and the statement follows. If $N_m(\infty)>0$, apply the induction step to $(C_1,\dots,C_{m+1})$ and $(C^n_1,\dots,C^n_{m+1})$. The fact that $|\mathbf{C}(G)|<\infty$ almost surely, as shown in Subsubsection \ref{subsubsec.samplecontinuousobject}, implies that the induction terminates.
 \end{proof}
-\\
+
 The following proposition shows that the law of the heads of the candidates converges as well under rescaling, and that the convergence holds in the pointed Gromov-Hausdorff topology. 
 \begin{proposition}\label{prop.convergenceheadscandidates}
 Suppose the convergence in Propositions \ref{prop.convergenceancestraledges}, \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates} holds almost surely. Then, for $\mathbf{C}_n(G_n)=(C^n_1,\dots, C^n_{M_n})$, $\mathbf{C}(G)=(C_1,\dots, C_{M})$, let $D^n_i$ be the index of the vertex that the surplus edge corresponding to $C^n_i$ connects to. Similarly, let $D_i$ be the index of the vertex that the surplus edge corresponding to $C_i$ connects to. Then, 
@@ -211,6 +211,7 @@ Note that, by Theorem \ref{thm.convoutforest} and  Propositions \ref{prop.extrac
 $$\left(n^{-1/3}\cT^{G_n}_n,n^{-2/3}G_n+1,n^{-2/3}C^n_1,\dots,n^{-2/3}C^n_{m}\right)\overset{a.s.}{\to}\left(\cT^G, G,C_1,\dots,C_m\right)$$
 in the $m+1$-pointed Gromov-Hausdorff topology. Since the relation $$\left|\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}\}\right)\right|=\left|\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}, D^n_{m}\}\right)\right|$$ passes to the limit, with $|\cdot|$ denoting the length in the tree as encoded by $(\hat{H}_n(k),k\geq 1)$, the limit in distribution of $n^{-2/3}D^n_m$ is a uniform point on $$\cT^G\left(G,C_1,\dots,C_m\right),$$
 which proves the statement.
+
 \end{proof}\\
 The proof of Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} implies the following corollary.
 \begin{corollary}
@@ -296,4 +297,3 @@ Then, Theorem \myworries{main result} follows from Corollary \ref{cor.sccordered
 % For each $n\in \N$, fix $\sigma_n \in \R$, and let $\left(\mathsf{h}^n,\mathsf{h}^{\ell,n}, \mathsf{s}^{-,n}, \mathsf{p}^n, \mathsf{n}^n, \mathsf{u}^n\right)$ be a function from $[0,\sigma_n]$ to $\R_+^4\times \N \times (\R_+\cup \{\omega\})$. Similarly, let $\sigma \in \R$, and let $\left(\mathsf{h},\mathsf{h}^{\ell}, \mathsf{s}^{-}, \mathsf{p}, \mathsf{n}, \mathsf{u}\right)$ be a function from $[0,\sigma]$ to $\R_+^4\times \N \times (\R_+\cup \{\omega\})$. Assume that $\mathsf{n}^n$, $\mathsf{p}^n$, $\mathsf{n}$ and $\mathsf{p}$ are increasing functions that satisfy $\mathsf{n}^n(0)=\mathsf{p}^n(0)=\mathsf{n}(0)=\mathsf{p}(0)=0$. Also assume that $\mathsf{n}^n$ and $\mathsf{n}$ have increments of size $1$, and that $\mathsf{u}^n(t)\neq \omega$ if and only if $\mathsf{n}^n(t)-\mathsf{n}^n(t-)=1$, in which case $$\mathsf{u}^n(t)<\mathsf{h}^{n}(t)$, and similarly, that $\mathsf{u}(t)\neq \omega$ if and only if $\mathsf{n}(t)-\mathsf{n}(t-)=1$, in which case $$\mathsf{u}(t)<\mathsf{h}(t)$. Suppose that
 
 % \subsubsection{Important surplus edges on a single tree}
-
