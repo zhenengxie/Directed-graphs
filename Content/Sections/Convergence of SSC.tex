@@ -199,8 +199,8 @@ If $N_m(\infty)=0$, set $\mathbf{C}(G)=(C_1,\dots,C_m)$, $\mathbf{C}_n(G_n)=(C^n
 The following proposition shows that the law of the heads of the candidates converges as well under rescaling, and that the convergence holds in the pointed Gromov-Hausdorff topology. 
 \begin{proposition}\label{prop.convergenceheadscandidates}
 Suppose the convergence in Propositions \ref{prop.convergenceancestraledges}, \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates} holds almost surely. Then, for $\mathbf{C}_n(G_n)=(C^n_1,\dots, C^n_{M_n})$, $\mathbf{C}(G)=(C_1,\dots, C_{M})$, let $D^n_i$ be the index of the vertex that the surplus edge corresponding to $C^n_i$ connects to. Similarly, let $D_i$ be the index of the vertex that the surplus edge corresponding to $C_i$ connects to. Then, 
-\begin{align*}&\left(n^{-1/3}\cT_n^{G_n}, n^{-2/3}(G_n+1), n^{-2/3}C^n_1,\dots, n^{-2/3}C^n_{M_n}, n^{-2/3}D^n_1,\dots, n^{-2/3}D^n_{M_n}\right)\\
-&\overset{d}{\to}\left(\cT^{G}, G, C_1,\dots, C_{M}, D_1,\dots, D_{M}\right)\end{align*}
+\begin{align*}&\left(n^{-1/3}\cT_n^{G_n}, n^{-2/3}(G_n+1), \left(n^{-2/3}C^n_1,n^{-2/3}D^n_1\right) \dots, \left(n^{-2/3}C^n_{M_n}, n^{-2/3}D^n_{M_n}\right)\right)\\
+&\overset{d}{\to}\left(\cT^{G}, G, (C_1,D_1),\dots, (C_{M},D_{M})\right)\end{align*}
 in the $2M+1$-pointed Gromov-Hausdorff topology. 
 \end{proposition}
 \begin{proof}
@@ -211,10 +211,63 @@ Note that, by Theorem \ref{thm.convoutforest} and  Propositions \ref{prop.extrac
 $$\left(n^{-1/3}\cT^{G_n}_n,n^{-2/3}G_n+1,n^{-2/3}C^n_1,\dots,n^{-2/3}C^n_{m}\right)\overset{a.s.}{\to}\left(\cT^G, G,C_1,\dots,C_m\right)$$
 in the $m+1$-pointed Gromov-Hausdorff topology. Since the relation $$\left|\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}\}\right)\right|=\left|\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}, D^n_{m}\}\right)\right|$$ passes to the limit, with $|\cdot|$ denoting the length in the tree as encoded by $(\hat{H}_n(k),k\geq 1)$, the limit in distribution of $n^{-2/3}D^n_m$ is a uniform point on $$\cT^G\left(G,C_1,\dots,C_m\right),$$
 which proves the statement.
+
+\end{proof}\\
+The proof of Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} implies the following corollary.
+\begin{corollary}
+We can work on a probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely. Let $T^{n,\text{mk}}_{G_n}$ be the subtree of $\cT^{G_n}_n$ spanned by $\{G_n+1,C^n_1,\dots,C^n_{M_n}\}$, and similarly, let $T^{\text{mk}}_G$ be the subtree of $\cT^{G}$ spanned by $\{G,C_1,\dots,C_M\}$. Then, also 
+\begin{align*}&\left(n^{-1/3}T^{n,\text{mk}}_{G_n}, n^{-2/3}(G_n+1), \left(n^{-2/3}C^n_1,n^{-2/3}D^n_1\right) \dots, \left(n^{-2/3}C^n_{M_n}, n^{-2/3}D^n_{M_n}\right)\right)\\
+&\to \left(T^{\text{mk}}_G, G, (C_1,D_1),\dots, (C_{M},D_{M})\right)\end{align*}
+almost surely in the $2M+1$-pointed Gromov-Hausdorff topology as $n\to \infty$. Also the total length in the trees converges, i.e.
+$$n^{-1/3}\left|T^{n,\text{mk}}_{G_n}\right|\to \left| T^{\text{mk}}_G\right|$$
+almost surely as $n\to\infty$.
+\end{corollary}
+We now identify the vertices that are part of a candidate as described in Subsubsection \ref{subsubsec.samplecandidates}. In $T^{n,\text{mk}}_{G_n}$, set $C_i^n\sim D_i^n$ for each $1\leq i\leq M_n$, and set $\cM^n_{G_n}:=T^{n,\text{mk}}_{G_n}/\sim$. Moreover, in $T^{\text{mk}}_{G}$, set $C_i\sim D_i$ for each $1\leq i\leq M$, and set $\cM_{G}:=T^{\text{mk}}_{G}/\sim$. View both as elements of $\vec{\cG}$ in the natural way. To be precise, in  $\cM^n_{G_n}$, let the vertex set consist of $G_n+1$, $D_i^n$ for $i\leq M_n$, and the branch points $C_i^n\wedge C_j^n$ for $i\neq j\leq M_n$. Similarly, in $\cM_{G}$, let the vertex set consist of $G$, $D_i$ for $i\leq M$, and the branch points $C_i\wedge C_j$ for $i\neq j\leq M$. Then, the following proposition follows.
+\begin{proposition}
+On the probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely, 
+$n^{-1/3}\cM^n_{G_n}\overset{a.s.}{\to} \cM_{G}$
+in $\vec{\cG}$.
+\end{proposition}
+\begin{proof}
+The proof is analogous to the proof of Proposition 5.6 in \cite{Goldschmidt2019}.
+\end{proof}
+\begin{corollary}\label{cor.sccsinonetreeconverge}
+On the probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely, the strongly connected components in $n^{-1/3}\cM^n_{G_n}$, listed in decreasing order of length, converge to the strongly connected components in $\cM_{G}$, listed in decreasing order of length, in $\vec{\cG}$ almost surely as $n\to \infty$.
+\end{corollary}
+\begin{proof}
+This follows from Proposition 5.3 in \cite{Goldschmidt2019}. This proposition requires that the lengths of the strongly connected components in $\cM_{G}$ have different lengths almost surely, but this follows from the proof of Proposition 4.6 in \cite{Goldschmidt2019}, noting that our limit object is in the same universality class as theirs.
 \end{proof}
 
-\myworries{Convergence after identifications and cuttings follows from results by Christina and Robin. Quote the right things here.}
+\begin{corollary}\label{cor.sccordereduptotimeT}
+Let $T>0$, and let $(C^T_i(n),i\geq 1)$ be the strongly connected components in \myworries{name for directed graph} with a candidate with head at most $\lfloor T n^{2/3}\rfloor$ ordered by length. Similarly, let $(\cC^T_i,i\geq 1)$ be the strongly connected components in \myworries{name for directed graph} with a candidate with head at most $T$ ordered by length. Then,
+$$\left(n^{-1/3}C^T_i(n), i\geq 1\right) \overset{d}{\to} (\cC^T_i,i\geq 1)$$
+in the $\vec{\cG}$ product topology as $n\to \infty$. 
+\end{corollary}
+\begin{proof}
+This follows from Proposition \ref{prop.extractexcursions}, Corollary \ref{cor.sccsinonetreeconverge}, and the fact that all SCCs in the limit object have a different length by the proof of Proposition 4.6 in \cite{Goldschmidt2019}. 
+\end{proof}
 
+Finally, we claim that we can choose $T$ large enough such that all SCC with large length are explored before time $T$. This is the content of the following lemma. The proof is in the same spirit as Lemma 9 in \cite{Aldous1991} by Aldous. 
+\begin{lemma}\label{lemma.largesccfoundfirst}
+For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of SCCs whose vertices have at total of at least $\delta n^{1/3}$ in-edges and whose time of first discovery is in $n^{2/3}I$. Then,
+$$\lim_{s\to \infty}\limsup_{n} \P\left(SCC(n,(s,\infty),\delta)\geq 1\right)=0\text{ for all }\delta>0.$$
+\end{lemma}
+\begin{proof}
+Fix $\delta>0$. Suppose there is a strongly connected component $C$ with $vn^{1/3}$ total in-edges. Conditional on this fact, the in-edges that are paired up to the first in-edge of $C$ is paired, are uniform picks (without replacement) from the total set of in-edges. Denote the time of discovery of the first in-edge of $C$ times $n^{-2/3}$ by $\Xi_n$. Then, $\Xi_n\overset{d}{\to}\operatorname{Exp}(v)$. Fix $\epsilon>0$. We see that, by the memoryless property at time $s$,
+$$\P\left(SCC\left(n,(s,2s),\delta\right)=0|SCC\left(n,(s,\infty),\delta\right)\geq 1\right)$$
+is asymptotically bounded from above by 
+$\exp(-s\delta)$ by the memoryless property at time $s$, such that we can find an $s>0$ such that for all $n$ large enough,
+$$\P\left(SCC\left(n,(s,\infty),\delta\right)\geq 1 \text{ and }SCC\left(n,(s,2s),\delta\right)=0\right)<\epsilon.$$
+We claim that, by possibly increasing $s$ and $n$, we also get that 
+$$\P\left(SCC\left(n,(s,2s),\delta\right)=0\right)>1-\epsilon,$$
+which proves the statement.
+Firstly, we observe that the ratio of the length of an $SCC$ and its total in-degree are asymptotically equal to $\frac{\sigma_{-+}+\nu_-}{2\mu}$ by the proof of Proposition \ref{prop.convergenceheadscandidates}. Then, note that it is clear from the description of the limit process that, for $s$ large enough, with probability at most $\epsilon/2$, an SCC with total length at least $\frac{\mu}{\sigma_{-+}+\nu_-}\delta$ is discovered after time $s$. By convergence of the exploration process on compact time intervals, by choosing $n$ large enough, we can then ensure that 
+$$\P\left(SCC\left(n,(s,2s),\delta\right)=0\right)>1-\epsilon.$$
+We conclude that 
+$$\P(SCC\left(n,(s,\infty),\delta\right)\geq 1)\leq 2\epsilon.$$
+\end{proof}\\
+
+Then, Theorem \myworries{main result} follows from Corollary \ref{cor.sccordereduptotimeT} and Lemma \ref{lemma.largesccfoundfirst}. 
 
 % As discussed in Subsection \ref{subsec.categoriessurplusedged}, ancestral surplus edges are important building blocks of non-trivial strongly connected components, but also descendental and additional surplus edges can be included in a strongly connected component. However, this can only occur if there is also an ancestral surplus edge present in the same strongly connected components. Corollary \ref{cor.convergencesequenceofcomponents} implies that the encoding processes of these components converge as a sequence ordered by component size (note that we include the purple vertices in the size). We will now define the process of finding the important additional and descendental surplus edges on such a component, given its encoding processes.\\
 % We will identify purple vertices are possibly part of a strongly connected component. We call these surplus edges \emph{candidates} and we define them in such a way that the important non-ancestral surplus edges are contained in the set of candidates. We will use Lemma \ref{lemma.whatispartofscc}.\ref{item.factsonsccs4} to define our candidates. The lemma states that non-ancestral surplus edges are only important if their head is on the path from the root of the out-component to the tail of an important surplus edge. This is not a sufficient condition, but by only declaring a surplus edge a candidate if it is on the path from the root of the out-component to the tail of another candidate, we will with high probability have a finite number of candidates per component, after which we can easily distinguish between candidates and important surplus edges.\\
@@ -244,27 +297,3 @@ which proves the statement.
 % For each $n\in \N$, fix $\sigma_n \in \R$, and let $\left(\mathsf{h}^n,\mathsf{h}^{\ell,n}, \mathsf{s}^{-,n}, \mathsf{p}^n, \mathsf{n}^n, \mathsf{u}^n\right)$ be a function from $[0,\sigma_n]$ to $\R_+^4\times \N \times (\R_+\cup \{\omega\})$. Similarly, let $\sigma \in \R$, and let $\left(\mathsf{h},\mathsf{h}^{\ell}, \mathsf{s}^{-}, \mathsf{p}, \mathsf{n}, \mathsf{u}\right)$ be a function from $[0,\sigma]$ to $\R_+^4\times \N \times (\R_+\cup \{\omega\})$. Assume that $\mathsf{n}^n$, $\mathsf{p}^n$, $\mathsf{n}$ and $\mathsf{p}$ are increasing functions that satisfy $\mathsf{n}^n(0)=\mathsf{p}^n(0)=\mathsf{n}(0)=\mathsf{p}(0)=0$. Also assume that $\mathsf{n}^n$ and $\mathsf{n}$ have increments of size $1$, and that $\mathsf{u}^n(t)\neq \omega$ if and only if $\mathsf{n}^n(t)-\mathsf{n}^n(t-)=1$, in which case $$\mathsf{u}^n(t)<\mathsf{h}^{n}(t)$, and similarly, that $\mathsf{u}(t)\neq \omega$ if and only if $\mathsf{n}(t)-\mathsf{n}(t-)=1$, in which case $$\mathsf{u}(t)<\mathsf{h}(t)$. Suppose that
 
 % \subsubsection{Important surplus edges on a single tree}
-
-
-
-\subsection{For large \texorpdfstring{$T$}{T}, we see all SCCs with large length before time \texorpdfstring{$Tn^{2/3}$}{T n**2/3} with high probability}
-We claim that exploring the out-components up to time $O(n^{2/3})$ is sufficient to see all large components. This is the content of the following theorem. The proof is in the same spirit as Lemma 9 in \cite{Aldous1991} by Aldous. 
-\begin{lemma}
-For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of SCCs whose vertices have at total of at least $\delta n^{1/3}$ in-edges and whose time of first discovery is in $n^{2/3}I$. Then,
-$$\lim_{s\to \infty}\limsup_{n} \P\left(SCC(n,(s,\infty),\delta)\geq 1\right)=0\text{ for all }\delta>0.$$
-\end{lemma}
-\begin{proof}
-Fix $\delta>0$. Suppose there is a strongly connected component $C$ with $vn^{1/3}$ total in-edges. Conditional on this fact, the in-edges that are paired up to the first in-edge of $C$ is paired, are uniform picks (without replacement) from the total set of in-edges. Denote the time of discovery of the first in-edge of $C$ times $n^{-2/3}$ by $\Xi_n$. Then, $\Xi_n\overset{d}{\to}\operatorname{Exp}(v)$. Fix $\epsilon>0$. We see that, by the memoryless property at time $s$,
-$$\P\left(SCC\left(n,(s,2s),\delta\right)=0|SCC\left(n,(s,\infty),\delta\right)\geq 1\right)$$
-is asymptotically bounded from above by 
-$\exp(-s\delta)$ by the memoryless property at time $s$, such that we can find an $s>0$ such that for all $n$ large enough,
-$$\P\left(SCC\left(n,(s,\infty),\delta\right)\geq 1 \text{ and }SCC\left(n,(s,2s),\delta\right)=0\right)<\epsilon.$$
-We claim that, by possibly increasing $s$ and $n$, we also get that 
-$$\P\left(SCC\left(n,(s,2s),\delta\right)=0\right)>1-\epsilon,$$
-which proves the statement.
-Firstly, we observe that the ratio of the length of an $SCC$ and its total in-degree are asymptotically equal to $\frac{\sigma_{-+}+\nu_-}{2\mu}$ by the proof of Proposition \ref{prop.convergenceheadscandidates}. Then, note that it is clear from the description of the limit process that, for $s$ large enough, with probability at most $\epsilon/2$, an SCC with total length at least $\frac{\mu}{\sigma_{-+}+\nu_-}\delta$ is discovered after time $s$. By convergence of the exploration process on compact time intervals, by choosing $n$ large enough, we can then ensure that 
-$$\P\left(SCC\left(n,(s,2s),\delta\right)=0\right)>1-\epsilon.$$
-We conclude that 
-$$\P(SCC\left(n,(s,\infty),\delta\right)\geq 1)\leq 2\epsilon.$$
-\end{proof}
-\subsection{Convergence of the cutting procedure}
