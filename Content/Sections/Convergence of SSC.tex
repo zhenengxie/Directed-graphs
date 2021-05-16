@@ -1,17 +1,17 @@
 \section{Convergence of the strongly connected components under rescaling}\label{sec.convSCCs}
 
-In this section, we will use the convergence of the out-forest that we obtained in Section \ref{sec.convoutforest} to show that the strongly connected components ordered by decreasing length converge under rescaling in the $d_G$-product topology. The structure of the argument is as follows. 
+In this section, we will use the convergence of the out-forest that we obtained in Section \ref{sec.convoutforest} to show that the strongly connected components ordered by decreasing length converge under rescaling in the $d_{\vec{\cG}}$-product topology. The structure of the argument is as follows. 
 % \begin{itemize}
 %     \item In Subsection XXX, we categorise the different type of surplus edges, and identify which of them are part of a strongly connected component. We call these \emph{important} surplus edges.
-%     \item A key category of \emph{important} surplus edges is the \emph{ancestral surplus edges}. Namely, a component of $\hat{\cF}_n(k)$ can not contain a non-trivial strongly connected component if it does not contain an ancestral surplus edge. In Subsection XXX, we use this fact to identify the components of $\hat{\cF}_n\left(\lfloor n^{2/3}T\rfloor \right)$ that contain a non-trivial strongly connected component, and show that their metric structure converges jointly with the position of their first ancestral surplus edge. 
-%     \item In Subsection XXX, we define a procedure that, given a component of $\hat{\cF}_n\left(\lfloor n^{2/3}T\rfloor \right)$ and its first ancestral surplus edge, identifies a finite set of edges that contains all important surplus edges. We show that this set converges under rescaling. 
-%     \item In Subsection XXX, we define the vertex identifications and the cutting procedure that we use to extract the non-trivial strongly connected components from the components of $\hat{\cF}_n\left(\lfloor n^{2/3}T\rfloor \right)$ and the positions of the important surplus edges. We show that this cutting procedure converges.
-%     \item In Subsection XXX, we show that for a given $\delta>0$, the strongly connected components with length at least $\delta$ are contained in $\hat{\cF}_n\left(\lfloor n^{2/3}T\rfloor \right)$ for $T$ large enough with high probability. This implies that convergence under rescaling of the strongly connected components contained in $\hat{\cF}_n\left(m_n \right)$ for any $m_n=O(n^{2/3})$ is sufficient to obtain convergence of the strongly connected components ordered by length in the $d_G$-product topology. 
+%     \item A key category of \emph{important} surplus edges is the \emph{ancestral surplus edges}. Namely, a component of $\hat{F}_n(k)$ can not contain a non-trivial strongly connected component if it does not contain an ancestral surplus edge. In Subsection XXX, we use this fact to identify the components of $\hat{F}_n\left(\lfloor n^{2/3}T\rfloor \right)$ that contain a non-trivial strongly connected component, and show that their metric structure converges jointly with the position of their first ancestral surplus edge. 
+%     \item In Subsection XXX, we define a procedure that, given a component of $\hat{F}_n\left(\lfloor n^{2/3}T\rfloor \right)$ and its first ancestral surplus edge, identifies a finite set of edges that contains all important surplus edges. We show that this set converges under rescaling. 
+%     \item In Subsection XXX, we define the vertex identifications and the cutting procedure that we use to extract the non-trivial strongly connected components from the components of $\hat{F}_n\left(\lfloor n^{2/3}T\rfloor \right)$ and the positions of the important surplus edges. We show that this cutting procedure converges.
+%     \item In Subsection XXX, we show that for a given $\delta>0$, the strongly connected components with length at least $\delta$ are contained in $\hat{F}_n\left(\lfloor n^{2/3}T\rfloor \right)$ for $T$ large enough with high probability. This implies that convergence under rescaling of the strongly connected components contained in $\hat{F}_n\left(m_n \right)$ for any $m_n=O(n^{2/3})$ is sufficient to obtain convergence of the strongly connected components ordered by length in the $d_G$-product topology. 
 % \end{itemize}
 
 
 \subsection{Convergence of the out-components that contain an ancestral surplus edge}\label{subsec.ancestral}
-In this subsection, we will prove that the components of $\hat{\cF}_n\left(\lfloor n^{2/3}t\rfloor\right)$ that contain an ancestral surplus edge converge under rescaling. Recall the definition of $(A_n(k),k\geq 1)$ from Subsection \ref{subsubsec.samplecandidates}, and recall that the law of the set of components in $(\hat{\cF}_n(k),k\geq 1)$ that contain a non-trivial strongly connected component is the same as the law of the set of components in $(\hat{\cF}_n(k),k\geq 1)$ on which $(A_n(k),k\geq 1)$ increases. Moreover, if $(A_n(k),k\geq 1)$ increases on a component, the law of the first increase time corresponds to the law of the tail of the first ancestral surplus edge. \\
+In this subsection, we will prove that the components of $\hat{F}_n\left(\lfloor n^{2/3}t\rfloor\right)$ that contain an ancestral surplus edge converge under rescaling. Recall the definition of $(A_n(k),k\geq 1)$ from Subsection \ref{subsubsec.samplecandidates}, and recall that the components in $(\hat{F}_n(k),k\geq 1)$ that contain a non-trivial strongly connected component correspond to the components in $(\hat{F}_n(k),k\geq 1)$ on which $(A_n(k),k\geq 1)$ increases. Moreover, if $(A_n(k),k\geq 1)$ increases on a component, the law of the first increase time corresponds to the position of the first ancestral surplus edge in the component. \\
 We first study the convergence of $(\hat{H}_n^\ell(k),k\geq 1)$ under rescaling. This is an extension of Theorem \ref{thm.convoutforest}.
 \begin{lemma}\label{lemma.heightprocesswithlengths}
 Let $(B_t, t\geq 0)$ be a Brownian motion, and define
@@ -25,13 +25,13 @@ $$\left(n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P
 in $\D(\R_+,\R)^2$ as $n\to \infty$.
 \end{lemma}
 \begin{proof}
-We use Theorem 1 in \cite{Deraphelis2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the black-purple-red Galton-Watson forest $(\cF^{pr}(k),k\geq 1)$, as defined in Subsubsection \ref{subsubsec.convheightprocess}. \\
-We equip $(\cF^{pr}(k),k\geq 1)$ with edge lengths in the following manner. For a purple or red vertex with out degree $d^+$, sample its in-degree with law $Z^-$ conditioned on $Z^+=d^+$. The in-degree of the black vertices is encoded by $(Y^{-}(k),k\geq 1)$.  Then, for a vertex with in-degree $d^-$, let the edges connecting it to its children have length $d^--1$ (unless it is the root of the component, then let the edges connecting to its children will have length $d^-$). Call the resulting forest with edge lengths $(\cF^{pr,\ell}(k),k\geq 1)$, and let $(H^{pr,\ell}(k),k\geq 1)$ be the corresponding height process.\\
+We use Theorem 1 in \cite{Deraphelis2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the black-purple-red Galton-Watson forest $(F^{pr}(k),k\geq 1)$, as defined in Subsubsection \ref{subsubsec.convheightprocess}. \\
+We equip $(F^{pr}(k),k\geq 1)$ with edge lengths in the following manner. For a purple or red vertex with out degree $d^+$, sample its in-degree with law $Z^-$ conditioned on $Z^+=d^+$. The in-degree of the black vertices is encoded by $(Y^{-}(k),k\geq 1)$.  Then, for a vertex with in-degree $d^-$, let the edges connecting it to its children have length $d^--1$ (unless it is the root of the component, then let the edges connecting to its children will have length $d^-$). Call the resulting forest with edge lengths $(F^{pr,\ell}(k),k\geq 1)$, and let $(H^{pr,\ell}(k),k\geq 1)$ be the corresponding height process.\\
 We will translate the conditions of Theorem 1 in \cite{Deraphelis2017} to our setting and check them. The conditions are as follows.
 \begin{enumerate}
     \item $\E[Z^+]=1$
     \item $1<\E[(Z^+)^2]<\infty$
-    \item $\E\left[Z^+\one_{(Z^--1-1)>x}\right]=o(x^{-2})$ as $x\to \infty$
+    \item $\E\left[Z^+\one_{\{Z^->x\}}\right]=o(x^{-2})$ as $x\to \infty$
 \end{enumerate}
 Under these conditions, using the notation from Subsubsection \ref{subsubsec.convheightprocess},
 \begin{align}\begin{split}\label{eq.convmodifiedheightprocess}
@@ -61,8 +61,8 @@ as $n\to \infty$, where $(A_t,t\geq 0)$ is a Cox process of intensity $$\frac{2(
 \begin{proof}
 By definition, $(A_n(k),k\geq 1)$ is a counting process with compensator 
 \begin{align*}
-    A_n^{comp}(k)&=\sum_{i=1}^k \frac{\hat{H}^\ell_n(i)}{\hat{S}^-_n(i)}\one_{\{\hat{P}_n(i)-\hat{P}_n(i-1)=1\}}\\
-    &=\sum_{j=1}^{\hat{P}_n(k)}\frac{\hat{H}^\ell_n(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},
+    A_n^{comp}(k)&=\sum_{i=1}^k \frac{\hat{H}^\ell(i)}{\hat{S}^-_n(i)}\one_{\{\hat{P}_n(i)-\hat{P}_n(i-1)=1\}}\\
+    &=\sum_{j=1}^{\hat{P}_n(k)}\frac{\hat{H}^\ell(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},
 \end{align*}
  By Theorem 14.2.VIII of Daley and Vere-Jones \cite{DaleyVereJones}, the claimed convergence under rescaling of $(A_n(k),k\geq 1)$ follows if we show that 
 \begin{equation}\label{eq.convergencecompensator}
@@ -76,80 +76,80 @@ we get that
 \begin{align*}\left(n^{-2/3}\min\{l\geq 1:n^{-1/3}\hat{P}_n(l)\geq t\},t\geq 0\right)&\overset{p}{\to}\left(\min\left\{s>0: \frac{\nu_-}{2\mu}s^2\geq t\right \}, t\geq 0\right)\\
 &=:\left(p^{-1}(t),t\geq 0\right) \end{align*}
 in $\D(\R_+,\R)$ as $n\to \infty$, because $\left(\frac{\nu_-}{2\mu}t^2,t\geq 0\right)$ is strictly increasing. Then, Lemma \ref{lemma.heightprocesswithlengths}, Lemma \ref{lemma.technicalcomposedfunctions}, Slutsky's lemma and the continuous mapping theorem imply that 
-\begin{align*}&\left(\sum_{j=1}^{\lfloor n^{1/3}t\rfloor}\frac{\hat{H}^\ell_n(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},t\geq 0\right)\\
+\begin{align*}&\left(\sum_{j=1}^{\lfloor n^{1/3}t\rfloor}\frac{\hat{H}^\ell(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},t\geq 0\right)\\
 &\overset{d}{\to} \left( \frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu} \int_0^t \frac{\hat{R}_{p^{-1}(s)}}{\nu_- p^{-1}(s)}ds,t\geq 0 \right).
 \end{align*}
 If we combine this with the convergence under rescaling of $(P_n(k),k\geq 1)$ and apply Lemma \ref{lemma.technicalcomposedfunctions}, some simple analysis then yields \eqref{eq.convergencecompensator}, which proves the statement.
 \end{proof}
 
-\subsection{Extracting the important components of the out-forest}\label{subsec.componentswithancestral}
-In this subsection, we will show that, conditional on the convergence under rescaling in Proposition \ref{prop.convergenceancestraledges}, the sequence of components in $(\hat{\cF}_n(k),k\leq \lfloor T n^{2/3}\rfloor )$ that contain ancestral surplus edges converges as well under rescaling. Lemma \ref{lemma.extractexcursions} is a statement about extracting excursions from deterministic functions with marks, which we will apply to the sample paths of $(\hat{S}_n^{+}(k),k\geq 1)$ and the increase times of $(A_n(k),k\geq 1)$. The lemma tells us that if the sample paths and increase times converge under rescaling, the beginnings and endpoints of the excursions above the running infimum that contain the increase times converge as well. 
+\subsection{Finding the important components in the out-forest}\label{subsec.componentswithancestral}
+In this subsection, we will show that, conditional on the convergence under rescaling in Proposition \ref{prop.convergenceancestraledges}, the sequence of components in $(\hat{F}_n(k),k\leq \lfloor T n^{2/3}\rfloor )$ that contain ancestral surplus edges converges as well under rescaling. Lemma \ref{lemma.extractexcursions} is a statement about extracting excursion intervals from deterministic functions with marks, which we will apply to the sample paths of $(\hat{S}_n^{+}(k),k\geq 1)$ and the increase times of $(A_n(k),k\geq 1)$. The lemma tells us that if the sample paths and increase times converge under rescaling, the beginnings and endpoints of the excursions above the running infimum that contain the increase times converge as well. 
 \begin{lemma}\label{lemma.extractexcursions}
 Let $(f_n(t), t\geq 0)$ for $n\geq 1$, and $(f(t),t\geq 0)$ be functions in $\D(\R_+,\R)$, such that 
 $$(f_n(t), t\geq 0)\to (f(t),t\geq 0)$$ in $\D(\R_+,\R)$ as $n\to \infty$. Assume that $(f(t),t\geq 0)$ is continuous, that $f(t)\to -\infty$ as $t\to \infty$, and that the local minima of $(f(t),t\geq 0)$ are unique. Moreover, let $(x_i^n)_{1\leq i\leq m}$, for $n\geq 1$, and $(x_i)_{1\leq i\leq m}$ be elements of $\R^{m}$ such that for all $i\in [m]$, $x_i^n\to x_i$ in $\R$ as $n\to \infty$, and such that $f(x_i)-\inf\{f(s):s\leq x_i\}>0$ for all $i\in [m]$. Define
-\begin{align*}g_i^n&=\inf\left\{t\geq 0:f_n(t)=\inf\{f_n(s):s\leq x_i^n\}\right\}\text{ for }i\in [m]\text{, }n\geq 1\\
-d_i^n&=\inf\left\{ t\geq 0: \inf\{f_n(s):s\leq t\} < \inf\{f_n(s):s\leq x_i^n\}\right\}\text{ for }i\in [m]\text{, }n\geq 1\\
-g_i&=\inf\left\{t\geq 0:f(t)=\inf\{f(s):s\leq x_i\}\right\},\text{ and}\\
-d_i&=\inf\left\{ t\geq 0: \inf\{f(s):s\leq t\} < \inf\{f(s):s\leq x_i\}\right\}.
+\begin{align*}l_i^n&=\inf\left\{t\geq 0:f_n(t)=\inf\{f_n(s):s\leq x_i^n\}\right\}\text{ for }i\in [m]\text{, }n\geq 1\\
+\sigma_i^n&=\inf\left\{ t\geq 0: \inf\{f_n(s):s\leq l_i^n+t\} < \inf\{f_n(s):s\leq x_i^n\}\right\}\text{ for }i\in [m]\text{, }n\geq 1\\
+l_i&=\inf\left\{t\geq 0:f(t)=\inf\{f(s):s\leq x_i\}\right\},\text{ and}\\
+\sigma_i&=\inf\left\{ t\geq 0: \inf\{f(s):s\leq l_i+ t\} < \inf\{f(s):s\leq x_i\}\right\}.
 \end{align*}
-Define $\sigma^i_n=d_i^n-g_i^n$, for $i\in [m]$, $n\geq 1$ and $\sigma^i=d_i-g_i$. For $S=\{(a_i,b_i), i\in [m]\}$, let $\operatorname{ord}(S)$ be a sequence consisting of the elements of $S$ put in increasing order of $a_i$, with ties broken arbitrarily, and concatenated with $(0,0)_{i\geq 1}$ such that $\operatorname{ord}(S)\in (\R^3)^\infty$. Then, 
-$$\operatorname{ord}\left(\left\{(g_i^n,\sigma_i^n):1\leq i \leq m\right\}\right)\to \operatorname{ord}\left(\left\{(g_i,\sigma_i):1\leq i \leq m\right\}\right)$$
+For $S=\{(a_i,b_i), i\in [m]\}$, let $\operatorname{ord}(S)$ be a sequence consisting of the elements of $S$ put in increasing order of $a_i$, with ties broken arbitrarily, and concatenated with $(0,0)_{i\geq 1}$ such that $\operatorname{ord}(S)\in (\R^2)^\infty$. Then, 
+$$\operatorname{ord}\left(\left\{(l_i^n,\sigma_i^n):1\leq i \leq m\right\}\right)\to \operatorname{ord}\left(\left\{(l_i,\sigma_i):1\leq i \leq m\right\}\right)$$
 in $(\R^{2})^\infty$ in the $\ell_1$-topology as $n\to \infty$. 
 \end{lemma}
 \begin{proof}
-First, note that $g_i^n$, $d_i^n$, $g_i$, and $d_i$ are well-defined for all $i\in [m]$, $n\geq 1$ by $f(t)\to -\infty$ as $t\to \infty$ and convergence of $f_n$ to $f$. \\
-Fix $i$. We will first show that $g^n_i\to g_i$ and $d_i^n\to d_i$ as $n\to \infty$. Firstly, note that by the assumption that $f(x_i)-\inf\{f(s):s\leq x_i\}>0$ and the continuity of $f$, $g_i<x_i<d_i$. Fix $0<\epsilon<\min\{x_i-g_i,d_i-x_i\}/2$. We claim that the following conditions are sufficient for $g^n_i\to g_i$ and $d_i^n\to d_i$ as $n\to \infty$
+First, note that $l_i^n$, $\sigma_i^n$, $l_i$, and $\sigma_i$ are well-defined for all $i\in [m]$, $n\geq 1$ by $f(t)\to -\infty$ as $t\to \infty$ and convergence of $f_n$ to $f$. \\
+Fix $i$. We will first show that $l^n_i\to l_i$ and $\sigma_i^n\to \sigma_i$ as $n\to \infty$. Firstly, note that by the assumption that $f(x_i)-\inf\{f(s):s\leq x_i\}>0$ and the continuity of $f$, $l_i<x_i<l_i+\sigma_i$. Fix $0<\epsilon<\min\{x_i-l_i,l_i+\sigma_i-x_i\}/2$. We claim that the following conditions are sufficient for $l^n_i\to l_i$ and $\sigma_i^n\to \sigma_i$ as $n\to \infty$. For all $n$ large enough,
 \begin{enumerate}
-    \item \label{cond.excursions1} $g_i+\epsilon<x^n_i<d_i-\epsilon$
-    \item \label{cond.excursions2}$\inf\left\{f_n(s):s\in (g_i-\epsilon, g_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [g_i+\epsilon,d_i-\epsilon] \right\}$, 
-    \item \label{cond.excursions3}$\inf\left\{f_n(s):s\in (g_i-\epsilon, g_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [0,g_i-\epsilon]\right\}$,
-    \item \label{cond.excursions4} $\inf\left\{ f_n(s):s\in (d_i-\epsilon,d_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [0,d_i-\epsilon]\right\}$
+    \item \label{cond.excursions1} $l_i+\epsilon<x^n_i<l_i+\sigma_i-\epsilon$
+    \item \label{cond.excursions2}$\inf\left\{f_n(s):s\in (l_i-\epsilon, l_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [l_i+\epsilon,l_i+\sigma_i-\epsilon] \right\}$, 
+    \item \label{cond.excursions3}$\inf\left\{f_n(s):s\in (l_i-\epsilon, l_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [0,l_i-\epsilon]\right\}$,
+    \item \label{cond.excursions4} $\inf\left\{ f_n(s):s\in (l_i+\sigma_i-\epsilon,l_i+\sigma_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [0,l_i+\sigma_i-\epsilon]\right\}$
 \end{enumerate}
-for all $n$ large enough. Indeed, condition \ref{cond.excursions1}, \ref{cond.excursions2} and \ref{cond.excursions3} imply $|g^n_i-g_i|<\epsilon$, while condition \ref{cond.excursions1}, \ref{cond.excursions2} and \ref{cond.excursions4} imply $|d^n_i-d_i|<\epsilon$. Note that condition \ref{cond.excursions1} holds for $n$ large enough by definition of $\epsilon$ and convergence of $x_i^n$ to $x_i$. To show the other conditions, define
-\begin{align*}\delta_1&=\inf\left\{f(s):s\in [g_i+\epsilon,d_i-\epsilon]\right\}-\inf\left\{f(s):s\in (g_i-\epsilon,g_i+\epsilon)\right\}\\
-\delta_2&=\inf\left\{f(s):s\in [0,g_i-\epsilon]\right\}-\inf\left\{f(s):s\in (g_i-\epsilon,g_i+\epsilon)\right\}\\
-\delta_3&=\inf\left\{f(s):s\in [0,d_i-\epsilon]\right\}-\inf\left\{f(s):s\in (d_i-\epsilon,d_i+\epsilon)\right\}
+Indeed, condition \ref{cond.excursions1}, \ref{cond.excursions2} and \ref{cond.excursions3} imply $|l^n_i-l_i|<\epsilon$, while condition \ref{cond.excursions1}, \ref{cond.excursions2} and \ref{cond.excursions4} imply $|(l^n_i+\sigma^n_i)-(l_i+\sigma_i)|<\epsilon$. Note that condition \ref{cond.excursions1} holds for $n$ large enough by definition of $\epsilon$ and convergence of $x_i^n$ to $x_i$. To show the other conditions, define
+\begin{align*}\delta_1&=\inf\left\{f(s):s\in [l_i+\epsilon,l_i+\sigma_i-\epsilon]\right\}-\inf\left\{f(s):s\in (l_i-\epsilon,l_i+\epsilon)\right\}\\
+\delta_2&=\inf\left\{f(s):s\in [0,l_i-\epsilon]\right\}-\inf\left\{f(s):s\in (l_i-\epsilon,l_i+\epsilon)\right\}\\
+\delta_3&=\inf\left\{f(s):s\in [0,l_i+\sigma_i-\epsilon]\right\}-\inf\left\{f(s):s\in (l_i+\sigma_i-\epsilon,l_i+\sigma_i+\epsilon)\right\}
 \end{align*}
-By uniqueness of local minima and the definition of $g_i$ and $d_i$,  $\delta:=\min\{\delta_1,\delta_2,\delta_3\}/3>0$. Then, note that for $n$ large enough, $\sup\{|f_n(s)-f(s)|:s\leq g_i+\epsilon\}<\delta$, which implies conditions \ref{cond.excursions2}, \ref{cond.excursions3}, and \ref{cond.excursions4} for such $n$. \\
-Since $i$ was arbitrary, and $m$ is finite, we find that $$(g_i^n,d_i^n)_{1\leq i\leq m}\to (g_i,d_i)_{1\leq i\leq m}$$
+By uniqueness of local minima and the definition of $l_i$ and $\sigma_i$,  $\delta:=\min\{\delta_1,\delta_2,\delta_3\}/3>0$. Then, note that for $n$ large enough, $\sup\{|f_n(s)-f(s)|:s\leq l_i+\epsilon\}<\delta$, which implies conditions \ref{cond.excursions2}, \ref{cond.excursions3}, and \ref{cond.excursions4} for such $n$. \\
+Since $i$ was arbitrary, and $m$ is finite, we find that $$(l_i^n,\sigma_i^n)_{1\leq i\leq m}\to (l_i,\sigma_i)_{1\leq i\leq m}$$
 in $\R^{2m}$ as $n\to \infty$. \\
-We now claim that $g_i^n\to g_i$ and $g_j^n\to g_i$ implies that $g_i^n=g_j^n$ for $n$ large enough. Indeed, by definition of $g_i^n$, $g_j^n$ and $\sigma_i^n$, we see that $g_i^n<g_j^n$ implies that $g_j^n-g_i^n\geq \sigma_i^n$, and by the argument above, $\sigma_i^n\to \sigma_i>0$, so $g_i^n-g^n_j\to 0$ can only hold if $g_i^n=g_j^n$ for $n$ large enough. The equivalent statement can be proved for $d_i^n$, which implies that 
-$$\#\left\{(g_i^n,\sigma_i^n):1\leq i \leq m\right\}\to \#\left\{(g_i,\sigma_i):1\leq i \leq m\right\}.$$
+We now claim that $l_i^n\to l_i$ and $l_j^n\to l_i$ implies that $l_i^n=l_j^n$ for $n$ large enough. Indeed, by definition of $l_i^n$, $l_j^n$ and $\sigma_i^n$, we see that $l_i^n<l_j^n$ implies that $l_j^n-l_i^n\geq \sigma_i^n$, and by the argument above, $\sigma_i^n\to \sigma_i>0$, so $l_i^n-l_j^n\to 0$ can only hold if $l_i^n=l_j^n$ for $n$ large enough. This implies that 
+$$\#\left\{(l_i^n,\sigma_i^n):1\leq i \leq m\right\}\to \#\left\{(l_i,\sigma_i):1\leq i \leq m\right\}.$$
 Then, the result follows.
 \end{proof}
 
 We now apply this result to our process to extract the excursion intervals that contain the marks representing ancestral backedges.
 \begin{proposition}\label{prop.extractexcursions}
-Fix $T>0$. Use notation as before. For $i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]$, set $X_i^n=\min\{k:A_n(k)=i\}$. Similarly, for $i$ in $\left[A_T\right]$, set $X_i=\min\{t:A_T=i\}$. Define
-\begin{align*}G_i^n&=\min\left\{k\geq 1:\hat{S}^{p,+}_n(k)=\min\{\hat{S}^{p,+}_n(l):l\leq X_i^n\}\right\}\text{ for }i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]\text{, }n\geq 1\\
-D_i^n&=\min\left\{k \geq 1: \min\left\{\hat{S}^{p,+}_n(l):l\leq k\right\} < \min\left\{\hat{S}^{p,+}_n(l):l\leq X_i^n\right\}\right\}\text{ for }i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]\text{, }n\geq 1\\
-G_i&=\inf\left\{t\geq 0:\sigma_+\hat{B}_t=\inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left[A(T )\right]\text{ and}\\
-D_i&=\inf\left\{ t\geq 0: \inf\{\sigma_+\hat{B}_s:s\leq t\} < \inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left[A(T )\right].
+Fix $T>0$. Use notation as before. For $i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]$, set $X_i^n=\min\{k:A_n(k)=i\}$. Similarly, for $i$ in $\left[A_T\right]$, set $X_i=\min\{t:A_T=i\}$. Define, for $n\geq 1$,
+\begin{align*}L_i^n&=\min\left\{k\geq 1:\hat{S}^{p,+}_n(k)=\min\{\hat{S}^{p,+}_n(l):l\leq X_i^n\}\right\}\text{ for }i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]\\
+\Sigma_i^n&=\min\left\{k \geq 1: \min\left\{\hat{S}^{p,+}_n(l):l\leq L_i^n+k\right\} < \min\left\{\hat{S}^{p,+}_n(l):l\leq X_i^n\right\}\right\}\text{ for }i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]\\
+L_i&=\inf\left\{t\geq 0:\sigma_+\hat{B}_t=\inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left[A(T )\right]\text{ and}\\
+\Sigma_i&=\inf\left\{ t\geq 0: \inf\{\sigma_+\hat{B}_s:s\leq L_i+t\} < \inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left[A(T )\right].
 \end{align*}
-Define $\Sigma_i^n=D_i^n-G_i^n$ and $\Sigma_i=D_i-G_i$. Then, for $\operatorname{ord}$ defined as in the statement of Lemma \ref{lemma.extractexcursions}, we get that
-$$\operatorname{ord}\left(\left\{\left(n^{-2/3}G_i^n,n^{-2/3}\Sigma_i^n\right):1\leq i \leq A_n\left(\lfloor T n^{2/3}\rfloor\right)\right\}\right)\overset{d}{\to} \operatorname{ord}\left(\left\{(G_i,\Sigma_i):1\leq i \leq A_T\right\}\right)$$
-in the $\ell_1$-topology on $(\R^3)^\infty$ as $n\to \infty$, jointly with the convergence in Proposition \ref{prop.convergenceancestraledges}. 
+Then, for $\operatorname{ord}$ defined as in the statement of Lemma \ref{lemma.extractexcursions}, we get that
+$$\operatorname{ord}\left(\left\{\left(n^{-2/3}L_i^n,n^{-2/3}\Sigma_i^n\right):1\leq i \leq A_n\left(\lfloor T n^{2/3}\rfloor\right)\right\}\right)\overset{d}{\to} \operatorname{ord}\left(\left\{(L_i,\Sigma_i):1\leq i \leq A_T\right\}\right)$$
+in the $\ell_1$-topology on $(\R^2)^\infty$ as $n\to \infty$, jointly with the convergence in Proposition \ref{prop.convergenceancestraledges}. 
 \end{proposition}
 \begin{proof}
 We work on a probability space where the convergence in Proposition \ref{prop.convergenceancestraledges} holds almost surely, and claim that we can apply Lemma \ref{lemma.extractexcursions} to the sample paths of $\left(n^{-1/3}\hat{S}^{p}_n\left(\lfloor n^{2/3}t\rfloor\right),t \geq 0\right)$ with marks $$\left(n^{-2/3}X_n^i\right)_{1\leq i\leq A_n\left(\lfloor T n^{2/3}\rfloor\right)}.$$ We check the conditions.
 Firstly, note that by $A_n\left(\lfloor T n^{2/3}\rfloor\right)\to A\left(T\right)$ almost surely as $n\to \infty$, we can pick $n$ large enough such that $A_n\left(\lfloor T n^{2/3}\rfloor\right)=A\left(T\right)$, where we ignore events of $0$ probability. Furthermore, we observe that $(\hat{B}_t,t\geq 0)$ is a Brownian motion with negative parabolic drift, so the sample paths of $(\sigma_+\hat{B}_t,t\geq 0)$ are continuous and drift to $-\infty$ almost surely. By the local absolute continuity of $(\hat{B}_t,t\geq 0)$ to a Brownian motion, its local minima are almost surely unique. By 
 $$\left(A_n\left(\lfloor t n^{2/3}\rfloor\right), t\leq T\right) \overset{a.s.}{\to}\left(A\left(t\right),t\geq 0\right)$$
-in $\D(\R_+,\R)$ as $n\to \infty$, we observe that for all $i\in [A_T]$, $n^{-2/3}X_i^n\to X_i$ almost surely in $\R$ as $n\to \infty$. The fact that $\hat{R}_{X_i}-\inf\{\hat{R}_s:s\leq X_i\}>0$ for all $i$ almost surely follows from the intensity of $(A_t,t\geq 0)$ at time $t$ being proportional to $\hat{R}_t$. This allows us to apply Lemma \ref{lemma.extractexcursions}, and the convergence follows.
+in $\D(\R_+,\R)$ as $n\to \infty$, we observe that for all $i\in [A_T]$, $n^{-2/3}X_i^n\to X_i$ almost surely in $\R$ as $n\to \infty$. The fact that $\hat{R}_{X_i}>0$ for all $i$ almost surely follows from the intensity of $(A_t,t\geq 0)$ at time $t$ being proportional to $\hat{R}_t$. This allows us to apply Lemma \ref{lemma.extractexcursions}, and the convergence follows.
 \end{proof}
 
-% Given the convergence of the excursion intervals that contain the ancestral surplus edges, it is straightforward to obtain convergence of the encoding processes of the components of $(\hat{\cF}_n(k), k\geq 1)$ that contain the marks. 
+% Given the convergence of the excursion intervals that contain the ancestral surplus edges, it is straightforward to obtain convergence of the encoding processes of the components of $(\hat{F}_n(k), k\geq 1)$ that contain the marks. 
 % \begin{corollary}\label{cor.convergencesequenceofcomponents}
 % Recall notation in the statement of Proposition \ref{prop.extractexcursions}. For $i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]$, set
 % \begin{align*}
 %     &\left(\mathsf{h}_i^n,\mathsf{h}_i^{\ell,n}, \mathsf{s}_i^{-,n}, \mathsf{p}^n_i, \mathsf{a}_i^n\right)\\
-%     &=\left(n^{-1/3}\hat{H}_n\left(G_i^n+\lfloor n^{2/3} t \rfloor\right),n^{-1/3}\hat{H}^{\ell}_n\left(G_i^n+\lfloor n^{2/3} t \rfloor\right),  n^{-2/3}\hat{S}^{p,-}_n\left(G_i^n+\lfloor n^{2/3} t \rfloor\right),\right.\\
-%      &\qquad \left.n^{-1/3}\left(\hat{P}_n\left(G_i^n+\lfloor n^{2/3} t \rfloor\right)-\hat{P}_n\left(G_i^n\right)\right), \hat{A}_n\left(G_i^n+\lfloor n^{2/3} t \rfloor\right), 0\leq t \leq n^{-2/3}\Sigma_i^n\right),
+%     &=\left(n^{-1/3}\hat{H}_n\left(L_i^n+\lfloor n^{2/3} t \rfloor\right),n^{-1/3}\hat{H}^{\ell}_n\left(L_i^n+\lfloor n^{2/3} t \rfloor\right),  n^{-2/3}\hat{S}^{p,-}_n\left(L_i^n+\lfloor n^{2/3} t \rfloor\right),\right.\\
+%      &\qquad \left.n^{-1/3}\left(\hat{P}_n\left(L_i^n+\lfloor n^{2/3} t \rfloor\right)-\hat{P}_n\left(L_i^n\right)\right), \hat{A}_n\left(L_i^n+\lfloor n^{2/3} t \rfloor\right), 0\leq t \leq n^{-2/3}\Sigma_i^n\right),
 % \end{align*}
-% such that $\left(\mathsf{h}_i^n,\mathsf{h}_i^{\ell,n}, \mathsf{s}_i^{-,n}, \mathsf{p}^n_i, \mathsf{a}_i^n\right)$ encodes the component of $(\hat{\cF}_n(k), k\geq 1)$ that contains the $i^{th}$ increase time of $(A_n(k),k\geq 1)$.
+% such that $\left(\mathsf{h}_i^n,\mathsf{h}_i^{\ell,n}, \mathsf{s}_i^{-,n}, \mathsf{p}^n_i, \mathsf{a}_i^n\right)$ encodes the component of $(\hat{F}_n(k), k\geq 1)$ that contains the $i^{th}$ increase time of $(A_n(k),k\geq 1)$.
 % Similarly, for $i\in \left[A_T\right]$, set
 % \begin{align*}
 %     &\left(\mathsf{h}_i,\mathsf{h}_i^{\ell}, \mathsf{s}_i^{-}, \mathsf{p}_i, \mathsf{a}_i\right)\\
-%     &=\left(\frac{2}{\sigma_+}\hat{R}_{G_i+t},\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu}\hat{R}_{G_i+t},  \nu_-(G_i+t),\frac{\nu_-}{2\mu}\left((G_i+t)^2-G_i^2\right),A(G_i+t), 0\leq t \leq \Sigma_i\right).
+%     &=\left(\frac{2}{\sigma_+}\hat{R}_{L_i+t},\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu}\hat{R}_{L_i+t},  \nu_-(L_i+t),\frac{\nu_-}{2\mu}\left((L_i+t)^2-L_i^2\right),A(L_i+t), 0\leq t \leq \Sigma_i\right).
 % \end{align*}
 % For $S=\{(a_i,\mathbf{b}_i), i\in [m]\}$, let $\operatorname{ord}(S)$ be a sequence consisting of the elements of $S$ put in decreasing order of $a_i$, with ties broken arbitrarily, and concatenated with $(0,\mathbf{0})_{i\geq 1}$.\\
 % Then, 
@@ -162,10 +162,9 @@ in $\D(\R_+,\R)$ as $n\to \infty$, we observe that for all $i\in [A_T]$, $n^{-2/
 % \end{proof}
 
 \subsection{Convergence of the set of candidates}
-\myworries{Rewrite}
 By Proposition \ref{prop.extractexcursions}, we know that the intervals that encode the out-components that contain an ancestral surplus edge converge under rescaling. This convergence holds jointly with the convergence under rescaling of the first time step at which an ancestral surplus is found in each of these components. We will show that the positions of the other candidates in a component converge as well under rescaling. Recall the procedure to sample candidates that is described in Subsubsection \ref{lemma.samplecandidates}. 
 % \begin{lemma}\label{lemma.samplingprocedure}
-% Suppose we are exploring the component of $(\hat{\cF}_n(k),k\geq 1)$ that contains vertex $k$, and suppose $k$ is purple. Denote this component by $\cT$, with root $g$. Moreover, suppose the tails of all important surplus edges in $\cT$ that are discovered up to time $k$ are contained in $C_k\subset\{g+1,\dots,k-1\}$. Then, for $S$ a subset of the vertices of $\cT$, let $\cT(S)$ be the subtree of $\cT$ spanned by $S$. Then, $k$ is the tail of an important surplus edge only if the surplus edge corresponding to $k$ has its head in $\cT(C_k\cup\{g,k
+% Suppose we are exploring the component of $(\hat{F}_n(k),k\geq 1)$ that contains vertex $k$, and suppose $k$ is purple. Denote this component by $\cT$, with root $l$. Moreover, suppose the tails of all important surplus edges in $\cT$ that are discovered up to time $k$ are contained in $C_k\subset\{g+1,\dots,k-1\}$. Then, for $S$ a subset of the vertices of $\cT$, let $\cT(S)$ be the subtree of $\cT$ spanned by $S$. Then, $k$ is the tail of an important surplus edge only if the surplus edge corresponding to $k$ has its head in $\cT(C_k\cup\{g,k
 % \})$. 
 % \end{lemma}
 % \begin{proof}
@@ -173,83 +172,82 @@ By Proposition \ref{prop.extractexcursions}, we know that the intervals that enc
 % \end{proof}
 
 
-The following proposition shows convergence under rescaling of the set of tail of the candidates on a particular component of $(\hat{\cF}_n(k),k\geq 1)$. 
+The following proposition shows convergence under rescaling of the sequence of tails of the candidates on a particular component of $(\hat{F}_n(k),k\geq 1)$. 
 \begin{proposition}\label{prop.convergencestartingpointscandidates}
-Fix $T>0$. We work on a probability space where the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions} holds almost surely. Let $(G,\Sigma)\in \left\{(G_i,\Sigma_i):i\leq A_T\right\}$, such that, for each $n$ large enough, we can find a $(G_n,\Sigma_n)\in\left\{(G_i^n,\Sigma_i^n):i\leq A_n\left(\lfloor Tn^{2/3}\rfloor\right)\right\}$, such that $(G_n,\Sigma_n)\to (G,\Sigma)$. Set $C_1=\inf\{t\in [G,G+\Sigma]:A(t)=A(G)+1\}$, and similary, set $C_1^n=\min\{G_n<k\leq G_n+\Sigma_n:A_n(k)=A_n(G_n)+1\}$, which are well-defined by definition of $G$, $\Sigma$, $G_n$ and $\Sigma_n$.  Then, by construction, $\{G_n+1,\dots,G_n+\Sigma_n\}$ encodes a component of $(\hat{\cF}_n(k),k\geq 1)$. Call this component $\cT^{G_n}_n$. We apply the procedure defined in \ref{lemma.samplecandidates} to find the tail of candidates in $\cT^{G_n}_n$. Let $\mathbf{C}_n(G_n)$ denote the sequence of tails of candidates in $\cT^{G_n}_n$. Similarly, $[G,G+\Sigma]$ encodes a component of $(\hat{\cF}(t),t\geq 0)$. Call this component $\cT^G$, and apply procedure in Subsubsection \ref{subsubsec.samplecontinuousobject} to find the tails of candidates in $\cT^G$, and denote its sequence of tails of candidates by $\mathbf{C}(G)$. Then, jointly with the convergence in Proposition \ref{prop.extractexcursions}, 
-$$n^{-2/3}\mathbf{C}_n(G_n)\overset{d}{\to}\mathbf{C}(G)$$
+Fix $T>0$. We work on a probability space where the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions} holds almost surely. Let $(l,\sigma)\in \left\{(L_i,\Sigma_i):i\leq A_T\right\}$, such that, for each $n$ large enough, we can find a $(l_n,\sigma_n)\in\left\{(L_i^n,\Sigma_i^n):i\leq A_n\left(\lfloor Tn^{2/3}\rfloor\right)\right\}$, such that $(l_n,\sigma_n)\to (l,\sigma)$. Set $V_1=\inf\{t\in [l,l+\sigma]:A(t)=A(l)+1\}$, and similary, set $V_1^n=\min\{l_n<k\leq l_n+\sigma_n:A_n(k)=A_n(l_n)+1\}$, which are well-defined by definition of $l$, $\sigma$, $l_n$ and $\sigma_n$.  Then, by construction, $\{l_n+1,\dots,l_n+\sigma_n\}$ encodes a component of $(\hat{F}_n(k),k\geq 1)$. Call this component $T^n_{l_n}$. We apply the procedure defined in \ref{lemma.samplecandidates} to find the tail of candidates in $T^n_{l_n}$. Let $\mathbf{C}_n(l_n)$ denote the sequence of tails of candidates in $T^n_{l_n}$. Similarly, $[l,l+\sigma]$ encodes a component of $(\hat{\cF}(t),t\geq 0)$. Call this component $\cT_l$, and apply procedure in Subsubsection \ref{subsubsec.samplecontinuousobject} to find the tails of candidates in $\cT_l$, and denote its sequence of tails of candidates by $\mathbf{V}(l)$. Then, jointly with the convergence in Proposition \ref{prop.extractexcursions}, 
+$$n^{-2/3}\mathbf{V}_n(l_n)\overset{d}{\to}\mathbf{V}(l)$$
 in the $\ell_1$ topology.
 \end{proposition}
 \begin{proof}
-We will find a coupling such that $n^{-2/3}C_n(G_n)\overset{a.s.}{\to}C(G).$ By the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions}, $n^{-2/3}C_1^n\overset{a.s.}{\to}C_1$. In general, let $C_m^n$ denote the $m^{th}$ candidate that is found in $\cT^{G_n}_n$, and let $C_m$ denote the $m^{th}$ candidate that is found in $\cT^{G}$. Suppose that, for some $m$, we have found a coupling such that 
-$$n^{-2/3}(C_1^n,\dots,C_m^n)\overset{a.s.}{\to}(C_1,\dots,C_m).$$
-Then, $C_{m+1}^n$ is distributed as the position of the first jump of a counting process $N^n_{m+1}(k)$ on $[G+1,\infty)$ with compensator 
-$$N^n_{comp,m+1}(k)=\sum_{i=C_m^n+1}^k \frac{\ell_n\left(T^n_{i}\right)-m}{\hat{S}^-(i)}  \one{\left\{P_n(i)=P_n(i-1)+1\right\}}$$
-for $k\in [C_m^n+1,G_n+\Sigma_n]$ and $0$ otherwise, where $T^n_i$ is the subtree of $\cT^{G_n}_n$ spanned by $\{G_n+1,C^n_1,\dots,C^n_m,i\}$. 
-Moreover, $C_{m+1}$ is the first jump in a counting process $N_{m+1}(t)$ on $[G,\infty)$ with compensator 
-$$N_{comp,m+1}(t)= \frac{\sigma_{-+}+\nu_-}{\mu^2}|T_t|$$
-for $t\in [C_m,G+\Sigma]$ and $0$ otherwise, where $T_t$ is the subtree of $\cT^{G}$ spanned by $\{G,C_1,\dots,C_m, t\}$, and $|T_t|$ is its length as encoded by $\left(\frac{2}{\sigma_+}\hat{R}_t,t\geq 0\right)$. Then, by the convergence under rescaling of $(\hat{H}^\ell_n(k),k\geq 1)$ and Proposition \ref{prop.extractexcursions}, we get that the metric structure of $\cT^{G_n}_n$ with distances defined by $(\hat{H}^\ell_n(k),k\geq 1)$, and its projection onto $[n^{-2/3}(G_n+1),n^{-2/3}(G_n+\Sigma_n)]$, converge under rescaling to the metric structure of $\cT^{G}$ with distances defined by $$\left(\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu}\hat{R}_t,t\geq 0\right)$$ and its projection onto $[G,\Sigma]$. This implies that 
-$$\left(n^{-1/3}\ell_n\left(T^n_{\lfloor t n^{2/3}\rfloor}\right),C_m\leq t \leq G+\Sigma\right)\overset{a.s.}{\to} \left(\frac{\sigma_{-+}+\nu_-}{\mu^2}|T_t|, C_m\leq t \leq G+\Sigma\right)$$ in $\D([C_m,G+\Sigma],\R)$ as $n\to \infty$. Then, a similar argument as used in the proof of Proposition \ref{prop.convergenceancestraledges} implies that 
-$$\left(N^n_{comp,m+1}\left(\lfloor t n^{2/3}\rfloor \right),C_m\leq t \leq G+\Sigma\right)\overset{a.s.}{\to}\left(N_{comp,m+1}(t),C_m\leq t \leq G+\Sigma\right),$$
-$\D(\R_+,\R)$ as $n\to\infty$, which implies that 
-$$(N^n_{m+1}(\lfloor t n^{2/3} \rfloor ),t\geq 0)\overset{d}{\to} (N_{m+1}(t),t\geq 0)$$ in $\D(\R_+,\R)$ as $n\to\infty$, and in particular, we can find a coupling such that $N_m(\infty)>0$ if and only only if $N^n_m(\infty)>0$ for all $n$ large enough, and such that on this event,
-$$n^{-2/3}C_{m+1}^n\overset{a.s.}{\to}C_{m+1}.$$
-If $N_m(\infty)=0$, set $\mathbf{C}(G)=(C_1,\dots,C_m)$, $\mathbf{C}_n(G_n)=(C^n_1,\dots,C^n_m)$, and the statement follows. If $N_m(\infty)>0$, apply the induction step to $(C_1,\dots,C_{m+1})$ and $(C^n_1,\dots,C^n_{m+1})$. The fact that $|\mathbf{C}(G)|<\infty$ almost surely, as shown in Subsubsection \ref{subsubsec.samplecontinuousobject}, implies that the induction terminates.
+We will find a coupling such that $n^{-2/3}\mathbf{V}_n(l_n)\overset{a.s.}{\to}\mathbf{V}(l).$ By the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions}, $n^{-2/3}V_1^n\overset{a.s.}{\to}V_1$. In general, let $V_m^n$ denote the $m^{th}$ candidate that is found in $T^n_{l_n}$, and let $V_m$ denote the $m^{th}$ candidate that is found in $\cT_l$. Suppose that, for some $m$, we have found a coupling such that 
+\begin{equation}\label{eq.convergencemcandidates}n^{-2/3}(V_1^n,\dots,V_m^n)\overset{a.s.}{\to}(V_1,\dots,V_m).\end{equation}
+Then, $V_{m+1}^n$ is distributed as the position of the first jump of a counting process $K^n_{m+1}(k)$ on $[0,\infty)$ with compensator 
+$$K^n_{comp,m+1}(k)=\sum_{i=V_m^n+1}^k \frac{\ell\left(T^{n,\text{mk}}_{i}\right)-m}{\hat{S}^-(i)}  \one{\left\{P_n(i)=P_n(i-1)+1\right\}}$$
+for $k\in [V_m^n+1,l_n+\sigma_n]$ and $0$ otherwise, where $T^{n,\text{mk}}_{i}$ is the subtree of $T^n_{l_n}$ spanned by $\{l_n+1,V^n_1,\dots,V^n_m,i\}$. 
+Moreover, $V_{m+1}$ is the first jump in a counting process $K_{m+1}(t)$ on $[0,\infty)$ with compensator 
+$$K_{comp,m+1}(t)= \int_{V_m}^t\frac{\sigma_{-+}+\nu_-}{\mu^2}|T_s|ds$$
+for $t\in [V_m,L+\Sigma]$ and $0$ otherwise, where $T_s$ is the subtree of $\cT_l$ spanned by $\{l,V_1,\dots,V_m, s\}$, and $|T_s|$ is its length as encoded by $\left(\frac{2}{\sigma_+}\hat{R}_t,t\geq 0\right)$. By the convergence under rescaling of $(\hat{H}^\ell(k),k\geq 1)$ in Lemma \ref{lemma.heightprocesswithlengths}, and by Proposition \ref{prop.extractexcursions}, we get that the metric structure of $T^n_{l_n}$ with distances defined by $(\hat{H}^\ell(k),k\geq 1)$, and its projection onto $[n^{-2/3}(l_n+1),n^{-2/3}(l_n+\sigma_n)]$, converge under rescaling to the metric structure of $\cT_l$ with distances defined by $$\left(\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu}\hat{R}_t,t\geq 0\right)$$ and its projection onto $[l,\sigma]$. This, combined with \eqref{eq.convergencemcandidates} implies that 
+$$\left(n^{-1/3}\ell\left(T^{n,\text{mk}}_{\lfloor t n^{2/3}\rfloor}\right),V_m\leq t \leq l+\sigma\right)\overset{a.s.}{\to} \left(\frac{\sigma_{-+}+\nu_-}{\mu^2}|T^{\text{mk}}_t|, V_m\leq t \leq l+\sigma\right)$$ in $\D([V_m,l+\sigma],\R_+)$ as $n\to \infty$. Then, a similar argument as used in the proof of Proposition \ref{prop.convergenceancestraledges} implies that 
+$$\left(K^n_{comp,m+1}\left(\lfloor t n^{2/3}\rfloor \right),V_m\leq t \leq l+\sigma\right)\overset{a.s.}{\to}\left(K_{comp,m+1}(t),V_m\leq t \leq l+\sigma\right),$$
+$\D(\R_+,\R_+)$ as $n\to\infty$, which implies that 
+$$(K^n_{m+1}(\lfloor t n^{2/3} \rfloor ),t\geq 0)\overset{d}{\to} (K_{m+1}(t),t\geq 0)$$ in $\D(\R_+,\R_+)$ as $n\to\infty$, and in particular, we can find a coupling such that $K_m(\infty)>0$ if and only only if $K^n_m(\infty)>0$ for all $n$ large enough, and such that on this event,
+$$n^{-2/3}V_{m+1}^n\overset{a.s.}{\to}V_{m+1}.$$
+If $K_m(\infty)=0$, set $\mathbf{V}(l)=(V_1,\dots,V_m)$, $\mathbf{V}_n(l_n)=(V^n_1,\dots,V^n_m)$, and the statement follows. If $K_m(\infty)>0$, apply the induction step to $(V_1,\dots,V_{m+1})$ and $(V^n_1,\dots,V^n_{m+1})$. The fact that $|\mathbf{V}(l)|<\infty$ almost surely, as shown in Subsubsection \ref{subsubsec.samplecontinuousobject}, implies that the induction terminates.
 \end{proof}
 
 The following proposition shows that the law of the heads of the candidates converges as well under rescaling, and that the convergence holds in the pointed Gromov-Hausdorff topology. 
 \begin{proposition}\label{prop.convergenceheadscandidates}
-Suppose the convergence in Propositions \ref{prop.convergenceancestraledges}, \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates} holds almost surely. Then, for $\mathbf{C}_n(G_n)=(C^n_1,\dots, C^n_{M_n})$, $\mathbf{C}(G)=(C_1,\dots, C_{M})$, let $D^n_i$ be the index of the vertex that the surplus edge corresponding to $C^n_i$ connects to. Similarly, let $D_i$ be the index of the vertex that the surplus edge corresponding to $C_i$ connects to. Then, 
-\begin{align*}&\left(n^{-1/3}\cT_n^{G_n}, n^{-2/3}(G_n+1), \left(n^{-2/3}C^n_1,n^{-2/3}D^n_1\right) \dots, \left(n^{-2/3}C^n_{M_n}, n^{-2/3}D^n_{M_n}\right)\right)\\
-&\overset{d}{\to}\left(\cT^{G}, G, (C_1,D_1),\dots, (C_{M},D_{M})\right)\end{align*}
+Suppose the convergence in Propositions \ref{prop.convergenceancestraledges}, \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates} holds almost surely. Then, for $\mathbf{V}_n(l_n)=(V^n_1,\dots, V^n_{N_n})$, $\mathbf{V}(l)=(V_1,\dots, V_{N})$, let $W^n_i$ be the index of the vertex that the surplus edge corresponding to $V^n_i$ connects to. Similarly, let $W_i$ be the index of the vertex that the surplus edge corresponding to $V_i$ connects to. Then, 
+\begin{align*}&\left(n^{-1/3}T^n_{l_n}, n^{-2/3}(l_n+1), \left(n^{-2/3}V^n_1,n^{-2/3}W^n_1\right) \dots, \left(n^{-2/3}V^n_{N_n}, n^{-2/3}W^n_{N_n}\right)\right)\\
+&\overset{d}{\to}\left(\cT_l, l, (V_1,W_1),\dots, (V_{N},W_{N})\right)\end{align*}
 in the $2M+1$-pointed Gromov-Hausdorff topology. 
 \end{proposition}
 \begin{proof}
-By definition, for $m\leq M_n$, $D^n_m$ is the vertex corresponding to a uniform unpaired in-half-edge of the vertices of $\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}\}\right)$. By 
+For $S$ a subset of the vertices of $T^n_{l_n}$, let $T^n_{l_n}(S)$ denote the subtree of $T^n_{l_n}$ spanned by $S$. By definition, for $m\leq N_n$, $W^n_m$ is the vertex corresponding to a uniform unpaired in-half-edge of the vertices in $T^n_{l_n}\left(\{l_n+1,V^n_1,\dots,V^n_{m}\}\right)$. By 
 $$\left(\frac{\hat{H}_n^\ell\left(\lfloor t n^{2/3}\rfloor \right)}{\hat{H}_n\left(\lfloor t n^{2/3}\rfloor \right)},t\geq 0\right)\overset{a.s.}{\to} \left(\frac{\sigma_{-+}+\nu_-}{2\mu},t\geq 0\right)$$
-the law of $D^n_m$ is asymptotically equal to the index of a uniform vertex on $$\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}\}\right).$$
+the law of $W^n_m$ converges to the law of a uniform vertex in $T^n_{l_n}\left(\{l_n+1,V^n_1,\dots,V^n_{m}\}\right)$. 
 Note that, by Theorem \ref{thm.convoutforest} and  Propositions \ref{prop.extractexcursions}, \ref{prop.convergencestartingpointscandidates}, we know that
-$$\left(n^{-1/3}\cT^{G_n}_n,n^{-2/3}G_n+1,n^{-2/3}C^n_1,\dots,n^{-2/3}C^n_{m}\right)\overset{a.s.}{\to}\left(\cT^G, G,C_1,\dots,C_m\right)$$
-in the $m+1$-pointed Gromov-Hausdorff topology. Since the relation $$\left|\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}\}\right)\right|=\left|\cT^{G_n}_n\left(\{G_n+1,C^n_1,\dots,C^n_{m}, D^n_{m}\}\right)\right|$$ passes to the limit, with $|\cdot|$ denoting the length in the tree as encoded by $(\hat{H}_n(k),k\geq 1)$, the limit in distribution of $n^{-2/3}D^n_m$ is a uniform point on $$\cT^G\left(G,C_1,\dots,C_m\right),$$
-which proves the statement.
+$$\left(n^{-1/3}T^n_{l_n},n^{-2/3}l_n+1,n^{-2/3}V^n_1,\dots,n^{-2/3}V^n_{m}\right)\overset{a.s.}{\to}\left(\cT_l, l,V_1,\dots,V_m\right)$$
+in the $m+1$-pointed Gromov-Hausdorff topology. Since the relation $$\left|T^n_{l_n}\left(\{l_n+1,V^n_1,\dots,V^n_{m}\}\right)\right|=\left|T^n_{l_n}\left(\{l_n+1,V^n_1,\dots,V^n_{m}, W^n_{m}\}\right)\right|$$ passes to the limit, with $|\cdot|$ denoting the length in the tree as encoded by $(\hat{H}_n(k),k\geq 1)$, the limit in distribution of $n^{-2/3}W^n_m$ is a uniform point on the subtree of $\cT_l$ spanned by $\left(l,V_1,\dots,V_m\right)$, which is equal to the law of $W_m$, which proves the statement.
 
 \end{proof}
 The proof of Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} implies the following corollary.
 \begin{corollary}
-We can work on a probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely. Let $T^{n,\text{mk}}_{G_n}$ be the subtree of $\cT^{G_n}_n$ spanned by $\{G_n+1,C^n_1,\dots,C^n_{M_n}\}$, and similarly, let $T^{\text{mk}}_G$ be the subtree of $\cT^{G}$ spanned by $\{G,C_1,\dots,C_M\}$. Then, also 
-\begin{align*}&\left(n^{-1/3}T^{n,\text{mk}}_{G_n}, n^{-2/3}(G_n+1), \left(n^{-2/3}C^n_1,n^{-2/3}D^n_1\right) \dots, \left(n^{-2/3}C^n_{M_n}, n^{-2/3}D^n_{M_n}\right)\right)\\
-&\to \left(T^{\text{mk}}_G, G, (C_1,D_1),\dots, (C_{M},D_{M})\right)\end{align*}
+We can work on a probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely. Let $T^{n,\text{mk}}(l_n)$ be the subtree of $T^n_{l_n}$ spanned by $\{l_n+1,V^n_1,\dots,V^n_{N_n}\}$, and similarly, let $T^{\text{mk}}(l)$ be the subtree of $\cT_l$ spanned by $\{l,V_1,\dots,V_N\}$. Then, also 
+\begin{align*}&\left(n^{-1/3}T^{n,\text{mk}}(l_n), n^{-2/3}(l_n+1), \left(n^{-2/3}V^n_1,n^{-2/3}W^n_1\right) \dots, \left(n^{-2/3}V^n_{N_n}, n^{-2/3}W^n_{N_n}\right)\right)\\
+&\to \left(T^{\text{mk}}(l), l, (V_1,W_1),\dots, (V_{N},W_{N})\right)\end{align*}
 almost surely in the $2M+1$-pointed Gromov-Hausdorff topology as $n\to \infty$. Also the total length in the trees converges, i.e.
-$$n^{-1/3}\left|T^{n,\text{mk}}_{G_n}\right|\to \left| T^{\text{mk}}_G\right|$$
+$$n^{-1/3}\left|T^{n,\text{mk}}(l_n)\right|\to \left| T^{\text{mk}}(l)\right|$$
 almost surely as $n\to\infty$.
 \end{corollary}
-We now identify the vertices that are part of a candidate as described in Subsubsection \ref{subsubsec.samplecandidates}. In $T^{n,\text{mk}}_{G_n}$, set $C_i^n\sim D_i^n$ for each $1\leq i\leq M_n$, and set $\cM^n_{G_n}:=T^{n,\text{mk}}_{G_n}/\sim$. Moreover, in $T^{\text{mk}}_{G}$, set $C_i\sim D_i$ for each $1\leq i\leq M$, and set $\cM_{G}:=T^{\text{mk}}_{G}/\sim$. View both as elements of $\vec{\cG}$ in the natural way. To be precise, in  $\cM^n_{G_n}$, let the vertex set consist of $G_n+1$, $D_i^n$ for $i\leq M_n$, and the branch points $C_i^n\wedge C_j^n$ for $i\neq j\leq M_n$. Similarly, in $\cM_{G}$, let the vertex set consist of $G$, $D_i$ for $i\leq M$, and the branch points $C_i\wedge C_j$ for $i\neq j\leq M$. Then, the following proposition follows.
+We now identify the vertices that are part of a candidate as described in Subsubsection \ref{subsubsec.samplecandidates}. In $T^{n,\text{mk}}(l_n)$, set $V_i^n\sim W_i^n$ for each $1\leq i\leq N_n$, and set $M^n_{l_n}:=T^{n,\text{mk}}(l_n)/\sim$. Moreover, in $T^{\text{mk}}(l)$, set $V_i\sim W_i$ for each $1\leq i\leq N$, and set $\cM_l:=T^{\text{mk}}(l)/\sim$. View both as elements of $\vec{\cG}$ in the natural way. To be precise, in  $M^n_{l_n}$, let the vertex set consist of $l_n+1$, $W_i^n$ for $i\leq N_n$, and the branch points $V_i^n\wedge V_j^n$ for $i\neq j\leq N_n$. Similarly, in $\cM_l$, let the vertex set consist of $l$, $W_i$ for $i\leq N$, and the branch points $V_i\wedge V_j$ for $i\neq j\leq N$. Then, the following proposition follows.
 \begin{proposition}
 On the probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely, 
-$n^{-1/3}\cM^n_{G_n}\overset{a.s.}{\to} \cM_{G}$
+$n^{-1/3}M^n_{l_n}\overset{a.s.}{\to} \cM_l$
 in $\vec{\cG}$.
 \end{proposition}
 \begin{proof}
 The proof is analogous to the proof of Proposition 5.6 in \cite{Goldschmidt2019}.
 \end{proof}
 \begin{corollary}\label{cor.sccsinonetreeconverge}
-On the probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely, the strongly connected components in $n^{-1/3}\cM^n_{G_n}$, listed in decreasing order of length, converge to the strongly connected components in $\cM_{G}$, listed in decreasing order of length, in $\vec{\cG}$ almost surely as $n\to \infty$.
+On the probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely, the strongly connected components in $n^{-1/3}M^n_{l_n}$, listed in decreasing order of length, converge to the strongly connected components in $\cM_l$, listed in decreasing order of length, in $\vec{\cG}$ almost surely as $n\to \infty$.
 \end{corollary}
 \begin{proof}
-This follows from Proposition 5.3 in \cite{Goldschmidt2019}. This proposition requires that the lengths of the strongly connected components in $\cM_{G}$ have different lengths almost surely, but this follows from the proof of Proposition 4.6 in \cite{Goldschmidt2019}, noting that our limit object is in the same universality class as theirs.
+This follows from Proposition 5.3 in \cite{Goldschmidt2019}. This proposition requires that the lengths of the strongly connected components in $\cM_{l}$ have different lengths almost surely, which is the content of Corollary \ref{cor.allengthsaredifferent}. 
 \end{proof}
 
 \begin{corollary}\label{cor.sccordereduptotimeT}
-Let $T>0$, and let $(C^T_i(n),i\geq 1)$ be the strongly connected components in \myworries{name for directed graph} with a candidate with head at most $\lfloor T n^{2/3}\rfloor$ ordered by length. Similarly, let $(\cC^T_i,i\geq 1)$ be the strongly connected components in \myworries{name for directed graph} with a candidate with head at most $T$ ordered by length. Then,
+Let $T>0$, and let $(C^T_i(n),i\geq 1)$ be the strongly connected components in $(G_n(k),k\geq 1)$ with a candidate with label at most $\lfloor T n^{2/3}\rfloor$ ordered by length. Similarly, let $(\cC^T_i,i\geq 1)$ be the strongly connected components in $\vec{G}(n,(D^-,D^+))$ with a candidate with label at most $T$ ordered by length. Then,
 $$\left(n^{-1/3}C^T_i(n), i\geq 1\right) \overset{d}{\to} (\cC^T_i,i\geq 1)$$
 in the $\vec{\cG}$ product topology as $n\to \infty$. 
 \end{corollary}
 \begin{proof}
-This follows from Proposition \ref{prop.extractexcursions}, Corollary \ref{cor.sccsinonetreeconverge}, and the fact that all SCCs in the limit object have a different length by the proof of Proposition 4.6 in \cite{Goldschmidt2019}. 
+This follows from Proposition \ref{prop.extractexcursions}, Corollary \ref{cor.sccsinonetreeconverge}, and the fact that all SCCs in the limit object have a different length by Corollary \ref{cor.allengthsaredifferent}. 
 \end{proof}
 
-Finally, we claim that we can choose $T$ large enough such that all SCC with large length are explored before time $T$. This is the content of the following lemma. The proof is in the same spirit as Lemma 9 in \cite{Aldous1991} by Aldous. 
+Finally, we claim that we can choose $T$ large enough such that all SCCs with large size are explored before time $T$. This is the content of the following lemma. The proof is in the same spirit as Lemma 9 in \cite{Aldous1991} by Aldous. 
 \begin{lemma}\label{lemma.largesccfoundfirst}
-For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of SCCs whose vertices have at total of at least $\delta n^{1/3}$ in-edges and whose time of first discovery is in $n^{2/3}I$. Then,
+For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of SCCs whose vertices have at total of at least $\delta n^{1/3}$ in-edges (including those which are not part of the SCC) and whose time of first discovery is in $n^{2/3}I$. Then,
 $$\lim_{s\to \infty}\limsup_{n} \P\left(SCC(n,(s,\infty),\delta)\geq 1\right)=0\text{ for all }\delta>0.$$
 \end{lemma}
 \begin{proof}
@@ -266,8 +264,7 @@ $$\P\left(SCC\left(n,(s,2s),\delta\right)=0\right)>1-\epsilon.$$
 We conclude that 
 $$\P(SCC\left(n,(s,\infty),\delta\right)\geq 1)\leq 2\epsilon.$$
 \end{proof}
-
-Then, Theorem \myworries{main result} follows from Corollary \ref{cor.sccordereduptotimeT} and Lemma \ref{lemma.largesccfoundfirst}. 
+Note that the size of a SCC is bounded from below by the total number of in-edges of vertices in the SCC. Then, Theorem \ref{thm.main} follows from Corollary \ref{cor.sccordereduptotimeT} and Lemma \ref{lemma.largesccfoundfirst}. 
 
 % As discussed in Subsection \ref{subsec.categoriessurplusedged}, ancestral surplus edges are important building blocks of non-trivial strongly connected components, but also descendental and additional surplus edges can be included in a strongly connected component. However, this can only occur if there is also an ancestral surplus edge present in the same strongly connected components. Corollary \ref{cor.convergencesequenceofcomponents} implies that the encoding processes of these components converge as a sequence ordered by component size (note that we include the purple vertices in the size). We will now define the process of finding the important additional and descendental surplus edges on such a component, given its encoding processes.\\
 % We will identify purple vertices are possibly part of a strongly connected component. We call these surplus edges \emph{candidates} and we define them in such a way that the important non-ancestral surplus edges are contained in the set of candidates. We will use Lemma \ref{lemma.whatispartofscc}.\ref{item.factsonsccs4} to define our candidates. The lemma states that non-ancestral surplus edges are only important if their head is on the path from the root of the out-component to the tail of an important surplus edge. This is not a sufficient condition, but by only declaring a surplus edge a candidate if it is on the path from the root of the out-component to the tail of another candidate, we will with high probability have a finite number of candidates per component, after which we can easily distinguish between candidates and important surplus edges.\\
