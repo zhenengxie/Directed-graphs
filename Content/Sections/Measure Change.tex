@@ -1,0 +1,25 @@
+\begin{lemma}
+    \label{lem:measure-change}
+    For all $m \leq n$ there exists a function $\phi^n_m: (\N \times \N)^m \to \R$ such that for all bounded measurable functions $u: (\N \times \N) \to \R$,
+    \begin{equation*}
+        \E\left[ 
+            u\left( 
+                \hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}
+             \right) 
+             \,\middle\vert\,
+             m \leq R_n, \Delta_n = 0
+         \right]
+        =
+        \E\left[ 
+            u\left( 
+                \vZ_1, \ldots, \vZ_m
+             \right)
+             \phi^n_m(\vZ_1, \ldots, \vZ_m)
+         \right].
+    \end{equation*}
+    Let us define
+    \begin{equation*}
+        \Phi(n, m) = \phi^n_m(\vZ_1, \ldots, \vZ_m).
+    \end{equation*}
+    Then for all $T > 0$, \myworries{phrase the convergence in a good way}.
+\end{lemma}
