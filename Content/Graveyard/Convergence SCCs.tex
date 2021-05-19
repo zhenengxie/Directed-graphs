@@ -7,7 +7,7 @@ In this section, we will use the convergence of the out-forest that we obtained 
     \item In Subsection XXX, we show that the number of components in $\hat{\cF}_n\left(\lfloor n^{2/3}T\rfloor \right)$ that contain an ancestral surplus edge is tight. From then on, we only consider these components, and show that the positions of the other important surplus edges in these components converge under rescaling as well. 
     \item In Subsection XXX, we define the vertex identifications and the cutting procedure that we use to extract the non-trivial strongly connected components from the components of $\hat{\cF}_n\left(\lfloor n^{2/3}T\rfloor \right)$ and the positions of the important surplus edges. We show that this cutting procedure converges.
     \item In Subsection XXX, we show that for a given $\delta>0$, the strongly connected components with length at least $\delta$ are contained in $\hat{\cF}_n\left(\lfloor n^{2/3}T\rfloor \right)$ for $T$ large enough with high probability. This implies that convergence under rescaling of the strongly connected components contained in $\hat{\cF}_n\left(m_n \right)$ for any $m_n=O(n^{2/3})$ is sufficient to obtain convergence of the strongly connected components ordered by length in the $d_G$-product topology. 
-    \item In Subsection XXX, we adapt an argument by Joseph \cite{Joseph2014} that implies that conditioning on simplicity of multigraph given by the configuration model does not effect the algorithm up to time $O(n^{2/3})$ with high probability. This concludes the proof of Theorem MAIN RESULT. 
+    \item In Subsection XXX, we adapt an argument by Joseph \cite{josephComponentSizesCritical2014} that implies that conditioning on simplicity of multigraph given by the configuration model does not effect the algorithm up to time $O(n^{2/3})$ with high probability. This concludes the proof of Theorem MAIN RESULT. 
 \end{itemize}
 
 \subsection{Categories of surplus edges}\label{subsec.categoriessurplusedged}
@@ -70,7 +70,7 @@ $$\left(n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P
 in $\D(\R_+,\R)^2$ as $n\to \infty$.
 \end{lemma}
 \begin{proof}
-We use Theorem 1 in \cite{Deraphelis2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We equip $(\cF^{pr}(k),k\geq 1)$, as defined in Subsubsection \ref{subsubsec.convheightprocess} with edge lengths, and apply the result. For a vertex in $(\cF^{pr}(k),k\geq 1)$ with degree $(d^+,d^-)$, let the edges connecting it to its children have length $d^--1$. Call the resulting forest with edge lengths $(\cF^{pr,\ell}(k),k\geq 1)$, and let $(H^{pr,\ell}(k),k\geq 1)$ be the corresponding height process. \myworries{Horrible notation. We don't use it elsewhere, so maybe it's okay to leave it like this} \myworries{Be more clear about what the 'in-degree' of a vertex in this forest is. The 'in-degree' of black and blue vertice is encoded by $S^-(k)$, and I need to define it for red vertices.} We will translate the conditions of Theorem 1 in \cite{Deraphelis2017} to our setting and check them. The conditions are as follows.
+We use Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We equip $(\cF^{pr}(k),k\geq 1)$, as defined in Subsubsection \ref{subsubsec.convheightprocess} with edge lengths, and apply the result. For a vertex in $(\cF^{pr}(k),k\geq 1)$ with degree $(d^+,d^-)$, let the edges connecting it to its children have length $d^--1$. Call the resulting forest with edge lengths $(\cF^{pr,\ell}(k),k\geq 1)$, and let $(H^{pr,\ell}(k),k\geq 1)$ be the corresponding height process. \myworries{Horrible notation. We don't use it elsewhere, so maybe it's okay to leave it like this} \myworries{Be more clear about what the 'in-degree' of a vertex in this forest is. The 'in-degree' of black and blue vertice is encoded by $S^-(k)$, and I need to define it for red vertices.} We will translate the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to our setting and check them. The conditions are as follows.
 \begin{enumerate}
     \item $\E[D^+(Z^-)]=1$
     \item $1<\E[(D^+(Z^-))^2]<\infty$
@@ -83,7 +83,7 @@ Under these conditions, using the notation from Subsubsection \ref{subsubsec.con
 \end{split}\end{align}
 in $D(\R_+,\R)^3$ as $n\to \infty$. 
 Then, we observe that the rest of the argument in Subsubsection \ref{subsubsec.convheightprocess} and Subsection \ref{subsubsec.convaftermeasurechange} can be extended to include the height process with edge lengths. This yields the result.\\
-Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{Deraphelis2017} to hold. The conditions are equivalent to 
+Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to hold. The conditions are equivalent to 
 \begin{enumerate}
     \item $\E[D^+D^-]=\E[D^-]$
     \item $1<\frac{\E[(D^+)^2D^-]}{\E[D^-]}<\infty$
@@ -108,7 +108,7 @@ $$h_n\circ f_n \to h\circ f$$
 in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{lemma}
 \begin{proof}
-Using the characterization of convergence in the Skorokhod topology given in Proposition 3.6.5 in \cite{Ethier1986} by Ethier and Kurtz, the result follows immediately.
+Using the characterization of convergence in the Skorokhod topology given in Proposition 3.6.5 in \cite{ethierMarkovProcessesCharacterization1986} by Ethier and Kurtz, the result follows immediately.
 \end{proof}
 We also make use of the following lemma, that we will prove after the proof of Theorem \ref{thm.convergenceancestraledges}. 
 \begin{lemma}\label{lemma.usedancestralonpathtoroot}
@@ -123,7 +123,7 @@ We note that $(N_n(k),k\geq 1)$ is a counting process with compensator
     N_n^{comp}(k)&=\sum_{i=1}^k \one_{\{\hat{P}_n(i)-\hat{P}_n(i-1)=1\}}\frac{\hat{H}^\ell_n(i)+1-E_n(i)}{\hat{S}^-_n(i)}\\
     &=\sum_{j=1}^{\hat{P}_n(k)}\frac{\hat{H}^\ell_n(\min\{l:\hat{P}_n(l)\geq k\})-E(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},
 \end{align*}
-where $(E_n(k),k\geq 1)$ denotes the number of in-edges on the path to the root from the vertex visited at time $k$ that are part of a surplus edge at time $k$. Indeed, if vertex $i$ is purple, it will be paired with a uniform in-edge that is already seen, but unpaired, of which we have $\hat{S}^-_n(i)$ in total, and $\hat{H}^\ell_n(i)+1-E_n(i)$ of those form an ancestral surplus edge. By Theorem 14.2.VIII of Daley and Vere-Jones \cite{DaleyVereJones}, the claimed convergence under rescaling of $(N_n(k),k\geq 1)$ follows if we show that 
+where $(E_n(k),k\geq 1)$ denotes the number of in-edges on the path to the root from the vertex visited at time $k$ that are part of a surplus edge at time $k$. Indeed, if vertex $i$ is purple, it will be paired with a uniform in-edge that is already seen, but unpaired, of which we have $\hat{S}^-_n(i)$ in total, and $\hat{H}^\ell_n(i)+1-E_n(i)$ of those form an ancestral surplus edge. By Theorem 14.2.VIII of Daley and Vere-Jones \cite{daleyIntroductionTheoryPoint2008}, the claimed convergence under rescaling of $(N_n(k),k\geq 1)$ follows if we show that 
 \begin{equation}\label{eq.convergencecompensator}
     \left(N_n^{comp}\left(\lfloor tn^{2/3}\rfloor \right), t\geq 0\right)\overset{d}{\to}\left(\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu^2} \int_0^t\hat{R}_v dv, t \geq 0\right)
 \end{equation}
@@ -262,7 +262,7 @@ Set $C(\cT)=C_{|\cT|}$.
 
 
 \subsection{For large $T$, we see all SCCs with large length before time $Tn^{2/3}$ with high probability}
-We claim that exploring the out-components up to time $O(n^{2/3})$ is sufficient to see all large components. This is the content of the following theorem. The proof is in the same spirit as Lemma 9 in \cite{Aldous1991} by Aldous. 
+We claim that exploring the out-components up to time $O(n^{2/3})$ is sufficient to see all large components. This is the content of the following theorem. The proof is in the same spirit as Lemma 9 in \cite{aldous_1991} by Aldous. 
 \begin{lemma}
 For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of SCCs whose vertices have at total of at least $\delta n^{1/3}$ in-edges and whose time of first discovery is in $n^{2/3}I$. Then,
 $$\lim_{s\to \infty}\limsup_{n} \P\left(SCC(n,(s,\infty),\delta)\geq 1\right)=0\text{ for all }\delta>0.$$

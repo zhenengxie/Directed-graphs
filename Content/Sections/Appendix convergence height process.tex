@@ -34,14 +34,14 @@ $$f_n\circ h_n \to f\circ h$$
 in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{lemma}
 \begin{proof}
-Using the characterization of convergence in the Skorokhod topology given in Proposition 3.6.5 in \cite{Ethier1986} by Ethier and Kurtz, the result follows immediately.
+Using the characterization of convergence in the Skorokhod topology given in Proposition 3.6.5 in \cite{ethierMarkovProcessesCharacterization1986} by Ethier and Kurtz, the result follows immediately.
 \end{proof}
 
 
 \begin{proof}[Proof of Lemma \ref{lemma.convergenceX+}]
-Firstly, note that by $(Y^{pr}(k),k\geq 1)$ encoding a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \cite{Legall2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
+Firstly, note that by $(Y^{pr}(k),k\geq 1)$ encoding a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \cite{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
 \begin{equation}\label{eq.convergenceX}\left(n^{-1/3}Y^{pr}\left(\lfloor n^{2/3}s\rfloor \right), n^{-1/3}H^{pr}\left(\lfloor n^{2/3}s\rfloor \right), s\geq 0 \right) \overset{d}{\to} \left(\sigma_+ B^*_s,\frac{2}{\sigma_+} \left(B^*_s-\inf\{B^*_u:u\leq s\}\right),  s\geq 0\right) \end{equation}
- in $D(\R_+,\R)^2$ as $n\to \infty$, and $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Moreover, \cite{Chaumont2010} and the fact that $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{red}(k),k\geq 1)\overset{d}{=}(Y^{pr}(k),k\geq 1)$ imply that
+ in $D(\R_+,\R)^2$ as $n\to \infty$, and $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Moreover, \cite{chaumontInvariancePrinciplesLocal2010} and the fact that $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{red}(k),k\geq 1)\overset{d}{=}(Y^{pr}(k),k\geq 1)$ imply that
 \begin{align}\begin{split}\label{eq.convergencebychaumont}&\left(n^{-1/3}Y^{red}\left(\lfloor n^{2/3} s \rfloor \right), n^{-2/3}\inf\left\{k:n^{-1/3}Y^{red}(k) \leq -x\right\}, s \geq 0, x\geq 0 \right)\\
 &\overset{d}{\to}\left( \sigma_+ B^{red}_s, \inf\left\{u:\sigma_+ B^{red}_u < -x\right\}, s\geq 0, x \geq 0\right)\end{split}\end{align}
 in $D(\R_+,\R)^2$ and 
@@ -85,7 +85,7 @@ The following lemma is the last ingredient in the proof of Proposition \ref{prop
 We have that with probability $1$, $$\left(\frac{2}{\sigma_+} \left(B^{pr}_{\theta (t)}-\inf\{B^{pr}_{s}:s\leq \theta(t)\}\right), t\leq T \right)=\left(\frac{2}{\sigma_+} \left(B^{pr}_{\theta (t)}-\inf\{B^{pr}_{\theta(s)}:s\leq t\}\right), t\leq T \right),$$ which is continuous, and it is the height process corresponding to $\left(\sigma_+ B^{pr}_{\theta (t)},t\leq T\right)$. 
 \end{lemma}
 \begin{proof}
-From \cite{Legall2005}, we know that $\left(\frac{2}{\sigma_+}R^{pr}_t,t\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^{pr}_{t},t\geq 0\right)$. By definition of the height process, we prove the statement if we show that with probability $1$, $(B^{pr}_{\theta(t)},t\geq 0)$ is continuous, and for all $t\geq 0$, for all $s$ such that $\theta(t-)<s<\theta(t)$, $ B^{pr}_s > B^{pr}_{\theta(t)}$. \\
+From \cite{legallRandomTreesApplications2005}, we know that $\left(\frac{2}{\sigma_+}R^{pr}_t,t\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^{pr}_{t},t\geq 0\right)$. By definition of the height process, we prove the statement if we show that with probability $1$, $(B^{pr}_{\theta(t)},t\geq 0)$ is continuous, and for all $t\geq 0$, for all $s$ such that $\theta(t-)<s<\theta(t)$, $ B^{pr}_s > B^{pr}_{\theta(t)}$. \\
 Recall that $(B_t, t \geq 0)$ and $(B^{red}_t, t\geq 0)$ are two independent Brownian motions, $$\theta(t)=t+\inf\left\{s\geq 0 : \sigma_+ B^{red}_s< -\frac{\nu_-}{2\mu} t^2\right\},$$ and $\Lambda(t)=\inf\{s\geq 0:\theta(s)> t\}$. Then, \begin{equation*}\left(B^{pr}_t,t \geq 0\right):=\left( B_{\Lambda(t)}+ B^{red}_{t-\Lambda(t)}, t\geq 0\right).\end{equation*}
 Firstly, note that the jumps of $\theta$ correspond to excursions above the infimum of $B^{red}$.  With probability $1$, for all these excursions, the minimum on the excursion is only attained at the endpoints. This can be seen by uniqueness of local minima of Brownian motion. We will assume that this holds.\\
 Now fix $t$ such that $\theta(t-)\neq \theta(t)$ and let $s\in (\theta(t-),\theta(t))$. Observe that $\Lambda$ is equal to $t$ on $[\theta(t-),\theta(t)]$. For $[\theta(t-),\theta(t))$ this follows by definition of $\Lambda$, and for $\theta(t)$ this follows by $(\theta(u):u\geq 0)$ being strictly increasing. This implies that $$s-\Lambda(s)<\theta(t)-\Lambda(\theta(t))=\inf\left\{ u\geq 0: \sigma_+ B_u^{red}<-\frac{\nu_-}{2\mu} t^2\right\}.$$ By our assumption on the minima on the excursions above the infimum of $B^{red}$, this implies that $$B^{red}_{s-\Lambda(s)}>-\frac{\nu_-}{2\mu} t^2=B^{red}_{\theta(t)-\Lambda(\theta(t))},$$

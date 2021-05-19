@@ -136,7 +136,7 @@ Then,
  $$\left(n^{-2/3}S^{-}_n\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right)$$
  in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{proposition}
-The difficulty in proving this proposition is the fact that $(F^p_n(k),k\geq 1)$ is not a Galton-Watson forest, because the probability of sampling a purple leaf changes as time progresses. In fact, the sampling process does not even satisfy the Markov property, because the probability of sampling a purple vertex depends on the past of the process. The theory of convergence of height processes under rescaling for Galton-Watson forests is a well-developed (see e.g. \cite{Duquesne2005}), but this is not the case for more general processes.  We will adapt a technique that Broutin, Duquesne and Wang develoved in \cite{Broutin2020} to show convergence of the height process of inhomogeneous random graphs under rescaling. The key idea is that  $(F^p_n(k),k\geq 1)$ itself is not a Galton-Watson forest, but we can embed it in a Galton-Watson forest, say $(F^{pr}(k),k\geq 1)$, which will be equal to $(F^p_n(k),k\geq 1)$ with extra red vertices. We then show convergence under rescaling of the height process corresponding to $(F^{pr}(k),k\geq 1)$, and use this to obtain height process convergence for $(F^p_n(k),k\geq 1)$. \\
+The difficulty in proving this proposition is the fact that $(F^p_n(k),k\geq 1)$ is not a Galton-Watson forest, because the probability of sampling a purple leaf changes as time progresses. In fact, the sampling process does not even satisfy the Markov property, because the probability of sampling a purple vertex depends on the past of the process. The theory of convergence of height processes under rescaling for Galton-Watson forests is a well-developed (see e.g. \cite{AST_2002__281__R1_0}), but this is not the case for more general processes.  We will adapt a technique that Broutin, Duquesne and Wang develoved in \cite{broutinLimitsMultiplicativeInhomogeneous2020} to show convergence of the height process of inhomogeneous random graphs under rescaling. The key idea is that  $(F^p_n(k),k\geq 1)$ itself is not a Galton-Watson forest, but we can embed it in a Galton-Watson forest, say $(F^{pr}(k),k\geq 1)$, which will be equal to $(F^p_n(k),k\geq 1)$ with extra red vertices. We then show convergence under rescaling of the height process corresponding to $(F^{pr}(k),k\geq 1)$, and use this to obtain height process convergence for $(F^p_n(k),k\geq 1)$. \\
 We start by defining $(F^{pr}(k),k\geq 1)$. Informally, we obtain $(F^{pr}(k),k\geq 1)$ by modifying $(F^p_n(k),k\geq 1)$ in such a way that the sub-tree rooted at a purple vertex has the same law as a sub-tree rooted at a black vertex. We do this by sampling extra Galton Watson trees with offspring distributed as $Z^+$, of which we colour all vertices red, and identifying their roots with the purple vertices. The resulting forest is a black-purple-red Galton-Watson forest in which the black-purple forest is embedded. This is illustrated in Figure \ref{fig.blackpurpleredforest}. 
 
 \begin{figure}
@@ -199,14 +199,14 @@ $$f_n\circ h_n \to f\circ h$$
 in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{lemma}
 \begin{proof}
-Using the characterization of convergence in the Skorokhod topology given in Proposition 3.6.5 in \cite{Ethier1986} by Ethier and Kurtz, the result follows immediately.
+Using the characterization of convergence in the Skorokhod topology given in Proposition 3.6.5 in \cite{ethierMarkovProcessesCharacterization1986} by Ethier and Kurtz, the result follows immediately.
 \end{proof}
 
 
 \begin{proof}[of \emph{Lemma \ref{lemma.convergenceX+}}]
-Firstly, note that by $(Y^{pr}(k),k\geq 1)$ encoding a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \cite{Legall2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
+Firstly, note that by $(Y^{pr}(k),k\geq 1)$ encoding a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \cite{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
 \begin{equation}\label{eq.convergenceX}\left(n^{-1/3}Y^{pr}\left(\lfloor n^{2/3}s\rfloor \right), n^{-1/3}H^{pr}\left(\lfloor n^{2/3}s\rfloor \right), s\geq 0 \right) \overset{d}{\to} \left(\sigma_+ B^*_s,\frac{2}{\sigma_+} \left(B^*_s-\inf\{B^*_u:u\leq s\}\right),  s\geq 0\right) \end{equation}
- in $D(\R_+,\R)^2$ as $n\to \infty$, and $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Moreover, \cite{Chaumont2010} and the fact that $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{red}(k),k\geq 1)\overset{d}{=}(Y^{pr}(k),k\geq 1)$ imply that
+ in $D(\R_+,\R)^2$ as $n\to \infty$, and $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Moreover, \cite{chaumontInvariancePrinciplesLocal2010} and the fact that $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{red}(k),k\geq 1)\overset{d}{=}(Y^{pr}(k),k\geq 1)$ imply that
 \begin{align}\begin{split}\label{eq.convergencebychaumont}&\left(n^{-1/3}Y^{red}\left(\lfloor n^{2/3} s \rfloor \right), n^{-2/3}\inf\left\{k:n^{-1/3}Y^{red}(k) \leq -x\right\}, s \geq 0, x\geq 0 \right)\\
 &\overset{d}{\to}\left( \sigma_+ B^{red}_s, \inf\left\{u:\sigma_+ B^{red}_u < -x\right\}, s\geq 0, x \geq 0\right)\end{split}\end{align}
 in $D(\R_+,\R)^2$ and 
@@ -252,7 +252,7 @@ The following lemma is the last ingredient in the proof of \eqref{eq.convergence
 We have that with probability $1$, $$\left(\frac{2}{\sigma_+} \left(B^{pr}_{\theta (t)}-\inf\{B^{pr}_{s}:s\leq \theta(t)\}\right), t\leq T \right)=\left(\frac{2}{\sigma_+} \left(B^{pr}_{\theta (t)}-\inf\{B^{pr}_{\theta(s)}:s\leq t\}\right), t\leq T \right),$$ which is continuous, and it is the height process corresponding to $\left(\sigma_+ B^{pr}_{\theta (t)},t\leq T\right)$. 
 \end{lemma}
 \begin{proof}
-From \cite{Legall2005}, we know that $\left(\frac{2}{\sigma_+}R^{pr}_t,t\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^{pr}_{t},t\geq 0\right)$. By definition of the height process, we prove the statement if we show that with probability $1$, $(B^{pr}_{\theta(t)},t\geq 0)$ is continuous, and for all $t\geq 0$, for all $s$ such that $\theta(t-)<s<\theta(t)$, $ B^{pr}_s > B^{pr}_{\theta(t)}$. \\
+From \cite{legallRandomTreesApplications2005}, we know that $\left(\frac{2}{\sigma_+}R^{pr}_t,t\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^{pr}_{t},t\geq 0\right)$. By definition of the height process, we prove the statement if we show that with probability $1$, $(B^{pr}_{\theta(t)},t\geq 0)$ is continuous, and for all $t\geq 0$, for all $s$ such that $\theta(t-)<s<\theta(t)$, $ B^{pr}_s > B^{pr}_{\theta(t)}$. \\
 Recall that $(B_t, t \geq 0)$ and $(B^{red}_t, t\geq 0)$ are two independent Brownian motions, $$\theta(t)=t+\inf\left\{s\geq 0 : \sigma_+ B^{red}_s< -\frac{\nu_-}{2\mu} t^2\right\},$$ and $\sigma_+(t)=\inf\{s\geq 0:\theta(s)> t\}$. Then, \begin{equation*}\left(B^{pr}_t,t \geq 0\right):=\left( B_{\sigma_+(t)}+ B^{red}_{t-\sigma_+(t)}, t\geq 0\right).\end{equation*}
 Firstly, note that the jumps of $\theta$ correspond to excursions above the infimum of $B^{red}$.  With probability $1$, for all these excursions, the minimum on the excursion is only attained at the endpoints. This can be seen by uniqueness of local minima of Brownian motion. We will assume that this holds.\\
 Now fix $t$ such that $\theta(t-)\neq \theta(t)$ and let $s\in (\theta(t-),\theta(t))$. Observe that $\sigma_+$ is equal to $t$ on $[\theta(t-),\theta(t)]$. For $[\theta(t-),\theta(t))$ this follows by definition of $\sigma_+$, and for $\theta(t)$ this follows by $(\theta(u):u\geq 0)$ being strictly increasing. This implies that $$s-\sigma_+(s)<\theta(t)-\sigma_+(\theta(t))=\inf\left\{ u\geq 0: \sigma_+ B_u^{red}<-\frac{\nu_-}{2\mu} t^2\right\}.$$ By our assumption on the minima on the excursions above the infimum of $B^{red}$, this implies that $$B^{red}_{s-\sigma_+(s)}>-\frac{\nu_-}{2\mu} t^2=B^{red}_{\theta(t)-\sigma_+(\theta(t))},$$
@@ -302,7 +302,7 @@ We will use the following notation:\begin{align*}
 \myworries{Change letter measure change to match notation Zheneng}
 Let $f:D([0,T],\R)^3\to \R$ be a bounded, continuous test-function. Then,
 \begin{align*}\E\left[f\left(\hat{Y}^+_{(n)}, \hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]&= \E\left[ \E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} t\rfloor)\E\left[\left.f\left(Y^+_{(n)}, S^+_{(n)},  H^+_{(n)}\right)\right| {Y}^+_{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} t\rfloor)f\left(Y^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right],\end{align*}
-where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]$ is a bounded, adapted function of $\hat{Y}^+_{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${Y}^+_{(n)}$ to $\hat{Y}^+_{(n)}$. Then, using Proposition XXX, Proposition XXX \myworries{Refer to results Zheneng of existence of the measure change and convergence of the measure change} and Proposition \ref{prop.convheightprocesspurple}, following the proof of Theorem 4.1 in \cite{Conchon2018} gives us that 
+where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]$ is a bounded, adapted function of $\hat{Y}^+_{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${Y}^+_{(n)}$ to $\hat{Y}^+_{(n)}$. Then, using Proposition XXX, Proposition XXX \myworries{Refer to results Zheneng of existence of the measure change and convergence of the measure change} and Proposition \ref{prop.convheightprocesspurple}, following the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} gives us that 
 \begin{align*}
     &\E\left[f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]\\
     &\to \E\left[\Phi(t)f\left(\sigma_+ B_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].
@@ -312,17 +312,17 @@ Lemma XXX \myworries{law of measure changed BM (result is written up in StuffSer
 \end{proof}
 
 \subsection{Convergence of the out-forest holds conditional on the multigraph being simple}
-We will now show that the parts of the multigraph we observe up until the timescale in which we are interested are with high probability simple. We will then use an argument by Joseph \cite{Joseph2014} to show that this implies that \ref{thm.convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k^{th}$ vertex of $(\hat{F}_n(k),k\geq 1)$. We call these anomalous edges. 
+We will now show that the parts of the multigraph we observe up until the timescale in which we are interested are with high probability simple. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that \ref{thm.convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k^{th}$ vertex of $(\hat{F}_n(k),k\geq 1)$. We call these anomalous edges. 
 \begin{proposition}\label{prop.anomalousedges}
 Suppose $\beta<3/4$. Then we have
 $$\P\left(B_n(\lfloor n^\beta \rfloor)>0\right)\to 0$$
 as $n\to \infty$.
 \end{proposition}
 \begin{remark}
-We adapt the proof of Lemma 7.1 of \cite{Joseph2014} and of Proposition 5.3 of \cite{Conchon2018} to the directed setting. An extra complication is caused by the conditioning on $$\left\{\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i.\right\}$$ We remark that in both papers, the proof of the aforementioned result is not fully correct, because the authors use a wrong expression for the probability of sampling an anomalous edge. However, the argument below can be adapted to the setting of \cite{Joseph2014} and \cite{Conchon2018} to yield a correct proof.
+We adapt the proof of Lemma 7.1 of \cite{josephComponentSizesCritical2014} and of Proposition 5.3 of \cite{conchon--kerjanStableGraphMetric2020} to the directed setting. An extra complication is caused by the conditioning on $$\left\{\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i.\right\}$$ We remark that in both papers, the proof of the aforementioned result is not fully correct, because the authors use a wrong expression for the probability of sampling an anomalous edge. However, the argument below can be adapted to the setting of \cite{josephComponentSizesCritical2014} and \cite{conchon--kerjanStableGraphMetric2020} to yield a correct proof.
 \end{remark}
 \begin{proof}
-For the proof of this lemma, we will use a method introducted by Joseph in \cite{Joseph2014} referred to as \emph{Poissonization}. We note that $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ (before conditioning on $\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i$) are distributed as the jumps ordered by jump time in a Poisson process $\Pi^0$ with intensity measure $\pi^0$ on $\R_+\times \N^2$ such that $$\pi^0(dt,k_1,k_2)=n\P(D^-=k_1,D^+=k_2)k_1\exp(-k_1 t)dt$$
+For the proof of this lemma, we will use a method introducted by Joseph in \cite{josephComponentSizesCritical2014} referred to as \emph{Poissonization}. We note that $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ (before conditioning on $\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i$) are distributed as the jumps ordered by jump time in a Poisson process $\Pi^0$ with intensity measure $\pi^0$ on $\R_+\times \N^2$ such that $$\pi^0(dt,k_1,k_2)=n\P(D^-=k_1,D^+=k_2)k_1\exp(-k_1 t)dt$$
 conditioned on $\Pi^0(\R,\N,\N)=n$.
 The intensity of this process is not constant in $t$, so we perform a time change. Define
 $$\cL_{\mathbf{D}}(x,y)=\E\left[\exp(-xD^--yD^+)\right],$$
@@ -332,7 +332,7 @@ such that for
 $$\pi_n(dt,k_1,k_2):=\P(D^-=k_1,D^+=k_2)k_1\exp\left(-k_1 \psi(t/n)\right)\psi'(t/n)dt$$
 on $(0,n)\times \N^2$, we see that for $t\in (0,n)$, there exists a probability measure $P_t$ on $\N^2$ such that
 $$\pi_n(dt,k_1,k_2)=P_t(D^+=k_1,D^+=k_2)dt.$$
-This is a trivial adaptation of Lemma 4.1 of \cite{Joseph2014}. Let ${\Pi}_n$ be a decorated point process with intensity $\pi_n$. Now, let $\hat{\Pi}_n$ be a random measure, which is a decorated point process with intensity $\pi_n$, conditioned on 
+This is a trivial adaptation of Lemma 4.1 of \cite{josephComponentSizesCritical2014}. Let ${\Pi}_n$ be a decorated point process with intensity $\pi_n$. Now, let $\hat{\Pi}_n$ be a random measure, which is a decorated point process with intensity $\pi_n$, conditioned on 
 \begin{enumerate}
     \item $N_n:=\hat{\Pi}_n((0,n),\N,\N)=n$, and 
     \item $\Delta_n:=\int_{(0,n)\times \N^2}(k_1-k_2)\hat{\Pi}_n(dt,k_1,k_2)=0$,
@@ -395,7 +395,7 @@ By applying the same techniques, \eqref{eq.convergencemomentpointprocess2}, \eqr
  Theorem \ref{thm.convoutforest} holds conditional on the resulting directed multigraph being simple. 
 \end{corollary}
 \begin{proof}
-Let $\rho(n)=\inf\{k\geq 1:B_n(k)>0\}$, and note that the event that the multigraph formed by the configuration model on $n$ vertices is simple is equal to $\{\rho(n)=\infty\}$. Proposition \ref{prop.anomalousedges} shows that we do not observe any anomalous edges far beyond the timescale in which we explore the largest components of the out-forest. This allows us to conclude that all of the results we prove using the exploration up to time $O(n^{2/3})$ are also true conditionally on $\{\rho(n)=\infty\}$. This follows from the proof of Theorem 3.2 in \cite{Joseph2014}.
+Let $\rho(n)=\inf\{k\geq 1:B_n(k)>0\}$, and note that the event that the multigraph formed by the configuration model on $n$ vertices is simple is equal to $\{\rho(n)=\infty\}$. Proposition \ref{prop.anomalousedges} shows that we do not observe any anomalous edges far beyond the timescale in which we explore the largest components of the out-forest. This allows us to conclude that all of the results we prove using the exploration up to time $O(n^{2/3})$ are also true conditionally on $\{\rho(n)=\infty\}$. This follows from the proof of Theorem 3.2 in \cite{josephComponentSizesCritical2014}.
 \end{proof}
 All results that follow are obtained by studying the exploration up to time $O(n^{2/3})$, so will also be true conditioned on the resulting directed multigraph being simple.
 
