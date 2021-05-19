@@ -2,7 +2,7 @@
 \myworries{Mention somewhere: Note that the SCC in the critical directed Erd\H{o}s-Renyi model as studied in \cite{goldschmidtScalingLimitCritical2019} has the same limit under rescaling as the model studied in this work with $D^+$ and $D^-$ independent $\operatorname{Poisson}(1)$ random variables.}
 
 \subsection{The model}
-We study a uniform directed graph (or digraph) with a random degree sequence. We consider $n$ vertices, to each of which we assign an in-degree and an out-degree. The degree tuples are independent and identically distributed. Let $\mathbf{D}=(D^-,D^+)$ be a random variable in $\N\times \N$ with this distribution, and for each $i\in [n]$, let $\mathbf{D}_i=(D^-_i,D^+_i)$  be the in- and out-degree of vertex $i$. In order for a graph with this degree sequence to exist, we require that $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, so we will condition on this event. Denote the uniform digraph with this degree sequence by $\vec{G}(n,(D^-,D^+))$. We are interested in the limit under scaling of the strongly connected components of $\vec{G}(n,(D^-,D^+))$ as $n\to \infty$.  \\
+We study a uniform directed graph (or digraph) with a random degree sequence. We consider $n$ vertices, to each of which we assign an in-degree and an out-degree. The degree tuples are independent and identically distributed with law $\nu$. For each $i\in [n]$, let $\mathbf{D}_i=(D^-_i,D^+_i)$ be the in- and out-degree of vertex $i$. In order for a graph with this degree sequence to exist, we require that $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, so we will condition on this event. Conditional on $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, sample a uniform digraph with this degree sequence. Denote resulting random digraph by $\vec{G}_n(\nu)$. We are interested in the limit under scaling of the strongly connected components of $\vec{G}_n(\nu)$ as $n\to \infty$.  \\
 
 We require the degree distribution to satisfy the following properties.
 
@@ -30,7 +30,7 @@ We define the following parameters, that will determine the behaviour of the str
 
 \input{Content/Sections/Toplogy.tex}
 
-Our main result is as follows. Let $C_i(n)$ for $i\geq 1$ be the strongly connected components of $\vec{G}(n,(D^-,D^+))$, listed in decreasing order of size, breaking ties arbitrarily. We view these strongly connected components as MDMs, by assigning to each edge a length of $1$, and then removing all vertices of degree 2 by merging neighbouring edges and adding up their lengths. Trivial strongly connected components, which consist of an isolated vertex, are considered loops of length $0$. Complete the list with an infinite repeat of $\mathfrak{L}$, the loop of length $0$. Then, the main theorem is as follows.
+Our main result is as follows. Let $C_i(n)$ for $i\geq 1$ be the strongly connected components of $\vec{G}_n(\nu)$, listed in decreasing order of size, breaking ties arbitrarily. We view these strongly connected components as MDMs, by assigning to each edge a length of $1$, and then removing all vertices of degree 2 by merging neighbouring edges and adding up their lengths. Trivial strongly connected components, which consist of an isolated vertex, are considered loops of length $0$. Complete the list with an infinite repeat of $\mathfrak{L}$, the loop of length $0$. Then, the main theorem is as follows.
 \begin{theorem}\label{thm.main}
 There exists a sequence $\cC=(\cC_i,i\in \N)$ of random strongly connected MDMs such that, for each $i\geq 1$, $\cC_i$ is either $3$-regular or a loop, and such that 
 $$\left(n^{-1/3}C_i(n),i\in \N\right)\overset{d}{\to}\left(\cC_i,i\in \N\right)$$
@@ -42,7 +42,7 @@ as $n\to \infty$, with respect to the product $d_{\vec{\cG}}$-topology.
 
 \subsection{Proof outline}
 The techniques we will use to investigate the graph model are a combination of the techniques introduced by Conchon-Kerjan and Goldschmidt in \cite{conchon--kerjanStableGraphMetric2020} and the strategy of Goldschmidt and Stephenson in \cite{goldschmidtScalingLimitCritical2019}. The former work discusses the scaling limit of an undirected uniform graph with i.i.d.\ degrees at criticality, and the latter discusses the scaling limit of the strongly connected components of a directed Erd\H{o}s-Renyi graph at criticality.\\
-To investigate the structure of the strongly connected components of a uniform graph with degree sequence $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, conditioned on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, we will use a version of the configuration model for digraphs that was introduced in \cite{cooperSizeLargestStrongly2004}. The output of the configuration model, conditioned on being a simple graph, is a uniform digraph with the given degree sequence. \\
+To investigate the structure of the strongly connected components of a uniform graph with degree sequence $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, conditional on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, we will use a version of the configuration model for digraphs that was introduced in \cite{cooperSizeLargestStrongly2004}. The output of the configuration model, conditional on being a simple graph, is a uniform digraph with the given degree sequence. \\
 \myworries{Description of exploration written by Zheneng} This is illustrated in Figure \ref{fig.configuration model}. 
 \begin{figure}
     \centering
