@@ -13,6 +13,11 @@
 \usepackage{varioref}
 \usepackage{cleveref}
 
+% BIBLIOGRAPHY MANAGEMENT
+
+\usepackage[numbers]{natbib}
+\bibliographystyle{acm}
+
 % PAGE DIMENSIONS
 
 \topmargin -0.5in
@@ -81,9 +86,16 @@
 % VECTORS
 
 \def \vD {{\mathbf D}}
+\def \vX {{\mathbf X}}
 \def \vZ {{\mathbf Z}}
-\def \vk {{\mathbf k}}
+\def \va {{\mathbf a}}
+\def \vc {{\mathbf c}}
 \def \vd {{\mathbf d}}
+\def \vk {{\mathbf k}}
+\def \vs {{\mathbf s}}
+\def \vu {{\mathbf u}}
+\def \vx {{\mathbf x}}
+\def \vy {{\mathbf y}}
 
 % MAKING SUBSET AND SUPSET BY DEFAULT SUBSETEQ AND SUPSETEQ
 
@@ -99,6 +111,7 @@
 % MATH OPERATORS
 
 \DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
 
 % MISC SYMBOLS
 
@@ -111,6 +124,16 @@
 
 \usepackage{stmaryrd} % needed for double square brackets
 \DeclarePairedDelimiter{\pathbtw}{\llbracket}{\rrbracket}
+\def \littleo {o}
+\def \bigo {\mathcal O}
+\newcommand \diff[2] {\frac{\text{d}#1}{\text{d}#2}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+\def \lattice {\Lambda}
+\newcommand \vectwo[2] {\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\def \omegaevent {\mathcal E}
+\def \maxeval {{\lambda_{\text{max}}}}
+\def \mineval {{\lambda_{\text{min}}}}
+\def \centeredX {\hat{\vX}}
 
 %%%%%%%%%%%%%%
 
@@ -129,6 +152,8 @@
 
 \appendix
 \input{Content/Sections/Appendix convergence height process}
+\input{Content/Sections/Appendix local limit theorems}
+\input{Content/Sections/Appendix measure change}
 \input{Content/Support/Bibliography.tex}
 
 \end{document}

@@ -1,0 +1,506 @@
+\section{Multivariate triangular local limit theorem}
+\label{chap:llt}
+
+For an i.i.d.\ sequence $\vX_1, \ldots, \vX_n$ of random variables, central limit theorems address probabilities of the form
+\begin{equation*}
+    \Pr\Big( n^{-\alpha} \textstyle \sum_{i=1}^n (\vX_i - \E[\vX]) \in A \Big).
+\end{equation*}
+where the $\alpha > 0$ is chosen such that the above probabilities converge to a sensible limit and $A$ is some Borel subset. More abstractly, the $\alpha$ is chosen so that $n^{-\alpha} \sum_{i=1} (\vX_i - \E[\vX])$ converges to a stable law. On the other hand local limit theorems address probabilities of the form
+\begin{equation*}
+    \Pr\Big( \textstyle \sum_{i=1}^n (\vX_i - \E[\vX]) \in A \Big).
+\end{equation*}
+without the $n^{-\alpha}$ scaling. Such probabilities are going to decay to 0, but we can still make statements quantifying how they decay to 0, utilizing the density of the limiting stable distribution for the central limit theorem. Local limit theorems are what we are going to need to know the asymptotic behaviour of
+\begin{equation*}
+    \Pr(\Delta_n = 0) = \Pr\Big(\textstyle\sum_{i=1}^n (D_i^- - D_i^+) = 0\Big).
+\end{equation*}
+In fact to prove \cref{lem:measure-change} we will need to introduce a sequence of exponentially tilted measures $\Pr_n$ and thus require a local limit theorem for i.i.d.\ triangular arrays. We will also need to simultaneously control the behaviour of a separate sum and thus we need a bivariate local limit theorem.
+
+Historically, \citet{gnedenkoLocalLimitTheorem1948} covers the stable case in one dimension. For multidimensional random variables, \citet{rvavceva1962domains} covers the lattice case and \citet{stoneLocalLimitTheorem1965} covers the non-lattice case. \citet{doneyBivariateLocalLimit1991} proves a local limit theorem for the bivariate case which allows each component to use a different scaling. A local limit theorem specifically for integer valued random vectors is covered by \citet{gamkrelidzeLocalLimitTheorem2015}.
+
+\citet{jainLowerTailProbability1987} prove a triangular local limit theorem for one dimensional random variables converging to a stable limit. In the one-dimensional case where the random variables possess densities, \citet{korchinskyLocalLimitTheorem2007} address more general non i.i.d.\ triangular arrays where the distribution can vary across rows.
+
+For such more general i.i.d.\ triangular arrays, \citet{chagantyMultidimensionalLargeDeviation1986} prove a local limit theorem in the multivariate case under the assumption that the moment generating functions of the sums are holomorphic. This builds upon work done by \citet{richterLocalLimitTheorems1957,richterMultiDimensionalLocalLimit1958} for the non-triangular case.
+
+Unfortunately the assumptions required to apply the results in the literature are too restrictive for use in our case. In particular we don't assume that our random variables have finite fourth moments, and therefore a Cramér type assumption is too restrictive. Instead it will turn out that the common distribution for each row of our i.i.d.\ triangular array will be converging to the non-tilted case. We will utilize this, along with a uniform integrability type criterion, to prove a general multivariate local limit theorem for lattice valued random variables.
+
+\subsection{Lattices}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{Content/Pictures/lattice.eps}
+    \caption{A lattice with three possible choices of fundamental region shaded}
+    \label{fig:lattice}
+\end{figure}
+
+Before we state the theorem, we introduce some definitions and theory about lattices. This section will borrow heavily from the textbook by \citet{schrijverTheoryLinearInteger1998}. Suppose we are working in the space $\R^d$. Then a set $\lattice$ is a \emph{lattice} if there exists a basis $\{\va_1, \ldots, \va_d\}$ of $\R^d$ such that
+\begin{equation*}
+    \lattice = \left\{ \sum_{i=1}^d n_i \va_i : (n_1, \ldots, n_d) \in \Z^d \right\}.
+\end{equation*}
+The basis can be summarised by the $n \times n$ matrix $A$ with columns $\va_1, \ldots, \va_d$, meaning $A_{ij} = a_i^{(j)}$. Then $\{\va_1, \ldots, \va_d\}$ is a basis of $\R^d$ if and only if $A$ is invertible. 
+
+The vectors $\va_1, \ldots, \va_d$ define a $d$-dimensional parallelepiped
+\begin{equation*}
+    \Bigg\{\sum_{i=1}^d \lambda_i \va_i : (\lambda_1, \ldots, \lambda_d) \in [0, 1]^d \Bigg\}
+\end{equation*}
+which is sometimes called the \emph{fundamental region} of the lattice. The choice of basis generating a lattice $\lattice$ is not unique. This can be seen in \cref{fig:lattice} where three different choices of the fundamental region are drawn. It turns out two matrices correspond to the same lattice if and only if they are obtainable from each other through multiplication by a unimodular matrix. A square matrix $U$ is \emph{unimodular} if it has integer entries and has determinant $\pm 1$. \cite[Theorem 4.3]{schrijverTheoryLinearInteger1998} shows that the inverse of a unimodular matrix will also be unimodular, and in particular also has integer entries. The following is then a rephrasing of \cite[Corollary 4.3a]{schrijverTheoryLinearInteger1998}:
+\begin{lemma}
+    Let $A$ and $B$ be invertible matrices. Then the columns of $A$ and the columns of $B$ generate the same lattice if and only if there exists a unimodular matrix $U$ such that $A = UB$.
+\end{lemma}
+Suppose a lattice $\lattice$ is generated by the columns of $A$. Define
+\begin{equation*}
+    \det(\lattice) = \abs{\det(A)}.
+\end{equation*}
+Then the preceding lemma shows this is well defined even though the choice of $A$ is not unique. The quantity $\det(\lattice)$ is the volume of any choice of the fundamental region.
+
+A canonical choice of matrix generating a lattice is obtainable when the points of the lattice are rational. An invertible matrix $B$ is in \emph{Hermite normal form} if it is lower triangular with non-negative entries. Then the following is a rephrasing of \cite[Corollary 4.3b]{schrijverTheoryLinearInteger1998}:
+\begin{lemma}
+    Let $A$ be an invertible matrix with rational entries. Then there exists a unique unimodular matrix $U$ such that $UA$ is in Hermite normal form.
+\end{lemma}
+This gives us the following corollary:
+\begin{lemma}
+    \label{lem:zd-triangular}
+    Suppose $\lattice \subset \Z^d$ is a lattice. Then there exists a lower triangular matrix
+    \begin{equation*}
+        A = \begin{pmatrix}
+            p_1 & & & 0 \\
+            p_{2,1} & \ddots & & \\
+            \vdots & \ddots & \ddots & \\
+            p_{d,1} & \cdots & p_{d, d-1} & p_d
+        \end{pmatrix}
+    \end{equation*}
+    with non-negative integer entries such that $\lattice$ is generated by the columns of $A$.
+\end{lemma}
+
+We say a $\R^d$-valued random variable $\vX$ is \emph{non-degenerate} if $\vX$ is not supported in a $(d-1)$-dimensional affine subspace of $\R^d$. Further $\vX$ is \emph{lattice valued} if there a translation of a lattice containing the support of $\vX$.
+
+If $\vX$ is non-degenerate and lattice valued, we wish to define the smallest lattice on which $\vX$ lives. Let $\cS$ be the support of $\vX$ and fix an arbitrary $\vc \in \cS$. Then the \emph{main lattice} of $\vX$ is the smallest lattice containing $\cS - \vc$. Since $X$ is non-degenerate, such a lattice is unique and given by 
+\begin{equation*}
+    \lattice = \Bigg\{
+        \sum_{i=1}^m k_i (\vx_i - \vc) :
+        \text{$m \geq 1$ and $k_i \in \Z, \vx_i \in \cS$ for all $i = 1, \ldots, m$}
+    \Bigg\}.
+\end{equation*}
+The strong aperiodicity condition we imposed on $D^- - D^+$ in \cref{chap:directed-configuration-model} can then be stated as saying $D^- - D^+$ has main lattice $\Z$.
+
+The main lattice of $\vX$ is related to the periodicity of its characteristic function. The following lemma is an adaptation of \cite[P.67, T1]{spitzerPrinciplesRandomWalk1964}.
+\begin{lemma}
+    \label{lem:cf-periodicity}
+    Suppose the main lattice of $\vX$ is $\Z^d$ and let $\phi$ be the characteristic function of $\vX$, such that $\phi(\vu) = e^{i \vu \cdot \vX}$. Then $\abs{\phi(\vu)} = 1$ if and only if every coordinate of $\vu$ is a multiple of $2 \pi$.
+\end{lemma}
+\begin{proof}
+    If every coordinate of $\vu$ is a multiple of $2\pi$ then $\vu \cdot \vX$ has support in $t + 2 \pi \Z$ for some $t \in \R$. Therefore $e^{i\vu \cdot \vX}$ is constant and therefore $\abs{\phi(\vu)} = 1$.
+    
+    For the converse, by Jensen's inequality
+    \begin{equation*}
+        \abs{\E[e^{i \vu \cdot \vX}]} \leq \E[\abs{e^{i\vu \cdot \vX}}] = 1.
+    \end{equation*}
+    More importantly to achieve equality, it must be the case that $e^{i \vu \cdot \vX}$ is almost surely constant. Therefore there exists $t \in \R$ such that
+    \begin{equation*}
+        \vu \cdot \vx \in t + 2 \pi \Z
+    \end{equation*}
+    for all $\vx \in \cS$. Then fixing an arbitrary $\vc \in \cS$,
+    \begin{equation*}
+        \vu \cdot (\vx - \vc) \in 2 \pi \Z
+    \end{equation*}
+    for all $\vx \in \cS$. Since the fundamental lattice of $\vX$ is $\Z^d$, there exists $\vx_1, \ldots, \vx_m \in \cS$ and $k_1, \ldots, k_m \in \Z$ such that
+    \begin{equation*}
+        \sum_{i=1}^m k_i (\vx_i - \vc) = (1, 0, \ldots, 0).
+    \end{equation*}
+    Therefore
+    \begin{equation*}
+        u^{(1)} = \sum_{i=1}^m k_i \vu \cdot (\vx_i - \vc) \in 2 \pi \Z.
+    \end{equation*}
+    Repeating this argument for the other coordinates of $\vu$ shows all coordinates of $\vu$ are multiples of $2 \pi$.
+\end{proof}
+
+
+\subsection{Triangular local limit theorem}
+
+Throughout this chapter $\norm{\vu}$, for $\vu \in \R^d$, will denote the Euclidean norm
+\begin{equation*}
+    \norm{\vu} = \Big( \textstyle \sum_{i=1}^d \big\{ u^{(i)} \big\}^2 \Big)^{1/2}.
+\end{equation*}
+
+\begin{theorem}
+    \label{thm:multi-triangular-llt}
+    For each $n \geq 1$ let $\vX_n$ be an $\R^d$ valued random variable and
+    \begin{equation*}
+        \vX_{n, 1}, \vX_{n, 2}, \ldots, \vX_{n, n}  
+    \end{equation*}
+    be i.i.d.\ copies of $\vX_n$. Assume that the following holds:
+    \begin{enumerate}
+        \item There exists a non-degenerate $\R^d$-valued random variable $\vX$ such that
+            \begin{equation*}
+                \vX_n \todist \vX \quad \text{as $n \to \infty$.}
+            \end{equation*} 
+        \item For all $n$, $\vX_n$ and $\vX$ have a common main lattice $\lattice$.
+        \item $(\norm{\vX_n}^2)_{n \geq 1}$ is a uniformly integrable sequence of random variables. Explicitly
+            \begin{equation}
+                \label{eq:ui-condition}
+                \lim_{L \to \infty} \sup_n \E\left[
+                    \norm{\vX_n}^2
+                    \one \left\{ \norm{\vX_n}^2 > L \right\}
+                \right] = 0.
+            \end{equation}
+    \end{enumerate}
+    Then $\vX$ has finite second moment. Also if $\vc_n$ is defined such that $\vc_n + \lattice$ contains the support of $\sum_{i=1}^n \vX_{n, i}$ then uniformly for $\vy \in \vc_n + \lattice$
+    \begin{equation*}
+        \Pr\Big(
+            \textstyle \sum_{i=1}^n \vX_{n, i} = \vy
+        \Big)
+        = n^{-d/2} \det(\lattice) f\left( \vx_n \right) + \littleo \left( n^{-d/2} \right)
+        \quad \text{where} \quad
+        \vx_n = \frac{\vy - n \E[\vX_n]}{\sqrt{n}}
+    \end{equation*}
+    and $f$ is the density of a $N(0, \cov(\vX))$ distribution. This means that
+    \begin{equation*}
+        \lim_{n \to \infty} \sup_{\vy \in \vc_n + \lattice} \abs*{
+            n^{d/2} \Pr\Big( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \Big)
+            - \det(\lattice) f(\vx_n)
+        } = 0.
+    \end{equation*}
+\end{theorem}
+
+We now make a few remarks. Firstly $\cov(\vX)$ is non-degenerate, meaning it is invertible, since we assume that $\vX$ is non-degenerate. In particular this ensures $N(0, \cov(\vX))$ has a density $f$, explicitly given by
+\begin{equation*}
+    f(\vx) = \frac{1}{\sqrt{(2 \pi)^d \det(\cov(\vX))}}
+    \exp \Bigg(
+        -\frac{1}{2} \vx \cdot \cov(\vX)^{-1} \vx
+        \Bigg).
+\end{equation*}
+
+Secondly, since the $\vX_1, \vX_2, \ldots$ do not necessarily live in the same probability space we should not technically refer to the sequence $(\norm{\vX}_n^2)_{n \geq 1}$ as uniformly integrable. However the condition in \cref{eq:ui-condition} is still well defined.
+
+Finally, while the local limit theorem holds for all $\vy$ on the appropriate lattice, the error term will dominate if $\vy$ deviates too far from the mean of $\sum_{i=1}^n \vX_i$. Specifically consider a sequence $\vy_n$ such that
+\begin{equation*}
+    \norm{\vy_n - n \E[\vX_n]} = \omega(\sqrt{n}).
+\end{equation*}
+Let $\maxeval$ be the maximum eigenvalue of $\cov(\vX)$. Then
+\begin{equation*}
+    \bigg( \frac{\vy_n - n \E[\vX_n]}{\sqrt{n}} \bigg)
+    \cdot \cov(\vX)^{-1} 
+    \bigg( \frac{\vy_n - n \E[\vX_n]}{\sqrt{n}} \bigg)
+    \geq \frac{1}{\maxeval} \frac{\norm{\vy_n - n\E[\vX_n]}^2}{n} \to \infty
+\end{equation*}
+as $n \to \infty$. Thus the local limit theorem only tells us that 
+\begin{equation*}
+    \Pr\Big( \textstyle \sum_{i=1}^n \vX_i = \vy_n \Big) = \littleo\Big( n^{-d/2} \Big)
+\end{equation*}
+meaning we lose the precise characterisation of the leading order term in how this probability decays.
+
+Before we prove our main theorem, we first prove a series of lemmas. Firstly we show the condition in \cref{eq:ui-condition} still holds when we centre the random variables.
+\begin{lemma}
+    \label{lem:ui-mean-center}
+    Suppose we are in the setting of \cref{thm:multi-triangular-llt}. Define $\hat{\vX}_n = \vX_n - \E[\vX_n]$. Then
+    \begin{equation*}
+        \lim_{L \to \infty} \sup_n \E \left[
+            \norm{\hat{\vX}_n}^2
+            \one \left\{ \norm{\hat{\vX}_n}^2 > L \right\}
+        \right] = 0.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    The condition in \cref{eq:ui-condition} shows that $M = \sup_n \E[\norm{X_n}^2] < \infty$. By Jensen's inequality, $\sup_n \norm{\E[\vX_n]}^2 \leq M$. Then
+    \begin{align*}
+        \norm{\hat{\vX}_n}^2 = \norm{\vX_n - \E[\vX_n]}^2
+        &\leq 2 \norm{\vX_n}^2 + 2 \norm{\E[\vX_n]}^2 \\
+        &\leq 2 \norm{\vX_n}^2 + 2M. \\
+    \end{align*}
+    Therefore
+    \begin{align*}
+        \sup_n \E \left[
+            \norm{\hat{\vX}_n}^2
+            \one \left\{ \norm{\hat{\vX}_n}^2 > L \right\}
+        \right]
+        &\leq 2 \sup_n \E\Big[\norm{\vX_n}^2 \one \left\{ \norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\right\}\Big] \nonumber \\
+        & \hspace{2em} + 2M \sup_n \Pr\Big(\norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\Big).
+    \end{align*}
+    By \cref{eq:ui-condition}
+    \begin{equation*}
+        \lim_{L \to \infty} \sup_n \E\Big[
+            \norm{\vX_n}^2 \one \left\{ \norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\right\}
+        \Big] = 0.
+    \end{equation*}
+    By Markov's inequality
+    \begin{equation*}
+        \sup_n \Pr\Big(\norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\Big) \leq \frac{2M}{L - 2M} \to 0
+    \end{equation*}
+    as $L \to \infty$. The claimed result follows.
+\end{proof}
+
+Next we show that the condition in \cref{eq:ui-condition} ensures that the means and covariances of the $\vX_n$ converge to those of $\vX$.
+\begin{lemma}
+    \label{lem:cvg-mean-var}
+    Suppose we are in the setting of \cref{thm:multi-triangular-llt}. Then $\vX$ has finite second moments. Further
+    \begin{equation*}
+        \lim_{n \to \infty} \E[\vX_n] = \E[\vX]
+        \quad \text{and} \quad 
+        \lim_{n \to \infty} \cov(\vX_n) = \cov(\vX).
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    By Skorokhod's representation theorem WLOG the $\vX_n$ and $\vX$ are in the same probability space and $\vX_n \to \vX$ almost surely as $n \to \infty$. Now that the $\vX_n$ are in the same probability space, the assumption in \cref{eq:ui-condition} shows that $\{\norm{\vX_n}^2\}_{n \in \N}$ is a uniformly integrable sequence. In particular by Vitali's convergence theorem this shows $\E[\norm{\vX}^2] = \lim_n \E[\norm{\vX}^2]$ and thus is finite. Then
+    \begin{equation*}
+        \norm{\vX_n - \vX}^2 \leq 2 \norm{\vX_n}^2 + 2 \norm{\vX}^2
+    \end{equation*}
+    thus $\{\norm{\vX_n - \vX}^2\}_{n \in \N}$ is also an uniformly integrable sequence. Hence 
+    \begin{equation*}
+        \lim_{n \to \infty} \E[\norm{\vX_n - \vX}^2] = 0  
+    \end{equation*}
+    by Vitali's convergence theorem again, showing that $\vX_n \to \vX$ in $L^2$. Therefore the corresponding means and covariances converge, as required.
+\end{proof}
+
+Our proof of the local limit theorem will use characteristic functions. The following lemma shows that we have a normal central limit theorem. This will be applied in the form of uniform convergence of characteristic functions on compact sets.
+\begin{lemma}
+    \label{lem:clt}
+    Suppose we are in the setting of \cref{thm:multi-triangular-llt}. Then
+    \begin{equation*}
+        \frac{1}{\sqrt{n}} \sum_{i=1}^n (\vX_{n, i} - \E[\vX_n]) \todist N(0, \Sigma)
+    \end{equation*}
+    as $n \to \infty$.
+\end{lemma}
+\begin{proof}
+    We use the Lindeberg-Feller central limit theorem. We will use the notation $\Sigma = \cov(\vX)$, $\Sigma_n = \cov(\vX_n)$, $\hat{\vX}_{n, i} = \vX_{n, i} - \E[\vX_n]$ and $\hat{\vX}_n = \vX_n - \E[\vX_n]$. We will reduce the problem to the one-dimensional case. By the Cramér--Wold device it is sufficient to show that 
+    \begin{equation*}
+        \frac{1}{\sqrt{n}} \sum_{i=1}^n \vu \cdot \hat{\vX}_{n, i} \todist
+        N(0, \vu \cdot \Sigma \vu)
+    \end{equation*}
+    for all $\vu \in \R^d$. Define
+    \begin{equation*}
+        A_{n, i} = \frac{1}{\sqrt{n}} \vu \cdot \hat{\vX}_{n, i}.
+    \end{equation*}
+    Then by the version of the Lindeberg--Feller central limit theorem stated by Durrett in \cite[P.128-129, Theorem 3.4.10]{durrettProbabilityTheoryExamples2019}, to complete the proof it suffices to check that
+    \begin{enumerate}
+        \item $\lim_{n \to \infty} \sum_{i=1}^n \E[A_{n, i}^2] = \vu \cdot \Sigma \vu$.
+        \item For all $\epsilon > 0$, $\lim_{n \to \infty} \sum_{i=1}^n \E\Big[A_{n, i}^2 \one\left\{ \abs{A_{n, i}} > \epsilon \right\}\Big] = 0$.
+    \end{enumerate}
+    To check condition (1),
+    \begin{align*}
+        \lim_{n \to \infty} \sum_{i=1}^n \E[A_{n, i}^2]
+        = \lim_{n \to \infty} \E\Big[ (\vu \cdot \hat{\vX}_n)^2 \Big]
+        = \lim_{n \to \infty} \vu \cdot \Sigma_n \vu
+        = \vu \cdot \Sigma \vu
+    \end{align*}
+    by \cref{lem:cvg-mean-var}. To check condition (2), for all $\epsilon > 0$
+    \begin{align*}
+        \lim_{n \to \infty} \sum_{i=1}^n \E\Big[A_{n, i}^2 \one\left\{ \abs{A_{n, i}} > \epsilon \right\}\Big]
+        &= \lim_{n \to \infty} \E\Big[ (\vu \cdot \hat{\vX}_n)^2 \one\left\{ (\vu \cdot \hat{\vX}_n)^2 > \epsilon^2 n \right\}\Big] \\
+        &\leq \norm{\vu}^2 \lim_{n \to \infty} \E\Bigg[ \norm{\hat{\vX}_n}^2 \one\left\{ \norm{\hat{\vX}_n}^2 > \frac{\epsilon^2}{\norm{\vu}^2} n \right\}\Bigg] \\
+        &\leq \norm{\vu}^2 \lim_{n \to \infty} \sup_k \E\Bigg[ \norm{\hat{\vX}_k}^2 \one\left\{ \norm{\hat{\vX}_k}^2 > \frac{\epsilon^2}{\norm{\vu}^2} n \right\}\Bigg] \\
+        &= 0
+    \end{align*}
+    by \cref{lem:ui-mean-center}.
+\end{proof}
+
+The last lemma we prove provides bounds on the absolute value of the characteristic functions of $\vX_n$. This will be used to apply the dominated convergence theorem in the main proof.
+\begin{lemma}
+    \label{lem:dom-cf}
+    Suppose we are in the setting of \cref{thm:multi-triangular-llt}. Moreover assume that the common main lattice $\lattice$ is $\Z^d$. Let $\phi_n(\vu) = \E[\exp(\vu \cdot (\vX_n - \E[\vX_n])]$ be the characteristic function of $\hat{\vX_n} = \vX_n - \E[\vX_n]$. Then there exist $\delta, c> 0$, $\rho \in (0, 1)$ and $N$ such that for all $n \geq N$
+    \begin{enumerate}
+        \item $\abs{\phi_n(\vu)} \leq 1 - c \norm{\vu}^2$ for all $\vu \in S(\delta)$, and
+        \item $\abs{\phi_n(\vu)} \leq \rho$ for all $\vu \in S(\pi) \setminus S(\delta)$
+    \end{enumerate}
+    where, for all $r > 0$, $S(r) = [-r, r]^d$.
+\end{lemma}
+
+\begin{proof}
+    Firstly we use a analytical lemma stated by Durrett in \cite[P.116, Lemma 3.3.19]{durrettProbabilityTheoryExamples2019}. By that lemma, there exists a constant $A > 0$ such that 
+    \begin{equation*}
+        \abs*{e^{ix} - \left(1 + i x - \tfrac{1}{2}x^2\right)} \leq A \min\{\abs{x}, 1\} x^2
+    \end{equation*}
+    for all $x \in \R$. Then applying this with $x = \vu \cdot (\vX_n - \E[\vX_n])$
+    \begin{equation*}
+        \abs{\phi_n(\vu)}
+        \leq \abs*{1 - \tfrac{1}{2} \vu \cdot \cov(\vX_n) \vu } + R_n(\vu)
+    \end{equation*}
+    where
+    \begin{equation*}
+        R_n(\vu) \leq A \E\left[ 
+            \min\{\abs{\vu \cdot \hat{\vX}_n}, 1\} (\vu \cdot \hat{\vX}_n)^2
+        \right].
+    \end{equation*}
+    We provide bounds on $R_n$ and $\abs{1 - \frac{1}{2} \vu \cdot \cov(\vX_n) \vu}$, starting with $\abs{1 - \frac{1}{2} \vu \cdot \cov(\vX_n) \vu}$.
+
+    Let $\mineval_n$ and $\maxeval_n$ be the minimum and maximum eigenvalues of $\cov(\vX_n)$ respectively. Then by standard theory for quadratic forms
+    \begin{equation*}
+        \mineval_n \norm{\vu}^2
+        \leq \vu \cdot \cov(\vX_n) \vu
+        \leq \maxeval_n \norm{\vu}^2.
+    \end{equation*}
+    Moreover let $\mineval$ and $\maxeval$ be the minimum and maximum eigenvalues of $\cov(\vX)$ respectively. The eigenvalues of a matrix are continuous in its entries and $\cov(\vX_n) \to \cov(\vX)$ by \cref{lem:cvg-mean-var}. Therefore $\mineval_n \to \mineval$ and $\maxeval_n \to \maxeval$ as $n \to \infty$.
+
+    We have assumed that $\cov(\vX)$ is non-degenerate thus $\mineval > 0$. Hence there exists $N$ such that for all $n \geq N$
+    \begin{equation*}
+        \frac{1}{2} \mineval \leq \mineval_n \leq \maxeval_n \leq 2 \maxeval.
+    \end{equation*}
+    There also exists $\delta_1 > 0$ sufficiently small that $\maxeval \norm{\vu}^2 < 1$ for all $\vu \in S(\delta_1)$. Then for all $n \geq N$ and $\vu \in S(\delta_1)$,
+    \begin{equation}
+        \abs*{1 - \tfrac{1}{2} \vu \cdot \cov(\vX_n) \vu }
+        = 1 - \tfrac{1}{2} \vu \cdot \cov(\vX_n) \vu
+        \leq 1 - \tfrac{1}{4} \mineval \norm{\vu}^2. \label{eq:qf-bound}
+    \end{equation}
+    To bound $R_n$, by the Cauchy-Schwarz inequality
+    \begin{equation*}
+        R_n(\vu) \leq A E_n(\vu) \norm{\vu}^2
+        \quad \text{where} \quad
+        E_n(\vu) = \E[\min\{\norm{\vu} \norm{\centeredX_n}, 1\} \norm{\centeredX_n}^2].
+    \end{equation*}
+    Then for all $L > 0$, splitting the expectation into the case where $\norm{\centeredX_n}^2 \leq L^2$ and the case when $\norm{\centeredX_n}^2 > L^2$
+    \begin{align*}
+        \sup_n E_n
+        &\leq L^2 \min\{\norm{L\vu}, 1\} +
+        \sup_n \E\left[ \norm{\centeredX_n}^2 \one\left\{ \norm{\centeredX_n}^2 > L^2 \right\}
+        \right] \\
+        &\to \sup_n \E\left[ \norm{\centeredX_n}^2 \one\left\{ \norm{\centeredX_n}^2 > L^2 \right\}
+        \right] 
+    \end{align*}
+    as $\vu \to 0$. This holds for all $L > 0$, hence taking the limit $L \to \infty$ and using \cref{lem:ui-mean-center} we obtain that $\lim_{L \to \infty} E_n = 0$. Thus there exists $\delta_2$ such that for all $\vu \in S(\delta_2)$
+    \begin{equation}
+        \label{eq:rn-bound}
+        R_n(\vu) \leq \frac{1}{8} \mineval \norm{\vu}^2.
+    \end{equation}
+    Thus setting $\delta = \min\left\{ \delta_1, \delta_2 \right\}$, for all $n \geq N$ and $\vu \in S(\delta)$
+    \begin{equation*}
+        \abs{\phi_n(\vu)} \leq 1 - c \norm{\vu}^2,
+    \end{equation*}
+    where $c = \frac{1}{8} \mineval$.
+
+    We now address the second bound. let $\phi$ be the characteristic function of $\vX$. We assume $\vX$ has main lattice $\Z^d$, thus $\abs{\phi(\vu)} = 1$ if and only if every entry of $\vu$ is a multiple of $2 \pi$ by \cref{lem:cf-periodicity}. In particular $\abs{\phi(\vu)} < 1$ for all $\vu \in S(\pi) \setminus S(\delta)$. $\phi$ is continuous and $S(\pi) \setminus S(\delta)$ is compact. Therefore there exists $\epsilon > 0$ such that $\sup_{\vu \in S(\pi) \setminus S(\delta)} \abs{\phi(\vu)} \leq 1 - \epsilon$.
+
+    Since $\vX_n \todist \vX$ as $n \to \infty$, $\phi_n \to \phi$ uniformly on compact sets. Therefore there exists $N$ such that for all $n \geq N$
+    \begin{equation*}
+        \sup_{\vu \in S(\pi) \setminus S(\delta)} \abs{\phi_n(\vu)} \leq \rho = 1 - \tfrac{1}{2} \epsilon. \qedhere
+    \end{equation*}
+\end{proof}
+
+We are finally ready to prove \cref{thm:multi-triangular-llt}
+
+\begin{proof}[Proof of \cref{thm:multi-triangular-llt}]
+    We first address the case where the main lattice of $\vX$ and all $\vX_n$ is $\Z^d$. The main trick in the proof is to notice that if $n$ is integer valued then
+    \begin{equation*}
+        \one\{n = 0\} = \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{i n u} \dif u.
+    \end{equation*}
+    For all $\vy \in \vc_n + \Z^d$, $\sum_{i=1}^n \vX_{n, i} - \vy \in \Z^d$ therefore 
+    \begin{align*}
+        \Pr\left( \sum_{i=1}^n \vX_{n, i} = \vy \right)
+        &= \E\left[ 
+            \frac{1}{(2 \pi)^d} \int_{S(\pi)} e^{i \vu \cdot \left(\sum_{i=1}^n \vX_{n, i} - \vy\right)} \dif \vu
+         \right] \\
+        &= \frac{1}{(2 \pi)^d} \int_{S(\pi)} \phi_n(\vu)^n e^{-i \vu \cdot (\vy - n \E[\vX_n])} \dif \vu,
+    \end{align*}
+    where $\phi_n(\vu) = \E[e^{i \vu \cdot (\vX_n - \E[\vX_n])}]$ and $S(r) = [-r, r]^d$ for all $r > 0$. Recall
+    \begin{equation*}
+        \vx_n = n^{-1/2}(\vy - n \E[\vX_n]).
+    \end{equation*}
+    Then changing variables with $\vs = \sqrt{n} \vu$,
+    \begin{equation*}
+        n^{d/2} \Pr\left( \sum_{i=1}^n \vX_{n, i} = \vy \right)
+        = \frac{1}{(2 \pi)^d} \int_{S(\pi\sqrt{n})} \phi_n(\vs/\sqrt{n})^n e^{-i \vs \cdot \vx_n} \dif \vs.
+    \end{equation*}
+    By the Fourier inversion theorem
+    \begin{equation*}
+        f(\vx) = \frac{1}{(2 \pi)^d} \int_{\R^d} \psi(\vs) e^{-i \vs \cdot \vx} \dif \vs
+    \end{equation*}
+    where $\psi$ is the characteristic function of the $N(0, \cov(\vX))$ distribution. Therefore
+    \begin{align*}
+        &\sup_{\vy \in \vc_n + \lattice} \abs*{
+            n^{d/2} \Pr\left( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \right) - f(\vx_n)
+            } \nonumber \\
+        &\hspace{6em} = \sup_{\vy \in \vc_n + \lattice} \abs*{
+            \int_{\R^d} \left(\one_{S(\pi \sqrt{n})}(\vs) \phi_n(\vs/\sqrt{n})^n - \psi(\vs)\right) e^{-i\vs \cdot \vx_n} \dif \vs
+            } \\
+        &\hspace{6em} \leq \int_{\R^d} \abs*{ \one_{S(\pi \sqrt{n})}(\vs) \phi_n(\vs/\sqrt{n})^n - \psi(\vs)} \dif \vs.
+    \end{align*}
+    We apply the dominated convergence theorem. To dominate the integrand, first note that $\psi$ is integrable. Secondly let $\delta$, $c$, $\rho$ and $N$ be as in \cref{lem:dom-cf}. For all $n \geq N$ and for all $\vs \in S(\delta \sqrt{n})$, 
+    \begin{equation*}
+        \abs{\phi_n(\vs/\sqrt{n})}^n
+        \leq (1 - c \norm{s}^2/n)^n
+        \leq e^{-c \norm{s}^2}.
+    \end{equation*}
+    Let $C = - \log(\rho)$. Note if $\vs \in S(\pi \sqrt{n})$ then $\norm{\vs}^2 \leq \pi^2 d n$. Thus for all $n \geq N$ and $\vs \in S(\pi \sqrt{n}) \setminus S(\delta \sqrt{n})$
+    \begin{equation*}
+        \abs{\phi_n(\vs/\sqrt{n})}^n
+        \leq e^{-Cn} 
+        \leq e^{- \frac{C}{\pi^2 d} \norm{\vs}^2}.
+    \end{equation*}
+    Hence for all $n \geq N$,
+    \begin{equation*}
+        \abs*{ \one_{S(\pi \sqrt{n})}(\vs) \phi_n(\vs/\sqrt{n})^n - \psi(\vs)}
+        \leq e^{-c \norm{\vs}^2} + e^{- \frac{C}{\pi^2 d} \norm{\vs}^2} + \abs{\psi(\vs)}
+    \end{equation*}
+    where, in particular, the right hand side is integrable. By \cref{lem:clt},
+    \begin{equation*}
+        \phi_n(\vs/\sqrt{n})^n \to \psi(\vs)
+    \end{equation*}
+    as $n \to \infty$ for all $\vs \in \R^d$. Thus for all $\vs \in \R^d$
+    \begin{equation*}
+        \one_{S(\pi\sqrt{n})}(\vs) \phi(\vs/\sqrt{n})^n \to \psi(\vs)
+    \end{equation*}
+    as $n \to \infty$. Hence by the dominated convergence theorem
+    \begin{equation*}
+        \lim_{n \to \infty} \sup_{\vy \in \vc_n + \lattice} \abs*{
+            n^{d/2} \Pr\left( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \right) - f(\vx_n)
+            } = 0,
+    \end{equation*}
+    as required.
+
+    Finally we generalise to any main lattice $\lattice$. Suppose that $\lattice$ is generated by the columns of the invertible matrix $A$. Then $A$, viewed as a linear transform, is a isomorphism mapping $\Z^d$ to $\lattice$. 
+    Then $\tilde{\vX}_n = A^{-1} \vX_n$ and $\tilde{\vX} = A^{-1} \vX$ have common main lattice $\Z^d$. We can check that $\tilde{\vX}_n$ satisfies the assumptions of \cref{thm:multi-triangular-llt}. Let $\tilde{\Sigma} = \cov(\tilde{\vX})$. Then uniformly for $\vx$ in the translation of $\lattice$ containing the support of $\sum_{i=1}^n \vX_{n, i}$,
+    \begin{align*}
+        \Pr\Bigg(\sum_{i=1}^n \vX_{n, i} = \vy\Bigg)
+        &= \Pr\Bigg(\sum_{i=1}^n \tilde{\vX}_{n, i} = A^{-1}\vy\Bigg) \\
+        &= \frac{1}{\sqrt{(2 \pi n)^{d} \det\tilde{\Sigma}}} \exp \left( 
+            -\frac{1}{2} (A^{-1} \vx_n)^T \tilde{\Sigma}^{-1} (A^{-1} \vx_n) 
+         \right) + \littleo(n^{-d/2}) \\
+        &= \frac{1}{\sqrt{(2 \pi n)^{d} \det\tilde{\Sigma}}} \exp \left( 
+            -\frac{1}{2} \vx_n^T (A \tilde{\Sigma} A^T)^{-1} \vx_n 
+         \right) + \littleo(n^{-d/2}).
+    \end{align*}
+    Moreover
+    \begin{equation*}
+        \tilde{\Sigma}
+        = \cov(\tilde{\vX}) = \cov(A^{-1} \vX)
+        = A^{-1} \cov(\vX) (A^{-1})^T.
+    \end{equation*}
+    Therefore
+    \begin{equation*}
+        \det(\tilde{\Sigma}) = \det(A)^{-2} \det(\cov(\vX)) = \det(\lattice)^{-2} \det(\cov(\vX))
+    \end{equation*}
+    and so
+    \begin{align*}
+        \Pr\Bigg(\sum_{i=1}^n \vX_{n, i} = \vy\Bigg)
+        &= \frac{\det(\lattice)}{\sqrt{(2 \pi n)^{d} \det(\cov \vX)}} \exp \left( 
+            -\frac{1}{2} \vx_n^T \cov(\vX)^{-1} \vx_n 
+         \right) + \littleo(n^{-d/2}),
+    \end{align*}
+    as required.
+\end{proof}
+
+\subsection{Non-triangular local limit theorem}
+
+The local limit theorem for non-triangular arrays of lattice valued random variables, proven by \citet{rvavceva1962domains} and \citet{gamkrelidzeLocalLimitTheorem2015}, is a direct corollary of the triangular case. For sake of completeness, we state it below.
+
+\begin{theorem}
+    \label{thm:normal-multi-llt}
+    Let $\vX$ be a non-degenerate $\R^d$ valued random variable. Assume the following holds:
+    \begin{enumerate}
+        \item $\vX$ is lattice valued with main lattice $\lattice$.
+        \item $\vX$ has finite second moments with covariance matrix $\Sigma$.
+    \end{enumerate}
+    Let $\vX_1, \ldots, \vX_n$ be i.i.d.\ copies of $\vX$ and $\vc$ be an arbitrary vector in the support of $\vX$. Then uniformly for $\vy \in n\vc + \lattice$,
+    \begin{equation*}
+        \Pr\Big(
+            \textstyle \sum_{i=1}^n \vX_i = \vy
+        \Big)
+        = n^{-d/2} \det(\lattice) f\left( \vx_n \right) + \littleo \left( n^{-d/2} \right),
+        \quad \text{where} \quad
+        \vx_n = \frac{\vy - n \E[\vX]}{\sqrt{n}}
+    \end{equation*}
+    and $f$ is the density of a $N(0, \cov(\vX))$ distribution. This means that
+    \begin{equation*}
+        \lim_{n \to \infty} \sup_{\vy \in n \vc + \lattice} \abs*{
+            n^{d/2} \Pr\Big( \textstyle \sum_{i=1}^n \vX_i = \vy \Big)
+            - \det(\lattice) f(\vx_n)
+        } = 0.
+    \end{equation*}
+\end{theorem}
