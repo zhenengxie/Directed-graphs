@@ -153,7 +153,8 @@ Then, all strongly connected components of $\vec{G}_n(\nu)$ of which the first c
 \end{figure}
 
 \subsection{The continuum case}\label{subsec.limitobject}
-We will define now define the continuous counterpart of the sampling procedure of the out-forest and the candidates. This is a modification of the procedure defined in Subsubsection 3.2.2 of \cite{Goldschmidt2019}. \\
+
+We will define now define the continuous counterpart of the sampling procedure of the out-forest and the candidates. This is a modification of the procedure defined in Subsubsection 3.2.2 of \cite{goldschmidtScalingLimitCritical2019}. \\
 
 \subsubsection{\texorpdfstring{$\R$}{R}-trees and their encoding}
 \input{Content/Sections/Real Trees.tex}
@@ -186,7 +187,7 @@ Finally, for $1\leq i \leq N$, let the head corresponding to $V_i$, which we cal
 Let $T^{\text{mk}}_l$ be the subtree of $\cT^{l}$ spanned by $\{l,V_1,\dots,V_N\}$. Then, in $T^{\text{mk}}_{l}$, set $V_i\sim W_i$ for each $1\leq i\leq N$, and set $\cM_{l}:=T^{\text{mk}}_{l}/\sim$. View $\cM_{l}$ as an element of $\vec{\cG}$ in the natural way, and call it $M_l$. To be precise,  let the vertex set of $M_l$ consist of $l$, $W_i$ for $i\leq N$, and the branch points $V_i\wedge V_j$ for $i\neq j\leq N$. The directions are inherited from $\cT^l$, by considering all edges directed away from the root. Remove all edges that do not lie in a strongly connected component of $M_{l}$ and delete any isolated vertices that are thus created. Then, for any vertices of degree $2$, merge the neighbouring edges and sum their lengths. This creates a collection $\cC_l$ of strongly connected MDMs. Doing this for each $(l,\sigma)\in \{[L_i,\Sigma_i]\}$ yields the collection of strongly connected MDMs $\cC$ that has the law of the limit in Theorem \ref{thm.main}.
 
 \subsubsection{Properties of the limit object}
-We note that the limit object is encoded by $3$ parameters: the real forest is encoded by a Brownian motion with variance $\sigma_+^2$ and parabolic drift with coefficient $-(\sigma_{-+}+\nu_-)/(2\mu)$, and the identifications are a Cox process with intensity $(\sigma_{-+}+\nu_-)/\mu^2$ on the length measure of the subtree spanned by the previously found candidates and the currently explored point as described in \ref{subsubsec.samplecontinuousobject}. The limit object that is studied in \cite{Goldschmidt2019} corresponding to $\lambda=0$ (i.e. at criticality) is equal to our limit object in the case $\sigma_+^2=1$, $-(\sigma_{-+}+\nu_-)/(2\mu)=-1/2$, and $(\sigma_{-+}+\nu_-)/(\mu^2)=1$. Note that these three conditions are satisfied if we let $D^-$ and $D^-$ be independent $\operatorname{Poisson}(1)$ random variables. In \cite{Goldschmidt2019}, some properties of the limit object corresponding to these specific parameters are shown. A quick check shows that the proofs do not depend on the values of the parameters, so we deduce that the properties also hold for our limit object. Let $\cM:=\bigcup_{L_i}\cM_{L_i}$.
+We note that the limit object is encoded by $3$ parameters: the real forest is encoded by a Brownian motion with variance $\sigma_+^2$ and parabolic drift with coefficient $-(\sigma_{-+}+\nu_-)/(2\mu)$, and the identifications are a Cox process with intensity $(\sigma_{-+}+\nu_-)/\mu^2$ on the length measure of the subtree spanned by the previously found candidates and the currently explored point as described in \ref{subsubsec.samplecontinuousobject}. The limit object that is studied in \cite{goldschmidtScalingLimitCritical2019} corresponding to $\lambda=0$ (i.e. at criticality) is equal to our limit object in the case $\sigma_+^2=1$, $-(\sigma_{-+}+\nu_-)/(2\mu)=-1/2$, and $(\sigma_{-+}+\nu_-)/(\mu^2)=1$. Note that these three conditions are satisfied if we let $D^-$ and $D^-$ be independent $\operatorname{Poisson}(1)$ random variables. In \cite{goldschmidtScalingLimitCritical2019}, some properties of the limit object corresponding to these specific parameters are shown. A quick check shows that the proofs do not depend on the values of the parameters, so we deduce that the properties also hold for our limit object. Let $\cM:=\bigcup_{L_i}\cM_{L_i}$.
 
 \begin{corollary}
 \begin{enumerate}
@@ -195,13 +196,13 @@ We note that the limit object is encoded by $3$ parameters: the real forest is e
 \end{enumerate}
 \end{corollary}
 \begin{proof}
-The proof is analogous to the proof of Theorem 4.5 in \cite{Goldschmidt2019}.
+The proof is analogous to the proof of Theorem 4.5 in \cite{goldschmidtScalingLimitCritical2019}.
 \end{proof}
 \begin{corollary}\label{cor.allengthsaredifferent}
 The strongly connected components of $\cM$ all have different lengths almost surely.
 \end{corollary}
 \begin{proof}
-The proof is analogous to the proof of Proposition 4.6 in \cite{Goldschmidt2019}.
+The proof is analogous to the proof of Proposition 4.6 in \cite{goldschmidtScalingLimitCritical2019}.
 \end{proof}
 Write $\cC$ for the strongly connected components of $\cM$ and $\mathbf{C}_l$ for those of $\cM_l$, in decreasing order of length, with $\cM_l$ as defined in Subsubsection  \ref{subsubsec.samplecontinuousobject}. Write $\cC_{\text{cplx}}$ for the list of complex components of $\cC$ in decreasing order of length. For sequences $(K_1,\dots, K_j)$ and $(J_1,\dots,J_k)$ of directed multigraphs, write $(J_1,\dots,J_k)\equiv(K_1,\dots, K_j)$ if $j=k$ and $J_i$ is isomorphic to $K_i$ for each $i\leq j$. Extend this notation naturally to the case where one or both of the sequences has edge lengths by ignoring the edge lengths. 
 \begin{corollary}
@@ -213,6 +214,6 @@ Let $(e_i,1\leq i \leq K)$ be an arbitrary ordering of the edges of $K_1,\dots, 
 $$\left\{\mathbf{x}=(x_1,\dots, x_K)\in \R_+^K:\forall 1\leq i\leq k-1, \sum_{j:e_j\in E(K_i)}x_j \geq \sum_{j:e_j\in E(K_{i+1})}x_j\right\}.$$
 \end{corollary}
 \begin{proof}
-The proof is analogous to the proof of Theorem 6.1 in \cite{Goldschmidt2019}.
+The proof is analogous to the proof of Theorem 6.1 in \cite{goldschmidtScalingLimitCritical2019}.
 \end{proof}
 

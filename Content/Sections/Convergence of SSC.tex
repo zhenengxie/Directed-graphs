@@ -25,9 +25,9 @@ $$\left(n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P
 in $\D(\R_+,\R)^2$ as $n\to \infty$.
 \end{lemma}
 \begin{proof}
-We use Theorem 1 in \cite{Deraphelis2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the black-purple-red Galton-Watson forest $(F^{pr}(k),k\geq 1)$, as defined in Subsubsection \ref{subsubsec.convheightprocess}. \\
+We use Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the black-purple-red Galton-Watson forest $(F^{pr}(k),k\geq 1)$, as defined in Subsubsection \ref{subsubsec.convheightprocess}. \\
 We equip $(F^{pr}(k),k\geq 1)$ with edge lengths in the following manner. For a purple or red vertex with out degree $d^+$, sample its in-degree with law $Z^-$ conditioned on $Z^+=d^+$. The in-degree of the black vertices is encoded by $(Y^{-}(k),k\geq 1)$.  Then, for a vertex with in-degree $d^-$, let the edges connecting it to its children have length $d^--1$ (unless it is the root of the component, then let the edges connecting to its children will have length $d^-$). Call the resulting forest with edge lengths $(F^{pr,\ell}(k),k\geq 1)$, and let $(H^{pr,\ell}(k),k\geq 1)$ be the corresponding height process.\\
-We will translate the conditions of Theorem 1 in \cite{Deraphelis2017} to our setting and check them. The conditions are as follows.
+We will translate the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to our setting and check them. The conditions are as follows.
 \begin{enumerate}
     \item $\E[Z^+]=1$
     \item $1<\E[(Z^+)^2]<\infty$
@@ -40,7 +40,7 @@ Under these conditions, using the notation from Subsubsection \ref{subsubsec.con
 \end{split}\end{align}
 in $D(\R_+,\R)^3$ as $n\to \infty$. 
 Then, we observe that the rest of the argument in Subsubsection \ref{subsubsec.convheightprocess} and Subsection \ref{subsubsec.convaftermeasurechange} can be extended to include the height process with edge lengths. This yields the result.\\
-Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{Deraphelis2017} to hold. The conditions are equivalent to 
+Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to hold. The conditions are equivalent to 
 \begin{enumerate}
     \item $\E[D^+D^-]=\E[D^-]$
     \item $1<\frac{\E[(D^+)^2D^-]}{\E[D^-]}<\infty$
@@ -64,7 +64,7 @@ By definition, $(A_n(k),k\geq 1)$ is a counting process with compensator
     A_n^{comp}(k)&=\sum_{i=1}^k \frac{\hat{H}^\ell(i)}{\hat{S}^-_n(i)}\one_{\{\hat{P}_n(i)-\hat{P}_n(i-1)=1\}}\\
     &=\sum_{j=1}^{\hat{P}_n(k)}\frac{\hat{H}^\ell(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},
 \end{align*}
- By Theorem 14.2.VIII of Daley and Vere-Jones \cite{DaleyVereJones}, the claimed convergence under rescaling of $(A_n(k),k\geq 1)$ follows if we show that 
+ By Theorem 14.2.VIII of Daley and Vere-Jones \cite{daleyIntroductionTheoryPoint2008}, the claimed convergence under rescaling of $(A_n(k),k\geq 1)$ follows if we show that 
 \begin{equation}\label{eq.convergencecompensator}
     \left(A_n^{comp}\left(\lfloor tn^{2/3}\rfloor \right), t\geq 0\right)\overset{d}{\to}\left(\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu^2} \int_0^t\hat{R}_v dv, t \geq 0\right)
 \end{equation}
@@ -227,13 +227,13 @@ $n^{-1/3}M^n_{l_n}\overset{a.s.}{\to} \cM_l$
 in $\vec{\cG}$.
 \end{proposition}
 \begin{proof}
-The proof is analogous to the proof of Proposition 5.6 in \cite{Goldschmidt2019}.
+The proof is analogous to the proof of Proposition 5.6 in \cite{goldschmidtScalingLimitCritical2019}.
 \end{proof}
 \begin{corollary}\label{cor.sccsinonetreeconverge}
 On the probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely, the strongly connected components in $n^{-1/3}M^n_{l_n}$, listed in decreasing order of length, converge to the strongly connected components in $\cM_l$, listed in decreasing order of length, in $\vec{\cG}$ almost surely as $n\to \infty$.
 \end{corollary}
 \begin{proof}
-This follows from Proposition 5.3 in \cite{Goldschmidt2019}. This proposition requires that the lengths of the strongly connected components in $\cM_{l}$ have different lengths almost surely, which is the content of Corollary \ref{cor.allengthsaredifferent}. 
+This follows from Proposition 5.3 in \cite{goldschmidtScalingLimitCritical2019}. This proposition requires that the lengths of the strongly connected components in $\cM_{l}$ have different lengths almost surely, which is the content of Corollary \ref{cor.allengthsaredifferent}. 
 \end{proof}
 
 \begin{corollary}\label{cor.sccordereduptotimeT}
@@ -245,7 +245,7 @@ in the $\vec{\cG}$ product topology as $n\to \infty$.
 This follows from Proposition \ref{prop.extractexcursions}, Corollary \ref{cor.sccsinonetreeconverge}, and the fact that all SCCs in the limit object have a different length by Corollary \ref{cor.allengthsaredifferent}. 
 \end{proof}
 
-Finally, we claim that we can choose $T$ large enough such that all SCCs with large size are explored before time $T$. This is the content of the following lemma. The proof is in the same spirit as Lemma 9 in \cite{Aldous1991} by Aldous. 
+Finally, we claim that we can choose $T$ large enough such that all SCCs with large size are explored before time $T$. This is the content of the following lemma. The proof is in the same spirit as Lemma 9 in \cite{aldous_1991} by Aldous. 
 \begin{lemma}\label{lemma.largesccfoundfirst}
 For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of SCCs whose vertices have at total of at least $\delta n^{1/3}$ in-edges (including those which are not part of the SCC) and whose time of first discovery is in $n^{2/3}I$. Then,
 $$\lim_{s\to \infty}\limsup_{n} \P\left(SCC(n,(s,\infty),\delta)\geq 1\right)=0\text{ for all }\delta>0.$$

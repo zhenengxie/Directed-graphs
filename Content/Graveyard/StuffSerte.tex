@@ -1,8 +1,8 @@
 \section{Introduction}
 \subsection{The model}
 We study a uniform directed graph (or digraph) with a random degree sequence. We consider $n$ vertices, to each of which we assign an in-degree and an out-degree. The degree tuples are independent and identically distributed. Let $\mathbf{D}=(D^-,D^+)$ be a random variable in $\N\times \N$ with this distribution, and for each $i\in [n]$, let $\mathbf{D}_i=(D^-_i,D^+_i)$  be the in- and out-degree of vertex $i$. In order for a graph with this degree sequence to exist, we require that $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, so we will condition on this event. We are interested in the limit under scaling of the strongly connected components as $n\to \infty$.  \\
-To investigate this, we will use a version of the configuration model for digraphs that was introduced in \cite{Cooper2004}. The output of the configuration model, conditioned on being simple, is a uniform digraph with the given degree sequence. \\
-The techniques we will use to investigate the graph model are a combination of the techniques introduced by Conchon-Kerjan and Goldschmidt in \cite{Conchon2018} and the strategy of Goldschmidt and Stephenson in \cite{Goldschmidt2019}. The former work discusses the scaling limit of an undirected uniform graph with i.i.d.\ degrees at criticality, and the latter discusses the scaling limit of the strongly connected components of a directed Erd\H{o}s-Renyi graph at criticality.\\
+To investigate this, we will use a version of the configuration model for digraphs that was introduced in \cite{cooperSizeLargestStrongly2004}. The output of the configuration model, conditioned on being simple, is a uniform digraph with the given degree sequence. \\
+The techniques we will use to investigate the graph model are a combination of the techniques introduced by Conchon-Kerjan and Goldschmidt in \cite{conchon--kerjanStableGraphMetric2020} and the strategy of Goldschmidt and Stephenson in \cite{goldschmidtScalingLimitCritical2019}. The former work discusses the scaling limit of an undirected uniform graph with i.i.d.\ degrees at criticality, and the latter discusses the scaling limit of the strongly connected components of a directed Erd\H{o}s-Renyi graph at criticality.\\
 \myworries{Description of exploration written by Zheneng} This is illustrated in Figure \ref{fig.configuration model}. We move on to the next 'out-component' when we have matched all out-edges of vertices that we have seen so far. The out-component will have unmatched in-edges that will be matched to out-components that are explored later, but these edges between out-components will not be part of a strongly connected component, so considering out-components suits our purpose. \\
 The preliminary definition of the degree distribution is as follows. 
 \begin{figure}
@@ -36,7 +36,7 @@ Conditions \ref{cond.beta} and \ref{cond.gamma} ensure that the Central Limit Th
 \subsubsection{The in-degrees in order of discovery}
 In our depth-first exploration, the next vertex is chosen with probability proportional to its in-degree. Hence, the sequence of in-degrees in order of discovery is a \emph{size-biased ordered sequence}. Denote the sequence of the first $m$ discovered vertices in order of discovery
 $$(\hat{D}^-_1,\dots, \hat{D}^-_m).$$ Note that $\hat{D}_1^-,\dots , \hat{D}_m^-$ are not identically distributed or independent. This sequence is however closely related to a sequence of i.i.d.\ random variables with the size-biased distribution of $D^-$. Such a random variable $Z$ is distributed as $$\P(Z=k)=\frac{k\P(D^-=k)}{\E[D^-]}.$$
-Proposition 4.2 in \cite{Conchon2018} identifies the measure change between $$(\hat{D}^-_1,\dots, \hat{D}^-_m)$$ and $$(Z_1^-,\dots,Z_m^-),$$ for $Z_1^-,\dots,Z_m^-$ i.i.d.\ random variables with the size-biased distribution of $D^-$. The content of the proposition is as follows.
+Proposition 4.2 in \cite{conchon--kerjanStableGraphMetric2020} identifies the measure change between $$(\hat{D}^-_1,\dots, \hat{D}^-_m)$$ and $$(Z_1^-,\dots,Z_m^-),$$ for $Z_1^-,\dots,Z_m^-$ i.i.d.\ random variables with the size-biased distribution of $D^-$. The content of the proposition is as follows.
 
 \begin{proposition}\label{prop.measurechange}
 For $m\leq n$ and $k_1,\dots,k_m\geq 1$, define
@@ -50,7 +50,7 @@ We fix $t>0$ and choose $m=\lfloor n^{2/3}t\rfloor$, and are interested in how t
 Let $\Phi(n,m):=\phi_n^m(Z^-_1,\dots,Z^-_m)$. Then, for $\sigma=\left(\frac{\gamma-\beta^2/\mu}{\mu}\right)^{1/2}$, and $(B_s,s\geq 0)$ a standard Brownian motion, define $$\Phi(t)=\exp\left(-\frac{\sigma}{\mu}\int_0^tsdB_s - \frac{t^3 \sigma^2}{6\mu^2}\right).$$
 Then, for fixed $t$, $\Phi(n,\lfloor  n^{2/3} t \rfloor)\overset{d}{\to}\Phi(t)$ as $n\to \infty$. Moreover, the sequence $(\Phi(n,\lfloor  n^{2/3} t \rfloor))_{n\geq1}$ of random variables is uniformly integrable. 
 \end{proposition}
-The proof of this statement is analogous to the proof of Lemma 6.7 in \cite{Conchon2018}.\\
+The proof of this statement is analogous to the proof of Lemma 6.7 in \cite{conchon--kerjanStableGraphMetric2020}.\\
 
 Note that every time we discover a vertex with in-degree $d^-$ that is not the root of an out-component, we use one of its in-edges to connect to an out-edge of the last explored vertex. Hence, the \emph{stack} of seen, but unused in-edges increases by $d^--1$. If we ignore the times that an out-edge is matched to one of the in-edges on the stack, and ignore one of the in-edges of the root of every out-component, the process 
 $$\hat{S}^-(k):=\sum\limits_{i=1}^k(\hat{D}^-_i-1)$$ keeps track of the stack size. We will investigate this process using the measure change from Proposition \ref{prop.measurechange}, so we define 
@@ -65,7 +65,7 @@ Informally, the measure change only has an effect on the cumulative fluctuations
 \begin{equation}\label{eq.convergencein-edges}\left(n^{-1/3}{S}^-(\lfloor n^{2/3}t\rfloor)-\frac{\beta-\mu}{\mu}t ,t\geq 0\right) \overset{d}{\to} \left(\sigma B_t, t\geq 0\right).\end{equation}
 
 
-Analogously to the proof of Theorem 4.1 in \cite{Conchon2018}, we can then show that for any $T\geq 0$,
+Analogously to the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020}, we can then show that for any $T\geq 0$,
 $$\left(n^{-1/3}{\hat{S}}^-(\lfloor n^{2/3}t\rfloor)-\frac{\beta-\mu}{\mu}t ,0\leq t\leq T\right) \overset{d}{\to} \left( \hat{B}^-_t, 0\leq t \leq T \right),$$
 where $(\hat{B}^-_t,0\leq t \leq T)$ is defined as follows. For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
 \begin{equation}\label{eq.measurechangeapplied} \E\left[F(\sigma\hat{B}^-_t,0\leq t \leq T)\right]=\E\left[\exp\left(-\frac{\sigma}{\mu}\int_0^T sdB_s - \frac{T^3 \sigma^2}{6\mu^2}\right)F(\sigma{B}_t,0\leq t \leq T)\right].\end{equation}
@@ -89,7 +89,7 @@ Fix $t$ and $n$ and set $m=\lfloor  n^{2/3} t\rfloor$. Suppose we sampled our se
       \E\left[\left(D^+_1(Z^-_1)-1\right)^2\right]&=\lambda^2,\text{ and}\\
      \E\left[\left(Z^-_1-\frac{\beta}{\mu}\right)\left(D^+_1(Z^-_1)-1\right)\right]&=\kappa.\\
  \end{align*}
- Then, by Theorem 7.1.4 in \cite{Ethier1986}, we get that 
+ Then, by Theorem 7.1.4 in \cite{ethierMarkovProcessesCharacterization1986}, we get that 
  $$\left(n^{-1/3}\sum\limits_{i=1}^{\lfloor  n^{2/3}t\rfloor} \left(Z^-_i-\frac{\beta}{\mu}\right),n^{-1/3}\sum\limits_{i=1}^{\lfloor  n^{2/3}t\rfloor} \left(D^+_i(Z^-_i)-1\right), t\geq 0\right)$$
  converges to a Gaussian process with covariance matrix
  $$A_t=\begin{pmatrix} \sigma^2  & \kappa \\ \kappa  & \lambda^2  \end{pmatrix}t,$$
@@ -106,7 +106,7 @@ For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
 
 \end{theorem}
 \begin{proof}
- Firstly, we use the results of Propositions \ref{prop.scalingmeasurechange} and \ref{prop.jointconvergenceinout}, and repeat the proof of Theorem 4.1 in \cite{Conchon2018} to find that for ${S}^{[n,-]}(t):=n^{-1/3}\sum_{i=1}^{\lfloor n^{2/3}t\rfloor} \left(\hat{D}^-_i-\frac{\beta}{\mu}\right) $ and ${S}^{[n,+]}(t):=n^{-1/3}\sum_{i=1}^{\lfloor  n^{2/3}t \rfloor} \left(\hat{D}^+_i(\hat{D}^-_i)-1\right)$, for $F$ a bounded continuous test-function,
+ Firstly, we use the results of Propositions \ref{prop.scalingmeasurechange} and \ref{prop.jointconvergenceinout}, and repeat the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} to find that for ${S}^{[n,-]}(t):=n^{-1/3}\sum_{i=1}^{\lfloor n^{2/3}t\rfloor} \left(\hat{D}^-_i-\frac{\beta}{\mu}\right) $ and ${S}^{[n,+]}(t):=n^{-1/3}\sum_{i=1}^{\lfloor  n^{2/3}t \rfloor} \left(\hat{D}^+_i(\hat{D}^-_i)-1\right)$, for $F$ a bounded continuous test-function,
  \begin{align*}&\E\left[F({S}^{[n,-]}(t),{S}^{[n,+]}(t), 0\leq t \leq T ) \right] \to \E\left[\Phi(T) F\left(\frac{\kappa}{\lambda}B_t^1+\left(\sigma^2-\frac{\kappa^2}{\lambda^2}\right)^{1/2}B_t^2   ,\lambda B_t^1, 0\leq t \leq T\right)\right]\\
  &= \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\kappa}{\lambda}B_s^1+\left(\sigma^2-\frac{\kappa^2}{\lambda^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma^2}{6\mu^2}\right) F\left(\frac{\kappa}{\lambda}B_t^1+\left(\sigma^2-\frac{\kappa^2}{\lambda^2}\right)^{1/2}B_t^2   ,\lambda B_t^1, 0\leq t \leq T\right)\right]\end{align*}
  
@@ -187,7 +187,7 @@ For the last statement, note that any additional or descendental surplus edge fr
 
 
 Note that a surplus edge can connect an out-edge to an in-edge in the same out-component, or to an in-edge in an earlier explored out-component. To incorporate surplus edges in our process, we need extra randomness. We will first modify the depth-first exploration encoded by $(S^+(k),S^-(k), k\leq m)$ to account for surplus edges. We will sample which out-edges are part of a surplus edge, and we will connect each of these to a special vertex with in-degree $1$ and out-degree $0$. We will sample which in-edges are part of a surplus edges by distorting distances in the tree, such that the new length measure represents the number of available in-edges in specific parts of the tree. We will then use the measure change to translate this to a modification of the depth-first exploration encoded by $(\hat{S}^+(k),\hat{S}^-(k), k\leq m)$. \\
-However, in $(\hat{S}^+(k),\hat{S}^-(k), k\leq m)$, the sampling of surplus edges depends on the total number of in-edges available amongst all $n$ vertices, whereas we do not have such a stack available when we sample $(S^+(k),S^-(k), k\leq m)$. Therefore, we replace the total number of in-edges, i.e. $\sum_{i=0}^{n-1} D^-_i$, by $\mu n$, and later show that working with a deterministic 'stack size` does not affect the process on the scale that we are interested in. We denote the adaptation of $(S^+(k),S^-(k), k\leq m)$ in which surplus edges are accounted for, using the deterministic 'stack size`, by $(S^+_{eff}(k),S^-_{eff}(k), k\leq m)$. Denote the height process corresponding to $S^+_{eff}$ by $(H^+_{eff}(k), k\leq m)$. We will use an argument inspired by the method that Broutin, Duquesne and Wang employ in \cite{Broutin2020} to prove the following theorem. 
+However, in $(\hat{S}^+(k),\hat{S}^-(k), k\leq m)$, the sampling of surplus edges depends on the total number of in-edges available amongst all $n$ vertices, whereas we do not have such a stack available when we sample $(S^+(k),S^-(k), k\leq m)$. Therefore, we replace the total number of in-edges, i.e. $\sum_{i=0}^{n-1} D^-_i$, by $\mu n$, and later show that working with a deterministic 'stack size` does not affect the process on the scale that we are interested in. We denote the adaptation of $(S^+(k),S^-(k), k\leq m)$ in which surplus edges are accounted for, using the deterministic 'stack size`, by $(S^+_{eff}(k),S^-_{eff}(k), k\leq m)$. Denote the height process corresponding to $S^+_{eff}$ by $(H^+_{eff}(k), k\leq m)$. We will use an argument inspired by the method that Broutin, Duquesne and Wang employ in \cite{broutinLimitsMultiplicativeInhomogeneous2020} to prove the following theorem. 
 \myworries{In the below theorem, I will include the convergence of the height process encoding the metric structure on which the ancestral backedges are sampled on the length measure.}
 \begin{theorem}\label{thm.convergenceSeff}
 Let $(B_t,t\geq 0)$ be a Brownian motion and set $$(B^{eff}_t,t\geq 0)=\left(B_t-\frac{\beta - \mu}{2\lambda \mu^2}t^2,t\geq 0\right).$$ Then,
@@ -291,9 +291,9 @@ in $D(\R_+,\R)^6 $ as $n\to \infty$. In particular,
 in $D(\R_+,\R)^2$ as $n\to \infty$ jointly with \eqref{eq.allencodingRVsconverge}.
 \end{lemma}
 \begin{proof} 
-Firstly, note that by $X^+$ encoding a critical Galton-Watson forest with offspring variance $\lambda^2$, the proof of Theorem 1.8 in \cite{Legall2005} gives us that for $(B_s,s\geq 0)$ a Brownian motion,
+Firstly, note that by $X^+$ encoding a critical Galton-Watson forest with offspring variance $\lambda^2$, the proof of Theorem 1.8 in \cite{legallRandomTreesApplications2005} gives us that for $(B_s,s\geq 0)$ a Brownian motion,
 \begin{equation}\label{eq.convergenceX}\left(n^{-1/3}X^+\left(\lfloor n^{2/3}s\rfloor \right), n^{-1/3}H\left(\lfloor n^{2/3}s\rfloor \right), s\geq 0 \right) \overset{d}{\to} \left(\lambda B_s,\frac{2}{\lambda} \left(B_s-\inf\{B_u:u\leq s\}\right),  s\geq 0\right) \end{equation}
- in $D(\R,\R)^2$ as $n\to \infty$, with $\left(\frac{2}{\lambda}(B^+_s-\inf\{B_u,u\leq s\}),s\geq 0\right)$ the height process corresponding to $\left(\lambda B_s,s \geq 0\right)$. Moreover, since $(X^{blue,+}(k),k\geq 0)\overset{d}{=}(X^{red,+}(k),k\geq 0)\overset{d}{=}(X^+(k),k\geq 0)$, and by \cite{Chaumont2010}, also
+ in $D(\R,\R)^2$ as $n\to \infty$, with $\left(\frac{2}{\lambda}(B^+_s-\inf\{B_u,u\leq s\}),s\geq 0\right)$ the height process corresponding to $\left(\lambda B_s,s \geq 0\right)$. Moreover, since $(X^{blue,+}(k),k\geq 0)\overset{d}{=}(X^{red,+}(k),k\geq 0)\overset{d}{=}(X^+(k),k\geq 0)$, and by \cite{chaumontInvariancePrinciplesLocal2010}, also
 \begin{align}\begin{split}\label{eq.convergencebychaumont}&\left(n^{-1/3}X^{blue,+}\left(\lfloor n^{2/3} s \rfloor \right), n^{-1/3}X^{red,+}\left(\lfloor n^{2/3} s \rfloor \right), n^{-2/3}\inf\left\{k:n^{-1/3}X^{red,+}(k) \leq -x\right\}, s \geq 0, x\geq 0 \right)\\
 &\overset{d}{\to}\left(\lambda B^{blue}(s), \lambda B^{red}(s), \inf\left\{u:\lambda B^{red}_u < -x\right\}, s\geq 0, x \geq 0\right)\end{split}\end{align}
 in $D(\R_+,\R)^3$ as $n\to \infty$. Moreover, it is standard that 
@@ -335,7 +335,7 @@ which converges to $0$ by tightness of $\left(n^{-2/3}\theta^{n}(\lfloor n^{2/3}
 We have that with probability $1$, $$\left(\frac{2}{\lambda} \left(B^+_{\theta (t)}-\inf\{B^+_{s}:s\leq \theta(t)\}\right), t\leq T \right)=\left(\frac{2}{\lambda} \left(B^+_{\theta (t)}-\inf\{B^+_{\theta(s)}:s\leq t\}\right), t\leq T \right),$$ which is continuous, and it is the height process corresponding to $\left(\lambda B^+_{\theta (t)},t\leq T\right)$. 
 \end{lemma}
 \begin{proof}
-From \cite{Legall2005}, we know that $(G(t),t\geq 0):=\left(\frac{2}{\lambda} \left(B^+_{t}-\inf\{B^+_{s}:s\leq t\}\right)  t\geq 0 \right)$ is the height process corresponding to $\left(\lambda B^+_{t},t\geq 0\right)$. By definition of the height process, we prove the statement if we show that with probability $1$, $(B^+_{\theta(t)},t\geq 0)$ is continuous, and for all $t\geq 0$, for all $s$ such that $\theta(t-)<s<\theta(t)$, $ B^+_s > B^+_{\theta(t)}$. \\
+From \cite{legallRandomTreesApplications2005}, we know that $(G(t),t\geq 0):=\left(\frac{2}{\lambda} \left(B^+_{t}-\inf\{B^+_{s}:s\leq t\}\right)  t\geq 0 \right)$ is the height process corresponding to $\left(\lambda B^+_{t},t\geq 0\right)$. By definition of the height process, we prove the statement if we show that with probability $1$, $(B^+_{\theta(t)},t\geq 0)$ is continuous, and for all $t\geq 0$, for all $s$ such that $\theta(t-)<s<\theta(t)$, $ B^+_s > B^+_{\theta(t)}$. \\
 Recall that $(B^{blue}_t, t \geq 0)$ are $(B^{red}_t, t\geq 0)$ two independent Brownian motions and  $$\theta(t)=t+\inf\left\{s\geq 0 : \lambda B^{red}_s< -\frac{\beta - \mu}{2\mu^2} t^2\right\},$$ and $\Lambda(t)=\inf\{s\geq 0:\theta(s)> t\}$. Then, \begin{equation*}\left(B^+_t,t \geq 0\right):=\left( B^{blue}_{\Lambda(t)}+ B^{red}_{t-\Lambda(t)}, t\geq 0\right).\end{equation*}
 Firstly, note that the jumps of $\theta$ correspond to excursions above the infimum of $B^{red}$.  With probability $1$, for all these excursions, the minimum on the excursion is only attained at the endpoints. This can be seen by uniqueness of local minima of Brownian motion, or by \^Ito excursion theory and the corresponding property for Brownian excursions. We will assume that this holds.\\
 Now fix $t$ such that $\theta(t-)\neq \theta(t)$ and let $s\in (\theta(t-),\theta(t))$. Observe that $\Lambda$ is equal to $t$ on $[\theta(t-),\theta(t)]$. For $[\theta(t-),\theta(t))$ this follows by definition of $\Lambda$, and for $\theta(t)$ this follows by $\theta$ being strictly increasing. This implies that $$s-\Lambda(s)<\theta(t)-\Lambda(\theta(t))=\inf\{ u\geq 0: \lambda B_u^{red}<-(\beta-\mu)t^2/(2\mu^2)\}.$$ By our assumption on the minima on the excursions above the infimum of $B^{red}$, this implies that $$B^{red}_{s-\Lambda(s)}>-\frac{\beta - \mu}{2\mu^2} t^2=B^{red}_{\theta(t)-\Lambda(\theta(t))},$$
@@ -422,7 +422,7 @@ We will use the following notation:\begin{align*}
 \end{align*}
 Let $f:D([0,T],\R)^2\to \R$ be a bounded, continuous test-function. Then,
 \begin{align*}\E\left[f\left(\hat{S}_{eff}^{(n)},  \hat{H}_{eff}^{(n)}\right) \right]&= \E\left[ \E\left[\left. f\left(\hat{S}_{eff}^{(n)},  \hat{H}_{eff}^{(n)}\right)\right|\hat{S}^{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} t\rfloor)\E\left[\left.f\left({S}_{eff}^{(n)},  {H}_{eff}^{(n)}\right)\right| {S}^{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} t\rfloor)f\left({S}_{eff}^{(n)},  {H}_{eff}^{(n)}\right)\right],\end{align*}
-where we use that $\E\left[\left. f\left(\hat{S}_{eff}^{(n)},  \hat{H}_{eff}^{(n)}\right)\right|\hat{S}^{(n)}\right]$ is a bounded, adapted function of $\hat{S}^{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${S}^{(n)}$ to $\hat{S}^{(n)}$. Then, using Proposition \ref{prop.measurechange}, Proposition \ref{prop.scalingmeasurechange} and Theorem \ref{thm.convergenceSeff}, following the proof of Theorem 4.1 in \cite{Conchon2018} gives us that 
+where we use that $\E\left[\left. f\left(\hat{S}_{eff}^{(n)},  \hat{H}_{eff}^{(n)}\right)\right|\hat{S}^{(n)}\right]$ is a bounded, adapted function of $\hat{S}^{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${S}^{(n)}$ to $\hat{S}^{(n)}$. Then, using Proposition \ref{prop.measurechange}, Proposition \ref{prop.scalingmeasurechange} and Theorem \ref{thm.convergenceSeff}, following the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} gives us that 
 \begin{align*}
     &\E\left[f\left(\hat{S}_{eff}^{(n)},  \hat{H}_{eff}^{(n)}\right) \right]\\
     &\to \E\left[\Phi(t)f\left(\lambda B_t^{eff},\frac{2}{\lambda}\left(B_t^{eff}-\inf\left\{B_s^{eff}:s\leq t\right\}\right),0\leq t \leq T\right)\right].
@@ -466,13 +466,13 @@ This follows from Theorem \ref{thm.convergencetohatBeff} and the continuous mapp
 \subsection{Excursion theory}\label{subsec.excursiontheory}
 
 % \myworries{Mimic section 3.2 of Christina's paper, include additivity result of paper with Robin}
-We will use the following notation. The description will closely follow Subsection 3.2 in \cite{Conchon2018}. Write $D(\R_+,\R_+)$ for the space of c\`adl\`ag functions $f:\R_+\to \R_+$. We will write $\cE$ for the space of excursions, i.e.
+We will use the following notation. The description will closely follow Subsection 3.2 in \cite{conchon--kerjanStableGraphMetric2020}. Write $D(\R_+,\R_+)$ for the space of c\`adl\`ag functions $f:\R_+\to \R_+$. We will write $\cE$ for the space of excursions, i.e.
 $$\cE=\left\{\varepsilon \in D(\R_+,\R_+):\exists t>0\text{ s.t. }\varepsilon(s)>0\text{ for }s\in (0,t)\text{ and }\varepsilon(s)=0\text{ for }s\geq t\right\}.$$
 For $\varepsilon\in \cE$, let $\zeta(\varepsilon)$ be the lifetime of $\varepsilon$, i.e. the smallest $t$ such that $\varepsilon(s)=0$ for $s\geq t$. Let $\cE^*=\cE\cup\{\delta\}$, where $\delta$ represents the empty excursion, with $\zeta(\delta)=0$. We will decompose $(\lambda \hat{B}^{eff}_t,t\geq 0)$ into excursions above the running infimum, since these excursions will encode the components of the limiting $\R$-forest. Set $I_t=\inf_{0\leq s\leq t}\lambda \hat{B}_t^{eff}$, which is a local time at zero for 
 $$(R_t,t\geq 0)=\left(\lambda \hat{B}_t^{eff}-\inf_{0\leq s \leq t}\lambda \hat{B}_s^{eff},t\geq 0\right)$$  and write $\sigma _l=\inf\{t\geq 0: I_t<-l\}$, so that $(\sigma_l, l\geq 0)$ is the inverse local time. Then, write 
 $$\varepsilon^{(l)}=\begin{cases}(R_{\sigma_{l-}+u}, 0\leq u \leq \sigma_l-\sigma_{l-})&\text{ if }\sigma_l-\sigma_{l-}>0\\ \delta &\text{otherwise.}\end{cases}.$$
-\myworries{Results like in Subsection 3.2 in \cite{Conchon2018} follow from the fact that the limiting process is of the form $(c_1 B_t-c_2 t^2,t\geq 0)$ and results on excursions of spanning forest of $G(n,1/n)$}
-% We will use the following facts about $(R_t,t\geq 0)$, that are proved in \cite{Conchon2018} as Lemma 3.5 in a more general setting, also covering a family of processes that are locally absolutely continuous to an $\alpha$-stable L\'evy process. 
+\myworries{Results like in Subsection 3.2 in \cite{conchon--kerjanStableGraphMetric2020} follow from the fact that the limiting process is of the form $(c_1 B_t-c_2 t^2,t\geq 0)$ and results on excursions of spanning forest of $G(n,1/n)$}
+% We will use the following facts about $(R_t,t\geq 0)$, that are proved in \cite{conchon--kerjanStableGraphMetric2020} as Lemma 3.5 in a more general setting, also covering a family of processes that are locally absolutely continuous to an $\alpha$-stable L\'evy process. 
 % \myworries{Maybe find another reference/easy proof for these facts - should be pretty straightforward?}
 % \begin{lemma}\label{lemma.propertiesexcursions}
 % \begin{enumerate}
@@ -505,12 +505,12 @@ where the convergence in the first coordinate is in $\ell_2$ and the convergence
 \end{proposition}
 The potential key to showing that the out-components are small beyond time $\lfloor t n^{2/3} \rfloor$ is showing that the effect of finding in-edges connected to earlier discovered vertices (which causes a negative drift) is large enough, and in particular larger than the possible effect of out-degrees getting larger further in the exploration. \\
 Some estimates that might help: after finding $\lfloor t n^{2/3} \rfloor$ vertices, we have approximately $\frac{\beta-\mu}{\mu} t n^{2/3}$ unmatched in-edges connecting to explored vertices. These will cause a negative drift in the exploration beyond time $\lfloor t n^{2/3} \rfloor$. Moreover, we stop the exploration after finding all vertices with positive in-degree, which is approximately at time $\P(D^->0)n$. At this time, we have approximately $\E[D^+ \one_{D^-=0}] n$ unmatched in-edges left. Moreover, the growth of the stack of seen, unmatched in-edges grows concavely, so will grow at least linear with gradient $\E[D^+ \one_{D^-=0}]/\P(D^->0)$. 
-% We will use a variation of a method introduced by Aldous in Proposition 15 of \cite{Aldous1997}. We use the description of this method provided in Subection 5.4 of \cite{Conchon2018}. 
+% We will use a variation of a method introduced by Aldous in Proposition 15 of \cite{Aldous1997}. We use the description of this method provided in Subection 5.4 of \cite{conchon--kerjanStableGraphMetric2020}. 
 
 % We will first introduce the concept of a size-biased point process. Suppose we have random variables $\mathbf{Y}=(Y_\gamma:\gamma \in \Gamma)$ in $\ell^2_+(\Gamma)$. Given $\mathbf{Y}$, let $E_\gamma\sim \operatorname{Exp}(Y_\gamma)$ independently for different $\gamma \in \Gamma$. Set 
 % \begin{equation}\label{eq.Sigma(a)}
 % \Sigma(a)=\sum_{\gamma\in\Gamma}Y_\gamma \one_{\{E_\gamma<a\}}\end{equation}
-% and note that $\Sigma(a)<\infty$ a.s. Let $\Sigma_\gamma=\Sigma(E_\gamma).$ Then $\Xi=\{(\Sigma_\gamma,Y_\gamma):\gamma \in\Gamma\}$ is the \emph{size-biased point process} (SBPP) associated with $\mathbf{Y}$. Write $\pi$ for the projection onto the second coordinate, so that $\pi(\{(s_\gamma,y_\gamma):\gamma\in\Gamma\})=\{y_\gamma,\gamma\in\Gamma\}$. The following proposition is Proposition 15 of \cite{Aldous1997}, Proposition 17 of \cite{AldousLimic1998} and Proposition 5.7 of \cite{Conchon2018}. 
+% and note that $\Sigma(a)<\infty$ a.s. Let $\Sigma_\gamma=\Sigma(E_\gamma).$ Then $\Xi=\{(\Sigma_\gamma,Y_\gamma):\gamma \in\Gamma\}$ is the \emph{size-biased point process} (SBPP) associated with $\mathbf{Y}$. Write $\pi$ for the projection onto the second coordinate, so that $\pi(\{(s_\gamma,y_\gamma):\gamma\in\Gamma\})=\{y_\gamma,\gamma\in\Gamma\}$. The following proposition is Proposition 15 of \cite{Aldous1997}, Proposition 17 of \cite{AldousLimic1998} and Proposition 5.7 of \cite{conchon--kerjanStableGraphMetric2020}. 
 % \begin{proposition}\label{prop.sbpps}
 % Let $\mathbb{Y}^n\in\ell_+^2(\Gamma^n)$ for each $n\geq 1$, let $\Sigma^n$ be the analogue of \eqref{eq.Sigma(a)} and let $\Xi^n$ be the associated SBPP. Suppose that 
 % $$\Xi^n\overset{d}{\to}\Xi^\infty$$
@@ -523,7 +523,7 @@ Some estimates that might help: after finding $\lfloor t n^{2/3} \rfloor$ vertic
 % Then $\mathbf{Y}^\infty:=\operatorname{ord}(\pi(\Xi^\infty))\in\ell^2_\downarrow$ and $\operatorname{ord}(\mathbf{Y}^n)\overset{d}{\to}\operatorname{ord}(\mathbf{Y}^\infty)$ in $\ell^2$. In addition,
 % $$\operatorname(Y^n_\gamma,\Sigma_\gamma^n,\gamma\in\Gamma^n)\overset{d}{\to}\operatorname{ord}(Y_\gamma,\Sigma_\gamma,\gamma\in\Gamma)$$ as $n\to\infty$.
 % \end{proposition}
-% In \cite{Conchon2018} this theorem can be applied directly to the component sizes, because in the exploration of the undirected configuration model, the component sizes in order of appearance are a size-biased point process. However, in our set-up, the ordering of the components is not size-biased by component size, but by total in-degree. Fortunately, by the law of large numbers, the total in-degree is approximately a multiple of the component size. This allows us to apply the theory of SBPPs to the total in-degree of the components and translate this to a result on the component sizes.\\
+% In \cite{conchon--kerjanStableGraphMetric2020} this theorem can be applied directly to the component sizes, because in the exploration of the undirected configuration model, the component sizes in order of appearance are a size-biased point process. However, in our set-up, the ordering of the components is not size-biased by component size, but by total in-degree. Fortunately, by the law of large numbers, the total in-degree is approximately a multiple of the component size. This allows us to apply the theory of SBPPs to the total in-degree of the components and translate this to a result on the component sizes.\\
 
 % Hence, we define $$Y_k^n=n^{-2/3}\sum_{i=\sigma^n(k-1)+1}^{\sigma^n(k)}\hat{D}^-_i,$$
 % which is the rescaled total in-degree of the $k^{th}$ component and 
@@ -546,7 +546,7 @@ Some estimates that might help: after finding $\lfloor t n^{2/3} \rfloor$ vertic
 % We will show that we can apply Proposition \ref{prop.sbpps}, so we first need to show that 
 % $$\Xi^n\overset{d}{\to}\Xi^\infty$$
 % as $n\to\infty$, for the topology of vague convergence of counting measures on $[0,\infty)\times[0,\infty)$. 
-% Firstly, by repeating the proof of Lemma 5.9 in \cite{Conchon2018}, we can show that for $\tilde{Y}^n_k=\zeta^n(\varepsilon^n_k)$, $\tilde{\Sigma}^n_k=\sigma^n(k-1)$, $$\tilde{\Xi}^n=\{(\tilde{Y}^n_k,\tilde{\Sigma}^n_k),k\geq 1\}$$ and $$\tilde{\Xi}^\infty=\{(\sigma_{l-},\zeta(\varepsilon^{(l)})):l\geq 0,\sigma_l-\sigma_{l-}>0\},$$
+% Firstly, by repeating the proof of Lemma 5.9 in \cite{conchon--kerjanStableGraphMetric2020}, we can show that for $\tilde{Y}^n_k=\zeta^n(\varepsilon^n_k)$, $\tilde{\Sigma}^n_k=\sigma^n(k-1)$, $$\tilde{\Xi}^n=\{(\tilde{Y}^n_k,\tilde{\Sigma}^n_k),k\geq 1\}$$ and $$\tilde{\Xi}^\infty=\{(\sigma_{l-},\zeta(\varepsilon^{(l)})):l\geq 0,\sigma_l-\sigma_{l-}>0\},$$
 % $$\tilde{\Xi}^n\overset{d}{\to}\tilde{\Xi}^\infty$$
 % as $n\to\infty$, for the topology of vague convergence of counting measures on $[0,\infty)\times[0,\infty)$. 
 % Combining this with the definition of $\Xi^n_k$ and $\Xi^n_k$ and the convergence in \eqref{eq.convergencesumindegrees} gives us that 
