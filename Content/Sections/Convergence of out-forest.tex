@@ -69,12 +69,15 @@ For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
 
 \end{theorem}
 \begin{proof}
- Firstly, we use the results of Proposition \ref{prop.scalingmeasurechange} \myworries{refer to result Zheneng} and Lemma \ref{lem.jointconvergenceinout}, and repeat the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} to find that for ${Y}^{[n,-]}(t):=n^{-1/3}{Y}^-\left(\lfloor n^{2/3}t\rfloor\right)-n^{1/3}\nu_-t $ and ${Y}^{[n,+]}(t):=n^{-1/3}{Y}^+\left(\lfloor n^{2/3}t\rfloor\right)$, for $F$ a bounded continuous test-function,
- \begin{align*}&\E\left[F({Y}^{[n,-]}(t),{Y}^{[n,+]}(t), 0\leq t \leq T ) \right] 
- \\&\to \E\left[\Phi(T) F\left(\frac{\sigma_{-+}}{\sigma_+}B_t^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_t^2   ,\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
- \end{align*}
+ Firstly, we use the results of Proposition \ref{prop.scalingmeasurechange} \myworries{refer to result Zheneng} and Lemma \ref{lem.jointconvergenceinout}, and repeat the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} to find that for ${Y}^{[n,-]}(t):=n^{-1/3}{Y}^-\left(\lfloor n^{2/3}t\rfloor\right)-n^{1/3}\nu_-t $ and ${Y}^{[n,+]}(t):=n^{-1/3}{Y}^+\left(\lfloor n^{2/3}t\rfloor\right)$, for $F$ a bounded continuous test-function and $(\mathbf{B}_t,t\geq0)$ a two-dimensional Gaussian process with covariance matrix $$\begin{pmatrix} \sigma_-^2  & \sigma_{-+} \\ \sigma_{-+}  & \sigma_+^2  \end{pmatrix}t,$$
+ we have
  
- as $n\to \infty$. Hence, for $F$ a suitable test function, 
+ \begin{align*}&\E\left[F({Y}^{[n,-]}(t),{Y}^{[n,+]}(t), 0\leq t \leq T ) \right] 
+ \\&\to \E\left[\Phi(T) F\left(\mathbf{B}_t, 0\leq t \leq T\right)\right]\\
+ \end{align*}
+ as $n\to \infty$. We may and will define $(\mathbf{B}_t,t\geq 0)$ by letting $(B^1_t,t\geq 0)$ and $(B^2_t,t\geq 0)$ be two independent Brownian motions, and setting 
+ $$(\mathbf{B}_t,t\geq 0)=\left(\frac{\sigma_{-+}}{\sigma_+}B_t^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2} B_t^2, \sigma_+ B_t^1, t\geq 0\right).$$
+ Hence, for $F$ a suitable test function, 
  \begin{align*}&\E\left[F({Y}^{[n,+]}(t), 0\leq t \leq T ) \right]\\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
  &=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB^1_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B^1_t,   0\leq t \leq T)\right].\end{align*}
  Combining this with the first statement of Lemma \ref{lem.jointconvergenceinout} yields the result.
