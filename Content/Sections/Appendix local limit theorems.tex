@@ -3,17 +3,17 @@
 
 For an i.i.d.\ sequence $\vX_1, \ldots, \vX_n$ of random variables, central limit theorems address probabilities of the form
 \begin{equation*}
-    \Pr\Big( n^{-\alpha} \textstyle \sum_{i=1}^n (\vX_i - \E[\vX]) \in A \Big).
+    \P\Big( n^{-\alpha} \textstyle \sum_{i=1}^n (\vX_i - \E[\vX]) \in A \Big).
 \end{equation*}
 where the $\alpha > 0$ is chosen such that the above probabilities converge to a sensible limit and $A$ is some Borel subset. More abstractly, the $\alpha$ is chosen so that $n^{-\alpha} \sum_{i=1} (\vX_i - \E[\vX])$ converges to a stable law. On the other hand local limit theorems address probabilities of the form
 \begin{equation*}
-    \Pr\Big( \textstyle \sum_{i=1}^n (\vX_i - \E[\vX]) \in A \Big).
+    \P\Big( \textstyle \sum_{i=1}^n (\vX_i - \E[\vX]) \in A \Big).
 \end{equation*}
 without the $n^{-\alpha}$ scaling. Such probabilities are going to decay to 0, but we can still make statements quantifying how they decay to 0, utilizing the density of the limiting stable distribution for the central limit theorem. Local limit theorems are what we are going to need to know the asymptotic behaviour of
 \begin{equation*}
-    \Pr(\Delta_n = 0) = \Pr\Big(\textstyle\sum_{i=1}^n (D_i^- - D_i^+) = 0\Big).
+    \P(\Delta_n = 0) = \P\Big(\textstyle\sum_{i=1}^n (D_i^- - D_i^+) = 0\Big).
 \end{equation*}
-In fact to prove \cref{lem:measure-change} we will need to introduce a sequence of exponentially tilted measures $\Pr_n$ and thus require a local limit theorem for i.i.d.\ triangular arrays. We will also need to simultaneously control the behaviour of a separate sum and thus we need a bivariate local limit theorem.
+In fact to prove \cref{lem:measure-change} we will need to introduce a sequence of exponentially tilted measures $\P_n$ and thus require a local limit theorem for i.i.d.\ triangular arrays. We will also need to simultaneously control the behaviour of a separate sum and thus we need a bivariate local limit theorem.
 
 Historically, \citet{gnedenkoLocalLimitTheorem1948} covers the stable case in one dimension. For multidimensional random variables, \citet{rvavceva1962domains} covers the lattice case and \citet{stoneLocalLimitTheorem1965} covers the non-lattice case. \citet{doneyBivariateLocalLimit1991} proves a local limit theorem for the bivariate case which allows each component to use a different scaling. A local limit theorem specifically for integer valued random vectors is covered by \citet{gamkrelidzeLocalLimitTheorem2015}.
 
@@ -145,7 +145,7 @@ Throughout this chapter $\norm{\vu}$, for $\vu \in \R^d$, will denote the Euclid
     \end{enumerate}
     Then $\vX$ has finite second moment. Also if $\vc_n$ is defined such that $\vc_n + \lattice$ contains the support of $\sum_{i=1}^n \vX_{n, i}$ then uniformly for $\vy \in \vc_n + \lattice$
     \begin{equation*}
-        \Pr\Big(
+        \P\Big(
             \textstyle \sum_{i=1}^n \vX_{n, i} = \vy
         \Big)
         = n^{-d/2} \det(\lattice) f\left( \vx_n \right) + \littleo \left( n^{-d/2} \right)
@@ -155,7 +155,7 @@ Throughout this chapter $\norm{\vu}$, for $\vu \in \R^d$, will denote the Euclid
     and $f$ is the density of a $N(0, \cov(\vX))$ distribution. This means that
     \begin{equation*}
         \lim_{n \to \infty} \sup_{\vy \in \vc_n + \lattice} \abs*{
-            n^{d/2} \Pr\Big( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \Big)
+            n^{d/2} \P\Big( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \Big)
             - \det(\lattice) f(\vx_n)
         } = 0.
     \end{equation*}
@@ -184,7 +184,7 @@ Let $\maxeval$ be the maximum eigenvalue of $\cov(\vX)$. Then
 \end{equation*}
 as $n \to \infty$. Thus the local limit theorem only tells us that 
 \begin{equation*}
-    \Pr\Big( \textstyle \sum_{i=1}^n \vX_i = \vy_n \Big) = \littleo\Big( n^{-d/2} \Big)
+    \P\Big( \textstyle \sum_{i=1}^n \vX_i = \vy_n \Big) = \littleo\Big( n^{-d/2} \Big)
 \end{equation*}
 meaning we lose the precise characterisation of the leading order term in how this probability decays.
 
@@ -213,7 +213,7 @@ Before we prove our main theorem, we first prove a series of lemmas. Firstly we 
             \one \left\{ \norm{\hat{\vX}_n}^2 > L \right\}
         \right]
         &\leq 2 \sup_n \E\Big[\norm{\vX_n}^2 \one \left\{ \norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\right\}\Big] \nonumber \\
-        & \hspace{2em} + 2M \sup_n \Pr\Big(\norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\Big).
+        & \hspace{2em} + 2M \sup_n \P\Big(\norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\Big).
     \end{align*}
     By \cref{eq:ui-condition}
     \begin{equation*}
@@ -223,7 +223,7 @@ Before we prove our main theorem, we first prove a series of lemmas. Firstly we 
     \end{equation*}
     By Markov's inequality
     \begin{equation*}
-        \sup_n \Pr\Big(\norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\Big) \leq \frac{2M}{L - 2M} \to 0
+        \sup_n \P\Big(\norm{\vX_n}^2 \geq \tfrac{1}{2} L - M\Big) \leq \frac{2M}{L - 2M} \to 0
     \end{equation*}
     as $L \to \infty$. The claimed result follows.
 \end{proof}
@@ -382,7 +382,7 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     \end{equation*}
     For all $\vy \in \vc_n + \Z^d$, $\sum_{i=1}^n \vX_{n, i} - \vy \in \Z^d$ therefore 
     \begin{align*}
-        \Pr\left( \sum_{i=1}^n \vX_{n, i} = \vy \right)
+        \P\left( \sum_{i=1}^n \vX_{n, i} = \vy \right)
         &= \E\left[ 
             \frac{1}{(2 \pi)^d} \int_{S(\pi)} e^{i \vu \cdot \left(\sum_{i=1}^n \vX_{n, i} - \vy\right)} \dif \vu
          \right] \\
@@ -394,7 +394,7 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     \end{equation*}
     Then changing variables with $\vs = \sqrt{n} \vu$,
     \begin{equation*}
-        n^{d/2} \Pr\left( \sum_{i=1}^n \vX_{n, i} = \vy \right)
+        n^{d/2} \P\left( \sum_{i=1}^n \vX_{n, i} = \vy \right)
         = \frac{1}{(2 \pi)^d} \int_{S(\pi\sqrt{n})} \phi_n(\vs/\sqrt{n})^n e^{-i \vs \cdot \vx_n} \dif \vs.
     \end{equation*}
     By the Fourier inversion theorem
@@ -404,7 +404,7 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     where $\psi$ is the characteristic function of the $N(0, \cov(\vX))$ distribution. Therefore
     \begin{align*}
         &\sup_{\vy \in \vc_n + \lattice} \abs*{
-            n^{d/2} \Pr\left( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \right) - f(\vx_n)
+            n^{d/2} \P\left( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \right) - f(\vx_n)
             } \nonumber \\
         &\hspace{6em} = \sup_{\vy \in \vc_n + \lattice} \abs*{
             \int_{\R^d} \left(\one_{S(\pi \sqrt{n})}(\vs) \phi_n(\vs/\sqrt{n})^n - \psi(\vs)\right) e^{-i\vs \cdot \vx_n} \dif \vs
@@ -439,7 +439,7 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     as $n \to \infty$. Hence by the dominated convergence theorem
     \begin{equation*}
         \lim_{n \to \infty} \sup_{\vy \in \vc_n + \lattice} \abs*{
-            n^{d/2} \Pr\left( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \right) - f(\vx_n)
+            n^{d/2} \P\left( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \right) - f(\vx_n)
             } = 0,
     \end{equation*}
     as required.
@@ -447,8 +447,8 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     Finally we generalise to any main lattice $\lattice$. Suppose that $\lattice$ is generated by the columns of the invertible matrix $A$. Then $A$, viewed as a linear transform, is a isomorphism mapping $\Z^d$ to $\lattice$. 
     Then $\tilde{\vX}_n = A^{-1} \vX_n$ and $\tilde{\vX} = A^{-1} \vX$ have common main lattice $\Z^d$. We can check that $\tilde{\vX}_n$ satisfies the assumptions of \cref{thm:multi-triangular-llt}. Let $\tilde{\Sigma} = \cov(\tilde{\vX})$. Then uniformly for $\vx$ in the translation of $\lattice$ containing the support of $\sum_{i=1}^n \vX_{n, i}$,
     \begin{align*}
-        \Pr\Bigg(\sum_{i=1}^n \vX_{n, i} = \vy\Bigg)
-        &= \Pr\Bigg(\sum_{i=1}^n \tilde{\vX}_{n, i} = A^{-1}\vy\Bigg) \\
+        \P\Bigg(\sum_{i=1}^n \vX_{n, i} = \vy\Bigg)
+        &= \P\Bigg(\sum_{i=1}^n \tilde{\vX}_{n, i} = A^{-1}\vy\Bigg) \\
         &= \frac{1}{\sqrt{(2 \pi n)^{d} \det\tilde{\Sigma}}} \exp \left( 
             -\frac{1}{2} (A^{-1} \vx_n)^T \tilde{\Sigma}^{-1} (A^{-1} \vx_n) 
          \right) + \littleo(n^{-d/2}) \\
@@ -468,7 +468,7 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     \end{equation*}
     and so
     \begin{align*}
-        \Pr\Bigg(\sum_{i=1}^n \vX_{n, i} = \vy\Bigg)
+        \P\Bigg(\sum_{i=1}^n \vX_{n, i} = \vy\Bigg)
         &= \frac{\det(\lattice)}{\sqrt{(2 \pi n)^{d} \det(\cov \vX)}} \exp \left( 
             -\frac{1}{2} \vx_n^T \cov(\vX)^{-1} \vx_n 
          \right) + \littleo(n^{-d/2}),
@@ -489,7 +489,7 @@ The local limit theorem for non-triangular arrays of lattice valued random varia
     \end{enumerate}
     Let $\vX_1, \ldots, \vX_n$ be i.i.d.\ copies of $\vX$ and $\vc$ be an arbitrary vector in the support of $\vX$. Then uniformly for $\vy \in n\vc + \lattice$,
     \begin{equation*}
-        \Pr\Big(
+        \P\Big(
             \textstyle \sum_{i=1}^n \vX_i = \vy
         \Big)
         = n^{-d/2} \det(\lattice) f\left( \vx_n \right) + \littleo \left( n^{-d/2} \right),
@@ -499,7 +499,7 @@ The local limit theorem for non-triangular arrays of lattice valued random varia
     and $f$ is the density of a $N(0, \cov(\vX))$ distribution. This means that
     \begin{equation*}
         \lim_{n \to \infty} \sup_{\vy \in n \vc + \lattice} \abs*{
-            n^{d/2} \Pr\Big( \textstyle \sum_{i=1}^n \vX_i = \vy \Big)
+            n^{d/2} \P\Big( \textstyle \sum_{i=1}^n \vX_i = \vy \Big)
             - \det(\lattice) f(\vx_n)
         } = 0.
     \end{equation*}
