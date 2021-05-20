@@ -1,5 +1,5 @@
 \section{Introduction}
-\myworries{Mention somewhere: Note that the SCC in the critical directed Erd\H{o}s-Renyi model as studied in \cite{goldschmidtScalingLimitCritical2019} has the same limit under rescaling as the model studied in this work with $D^+$ and $D^-$ independent $\operatorname{Poisson}(1)$ random variables. Mention somewhere: limit object parametrized by $\sigma_+$ (variance BM), $\frac{\sigma_{-+}+\nu_-}{2\mu}$ (parabolic drift BM), and $\frac{\sigma_{-+}+\nu_-}{\mu^2}$ (intensity of sampling ancestral back-edges).}
+\myworries{Mention somewhere: Note that the SCC in the critical directed Erd\H{o}s-Renyi model as studied in \cite{goldschmidtScalingLimitCritical2019} has the same limit under rescaling as the model studied in this work with $D^+$ and $D^-$ independent $\operatorname{Poisson}(1)$ random variables. Mention somewhere: limit object parametrized by $\sigma_+$ (variance BM), $\frac{\sigma_{-+}+\nu_-}{\mu}$ (parabolic drift BM), and $\frac{\sigma_{-+}+\nu_-}{\mu^2}$ (intensity of sampling ancestral back-edges). For directed ER, these are all $1$.}
 
 \subsection{The model}
 We study a uniform directed graph (or digraph) with a random degree sequence. We consider $n$ vertices, to each of which we assign an in-degree and an out-degree. The degree tuples are independent and identically distributed with law $\nu$. For each $i\in [n]$, let $\mathbf{D}_i=(D^-_i,D^+_i)$ be the in- and out-degree of vertex $i$. In order for a graph with this degree sequence to exist, we require that $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, so we will condition on this event. Conditional on $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, sample a uniform digraph with this degree sequence. Denote resulting random digraph by $\vec{G}_n(\nu)$. We are interested in the limit under scaling of the strongly connected components of $\vec{G}_n(\nu)$ as $n\to \infty$.  \\
@@ -41,10 +41,25 @@ There exists a sequence $\cC=(\cC_i,i\in \N)$ of random strongly connected MDMs 
 $$\left(n^{-1/3}C_i(n),i\in \N\right)\overset{d}{\to}\left(\cC_i,i\in \N\right)$$
 as $n\to \infty$, with respect to the product $d_{\vec{\cG}}$-topology. 
 \end{theorem}
-This has the following trivial corollary, which was previously unknown. 
+The law of the limit object places our model in the universality class of the directed Erd\H{o}s-Rényi model as studied in \cite{goldschmidtScalingLimitCritical2019}. This is the content of the following Corollary.
 \begin{corollary}
-There exists a random sequence $(\ell_i,i\in \N)\in \R^\infty$, such that for $(L_i,i\in \N)$ the lengths of the strongly connected components ordered by decreasing length (appended with an infinite repeat of $0$), and for 
+Consider $\vec{G}_n(\nu)$, with $\nu$ such that $$\sigma_+=1=\frac{\sigma_{-+}+\nu_-}{\mu}=\frac{\sigma_{-+}+\nu_-}{\mu^2}=1.$$ (Note that this condition is satisfied by $\nu(k^-,k^+)=\nu_1(k^-)\nu_2(k^+)$, with $\nu_i$ the law of a $\operatorname{Poisson}(1)$ random variable.)
+Let $(C_i(n), i\geq 1)$ be the strongly connected components of $\vec{G}_n(\nu)$, such that by Theorem \ref{thm.main} there exists $\cC=(\cC_i,i\in \N)$ such that 
+$$\left(n^{-1/3}C_i(n),i\in \N\right)\overset{d}{\to}\left(\cC_i,i\in \N\right)$$
+as $n\to \infty$, with respect to the product $d_{\vec{\cG}}$-topology. Also consider the directed Erd\H{o}s-R\'enyi model on $n$ vertices, in which any directed edge is present independently with probability $1/n$, which we denote by $\vec{G}(n,1/n)$, and let $(C'_i(n), i\geq 1)$ be the strongly connected components of $\vec{G}_n(\nu)$. Then, also
+$$\left(n^{-1/3}C'_i(n),i\in \N\right)\overset{d}{\to}\left(\cC_i,i\in \N\right)$$
+as $n\to \infty$, with respect to the product $d_{\vec{\cG}}$-topology. 
 \end{corollary}
+Moreover, Theorem \ref{thm.main} has the following trivial corollaries, which were previously unknown. 
+\begin{corollary}
+There exists a random sequence $(\ell_i,i\in \N)\in \R_+^\infty$, such that for $(L^n_i,i\in \N)$ the total lengths in the strongly connected components of $\vec{G}_n(\nu)$ ordered by decreasing length (appended with an infinite repeat of $0$), and for $(S^n_i,i\in\N)$ the number of vertices in the the strongly connected components of $\vec{G}_n(\nu)$ ordered by decreasing size (appended with an infinite repeat of $0$),
+$$\left(n^{-1/3}L^n_i,n^{-1/3}S^n_i, i\in \N\right)\overset{d}{\to}\left(\ell_i,\ell_i,i\in \N\right)$$
+as $n\to \infty$ in the product topology on $(\R^2)^\infty$. 
+\end{corollary}
+\begin{corollary}
+For $v,w\in \vec{G}_n(\nu)$ such that $v\to w$, let $d(v,w)$ denote the length of the shortest path from $v$ to $w$, and let $$\operatorname{Diam}\left(\vec{G}_n(\nu)\right)=\max\{d(v,w):v\to w\}$$ be the \emph{diameter} of $\vec{G}_n(\nu)$. Then, the order of $$\operatorname{Diam}\left(\vec{G}_n(\nu)\right)$$ is at least $O(n^{1/3})$.
+\end{corollary}
+
 
 \subsection{Previous work}
 The configuration model was introduced by Bollobás \cite{Bollobas1980} to sample a uniformly random graph with a given degree sequence. For a discussion of the configuration model and proofs of standard results, we refer the reader to \cite{hofstadRandomGraphsComplex2017}, Chapter 7.   
@@ -104,6 +119,6 @@ Our work contains the first results on the directed configuration model at criti
     \item We conjecture that, just like the directed Erd\H{o}s-Rényi graph \cite{goldschmidtScalingLimitCritical2019}, the directed configuration model gives rise to a critical window, that in some sense interpolates between subcritical and supercritical models. It would be interesting to adapt our methods to the critical window.
     \item Our methods show that the diameter of the configuration model at criticality is at least $O(n^{1/3})$, which is in contrast with the off-critical cases (for deterministic degrees), in which the diameter is $O(\log(n))$ \cite{caiDiameterDirectedConfiguration2020}. We believe that the diameter is in fact exactly $O(n^{1/3})$. Goldschmidt and Maazoun are working on this question for the directed Erd\H{o}s-Rényi graph at criticality. 
     \item We plan to extend our understanding of the strongly connected components by studying the directed graphs that they are embedded in. A first step would be to study all vertices that can be reached from the non-trivial strongly components. This would illuminate connections between the strongly connected components and expose the fractal structure of the directed graph, which is not observed when only studying the strongly connected components themselves.
-    \item Another natural next step is to study the model under weaker moment conditions. The first condition to eliminate is $\E\left[(D^-)^i(D^+)^j\right]$ for $\{i,j\}=\{1,3\}$, which would in some sense makes the identifications less uniform on the ancestral lines. We have reason to believe that this would place the model in  a different universality class, but further research is needed to confirm this. Also the heavy-tailed case is not well-understood, but given our results, it is natural to expect the limit object to be embedded in a tilted stable tree as defined in \cite{Goldschmidt2018stable}. Moreover, one could define hybrid models by letting the tail-behaviour of the in- and out-degrees be different. 
+    \item Another natural next step is to study the model under weaker moment conditions. The first condition to eliminate is $\E\left[(D^-)^i(D^+)^j\right]$ for $\{i,j\}=\{1,3\}$, which would in some sense makes the identifications less uniform on the ancestral lines. We have reason to believe that this would place the model in  a different universality class, but further research is needed to confirm this. Also the heavy-tailed case is not well-understood, but given our results, it is natural to expect the limit object to be embedded in a tilted stable tree as defined in \cite{conchon--kerjanStableGraphMetric2020}. Moreover, one could define hybrid models by letting the tail-behaviour of the in- and out-degrees be different. 
 \end{enumerate}
 
