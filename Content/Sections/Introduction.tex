@@ -29,14 +29,13 @@ We require the degree distribution to satisfy the following properties.
     \item $\E[(D^- + D^+)^3] < \infty$.
     \item $\E[D^-] = \E[D^+]$.
     \item \emph{lattice condition}
-    \item $\E[D^- D^+] = \E[D^{\pm}]$.
 \end{enumerate}
 
 The first condition is required to ensure the steps of a random walk used in the proof has finite variance and thus will convergence (under rescaling) to a Brownian motion.
 
-The second condition ensures the conditioning event $\{\sum_{i=1}^n D_i^- = \sum_{i=1}^n D^-i+\}$ is a well behaved event. In particular third condition can ensures $\P(\sum_{i=1}^n D_i^- = \sum_{i=1}^n D^-i)$, and can be relaxed by taking a limit along integer multiples of some integer $k$ rather than all $n \in \N$.
+The second condition and third condition makes sure the event $\{\sum_{i=1}^n D^-_i = \sum_{i=1}^n D^+_i\}$ is well behaved. The second condition ensures this is not a large deviation event and the third condition ensures this event has positive probability for all $n \geq 1$. 
 
-The third condition is the criticality condition. \myworries{explain more}.
+\myworries{go over criticality condition}
 
 We define the following parameters, that will determine the behaviour of the strongly connected components in the limit.
 \begin{enumerate}
@@ -51,8 +50,18 @@ We define the following parameters, that will determine the behaviour of the str
 % \end{remark}
 \subsection{Topology of convergence}
 
+\begin{figure}[htbp]
+    \centering
 
-\input{Content/Sections/Toplogy.tex}
+    \includegraphics[width=\textwidth]{Content/Pictures/largest_sccs.eps}
+    
+    \caption{The largest SCC from samples of a directed configuration model with independent $\text{Poisson(1)}$ in- and out-degrees}
+    \label{fig:largest-sccs}
+\end{figure}
+
+In \cref{fig:largest-sccs} we see the largest SCC from samples of a directed configuration model. As can be seen, while the lengths of paths in the SCC are long, the actual structure of the SCC is often quite simple. Previous work by \citet{goldschmidtScalingLimitCritical2019} shows this is true for the directed Erdős--Renyi model. There it was shown that while the lengths of paths in the SCC will scale like $n^{1/3}$, the actual structure of the SCC will remain finite.
+
+To formalise this idea we will introduce metric directed multigraphs (MDMs). These are simply weighted directed multigraphs, but in our context it is more appropriate to think of the weights as lengths hence the change in naming. Formally a directed multigraph is a tuple $M = (V, E, r)$ where
 
 \subsection{Our results}
 
