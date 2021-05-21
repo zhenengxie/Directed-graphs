@@ -21,7 +21,7 @@
     \begin{align*}
         \Phi(n, m) = \phi^n_m(\vZ_1, \ldots, \vZ_m).
     \end{align*}
-    Further let $(W^-, W^+)$ be a pair of correlated standard Brownian motions with correlation $\corr(Z^-_i, Z^+_i)$ and define
+    Further let $(W^-, W^+)$ be a pair of standard correlated Brownian motions with correlation $\corr(Z^-_i, Z^+_i)$ and define
     \begin{equation*}
         \Phi(t) = \exp \left( 
             - \frac{\sigma_-}{\mu} \int_0^t s \dif W^-_s - \frac{\sigma_-^2}{6 \mu^2} t^3
@@ -30,7 +30,7 @@
     Then for all $T > 0$,
     \begin{equation*}
         \left( 
-            \Phi(n, \floor{T n^{2/3}}), \left( n^{1/3} Y^-\left( \floor{n^{2/3} t} \right) \right)_{t \in [0, T]}
+            \Phi(n, \floor{T n^{2/3}}), \left( n^{-1/3} Y^+\left( \floor{n^{2/3} t} \right) \right)_{t \in [0, T]}
         \right)
         \todist
         \left( 

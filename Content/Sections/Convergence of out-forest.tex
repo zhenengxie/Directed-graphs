@@ -36,30 +36,26 @@ $$ \hat{Y}^+(k)=\sum\limits_{i=1}^k (\hat{D}^+_{n,i}-1)$$
 encodes the out-degrees in order of discovery, while 
 $$ \hat{Y}^-(k)=\sum\limits_{i=1}^k (\hat{D}^-_{n,i}-1)$$
 encodes the in-degrees in order of discovery.
- We will study these processes via the measure change that we defined in Subsection \ref{subsec.measurechange}. Recall that 
- $$ {Y}^+(k)=\sum\limits_{i=1}^k (Z^+_i-1),$$ 
- and 
- $$ {Y}^-(k)=\sum\limits_{i=1}^k (Z^-_i-1).$$ 
- We will first examine the joint distribution under rescaling of these processes, which is the content of the following lemma.
-\begin{lemma}
-\label{lem.jointconvergenceinout}
- We have $$ \left(n^{-2/3}{Y}^-\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)
- \overset{p}{\to} 
- \left(\nu_-t, t\geq 0 \right)$$
- in $\D(\R_+,\R)^2$ as $n\to \infty$.  Moreover,
- \begin{align*} &\left(n^{-1/3}\left({Y}^-\left(\lfloor n^{2/3}t\rfloor\right)-n^{2/3}\nu_-t\right),n^{-1/3}Y^+\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\\
- &\overset{d}{\to} 
- \left(\frac{\sigma_{-+}}{\sigma_+}B_t^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_t^2   ,\sigma_+ B_t^1, t\geq 0 \right)\end{align*}
- in $\D(\R_+,\R)^2$, as $n\to \infty$, with $(B^1_t)_{t\geq 0}$ and $(B^2_t)_{t\geq 0}$ two independent standard Brownian motions. 
-\end{lemma} 
-\begin{proof}
-The first statement follows from the fact that $(Y^-(k),k\geq 1)$ is a random walk with steps of mean $\nu^-$. Then, by Donsker's Theorem in two dimensions (see e.g. Theorem 7.1.4 in \cite{ethierMarkovProcessesCharacterization1986}), we get that 
- $$\left(n^{-1/3}\left({Y}^-\left(\lfloor n^{2/3}t\rfloor\right)-n^{2/3}\nu_-t\right),n^{-1/3}Y^+\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)$$
- converges to a Gaussian process with covariance matrix
- $$\begin{pmatrix} \sigma_-^2  & \sigma_{-+} \\ \sigma_{-+}  & \sigma_+^2  \end{pmatrix}t,$$
- which proves the first statement. 
- \end{proof}
- We are now able to examine the effect of the change of measure on $(Y^-(k),Y^+(k),k\geq 1)$. This is the content of the following theorem. 
+ We will study these processes via the measure change that we defined in Subsection \ref{subsec.measurechange}. 
+ 
+%  Recall that 
+%  $$ {Y}^+(k)=\sum\limits_{i=1}^k (Z^+_i-1),$$ 
+%  and 
+%  $$ {Y}^-(k)=\sum\limits_{i=1}^k (Z^-_i-1).$$ 
+%  Then, Donsker's theorem and the law of large numbers imply the following straightforward lemma.
+% \begin{lemma}
+% \label{lem.jointconvergenceinout}
+%  We have $$ \left(n^{-2/3}{Y}^-\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)
+%  \overset{p}{\to} 
+%  \left(\nu_-t, t\geq 0 \right)$$
+%  in $\D(\R_+,\R)^2$ as $n\to \infty$.  Moreover,
+%  \begin{align*} &\left(n^{-1/3}\left({Y}^-\left(\lfloor n^{2/3}t\rfloor\right)-n^{2/3}\nu_-t\right),n^{-1/3}Y^+\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\\
+%  &\overset{d}{\to} 
+%  \left(\mathbf{B}_t, t\geq 0 \right)\end{align*}
+%  in $\D(\R_+,\R)^2$, as $n\to \infty$, with $(\mathbf{B}_t,t\geq 0)$ a Gaussian process with covariance matrix
+%  $$\begin{pmatrix} \sigma_-^2  & \sigma_{-+} \\ \sigma_{-+}  & \sigma_+^2  \end{pmatrix}t.$$
+% \end{lemma} 
+
 \begin{theorem}\label{theorem.convaftermeasurechange} 
  For $T>0$,
 $$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3} t\rfloor\right), n^{-1/3}\hat{Y}^+\left(\lfloor  n^{2/3} t\rfloor\right), 0\leq t \leq T \right) \overset{d}{\to} \left( \nu_- t, \sigma_+\hat{B}_t, 0 \leq t \leq T \right)$$
@@ -69,18 +65,15 @@ For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
 
 \end{theorem}
 \begin{proof}
- Firstly, we use the results of Proposition \ref{prop.scalingmeasurechange} \myworries{refer to result Zheneng} and Lemma \ref{lem.jointconvergenceinout}, and repeat the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} to find that for ${Y}^{[n,-]}(t):=n^{-1/3}{Y}^-\left(\lfloor n^{2/3}t\rfloor\right)-n^{1/3}\nu_-t $ and ${Y}^{[n,+]}(t):=n^{-1/3}{Y}^+\left(\lfloor n^{2/3}t\rfloor\right)$, for $F$ a bounded continuous test-function and $(\mathbf{B}_t,t\geq0)$ a two-dimensional Gaussian process with covariance matrix $$\begin{pmatrix} \sigma_-^2  & \sigma_{-+} \\ \sigma_{-+}  & \sigma_+^2  \end{pmatrix}t,$$
- we have
- 
- \begin{align*}&\E\left[F({Y}^{[n,-]}(t),{Y}^{[n,+]}(t), 0\leq t \leq T ) \right] 
- \\&\to \E\left[\Phi(T) F\left(\mathbf{B}_t, 0\leq t \leq T\right)\right]\\
- \end{align*}
- as $n\to \infty$. We may and will define $(\mathbf{B}_t,t\geq 0)$ by letting $(B^1_t,t\geq 0)$ and $(B^2_t,t\geq 0)$ be two independent Brownian motions, and setting 
- $$(\mathbf{B}_t,t\geq 0)=\left(\frac{\sigma_{-+}}{\sigma_+}B_t^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2} B_t^2, \sigma_+ B_t^1, t\geq 0\right).$$
- Hence, for $F$ a suitable test function, 
- \begin{align*}&\E\left[F({Y}^{[n,+]}(t), 0\leq t \leq T ) \right]\\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
+ We recall from the statement of Lemma \ref{lem:measure-change} that $(W^-,W^+)$ is a pair of correlated standard Brownian motions with correlation $\operatorname{Corr}(Z_i^-,Z_i^+)$. 
+Let $(B^1_t,t\geq 0)$ and $(B^2_t,t\geq 0)$ be two independent Brownian motions, so that we may define $$(\sigma_-W^-_t,\sigma_+W^+_t,t\geq 0)=\left(\frac{\sigma_{-+}}{\sigma_+}B_t^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2} B_t^2, \sigma_+ B_t^1, t\geq 0\right).$$ 
+ Then, Lemma \ref{lem:measure-change} implies that for $F$ a suitable test function, 
+ \begin{align*}&\E\left[F\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right) \right]\\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
  &=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB^1_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B^1_t,   0\leq t \leq T)\right].\end{align*}
- Combining this with the first statement of Lemma \ref{lem.jointconvergenceinout} yields the result.
+ For the details of the argument, we refer the reader to the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020}. Then, the fact that $(Y(k),k\geq 1)$ is a random walk with steps of mean $\nu_-$ implies that
+ $$\left(n^{-2/3}Y^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right),$$
+ and then, by Lemma \ref{lem:measure-change}, also 
+ $$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right).$$
  \end{proof}
  The following lemma characterises the distribution of $(\hat{B}_t, {0\leq t\leq T})$.
  \begin{lemma}\label{lemma.characterizelimitprocess}
@@ -129,6 +122,12 @@ We will now define $(F_n^p(k),k\geq 1)$ and its \L ukasiewicz path $(S_n^{+}(k),
 \end{enumerate}
 Let $(F^p_n(k),k\geq 1)$ be the forest with \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ in which the $k^{th}$ vertex is purple if and only if $P^n(k)-P^n(k-1)=1$. 
 \subsubsection{Convergence of the \L ukasiewicz path}
+Recall that for $(B_t,t\geq 0)$ a Brownian motion,
+\begin{equation}\label{eq.jointconvergenceinout}
+    \left(n^{-1/3}Y^+\left(\lfloor n^{2/3}t\rfloor \right), n^{-2/3}Y^+\left(\lfloor n^{2/3}t\rfloor \right),t\geq 0\right)\overset{d}{\to}\left(\sigma_+B_t,\nu_-t,t\geq 0\right)
+\end{equation}
+in $\D(\R_+,\R)^2$ as $n\to \infty$. 
+
 To show the convergence of the \L ukasiewicz path corresponding to $(F^p_n(k),k\geq 1)$, we will first examine the limit of $(P_n(k), k\geq 1)$ under rescaling. We will first prove tightness, after which we will show convergence.
 
 
@@ -151,13 +150,13 @@ in $D(\R_+,\R)$ as $n\to \infty$.
 \begin{proof}
 Fix $T>0$. Recall that
 $$p_{k+1}=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}}.$$
-Define $M^+(k)=\min\{Y^+(l):l\leq k\}$ so that $0\geq I^{+}(k)\geq M^+(k)-P_n(k)$.  Then, by Lemma \ref{lemma.tightnesssurplusedges}, Lemma \ref{lem.jointconvergenceinout}, and the continuous mapping theorem, $\left(n^{-1/3}I^+(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ is tight for all $t>0$.
+Define $M^+(k)=\min\{Y^+(l):l\leq k\}$ so that $0\geq I^{+}(k)\geq M^+(k)-P_n(k)$.  Then, by Lemma \ref{lemma.tightnesssurplusedges}, \eqref{eq.jointconvergenceinout}, and the continuous mapping theorem, $\left(n^{-1/3}I^+(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ is tight for all $t>0$.
 We will now argue that the indicator, which ensures that the roots are never purple, does not have an effect on $(P_n(k),k\leq m)$ on the scale that we are interested in. Let $t>0$, and set $m=\lfloor n^{2/3}t\rfloor$. Define
 \begin{align*}\begin{split}
 E^p(m):&=\sum_{k=0}^{m-1}\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)\neq I^{+}(k-1)\}}\\
 &\leq I^{+}(m) \frac{Y^-(m)+m}{\mu n - m},\end{split}\end{align*}
 so since $I^{+}(m)$ is of order $n^{1/3}$ and $\frac{Y^{-}(m)+m}{\mu n - m}$ is of order $n^{-1/3}$, $(E^p(m))_{n\geq 1}$ is tight for all $t\geq 0$.  This means that if we allow the roots to be purple, with high probability, we would only sample $O(1)$ purple roots up to time $O(n^{2/3})$. This does not affect $(P_n(k),k\leq m)$ on the scale that we are interested in. \\
- Then, the convergence in Lemma \ref{lem.jointconvergenceinout}, the tightness of $\left(n^{-1/3}I^{+}(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ and Lemma \ref{lemma.tightnesssurplusedges} imply that
+ Then, \eqref{eq.jointconvergenceinout}, the tightness of $\left(n^{-1/3}I^{+}(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ and Lemma \ref{lemma.tightnesssurplusedges} imply that
 \begin{align}\begin{split}\label{eq.convergenceprob}
   &\left(n^{1/3}\frac{S_n^{-}\left(\lfloor n^{2/3} t \rfloor\right)}{\mu n - \lfloor n^{2/3} t \rfloor -I^{p,+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
  &=\left(n^{1/3}\frac{Y^-\left[\lfloor n^{2/3} t \rfloor-P_n\left(\lfloor n^{2/3} t \rfloor\right)\right]-P_n\left(\lfloor n^{2/3} t \rfloor\right)-I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1}{\mu n - \lfloor n^{2/3} t \rfloor -I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
@@ -185,7 +184,7 @@ The convergence of $P_n$ under rescaling implies the convergence of $S^{+}$ and 
  in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{corollary}
 \begin{proof}
- This follows from Lemmas \ref{lem.jointconvergenceinout} and \ref{lemma.convergenceQandP} and the expressions 
+ This follows from \eqref{eq.jointconvergenceinout} and \ref{lemma.convergenceQandP} and the expressions 
  $$S_n^{p,+}(k+1)=Y^+\left[k+1-P_n(k+1)\right]-P_n(k+1),$$ and $$S_n^{p,-}(k+1)=Y^-\left[k+1-P_n(k+1)\right]-P_n(k+1)-I^{+}(k)+1.$$
 \end{proof}
 
@@ -197,13 +196,14 @@ $$({B}^+_t,t\geq 0)=\left(B_t-\frac{\nu_-}{2\mu\sigma_+}t^2,t\geq 0\right).$$
 Set $$(R^+_t,t\geq 0)=\left({B}^+_t-\inf\left\{{B}^+_s: s\leq t\right\},t\geq 0 \right).$$
 Then,
 
-\begin{align*}&\left(n^{-1/3}Y^{+}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^{+}_n\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}H^{+}_n\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right) \overset{d}{\to}\left(\sigma_+B_t,\sigma_+{B}^+_t, \frac{2}{\sigma_+} R^+_t,  t\geq 0\right)\end{align*}
+\begin{align*}&\left(n^{-1/3}Y^{+}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^{+}_n\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}H^{+}_n\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right) \\
+&\qquad \overset{d}{\to}\left(\sigma_+B_t,\sigma_+{B}^+_t, \frac{2}{\sigma_+} R^+_t,  t\geq 0\right)\end{align*}
  in $\D(\R_+,\R)^3$, and 
  $$\left(n^{-2/3}S^{-}_n\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right)$$
  in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{proposition}
 
-The difficulty in proving this proposition is the fact that $(F^p_n(k),k\geq 1)$ is not a Galton-Watson forest, because the probability of sampling a purple vertex changes as time progresses. The theory of convergence of height processes under rescaling is well-developed for Galton-Watson processes (see e.g. \cite{AST_2002__281__R1_0}), but this is not the case for more general processes.  We will adapt a technique that Broutin, Duquesne and Wang develoved in \cite{broutinLimitsMultiplicativeInhomogeneous2020} to show the convergence of the height process of inhomogeneous random graphs under rescaling. The key idea is that  $(F^p_n(k),k\geq 1)$ itself is not a Galton-Watson forest, but we can embed it in a Galton-Watson forest, say $(F^{pr}(k),k\geq 1)$, which will be equal to $(F^p_n(k),k\geq 1)$ with extra red vertices. We then show convergence under rescaling of the height process corresponding to $(F^{pr}(k),k\geq 1)$, and use this to obtain height process convergence for $(F^p_n(k),k\geq 1)$. \\
+The difficulty in proving this proposition is the fact that $(F^p_n(k),k\geq 1)$ is not a Galton-Watson forest, because the probability of sampling a purple vertex is dependent on the past of the process. The theory of convergence of height processes under rescaling is well-developed for Galton-Watson processes (see e.g. \cite{AST_2002__281__R1_0}), but this is not the case for more general processes.  We will adapt a technique that Broutin, Duquesne and Wang develoved in \cite{broutinLimitsMultiplicativeInhomogeneous2020} to show the convergence of the height process of inhomogeneous random graphs under rescaling. The key idea is that  $(F^p_n(k),k\geq 1)$ itself is not a Galton-Watson forest, but we can embed it in a Galton-Watson forest, say $(F^{pr}(k),k\geq 1)$, which will be equal to $(F^p_n(k),k\geq 1)$ with extra red vertices. We then show convergence under rescaling of the height process corresponding to $(F^{pr}(k),k\geq 1)$, and use this to obtain height process convergence for $(F^p_n(k),k\geq 1)$. \\
 We start by defining $(F^{pr}(k),k\geq 1)$. Informally, we obtain $(F^{pr}(k),k\geq 1)$ by modifying $(F^p_n(k),k\geq 1)$ in such a way that the sub-tree consisting of the descendants of a purple vertex has the same law as a sub-tree consisting of the descendants of a black vertex. We do this by sampling extra Galton Watson trees with offspring distributed as $Z^+$, of which we colour all vertices red, and identifying their roots with the purple vertices. The resulting forest is a black-purple-red Galton-Watson forest in which the black-purple forest is embedded. This is illustrated in Figure \ref{fig.blackpurpleredforest}. 
 
 \begin{figure}
@@ -272,10 +272,9 @@ We will use the following notation:\begin{align*}
     {H}^+_{(n)}&:=\left(n^{-1/3}{H}^+_n\left(\lfloor n^{2/3} t \right),0\leq t \leq T\right)\\
     {Y}^+_{(n)}&:=\left(n^{-1/3}{Y}^+\left(\lfloor n^{2/3} t \right),0\leq t \leq T\right).
 \end{align*}
-\myworries{Change letter measure change to match notation Zheneng}
 Let $f:D([0,T],\R)^3\to \R$ be a bounded, continuous test-function. Then,
 \begin{align*}\E\left[f\left(\hat{Y}^+_{(n)}, \hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]&= \E\left[ \E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} t\rfloor)\E\left[\left.f\left(Y^+_{(n)}, S^+_{(n)},  H^+_{(n)}\right)\right| {Y}^+_{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} t\rfloor)f\left(Y^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right],\end{align*}
-where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]$ is a bounded, adapted function of $\hat{Y}^+_{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${Y}^+_{(n)}$ to $\hat{Y}^+_{(n)}$. Then, using Proposition XXX, Proposition XXX \myworries{Refer to results Zheneng of existence of the measure change and convergence of the measure change} and Proposition \ref{prop.convheightprocesspurple}, following the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} gives us that 
+where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]$ is a bounded, adapted function of $\hat{Y}^+_{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${Y}^+_{(n)}$ to $\hat{Y}^+_{(n)}$. Then, using Lemma \ref{lem:measure-change} and Proposition \ref{prop.convheightprocesspurple}, following the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} gives us that 
 \begin{align*}
     &\E\left[f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]\\
     &\to \E\left[\Phi(t)f\left(\sigma_+ B_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].
