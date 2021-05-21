@@ -1,27 +1,7 @@
 \section{Multivariate triangular local limit theorem}
 \label{chap:llt}
 
-For an i.i.d.\ sequence $\vX_1, \ldots, \vX_n$ of random variables, central limit theorems address probabilities of the form
-\begin{equation*}
-    \P\Big( n^{-\alpha} \textstyle \sum_{i=1}^n (\vX_i - \E[\vX]) \in A \Big).
-\end{equation*}
-where the $\alpha > 0$ is chosen such that the above probabilities converge to a sensible limit and $A$ is some Borel subset. More abstractly, the $\alpha$ is chosen so that $n^{-\alpha} \sum_{i=1} (\vX_i - \E[\vX])$ converges to a stable law. On the other hand local limit theorems address probabilities of the form
-\begin{equation*}
-    \P\Big( \textstyle \sum_{i=1}^n (\vX_i - \E[\vX]) \in A \Big).
-\end{equation*}
-without the $n^{-\alpha}$ scaling. Such probabilities are going to decay to 0, but we can still make statements quantifying how they decay to 0, utilizing the density of the limiting stable distribution for the central limit theorem. Local limit theorems are what we are going to need to know the asymptotic behaviour of
-\begin{equation*}
-    \P(\Delta_n = 0) = \P\Big(\textstyle\sum_{i=1}^n (D_i^- - D_i^+) = 0\Big).
-\end{equation*}
-In fact to prove \cref{lem:measure-change} we will need to introduce a sequence of exponentially tilted measures $\P_n$ and thus require a local limit theorem for i.i.d.\ triangular arrays. We will also need to simultaneously control the behaviour of a separate sum and thus we need a bivariate local limit theorem.
-
-Historically, \citet{gnedenkoLocalLimitTheorem1948} covers the stable case in one dimension. For multidimensional random variables, \citet{rvavceva1962domains} covers the lattice case and \citet{stoneLocalLimitTheorem1965} covers the non-lattice case. \citet{doneyBivariateLocalLimit1991} proves a local limit theorem for the bivariate case which allows each component to use a different scaling. A local limit theorem specifically for integer valued random vectors is covered by \citet{gamkrelidzeLocalLimitTheorem2015}.
-
-\citet{jainLowerTailProbability1987} prove a triangular local limit theorem for one dimensional random variables converging to a stable limit. In the one-dimensional case where the random variables possess densities, \citet{korchinskyLocalLimitTheorem2007} address more general non i.i.d.\ triangular arrays where the distribution can vary across rows.
-
-For such more general i.i.d.\ triangular arrays, \citet{chagantyMultidimensionalLargeDeviation1986} prove a local limit theorem in the multivariate case under the assumption that the moment generating functions of the sums are holomorphic. This builds upon work done by \citet{richterLocalLimitTheorems1957,richterMultiDimensionalLocalLimit1958} for the non-triangular case.
-
-Unfortunately the assumptions required to apply the results in the literature are too restrictive for use in our case. In particular we don't assume that our random variables have finite fourth moments, and therefore a Cramér type assumption is too restrictive. Instead it will turn out that the common distribution for each row of our i.i.d.\ triangular array will be converging to the non-tilted case. We will utilize this, along with a uniform integrability type criterion, to prove a general multivariate local limit theorem for lattice valued random variables.
+\myworries{rewrite the intro}
 
 \subsection{Lattices}
 

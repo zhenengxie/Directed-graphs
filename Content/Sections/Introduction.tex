@@ -1,5 +1,8 @@
 \section{Introduction}
+
 \myworries{ Mention somewhere: limit object parametrized by $\sigma_+$ (variance BM), $\frac{\sigma_{-+}+\nu_-}{\mu}$ (parabolic drift BM), and $\frac{\sigma_{-+}+\nu_-}{\mu^2}$ (intensity of sampling ancestral back-edges). For directed ER, these are all $1$. Maybe also worth mentioning: Two main difficulties compared to \cite{goldschmidtScalingLimitCritical2019} 1. lots of dependence vs lots of independence, 2. unlike \cite{goldschmidtScalingLimitCritical2019}, we do not have access to results in the literature on our model, because the configuration model at criticality has not been studied before.}
+
+\myworries{write paragraph on real world application, etc}
 
 \subsection{The model}
 We study a uniform directed graph (or digraph) with a random degree sequence. We consider $n$ vertices, to each of which we assign an in-degree and an out-degree. The degree tuples are independent and identically distributed with law $\nu$. For each $i\in [n]$, let $\mathbf{D}_i=(D^-_i,D^+_i)$ be the in- and out-degree of vertex $i$. In order for a graph with this degree sequence to exist, we require that $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, so we will condition on this event. Conditional on $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, sample a uniform digraph with this degree sequence. Denote resulting random digraph by $\vec{G}_n(\nu)$. We are interested in the limit under scaling of the strongly connected components of $\vec{G}_n(\nu)$ as $n\to \infty$.  \\

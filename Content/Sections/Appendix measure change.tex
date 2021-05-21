@@ -1,6 +1,37 @@
 \section{Analysis of the measure change}
 
+We recall some notation and the lemma we wish to prove. $\vD_1, \vD_2, \ldots$ are i.i.d.\ copies of $(D^-, D^+)$ a $\N \times \N$-valued random variable. We assume $\E[D^-] = \E[D^+]$ and call this quantity $\mu$. We will use the notation
+\begin{equation*}
+    \Xi^{\pm}_n = \textstyle \sum_{i=1}^n D^{\pm}_i
+    \quad \text{and} \quad
+    \Delta_n = \Xi^-_n - \Xi^+_n.
+\end{equation*}
+Let $p = \P(D^- > 0)$ and define
+\begin{equation*}
+    \cI_n = \{ i \in [n] : D_i^- > 0 \} \quad \text{and} \quad R_n = \abs{\cI_n}.
+\end{equation*}
+Let $\Sigma_n: [R_n] \to \cI_n$ be a random bijection between two random sets with law
+\begin{equation*}
+    \P(\Sigma_n = \sigma \mid \vD_1, \ldots, \vD_n)
+    = \prod_{i=1}^{R_n} \frac{D^-_{\sigma(i)}}{\sum_{j=i}^{R_n} D^-_{\sigma(j)}}
+\end{equation*}
+for any bijection $\sigma: [R_n] \to \cI_n$. Then define $\hat{\vD}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$. This is referred to as the size-biased ordering by in-degree of $\vD_1, \ldots, \vD_n$. We will be comparing this against a sequence of i.i.d.\ $\N \times \N$-valued random variables $\vZ_1, \vZ_2, \ldots$ where each $\vZ_i$ has law
+\begin{equation*}
+    \P(Z_i^- = k^-, Z_i^+ = k^+) = \frac{k^-}{\mu} \Pr(D^- = k^-, D^+ = k^+).
+\end{equation*}
+We wrote
+\begin{equation*}
+    Y^+(n) = \sum_{i=1}^n (Z^+_i - 1)
+\end{equation*}
+for the centered random walk corresponding to the $(Z^+_n)_{n \geq 1}$.  Then the following lemma asserts existence of a measure change under conditioning of equal in- and out-degrees, moreover it gives the scaling limit of the measure change.
+
+\measurechange*
+
+We remark that the criticality condition is what ensures $(Y^+(n))_{n \geq 0}$ is a centered random walk. However the previous result will hold without the criticality condition provided we recenter $(Y^+(n))_{n \geq 0}$ appropriately. Hence for the rest of this section, let $\nu_{\pm} = \E[Z_i^{\pm}]$ and we will not impose the criticality assumption $\nu_+ = 1$.
+
 \subsection{Exact form of the measure change}
+
+We first establish the exact form of the measure change when we condition on the exact value of $R_n$ but not $\Delta_n = 0$.
 
 \begin{lemma}
     \label{lem:exact-measure-change-no-conditioning}
@@ -74,7 +105,10 @@
     Finally dividing by $\P(R_n = r) = \binom{n}{r} p^r (1-p)^{n-r}$ gives the desired measure change.
 \end{proof}
 
+Using the previous lemma we can prove existence and give an exact form of the desired measure change $\phi^n_m$.
+
 \begin{lemma}
+    \label{lem:exact-measure-change}
     For all $m \leq n$ and test functions $u: (\N \times \N)^m \to \R$,
     \begin{equation*}
         \E \left[
@@ -259,7 +293,7 @@ In \cref{lem:measure-change} we see the correct scaling to in order to get a sen
     Then in the regime $m = \Theta(n^{2/3})$
     \begin{equation*}
         \phi^n_m(\vk_1, \ldots, \vk_m)
-        \geq \exp\left( \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} \right) + \littleo(1)
+        \geq \exp\left( \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} \right) + \littleo(1).
     \end{equation*}
     where the $\littleo(1)$ term is independent of $\vk_1, \ldots, \vk_m$ satisfying our assumptions.
 \end{lemma}
@@ -275,11 +309,20 @@ Thus the condition in \cref{eq:s-condition} corresponds to the event
 \end{equation*}
 This is saying that the centered random walks corresponding to $Z^+_i$ and $Z^-_i$ do not deviate by more than $m^{1/2 + \epsilon}$ in the first $m$ steps. This will occur with high probability and thus \cref{eq:s-condition} is not a restrictive condition to take.
 
-The fact that we only prove a lower bound may seem strange at first. The idea is that since we are dealing with a measure change, as long as the lower bound will have expectation 1 in the limit, this shows that we have not lost a significant amount of mass. The following lemma taken from \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} makes this formal.
+The fact that we only prove a lower bound may seem strange at first. The idea is that since we are dealing with a measure change, as long as the lower bound will have expectation 1 in the limit, this shows that we have not lost a significant amount of mass. The following lemma adapted from \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} makes this formal.
 \begin{lemma}
-    \label{lem:lower-bound-suff}
-    Let $(X_n)_{n \geq 1}$ and $(Y_n)_{n \geq 1}$ be two sequences of non-negative random variables such that $X_n \geq Y_n$ and $\E[X_n] = 1$ for all $n$. Suppose there exists another non-negative random variable $X$ such that $Y_n \todist X$ and $\E[X] = 1$. Then $X_n \todist X$ and $(X_n)_{n \geq 1}$ is uniformly integrable.
+    \label{lem:sandwiching-lemma}
+    Let $(X_n, Y_n, Z_n)_{n \geq 1}$ be a sequence of $[0, \infty) \times [0, \infty) \times S$-valued random variables where $S$ is a Polish space. Suppose there exists a $[0, \infty) \times S$-valued random variable $(Y, Z)$ such that the following holds:
+    \begin{enumerate}
+        \item $(Y_n, Z_n) \todist (Y, Z)$ as $n \to \infty$.
+        \item $X_n \geq Y_n$ almost surely for all $n$.
+        \item $\E[X_n] = 1$ for all $n$ and $\E[Y] = 1$.
+    \end{enumerate}
+    Then $(X_n, Z_n) \todist (Y, Z)$ also. Moreover $(X_n)_{n \geq 1}$ is a sequence of uniformly integrable random variables.
 \end{lemma}
+\begin{proof}
+    \myworries{complete this}
+\end{proof}
 
 \subsubsection{Exponential tilting}
 
@@ -382,16 +425,24 @@ $(D^- - D^+, D^-)$ is $\Z^2$ valued and thus certainly lattice valued. Further i
 \end{equation*}
 We have assumed that $D^- - D^+$ has main lattice $\Z$ and therefore $p = 1$. Conditional on $D^- - D^+$ taking some value, $D^-$ will have main lattice $q \Z$. Let $\sigma^2$ be the variance of $D^- - D^+$ and $\Sigma$ be the covariance matrix of $(D^- - D^+, D^-)$.
 
-The $\P(\Delta_n = 0)$ divisor in the definition of $\phi_m^n$ can be handled by the standard local limit theorem.
+$\P(R_n < m)$ will decay exponentially thus the asymptotic behaviour of $\P(R_n \leq m, \Delta_n = 0)$ is dictated by the $\Delta_n = 0$ event. This can be handled by the standard local limit theorem.
 \begin{lemma}
     \label{lem:normal-llt}
     As $n \to \infty$
     \begin{equation*}
-        \P(\Delta_n = 0) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} \left( 1 + \littleo(1) \right).
+        \P(R_n \geq m, \Delta_n = 0) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} \left( 1 + \littleo(1) \right).
     \end{equation*}
 \end{lemma}
 \begin{proof}
-    Let $X = D^- - D^+$. This is assumed to have finite variance $\sigma$ and main lattice $\Z$. Moreover $X$ is centered and $0$ is in the main lattice $\Z$. Thus the result follows by \cref{thm:normal-multi-llt}.
+    $R_n \sim B(n, p)$ for $p > 0$ thus for sufficiently large $n$, $m \leq \frac{1}{2} pn$. So by Hoeffding's inequality
+    \begin{equation*}
+        \P(\Delta_n = 0) - \P(R_n \geq m, \Delta_n = 0) \leq \P(R_n < m) \leq \P(\abs{R_n - np} < \tfrac{1}{2}pn) \leq e^{-cn}
+    \end{equation*}
+    for some $c > 0$.  Let $X = D^- - D^+$. This is assumed to have finite variance $\sigma$ and main lattice $\Z$. Moreover $X$ is centered and $0$ is in the main lattice $\Z$. Thus
+    \begin{equation*}
+        \P(R_n \geq m, \Delta_n = 0) = \P(\Delta_n = 0) + \littleo(n^{-1/2}) = \frac{1}{\sqrt{2 \pi \sigma^2 n}}(1 + \littleo(1))
+    \end{equation*}
+    where the second equality is by \cref{thm:normal-multi-llt}.
 \end{proof}
 
 Next we show the local limit theorem holds for $(\Delta_{n-m}, \Xi^-_{n-m})$ under the tilting.
@@ -630,15 +681,15 @@ We are now ready to prove \cref{lem:measure-change-approx}.
     Hence
     \begin{align*}
         &\phi^n_m(\vk_1, \ldots, \vk_m) \\
-        =& \frac{1}{\P(\Delta_n = 0)} \E \left[\prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} \one_{A_n} \right] \\
-        \geq& \frac{1}{\P(\Delta_n = 0)} \E_n \left[ \exp \left(
+        =& \frac{1}{\P(R_m \geq n, \Delta_n = 0)} \E \left[\prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} \one_{A_n} \right] \\
+        \geq& \frac{1}{\P(R_n \geq m, \Delta_n = 0)} \E_n \left[ \exp \left(
                 \frac{1}{\mu n} \sum_{i=1}^m \left( s^-(i) - s^-(m) \right)
                 - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1)
             \right) \one_{\omegaevent_n \cap A_n} \right] \\
         \geq& \exp \left(
                 \frac{1}{\mu n} \sum_{i=1}^m \left( s^-(i) - s^-(m) \right)
                 - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
-            \right) (1 + \littleo(1)) \frac{\P_n(\omegaevent_n \cap A_n)}{\P(\Delta_n = 0)}.
+            \right) (1 + \littleo(1)) \frac{\P_n(\omegaevent_n \cap A_n)}{\P(R_m \geq n, \Delta_n = 0)}.
     \end{align*}
     By \cref{lem:asym-expansions} we have that
     \begin{equation*}
@@ -653,13 +704,101 @@ We are now ready to prove \cref{lem:measure-change-approx}.
     \end{equation*}
     Thus by \cref{lem:normal-llt} and \cref{lem:mod-dev-local},
     \begin{equation*}
-        \frac{\P_n(\omegaevent_n \cap A_n)}{\P(\Delta_n = 0)} \geq 1 + \littleo(1)
+        \frac{\P_n(\omegaevent_n \cap A_n)}{\P(R_n \geq m, \Delta_n = 0)} \geq 1 + \littleo(1)
     \end{equation*}
     as $n \to \infty$, which gives the desired final result.
 \end{proof}
 
 \subsection{Convergence of the measure change}
 
-\begin{lemma}
-    Suppose that $(X_n)_{n \geq 0}$ and $(Y_n)_{n \geq 0}$ are a sequence of non-negative random variables such that $X_n \geq Y_n$ almost surely for all $n$. Further suppose $\E[X_n] = 1$ for all $n$ and that there exists $X$ such that $Y_n \to X$ almost surely as $n \to \infty$ and $\E[X] = 1$. Then $X_n \to X$ almost surely also, moreover $(X_n)_{n \geq 1}$ is a uniformly integrable sequence.
-\end{lemma}
+We are now ready to prove the main result of this section.
+
+\begin{proof}[Proof of \cref{lem:measure-change}]
+    Existence of the measure change is covered by \cref{lem:exact-measure-change}. In this proof we will write
+    \begin{equation*}
+        S^{\pm}(n) = \sum_{i=1}^n (Z^{\pm}_i - \nu_{\pm})
+    \end{equation*}
+    for the centered random walks with step size $Z^{\pm}_i$. Also define
+    \begin{equation*}
+        \Gamma(n, m) = \exp \left( 
+            \frac{1}{\mu n} \sum_{i=0}^m \left( 
+                S^-(i) - S^-(m)
+             \right)
+             - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
+         \right).
+    \end{equation*}
+    Then by Donsker's invariance principle,
+    \begin{equation*}
+        \left( 
+            n^{-1/3} S^-(\floor{tn^{2/3}}),
+            n^{-1/3} S^+(\floor{tn^{2/3}})
+         \right)_{t \geq 0} \todist
+         \left( 
+             \sigma_- W^-_t,
+             \sigma_+ W^+_t
+          \right)_{t \geq 0}.
+    \end{equation*}
+    in $\D\left([0, \infty), \R^2\right)$ where $(W^-_t, W^+_t)_{t \geq 0}$ are a pair of correlated standard Brownian motions with correlation $\corr(Z^-_i, Z^+_i)$. We can write
+    \begin{align*}
+        \frac{1}{n} \sum_{i=0}^{\floor{T n^{2/3}}} S^-(i)
+        &= n^{-2/3} \int_0^{\floor{T n^{2/3}} + 1} n^{-1/3} S^-(\floor{u}) \dif u \\
+        &= \int_0^{n^{-2/3}(\floor{T n^{2/3} + 1})} n^{-1/3} S^-(\floor{s n^{2/3}}) \dif s.
+    \end{align*}
+    Thus by the continuous mapping theorem
+    \begin{align*}
+        \frac{1}{n} \sum_{i=0}^{\floor{T n^{2/3}}} \left(S^-(i) - S^-(m) \right)
+        &\todist \int_0^T \left(W^-_s - W^-_T \right) \dif s
+        = - \int_0^T s \dif W^-_s.
+    \end{align*}
+    Hence
+    \begin{equation*}
+        \left( 
+            \Gamma(n, \floor{T n^{2/3}}),
+            \left( n^{-1/3} Y^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
+         \right)
+         \todist
+         \left( 
+             \Phi(T), (W^+_t)_{t \in [0, T]}
+          \right)
+    \end{equation*}
+    in $\R \times \D([0, T], \R)$ as $n \to \infty$. Define the event
+    \begin{equation*}
+        E_m = \left\{ 
+            \max_{i=1, \ldots, m} \abs{S^-(i)} \leq m^{1/2 + \epsilon}
+            \quad \text{and} \quad
+            \max_{i=1, \ldots, m} \abs{S^+(i)} \leq m^{1/2 + \epsilon}
+         \right\}
+    \end{equation*}
+    for $\epsilon \in (0, 1/6)$. The processes $(S^{\pm}(n))_{n \geq 0}$ are discrete martingales. Therefore by Doob's maximal inequality
+    \begin{equation*}
+        \P\left(\max_{i=1, \ldots, m} \abs{S^{\pm}(i)} > m^{1/2 + \epsilon}\right)
+        \leq \frac{\E[(S^{\pm}(m))^2]}{m^{1 + 2 \epsilon}} = \frac{\sigma_{\pm}^2}{m^{2 \epsilon}} \to 0
+    \end{equation*}
+    as $m \to \infty$. Thus $\P(E_n) \to 1$ as $n \to \infty$. By \cref{lem:measure-change-approx}, it is the case that
+    \begin{equation*}
+        \Phi(n, m) \geq (\Gamma(n, m) + \littleo(1)) \one_{E_m}
+    \end{equation*}
+    where the $\littleo(1)$ term can be bounded by a deterministic $\littleo(1)$ term. We still have that
+    \begin{equation*}
+        \left( 
+            (\Gamma(n, \floor{T n^{2/3}}) + \littleo(1))\one_{E_{\floor{T n^{2/3}}}} ,
+            \left( n^{-1/3} Y^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
+         \right)
+         \todist
+         \left( 
+             \Phi(T), (W^+_t)_{t \in [0, T]}
+          \right)
+    \end{equation*}
+    and $\E[\Phi(T)] = 1$ by a standard stochastic calculus calculation. Therefore by \cref{lem:sandwiching-lemma} we get that the desired result that
+    \begin{equation*}
+        \left( 
+            \Phi(n, \floor{T n^{2/3}}) ,
+            \left( n^{-1/3} Y^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
+         \right)
+         \todist
+         \left( 
+             \Phi(T), (W^+_t)_{t \in [0, T]}
+          \right)
+    \end{equation*}
+    and that $(\Phi(n, \floor{T n^{2/3}}))_{n \geq 1}$ is a uniformly integrable sequence.
+\end{proof}
