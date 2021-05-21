@@ -312,7 +312,7 @@ This is saying that the centered random walks corresponding to $Z^+_i$ and $Z^-_
 The fact that we only prove a lower bound may seem strange at first. The idea is that since we are dealing with a measure change, as long as the lower bound will have expectation 1 in the limit, this shows that we have not lost a significant amount of mass. The following lemma adapted from \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} makes this formal.
 \begin{lemma}
     \label{lem:sandwiching-lemma}
-    Let $(X_n, Y_n, Z_n)_{n \geq 1}$ be a sequence of $[0, \infty) \times [0, \infty) \times S$-valued random variables where $S$ is a Polish space. Suppose there exists a $[0, \infty) \times S$-valued random variable $(Y, Z)$ such that the following holds:
+    Let $(X_n, Y_n, Z_n)_{n \geq 1}$ be a sequence of $[0, \infty) \times [0, \infty) \times S$-valued random variables where $S$ is a metric space. Suppose there exists a $[0, \infty) \times S$-valued random variable $(Y, Z)$ such that the following holds:
     \begin{enumerate}
         \item $(Y_n, Z_n) \todist (Y, Z)$ as $n \to \infty$.
         \item $X_n \geq Y_n$ almost surely for all $n$.
@@ -321,7 +321,31 @@ The fact that we only prove a lower bound may seem strange at first. The idea is
     Then $(X_n, Z_n) \todist (Y, Z)$ also. Moreover $(X_n)_{n \geq 1}$ is a sequence of uniformly integrable random variables.
 \end{lemma}
 \begin{proof}
-    \myworries{complete this}
+    We first show $X_n - Y_n \to 0$ in $L^1$ as $n \to \infty$. Since $X_n \geq Y_n$,
+    \begin{equation*}
+        \limsup_{n \to \infty} \E \abs{X_n - Y_n}
+        = \limsup_{n \to \infty} \E[X_n - Y_n]
+        = 1 - \liminf_{n \to \infty} \E[Y_n].
+    \end{equation*}
+    Thus it suffices to show $\liminf_n \E[Y_n] \geq 1$. This follows since
+    \begin{equation*}
+        \liminf_n \E[Y] =
+        \liminf_n \E[Y_n \wedge 0] \geq
+        \E[Y \wedge 0] =
+        \E[Y] = 1
+    \end{equation*}
+    where the first and second equalities follow from non-negativity of $Y_n$ and $Y$, and the inequality follows by Portmanteau's theorem.
+
+    In particular $X_n - Y_n \todist 0$ a constant and thus can be included in the joint convergence statement. This means
+    \begin{equation*}
+        (X_n - Y_n, Y_n, Z_n) \todist (0, Y, Z)
+    \end{equation*}
+    as $n \to \infty$. Then by applying the continuous mapping theorem we obtain the desired result that
+    \begin{equation*}
+        (X_n, Z_n) \todist (Y, Z).
+    \end{equation*}
+
+    We now prove the uniform integrability. By Skorokhod's representation theorem we can assume that $X_n \to Y$ almost surely. Then $\E[X_n] = \E[Y] = 1$ for all $n$ thus in fact $X_n \to Y$ in $L^1$ by Scheffe's lemma. This gives the required uniform integrability.
 \end{proof}
 
 \subsubsection{Exponential tilting}

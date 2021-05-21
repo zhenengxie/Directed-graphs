@@ -28,7 +28,7 @@ We require the degree distribution to satisfy the following properties.
 \begin{enumerate}
     \item $\E[(D^- + D^+)^3] < \infty$.
     \item $\E[D^-] = \E[D^+]$.
-    \item Lattice condition
+    \item \emph{lattice condition}
     \item $\E[D^- D^+] = \E[D^{\pm}]$.
 \end{enumerate}
 
@@ -49,10 +49,12 @@ We define the following parameters, that will determine the behaviour of the str
 % \begin{remark}
 % Conditions \ref{cond.beta} and \ref{cond.gamma} ensure that the Central Limit Theorem applies to the fluctuations of the first explored in-degrees around their mean. Condition \ref{cond.critical} ensures that the branching process corresponding to the depth-first exploration (i.e. the exploration of the out-components) is critical. Condition \ref{cond.rho} ensures that this branching process has Brownian scaling. Condition \ref{cond.tau} ensures that the covariance of the in- and out-degrees that are discovered first is finite. Condition \ref{cond.iota} ensures that the strongly connected components are $3$-regular. 
 % \end{remark}
-\subsection{Strongly connected components}
+\subsection{Topology of convergence}
 
 
 \input{Content/Sections/Toplogy.tex}
+
+\subsection{Our results}
 
 Our main result is as follows. Let $C_i(n)$ for $i\geq 1$ be the strongly connected components of $\vec{G}_n(\nu)$, listed in decreasing order of size, breaking ties arbitrarily. We view these strongly connected components as MDMs, by assigning to each edge a length of $1$, and then removing all vertices of degree 2 by merging neighbouring edges and adding up their lengths. Trivial strongly connected components, which consist of an isolated vertex, are considered loops of length $0$. Complete the list with an infinite repeat of $\mathfrak{L}$, the loop of length $0$. Then, the main theorem is as follows.
 \begin{theorem}\label{thm.main}
@@ -79,7 +81,6 @@ as $n\to \infty$ in the product topology on $(\R^2)^\infty$.
 For $v,w\in \vec{G}_n(\nu)$ such that $v\to w$, let $d(v,w)$ denote the length of the shortest path from $v$ to $w$, and let $$\operatorname{Diam}\left(\vec{G}_n(\nu)\right)=\max\{d(v,w):v\to w\}$$ be the \emph{diameter} of $\vec{G}_n(\nu)$. Then, the order of $$\operatorname{Diam}\left(\vec{G}_n(\nu)\right)$$ is at least $O(n^{1/3})$.
 \end{corollary}
 
-\subsection{Our results}
 
 \subsection{Previous work}
 The configuration model was introduced by Bollobás \cite{Bollobas1980} to sample a uniformly random graph with a given degree sequence. For a discussion of the configuration model and proofs of standard results, we refer the reader to \cite{hofstadRandomGraphsComplex2017}, Chapter 7.   
