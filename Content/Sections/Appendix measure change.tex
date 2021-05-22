@@ -19,15 +19,40 @@ for any bijection $\sigma: [R_n] \to \cI_n$. Then define $\hat{\vD}_{n, i} = \vD
 \begin{equation*}
     \P(Z_i^- = k^-, Z_i^+ = k^+) = \frac{k^-}{\mu} \Pr(D^- = k^-, D^+ = k^+).
 \end{equation*}
-We wrote
+Let $\nu_{\pm} = \E[Z^{\pm}_i]$. Under the criticality condition we have $\nu_+ = 1$. We used the notation
 \begin{equation*}
-    Y^+(n) = \sum_{i=1}^n (Z^+_i - 1)
+    Y^{\pm}(n) = \sum_{i=1}^n (Z^{\pm}_i - 1).
 \end{equation*}
-for the centered random walk corresponding to the $(Z^+_n)_{n \geq 1}$.  Then the following lemma asserts existence of a measure change under conditioning of equal in- and out-degrees, moreover it gives the scaling limit of the measure change.
+Then the following lemma asserts existence of a measure change under conditioning of equal in- and out-degrees, moreover it gives the scaling limit of the measure change.
 
 \measurechange*
 
-We remark that the criticality condition is what ensures $(Y^+(n))_{n \geq 0}$ is a centered random walk. However the previous result will hold without the criticality condition provided we recenter $(Y^+(n))_{n \geq 0}$ appropriately. Hence for the rest of this section, let $\nu_{\pm} = \E[Z_i^{\pm}]$ and we will not impose the criticality assumption $\nu_+ = 1$.
+We prove a version of the above which does not require the criticality condition.
+
+\begin{lemma}
+    \label{lem:measure-change-no-crit}
+    Define the centered random walks
+    \begin{equation*}
+        S^{\pm}(n) = \sum_{i=1}^n (Z^{\pm} - \nu_{\pm}).
+    \end{equation*}
+    Then using the notation of \cref{lem:measure-change},
+    \begin{align*}
+        &\left( 
+            \Phi(n, \floor{T n^{2/3}}),
+            \left(
+                n^{-1/3} S^-\left( \floor{n^{2/3} t} \right),
+                n^{-1/3} S^+\left( \floor{n^{2/3} t} \right)
+            \right)_{t \in [0, T]}
+        \right) \\
+        & \hspace{20em} \todist \left( 
+            \Phi(t),
+            (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
+        \right)
+    \end{align*}
+    as $n \to \infty$, even in absence of the criticality condition.
+\end{lemma}
+
+\cref{lem:measure-change} then follows as a direct corollary of \cref{lem:measure-change-no-crit} using the continuous mapping theorem.
 
 \subsection{Exact form of the measure change}
 
@@ -336,7 +361,7 @@ The fact that we only prove a lower bound may seem strange at first. The idea is
     \end{equation*}
     where the first and second equalities follow from non-negativity of $Y_n$ and $Y$, and the inequality follows by Portmanteau's theorem.
 
-    In particular $X_n - Y_n \todist 0$ a constant and thus can be included in the joint convergence statement. This means
+    In particular $X_n - Y_n \todist 0$ a constant and hence can be included in the joint convergence statement. This means
     \begin{equation*}
         (X_n - Y_n, Y_n, Z_n) \todist (0, Y, Z)
     \end{equation*}
@@ -345,7 +370,7 @@ The fact that we only prove a lower bound may seem strange at first. The idea is
         (X_n, Z_n) \todist (Y, Z).
     \end{equation*}
 
-    We now prove the uniform integrability. By Skorokhod's representation theorem we can assume that $X_n \to Y$ almost surely. Then $\E[X_n] = \E[Y] = 1$ for all $n$ thus in fact $X_n \to Y$ in $L^1$ by Scheffe's lemma. This gives the required uniform integrability.
+    We now prove the uniform integrability. By Skorokhod's representation theorem we can suppose that $X_n \to Y$ almost surely. Then $\E[X_n] = \E[Y] = 1$ for all $n$. Therefore $X_n \to Y$ in $L^1$ by Scheffe's lemma. This gives the required uniform integrability.
 \end{proof}
 
 \subsubsection{Exponential tilting}
@@ -737,12 +762,8 @@ We are now ready to prove \cref{lem:measure-change-approx}.
 
 We are now ready to prove the main result of this section.
 
-\begin{proof}[Proof of \cref{lem:measure-change}]
-    Existence of the measure change is covered by \cref{lem:exact-measure-change}. In this proof we will write
-    \begin{equation*}
-        S^{\pm}(n) = \sum_{i=1}^n (Z^{\pm}_i - \nu_{\pm})
-    \end{equation*}
-    for the centered random walks with step size $Z^{\pm}_i$. Also define
+\begin{proof}[Proof of \cref{lem:measure-change-no-crit}]
+    Existence of the measure change is covered by \cref{lem:exact-measure-change}. Define
     \begin{equation*}
         \Gamma(n, m) = \exp \left( 
             \frac{1}{\mu n} \sum_{i=0}^m \left( 
@@ -775,16 +796,19 @@ We are now ready to prove the main result of this section.
         = - \int_0^T s \dif W^-_s.
     \end{align*}
     Hence
-    \begin{equation*}
-        \left( 
+    \begin{align*}
+        &\left( 
             \Gamma(n, \floor{T n^{2/3}}),
-            \left( n^{-1/3} Y^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
-         \right)
-         \todist
+            \left(
+                n^{-1/3} S^-(\floor{t n^{2/3}}),
+                n^{-1/3} S^+(\floor{t n^{2/3}})
+            \right)_{t \in [0, T]}
+         \right) \\
+         &\hspace{22em} \todist
          \left( 
-             \Phi(T), (W^+_t)_{t \in [0, T]}
+             \Phi(T), (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
           \right)
-    \end{equation*}
+    \end{align*}
     in $\R \times \D([0, T], \R)$ as $n \to \infty$. Define the event
     \begin{equation*}
         E_m = \left\{ 
@@ -793,36 +817,39 @@ We are now ready to prove the main result of this section.
             \max_{i=1, \ldots, m} \abs{S^+(i)} \leq m^{1/2 + \epsilon}
          \right\}
     \end{equation*}
-    for $\epsilon \in (0, 1/6)$. The processes $(S^{\pm}(n))_{n \geq 0}$ are discrete martingales. Therefore by Doob's maximal inequality
+    for $\epsilon \in (0, 1/6)$. By \cref{lem:measure-change-approx}, it is the case that
+    \begin{equation*}
+        \Phi(n, m) \geq (\Gamma(n, m) + \littleo(1)) \one_{E_m}
+    \end{equation*}
+    The processes $(S^{\pm}(n))_{n \geq 0}$ are discrete martingales. Therefore by Doob's maximal inequality
     \begin{equation*}
         \P\left(\max_{i=1, \ldots, m} \abs{S^{\pm}(i)} > m^{1/2 + \epsilon}\right)
         \leq \frac{\E[(S^{\pm}(m))^2]}{m^{1 + 2 \epsilon}} = \frac{\sigma_{\pm}^2}{m^{2 \epsilon}} \to 0
     \end{equation*}
-    as $m \to \infty$. Thus $\P(E_n) \to 1$ as $n \to \infty$. By \cref{lem:measure-change-approx}, it is the case that
-    \begin{equation*}
-        \Phi(n, m) \geq (\Gamma(n, m) + \littleo(1)) \one_{E_m}
-    \end{equation*}
-    where the $\littleo(1)$ term can be bounded by a deterministic $\littleo(1)$ term. We still have that
-    \begin{equation*}
-        \left( 
+    as $m \to \infty$. Thus $\P(E_m) \to 1$ as $m \to \infty$. Hence we still have that
+    \begin{align*}
+        &\left( 
             (\Gamma(n, \floor{T n^{2/3}}) + \littleo(1))\one_{E_{\floor{T n^{2/3}}}} ,
-            \left( n^{-1/3} Y^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
-         \right)
-         \todist
+            \left(
+                n^{-1/3} S^-(\floor{t n^{2/3}}),
+                n^{-1/3} S^+(\floor{t n^{2/3}})
+            \right)_{t \in [0, T]}
+         \right) \\
+         & \hspace{22em} \todist
          \left( 
-             \Phi(T), (W^+_t)_{t \in [0, T]}
+             \Phi(T), (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
           \right)
-    \end{equation*}
+    \end{align*}
     and $\E[\Phi(T)] = 1$ by a standard stochastic calculus calculation. Therefore by \cref{lem:sandwiching-lemma} we get that the desired result that
-    \begin{equation*}
-        \left( 
+    \begin{align*}
+        &\left( 
             \Phi(n, \floor{T n^{2/3}}) ,
-            \left( n^{-1/3} Y^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
-         \right)
-         \todist
+            \left(n^{-1/3} S^-(\floor{t n^{2/3}}), n^{-1/3} S^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
+         \right) \\
+        & \hspace{22em} \todist
          \left( 
-             \Phi(T), (W^+_t)_{t \in [0, T]}
+             \Phi(T), (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
           \right)
-    \end{equation*}
+    \end{align*}
     and that $(\Phi(n, \floor{T n^{2/3}}))_{n \geq 1}$ is a uniformly integrable sequence.
 \end{proof}
