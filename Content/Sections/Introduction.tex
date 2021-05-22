@@ -182,8 +182,23 @@ The directed configuration model with random in- and out-degrees is also conside
 
 The techniques we will use to investigate the graph model are a combination of the techniques introduced by Conchon-Kerjan and Goldschmidt in \cite{conchon--kerjanStableGraphMetric2020} and the strategy of Goldschmidt and Stephenson in \cite{goldschmidtScalingLimitCritical2019}. The former work discusses the scaling limit of an undirected uniform graph with i.i.d.\ degrees at criticality, and the latter discusses the scaling limit of the strongly connected components of a directed Erd\H{o}s-Renyi graph at criticality.
 
-To investigate the structure of the strongly connected components of a uniform graph with degree sequence $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, conditional on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, we will use a version of the configuration model for digraphs that was introduced in \cite{cooperSizeLargestStrongly2004}. The output of the configuration model, conditional on being a simple graph, is a uniform digraph with the given degree sequence. \\
-\myworries{Description of exploration written by Zheneng} This is illustrated in Figure \ref{fig.configuration model}. 
+To investigate the structure of the strongly connected components of a uniform graph with degree sequence $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, conditional on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, we will use a version of the configuration model for digraphs that was introduced by \citet{cooperSizeLargestStrongly2004}.
+
+Consider a degree sequence $\vd_1, \ldots, \vd_n$ where $\vd_i = (d_i^-, d_i^+) \in \N \times \N$. We assume 
+\begin{equation*}
+    \textstyle\sum_{i=1}^n d_i^- = \sum_{i=1}^n d_i^+. 
+\end{equation*}
+To sample the \emph{directed configuration model} with degree sequence $\vd_1, \ldots, \vd_n$ let $v_1, \ldots, v_n$ be vertices such that $v_i$ has $d_i^-$ in-half-edges and $d_i^+$ out-half-edges. We then pair the in-half-edges and out-half-edges uniformly. This results in a random directed multigraph. The directed configuration model is obtained by This is illustrated in Figure \ref{fig.configuration model}. 
+
+If we then condition on the multigraph being simple, we would get a uniform random digraph on $[n]$ conditioned to have the given degree sequence. This is shown by \citet[P. 10--11]{cooperSizeLargestStrongly2004}. 
+
+To explore the structure of a directed multigraph, we describe an edge-based depth first search procedure (eDFS) in \cref{alg:edfs}. This takes as input a directed multigraph and uses a stack of edges. When the stack is empty, we are at the start of a new out-component and thus pick a new vertex $w$ with probability proportional to its in-degree (this choice simplifies \myworries{insert lemma}). Otherwise we remove the last edge $(v, w)$ off the stack. In both cases, if $w$ has not yet been explored, we add the out-edges from this vertex to the end of the stack of edges (this choice is what makes the exploration depth first).
+
+\myworries{define surplus edges and ordering of vertices}
+
+At each step we also maintain $S^-(k)$ and $S^+(k)$. $S^-(k)$ keeps track of the number of in-edges which we have seen but have not explored the tail of yet at step $k$. $S^+(k)$ is akin to a Lukasiewiescz path. At any given step it is equal to the size of the stack of edges after subtracting the number of fully explored out-components.
+
+We also construct a directed forest for which $S^-(k)$ will be a true Lukasiescz path. At each step of the process we will be examining a vertex $w$. If $w$ has not been explored yet then either we are at the start of a new out-component, in which case we add $w$ to the out-forest, or we are exploring an edge $(v, w)$ where $v$ has already been explored and added to the out-forest, in which case we add $w$ and the edge $(v, w)$ to the out-forest. If $w$ has already been explored we cannot add $(v, w)$ to the out-forest without creating loops. Instead add a dummy vertex to the out-forest and an edge from $v$ to the dummy vertex. We call such dummy vertices purple leafs. This is illustrated in Figure \ref{fig.configuration modeloutforest}. We refer to the out-forest corresponding to the exploration up to time $k$ as $\hat{F}_n(k)$.
 
 \def \exploredvertices {\mathcal V}
 \def \explorededges {\mathcal E}
@@ -191,7 +206,7 @@ To investigate the structure of the strongly connected components of a uniform g
 \def \edgestack {\mathcal O}
 \begin{algorithm}[htbp]
     \SetAlgoLined
-    \KwData{A sequence of in and out-degrees}
+    \KwData{A directed multigraph}
     $\exploredvertices \leftarrow$ an empty ordered list of vertices\;
     $\edgestack \leftarrow$ an empty ordered list of edges\;
 
@@ -226,6 +241,7 @@ To investigate the structure of the strongly connected components of a uniform g
         $S^+_k \leftarrow S^+$ \;
         $\forest_k \leftarrow \forest$ \;
     }
+    \caption{The eDFS procedure \label{alg:edfs}}
 \end{algorithm}
 
 \begin{figure}
@@ -235,7 +251,7 @@ To investigate the structure of the strongly connected components of a uniform g
     \label{fig.configuration model}
 \end{figure}
 
-The exploration algorithm naturally gives rise to a forest that we will refer to as the \emph{out-forest}, which will play a key role in studying the limit under rescaling of the strongly connected components. An important motivation for studying the out-forest is the fact that the vertex set of any strongly connected component is contained in one of the components of the out-forest. This is a straightforward property that is further discussed in Lemma \ref{lemma.whatispartofscc}. We define the out-forest in such a way that every time step in the exploration corresponds to one vertex in the out-forest. At every time step in the exploration at which we find an unseen vertex, say with out-degree $d^+$, we add a vertex with $d^+$ children to the out-forest. At every time step at which we do not find a new vertex, but instead connect to a previously found vertex, we add a purple leaf to the out-forest. This is illustrated in Figure \ref{fig.configuration modeloutforest}. We refer to the out-forest corresponding to the exploration up to time $k$ as $\hat{F}_n(k)$.
+An important motivation for studying the out-forest is the fact that the vertex set of any strongly connected component is contained in one of the components of the out-forest. This is a straightforward property that is further discussed in Lemma \ref{lemma.whatispartofscc}. We have defined the out-forest in such a way that every time step in the exploration corresponds to one vertex in the out-forest. 
 
 A key fact is that the order in which the vertices are discovered does not depend on the position of the purple vertices. Similarly, the position of the purple vertices does not depend on the position of the heads of the surplus edges. Furthermore, we define a necessary condition for a surplus edge to be part of a strongly connected component (see Definition \ref{def.candidate} and Corollary \ref{cor.edgesinSCCs}), and we call these surplus edges \emph{candidates}. The candidates are defined in such a way that whether a purple vertex is a candidate does not depend on the position of the heads of the surplus edges. This allows us to define the following sampling procedure.
 \begin{enumerate}
