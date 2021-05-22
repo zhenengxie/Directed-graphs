@@ -81,7 +81,7 @@ Note that if up to time $k$, $\hat{P}_n(k)$ surplus edges have been sampled, thi
 \subsubsection{Sampling the candidates}\label{subsubsec.samplecandidates}
 We will now study the law of the candidates conditional on $(\hat{F}_n(k),k\geq 1)$. As before, for each $k$, let $\hat{P}_n(k)$ denote the number of purple vertices amongst the first $k$ vertices in the out-forest, and let $\hat{S}^-(k)$ denote the number of unpaired in-half-edges of discovered vertices at time $k$. We will first identify the tails of the candidates amongst the purple vertices, and then we will sample the position of their heads. \\
 If the vertex visited at time $k$ is purple, the head of the corresponding surplus edge is a uniform pick from the $\hat{S}^-(k)$ unpaired in-half-edges of discovered vertices at time $k$. Therefore, the probability that a purple vertex visited at time $k$ corresponds to an ancestral surplus edge is given by the number of unpaired in-edges on its path to the root divided by $\hat{S}^-(k)$. This implies that to understand the law of the position of ancestral surplus edges, we need to understand where the unpaired in-edges are. \\
-We will study this by modifying the edge lengths in the tree: for a vertex $v$ with in-degree $m$, the edges connecting it to its children will have length $m-1$ (unless $v$ is the root of an out-component, then the edges connecting to its children will have length $m$). The height of vertex $w$ in this forest with edge lengths corresponds to the number of in-half-edges that can be used to form an ancestral surplus edge with tail $w$. We add lengths to all edges in $(\hat{F}_n(k),k\geq 1)$ and call the resulting forest with edge lengths $(\hat{F}^\ell(k),k\geq 1)$. Denote the height process of $(\hat{F}^\ell(k),k\geq 1)$ by $(\hat{H}_n^\ell(k),k\geq 1)$. \\
+We will study this by modifying the edge lengths in the tree: for a vertex $v$ with in-degree $m$, the edges connecting it to its children will have length $m-1$ (unless $v$ is the root of an out-component, then the edges connecting to its children will have length $m$). The height of vertex $w$ in this forest with edge lengths corresponds to the number of in-half-edges that can be used to form an ancestral surplus edge with tail $w$. We add lengths to all edges in $(\hat{F}_n(k),k\geq 1)$ and call the resulting forest with edge lengths $(\hat{F}^\ell_n(k),k\geq 1)$. Denote the height process of $(\hat{F}^\ell_n(k),k\geq 1)$ by $(\hat{H}_n^\ell(k),k\geq 1)$. \\
 Recall that the first candidate in any component of $(\hat{F}_n(k),k\geq 1)$ is an ancestral surplus edge. The following lemma illustrates the importance of $\hat{H}^\ell$ in finding the first ancestral surplus edges in the out-components.
 
 \begin{lemma}\label{lemma.probancestral}
@@ -153,7 +153,7 @@ Then, all strongly connected components of $\vec{G}_n(\nu)$ of which the first c
   \label{figure.extractSCCs3}
 \end{subfigure}
 
-\caption{We illustrate the procedure to find the strongly connected components in a component of the out-forest after finding the candidates. Figures are created by Goldschmidt and Stephenson \cite{goldschmidtScalingLimitCritical2019}}
+\caption{We illustrate the procedure to find the strongly connected components in a component of the out-forest after finding the candidates. Source figures: \cite{goldschmidtScalingLimitCritical2019}}
 \end{figure}
 
 \subsection{The continuum case}\label{subsec.limitobject}
