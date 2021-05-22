@@ -52,7 +52,16 @@ We prove a version of the above which does not require the criticality condition
     as $n \to \infty$, even in absence of the criticality condition.
 \end{lemma}
 
-\cref{lem:measure-change} then follows as a direct corollary of \cref{lem:measure-change-no-crit} using the continuous mapping theorem.
+\cref{lem:measure-change} then follows as a direct corollary of \cref{lem:measure-change-no-crit} by noting
+\begin{equation*}
+    \left( 
+        Y^-(\floor{t n^{2/3}}), Y^+(\floor{t n^{2/3}})
+     \right) =
+    \left( 
+        S^-(\floor{t n^{2/3}}) + \floor{t n^{2/3}} (\nu_- - 1), S^+(\floor{t n^{2/3}})
+     \right)
+\end{equation*}
+and using the continuous mapping theorem.
 
 \subsection{Exact form of the measure change}
 
