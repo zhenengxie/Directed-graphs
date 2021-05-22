@@ -1,4 +1,5 @@
 \section{Analysis of the measure change}
+\label{sec:measure-change}
 
 We recall some notation and the lemma we wish to prove. $\vD_1, \vD_2, \ldots$ are i.i.d.\ copies of $(D^-, D^+)$ a $\N \times \N$-valued random variable. We assume $\E[D^-] = \E[D^+]$ and call this quantity $\mu$. We will use the notation
 \begin{equation*}
@@ -33,15 +34,15 @@ We prove a version of the above which does not require the criticality condition
     \label{lem:measure-change-no-crit}
     Define the centered random walks
     \begin{equation*}
-        S^{\pm}(n) = \sum_{i=1}^n (Z^{\pm} - \nu_{\pm}).
+        V^{\pm}(n) = \sum_{i=1}^n (Z^{\pm} - \nu_{\pm}).
     \end{equation*}
     Then using the notation of \cref{lem:measure-change},
     \begin{align*}
         &\left( 
             \Phi(n, \floor{T n^{2/3}}),
             \left(
-                n^{-1/3} S^-\left( \floor{n^{2/3} t} \right),
-                n^{-1/3} S^+\left( \floor{n^{2/3} t} \right)
+                n^{-1/3} V^-\left( \floor{n^{2/3} t} \right),
+                n^{-1/3} V^+\left( \floor{n^{2/3} t} \right)
             \right)_{t \in [0, T]}
         \right) \\
         & \hspace{20em} \todist \left( 
@@ -55,10 +56,10 @@ We prove a version of the above which does not require the criticality condition
 \cref{lem:measure-change} then follows as a direct corollary of \cref{lem:measure-change-no-crit} by noting
 \begin{equation*}
     \left( 
-        Y^-(\floor{t n^{2/3}}), Y^+(\floor{t n^{2/3}})
+        Y^-(n), Y^+(n)
      \right) =
     \left( 
-        S^-(\floor{t n^{2/3}}) + \floor{t n^{2/3}} (\nu_- - 1), S^+(\floor{t n^{2/3}})
+        V^-(n) + n (\nu_- - 1), V^+(n)
      \right)
 \end{equation*}
 and using the continuous mapping theorem.
@@ -397,7 +398,7 @@ In contrast $\Delta_{n-m}$ is centered, so
 \begin{equation*}
     \left\{ \Delta_{n-m} = \textstyle \sum_{i=1}^m (k_i^+ - k_i^-) \right\}  
 \end{equation*}
-is looking at the event that $\Delta_{n-m}$ takes a value at distance $n^{2/3}$ away from its mean. As remarked in \cref{chap:llt}, the local limit theorem provides no information at distances $\omega(n^{1/2})$ from the mean since the error term will dominate.
+is looking at the event that $\Delta_{n-m}$ takes a value at distance $n^{2/3}$ away from its mean. As remarked in \cref{sec:llt}, the local limit theorem provides no information at distances $\omega(n^{1/2})$ from the mean since the error term will dominate.
 
 To shift the mean of $\Delta_{n-m}$ we will introduce a sequence of exponentially tilted measures. The next result defines this tilt and then gives asymptotic expansions for cumulant generating function of $D^-$, the mean of $D^-$ and the mean of $D^+$ under this tilting. 
 \begin{lemma}
@@ -776,7 +777,7 @@ We are now ready to prove the main result of this section.
     \begin{equation*}
         \Gamma(n, m) = \exp \left( 
             \frac{1}{\mu n} \sum_{i=0}^m \left( 
-                S^-(i) - S^-(m)
+                V^-(i) - V^-(m)
              \right)
              - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
          \right).
@@ -784,8 +785,8 @@ We are now ready to prove the main result of this section.
     Then by Donsker's invariance principle,
     \begin{equation*}
         \left( 
-            n^{-1/3} S^-(\floor{tn^{2/3}}),
-            n^{-1/3} S^+(\floor{tn^{2/3}})
+            n^{-1/3} V^-(\floor{tn^{2/3}}),
+            n^{-1/3} V^+(\floor{tn^{2/3}})
          \right)_{t \geq 0} \todist
          \left( 
              \sigma_- W^-_t,
@@ -794,13 +795,13 @@ We are now ready to prove the main result of this section.
     \end{equation*}
     in $\D\left([0, \infty), \R^2\right)$ where $(W^-_t, W^+_t)_{t \geq 0}$ are a pair of correlated standard Brownian motions with correlation $\corr(Z^-_i, Z^+_i)$. We can write
     \begin{align*}
-        \frac{1}{n} \sum_{i=0}^{\floor{T n^{2/3}}} S^-(i)
-        &= n^{-2/3} \int_0^{\floor{T n^{2/3}} + 1} n^{-1/3} S^-(\floor{u}) \dif u \\
-        &= \int_0^{n^{-2/3}(\floor{T n^{2/3} + 1})} n^{-1/3} S^-(\floor{s n^{2/3}}) \dif s.
+        \frac{1}{n} \sum_{i=0}^{\floor{T n^{2/3}}} V^-(i)
+        &= n^{-2/3} \int_0^{\floor{T n^{2/3}} + 1} n^{-1/3} V^-(\floor{u}) \dif u \\
+        &= \int_0^{n^{-2/3}(\floor{T n^{2/3} + 1})} n^{-1/3} V^-(\floor{s n^{2/3}}) \dif s.
     \end{align*}
     Thus by the continuous mapping theorem
     \begin{align*}
-        \frac{1}{n} \sum_{i=0}^{\floor{T n^{2/3}}} \left(S^-(i) - S^-(m) \right)
+        \frac{1}{n} \sum_{i=0}^{\floor{T n^{2/3}}} \left(V^-(i) - V^-(m) \right)
         &\todist \int_0^T \left(W^-_s - W^-_T \right) \dif s
         = - \int_0^T s \dif W^-_s.
     \end{align*}
@@ -809,8 +810,8 @@ We are now ready to prove the main result of this section.
         &\left( 
             \Gamma(n, \floor{T n^{2/3}}),
             \left(
-                n^{-1/3} S^-(\floor{t n^{2/3}}),
-                n^{-1/3} S^+(\floor{t n^{2/3}})
+                n^{-1/3} V^-(\floor{t n^{2/3}}),
+                n^{-1/3} V^+(\floor{t n^{2/3}})
             \right)_{t \in [0, T]}
          \right) \\
          &\hspace{22em} \todist
@@ -821,27 +822,27 @@ We are now ready to prove the main result of this section.
     in $\R \times \D([0, T], \R)$ as $n \to \infty$. Define the event
     \begin{equation*}
         E_m = \left\{ 
-            \max_{i=1, \ldots, m} \abs{S^-(i)} \leq m^{1/2 + \epsilon}
+            \max_{i=1, \ldots, m} \abs{V^-(i)} \leq m^{1/2 + \epsilon}
             \quad \text{and} \quad
-            \max_{i=1, \ldots, m} \abs{S^+(i)} \leq m^{1/2 + \epsilon}
+            \max_{i=1, \ldots, m} \abs{V^+(i)} \leq m^{1/2 + \epsilon}
          \right\}
     \end{equation*}
     for $\epsilon \in (0, 1/6)$. By \cref{lem:measure-change-approx}, it is the case that
     \begin{equation*}
         \Phi(n, m) \geq (\Gamma(n, m) + \littleo(1)) \one_{E_m}
     \end{equation*}
-    The processes $(S^{\pm}(n))_{n \geq 0}$ are discrete martingales. Therefore by Doob's maximal inequality
+    The processes $(V^{\pm}(n))_{n \geq 0}$ are discrete martingales. Therefore by Doob's maximal inequality
     \begin{equation*}
-        \P\left(\max_{i=1, \ldots, m} \abs{S^{\pm}(i)} > m^{1/2 + \epsilon}\right)
-        \leq \frac{\E[(S^{\pm}(m))^2]}{m^{1 + 2 \epsilon}} = \frac{\sigma_{\pm}^2}{m^{2 \epsilon}} \to 0
+        \P\left(\max_{i=1, \ldots, m} \abs{V^{\pm}(i)} > m^{1/2 + \epsilon}\right)
+        \leq \frac{\E[(V^{\pm}(m))^2]}{m^{1 + 2 \epsilon}} = \frac{\sigma_{\pm}^2}{m^{2 \epsilon}} \to 0
     \end{equation*}
     as $m \to \infty$. Thus $\P(E_m) \to 1$ as $m \to \infty$. Hence we still have that
     \begin{align*}
         &\left( 
             (\Gamma(n, \floor{T n^{2/3}}) + \littleo(1))\one_{E_{\floor{T n^{2/3}}}} ,
             \left(
-                n^{-1/3} S^-(\floor{t n^{2/3}}),
-                n^{-1/3} S^+(\floor{t n^{2/3}})
+                n^{-1/3} V^-(\floor{t n^{2/3}}),
+                n^{-1/3} V^+(\floor{t n^{2/3}})
             \right)_{t \in [0, T]}
          \right) \\
          & \hspace{22em} \todist
@@ -853,7 +854,7 @@ We are now ready to prove the main result of this section.
     \begin{align*}
         &\left( 
             \Phi(n, \floor{T n^{2/3}}) ,
-            \left(n^{-1/3} S^-(\floor{t n^{2/3}}), n^{-1/3} S^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
+            \left(n^{-1/3} V^-(\floor{t n^{2/3}}), n^{-1/3} V^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
          \right) \\
         & \hspace{22em} \todist
          \left( 

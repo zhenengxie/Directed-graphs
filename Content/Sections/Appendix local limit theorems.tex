@@ -1,7 +1,9 @@
 \section{Multivariate triangular local limit theorem}
-\label{chap:llt}
+\label{sec:llt}
 
-\myworries{rewrite the intro}
+$\Delta_n = \sum_{i=1}^n (D_i^- - D_i^+)$ is a sum of $n$ i.i.d.\ random variables, and we will be conditioning on the event that $\{\Delta_n = 0\}$. The probability of such an event is given by the local limit theorem.
+
+Later in the analysis we will need to introduce an exponential tilting to deal with a moderate deviation event. The tilting will be dependent on $n$, moreover we will need to control the deviations of a second sum of i.i.d.\ random variables. Thus we will need a bivariate local limit theorem for triangular arrays of random variables. Such a local limit theorem is considered in work by \myworries{insert reference} in great generality, but we will be presenting an alternate proof of a simpler version of the triangular local limit theorem which will be sufficient for our applications.
 
 \subsection{Lattices}
 
@@ -60,7 +62,7 @@ If $\vX$ is non-degenerate and lattice valued, we wish to define the smallest la
         \text{$m \geq 1$ and $k_i \in \Z, \vx_i \in \cS$ for all $i = 1, \ldots, m$}
     \Bigg\}.
 \end{equation*}
-The strong aperiodicity condition we imposed on $D^- - D^+$ in \cref{chap:directed-configuration-model} can then be stated as saying $D^- - D^+$ has main lattice $\Z$.
+The strong aperiodicity condition we imposed on $D^- - D^+$ in our model can then be stated as saying $D^- - D^+$ has main lattice $\Z$.
 
 The main lattice of $\vX$ is related to the periodicity of its characteristic function. The following lemma is an adaptation of \cite[P.67, T1]{spitzerPrinciplesRandomWalk1964}.
 \begin{lemma}
