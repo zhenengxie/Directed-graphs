@@ -15,7 +15,7 @@ $\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, R_n}$ are the elements of $\{\vD_i : u 
 \begin{equation*}
     \P(Z_i^- = k^-, Z_i^+ = k^+) = \frac{k^-}{\mu} \Pr(D^- = k^-, D^+ = k^+).
 \end{equation*}
-Let $\nu_{\pm} = \E[Z^{\pm}_i]$. Under the criticality condition we have $\nu_+ = 1$. We used the notation
+Let $\lambda_{\pm} = \E[Z^{\pm}_i]$. We have $\nu_- = \lambda_- - 1$ and under the criticality condition we have $\lambda_+ = 1$. We used the notation
 \begin{equation*}
     Y^{\pm}(n) = \sum_{i=1}^n (Z^{\pm}_i - 1).
 \end{equation*}
@@ -29,7 +29,7 @@ We prove a version of the above which does not require the criticality condition
     \label{lem:measure-change-no-crit}
     Define the centered random walks
     \begin{equation*}
-        V^{\pm}(n) = \sum_{i=1}^n (Z^{\pm} - \nu_{\pm}).
+        V^{\pm}(n) = \sum_{i=1}^n (Z^{\pm} - \lambda_{\pm}).
     \end{equation*}
     Then using the notation of \cref{lem:measure-change},
     \begin{align*}
@@ -40,7 +40,7 @@ We prove a version of the above which does not require the criticality condition
                 n^{-1/3} V^+\left( \floor{n^{2/3} t} \right)
             \right)_{t \in [0, T]}
         \right) \\
-        & \hspace{20em} \todist \left( 
+        & \hspace{23em} \todist \left( 
             \Phi(t),
             (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
         \right)
@@ -54,7 +54,7 @@ We prove a version of the above which does not require the criticality condition
         Y^-(n), Y^+(n)
      \right) =
     \left( 
-        V^-(n) + n (\nu_- - 1), V^+(n)
+        V^-(n) + n \nu_-, V^+(n)
      \right)
 \end{equation*}
 and using the continuous mapping theorem. The proof of this result is based upon the proof of \cite[Lemma~6.7]{conchon--kerjanStableGraphMetric2020}
@@ -123,7 +123,7 @@ Next we establish exact form of the measure change when we condition on the exac
             \Sigma_n = \sigma
             \right)  \\
         =& \prod_{i=1}^r \frac{k_i^-}{\sum_{j=i}^r k_j^-}
-        \times \prod_{i=1}^r \nu_{\vk_i}
+        \times \prod_{i=1}^r \lambda_{\vk_i}
         \times \P\left( 
             \textstyle \sum_{i \in \cI_n^c} D_i^+ = s,
             D^-_i = 0\ \text{for $i \in I^c$}
@@ -141,8 +141,8 @@ Next we establish exact form of the measure change when we condition on the exac
     \end{equation*}
     Also
     \begin{align*}
-        \prod_{i=1}^r \frac{k_i^-}{\sum_{j=i}^r k_j^-} \times \prod_{i=1}^r \nu_{\vk_i}
-        &= \prod_{i=1}^r \frac{k_i^-}{\mu} \nu_{\vk_i} \times \prod_{i=1}^r \frac{\mu}{\sum_{j=i}^r k_j^-} \\
+        \prod_{i=1}^r \frac{k_i^-}{\sum_{j=i}^r k_j^-} \times \prod_{i=1}^r \lambda_{\vk_i}
+        &= \prod_{i=1}^r \frac{k_i^-}{\mu} \lambda_{\vk_i} \times \prod_{i=1}^r \frac{\mu}{\sum_{j=i}^r k_j^-} \\
         &= \P(\vZ_1 = \vk_1, \ldots, \vZ_r = \vk_r)
         \times \prod_{i=1}^r \frac{\mu}{\sum_{j=i}^r k_j^-}.
     \end{align*}
@@ -336,7 +336,7 @@ In \cref{lem:measure-change} we see the correct scaling to in order to get a sen
     \label{lem:measure-change-approx}
     Define
     \begin{equation*}
-        s^{\pm}(i) = \textstyle{\sum_{j=1}^i (k_i^{\pm} - \nu_{\pm})}.
+        s^{\pm}(i) = \textstyle{\sum_{j=1}^i (k_i^{\pm} - \lambda_{\pm})}.
     \end{equation*}
     Suppose we are given $\epsilon \in (0, 1/6)$ and that $\vk_1, \ldots, \vk_m$ are such that
     \begin{equation}
@@ -357,7 +357,7 @@ The $1/6$ upper bound on $\epsilon$ is used to show certain terms that arise in 
 Thus the condition in \cref{eq:s-condition} corresponds to the event
 \begin{equation*}
     \max_{i=1, \ldots, m } \abs*{
-        \sum_{j=1}^i (Z^{\pm}_j - \nu_{\pm}) 
+        \sum_{j=1}^i (Z^{\pm}_j - \lambda_{\pm}) 
     } \leq m^{1/2 + \epsilon}.
 \end{equation*}
 This is saying that the centered random walks corresponding to $Z^+_i$ and $Z^-_i$ do not deviate by more than $m^{1/2 + \epsilon}$ in the first $m$ steps. This will occur with high probability and thus \cref{eq:s-condition} is not a restrictive condition to take.
@@ -409,7 +409,7 @@ Note that
 \end{equation*}
 and thus is, in general, non-zero even if $\E[D^- - D^+] = 0$. The deviation of the $Z^{\pm}_i$ around their mean is controlled by the assumption in \cref{eq:s-condition}. If $\vk_1, \ldots, \vk_n$ satisfy \cref{eq:s-condition} and $m = \Theta(n^{2/3})$ then
 \begin{equation*}
-    \sum_{i=1}^m (k_i^- - k_i^+) = s^-(m) - s^+(m) + (\nu_+ - \nu_-) m = \Theta(n^{2/3}).
+    \sum_{i=1}^m (k_i^- - k_i^+) = s^-(m) - s^+(m) + (\lambda_+ - \lambda_-) m = \Theta(n^{2/3}).
 \end{equation*}
 
 In contrast $\Delta_{n-m}$ is centered, so
@@ -479,12 +479,12 @@ To achieve the centering of $\Delta_{n-m}$ we desire, let us define a sequence o
 where $\theta_n = \frac{m}{\mu n}$. This factorises and so $\vD_1, \ldots, \vD_n$ remain i.i.d.\ under this tilting and each $\vD_i$ has the law of $\vD$ under $\P_{\theta_n}$. Applying \cref{lem:asym-expansions} we can compute that
 \begin{align*}
     \E_n[\Delta_{n-m}] 
-    &= m(\nu_+ - \nu_-) + \bigo(n^{1/3}).
+    &= m(\lambda_+ - \lambda_-) + \bigo(n^{1/3}).
 \end{align*}
 Hence
 \begin{align*}
     \textstyle \sum_{i=1}^m (k_i^+ - k_i^-) - \E_n[\Delta_{n-m}] 
-    &= s^-(m) - s^+(m) + \Big[ m(\nu_+ - \nu_-) - \E_n[\Delta_{n-m}] \Big] \\
+    &= s^-(m) - s^+(m) + \Big[ m(\lambda_+ - \lambda_-) - \E_n[\Delta_{n-m}] \Big] \\
     &= \bigo(n^{1/3 + \epsilon})
 \end{align*}
 which is within the $\bigo(n^{1/2})$ range from the mean where the local limit theorem yields useful information. Thus $\theta_n = \frac{m}{\mu n}$ is the correct tilting to take. 
@@ -629,7 +629,7 @@ Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ will have the 
     \begin{align*}
         \E_n[\Delta_{n-m}]
         &= (n - m) \E_{\theta_n}[D^- - D^+] \\ 
-        &= -(\nu_- - \nu_+)m + \bigo(n^{1/3}).
+        &= -(\lambda_- - \lambda_+)m + \bigo(n^{1/3}).
     \end{align*}
     Therefore 
     \begin{equation*}
@@ -700,23 +700,23 @@ We are now ready to prove \cref{lem:measure-change-approx}.
     \end{equation*}
     Note
     \begin{equation*}
-        \sum_{j=i}^m k^-_j = s^-(m) - s^-(i - 1) + (m - i + 1) \nu_-
+        \sum_{j=i}^m k^-_j = s^-(m) - s^-(i - 1) + (m - i + 1) \lambda_-
     \end{equation*}
     and define
     \begin{equation*}
-        \Omega^-_n = \Xi^-_{n-m} - (n-m)\mu + (\nu_- + \mu)m.
+        \Omega^-_n = \Xi^-_{n-m} - (n-m)\mu + (\lambda_- + \mu)m.
     \end{equation*}
     Then $\Omega_n^-$ is almost the centering of $\Xi_{n-m}^-$ under $\P_n$. We have
     \begin{align*}
         Y_n 
-        &= \sum_{i=1}^m \log \left( \frac{s^-(m) - s^-(i-1) + (m - i + 1) \nu_- + \Omega^-_n + \mu n - \nu_- m}{\mu n} \right) \\
+        &= \sum_{i=1}^m \log \left( \frac{s^-(m) - s^-(i-1) + (m - i + 1) \lambda_- + \Omega^-_n + \mu n - \lambda_- m}{\mu n} \right) \\
         &= \sum_{i=1}^m \log \left( 1 + A_n^i + B_n + C_n^i \right)
     \end{align*}
     where
     \begin{align*}
         A_n^i = - \frac{1}{\mu n} \left[ s^-(i-1) - s^-(m) \right], \quad
         B_n = \frac{1}{\mu n} \Omega^-_n, \quad
-        C_n^i = - \frac{\nu_-}{\mu n} (i-1).
+        C_n^i = - \frac{\lambda_-}{\mu n} (i-1).
     \end{align*}
     When expanding $\log(1 + A_n^i + B_n + C_n^i)$, the summation contributes order $m = O(n^{2/3})$. Thus we keep terms of order $\Omega(n^{-2/3})$ in the expansion. Write
     \begin{equation*}
@@ -724,8 +724,8 @@ We are now ready to prove \cref{lem:measure-change-approx}.
     \end{equation*}
     On the event $\omegaevent_n$, we can check that the $A_n, B_n, C_n^i$ and $(C_n^i)^2$ terms are the only ones in the expansion which have order $\Omega(n^{-2/3})$. Moreover
     \begin{equation*}
-        \sum_{i=1}^m C_n^i = - \frac{\nu_-}{2 \mu} \frac{m^2}{n} + \littleo(1) \quad \text{and} \quad
-        \sum_{i=1}^m (C_n^i)^2 = \frac{\nu_-^2}{3 \mu^2} \frac{m^3}{n^2} + \littleo(1).
+        \sum_{i=1}^m C_n^i = - \frac{\lambda_-}{2 \mu} \frac{m^2}{n} + \littleo(1) \quad \text{and} \quad
+        \sum_{i=1}^m (C_n^i)^2 = \frac{\lambda_-^2}{3 \mu^2} \frac{m^3}{n^2} + \littleo(1).
     \end{equation*}
     Therefore
     \begin{align*}
@@ -733,7 +733,7 @@ We are now ready to prove \cref{lem:measure-change-approx}.
         &= \sum_{i=1}^m (A_n^i + B_n + C_n^i - \tfrac{1}{2} (C_n^i)^2) + \littleo(1) \\
         &= - \frac{1}{\mu} \frac{1}{n} \sum_{i=0}^m \left( s^-(i) - s^-(m) \right)
         + \frac{1}{\mu} \frac{m}{n} \Omega_n^-
-        - \frac{\nu_-}{2\mu} \frac{m^2}{n} - \frac{\nu_-^2}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1),
+        - \frac{\lambda_-}{2\mu} \frac{m^2}{n} - \frac{\lambda_-^2}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1),
     \end{align*}
     where we use that $\sum_{i=1}^m \left( s^-(i-1) - s^-(m) \right) = \sum_{i=0}^m \left( s^-(i) - s^-(m) \right)$.
 
@@ -746,13 +746,13 @@ We are now ready to prove \cref{lem:measure-change-approx}.
     \begin{align*}
         \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}}
         &\geq \exp \Bigg( \frac{1}{\mu} \frac{1}{n} \sum_{i=1}^m (s^-(i) - s^-(m)) \nonumber \\
-        &\hspace{4em} - \frac{1}{\mu} \frac{m}{n} \Omega^-_n + \frac{\nu_- - \mu}{2 \mu} \frac{m^2}{n} + \frac{\nu_-^2 - \mu^2}{6 \mu^2} \frac{m^3}{n^2} \Bigg) \one_{\omegaevent_n}
+        &\hspace{4em} - \frac{1}{\mu} \frac{m}{n} \Omega^-_n + \frac{\lambda_- - \mu}{2 \mu} \frac{m^2}{n} + \frac{\lambda_-^2 - \mu^2}{6 \mu^2} \frac{m^3}{n^2} \Bigg) \one_{\omegaevent_n}
     \end{align*}
     In addition using \cref{lem:asym-expansions}, the measure change can be expanded as
     \begin{equation*}
         \diff{\P_n}{\P} = \exp \left( 
-            - \frac{1}{\mu} \frac{m}{n} \Omega_n^- + \frac{\nu_- - \mu}{2\mu} \frac{m^2}{n}
-            + \frac{\nu_-^2 - \mu^2}{6 \mu^2} \frac{m^3}{n^2} + \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1)
+            - \frac{1}{\mu} \frac{m}{n} \Omega_n^- + \frac{\lambda_- - \mu}{2\mu} \frac{m^2}{n}
+            + \frac{\lambda_-^2 - \mu^2}{6 \mu^2} \frac{m^3}{n^2} + \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1)
          \right).
     \end{equation*}
     Hence
