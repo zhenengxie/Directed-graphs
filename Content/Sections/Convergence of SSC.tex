@@ -25,7 +25,7 @@ $$\left(n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P
 in $\D(\R_+,\R)^2$ as $n\to \infty$.
 \end{lemma}
 \begin{proof}
-We use Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the black-purple-red Galton-Watson forest $(F^{pr}(k),k\geq 1)$, as defined in Subsubsection \ref{subsubsec.convheightprocess}. \\
+We use Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} by de Raphélis, that shows convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the black-purple-red Galton-Watson forest $(F^{pr}(k),k\geq 1)$, as defined in Subsection \ref{subsubsec.convheightprocess}. \\
 We equip $(F^{pr}(k),k\geq 1)$ with edge lengths in the following manner. For a purple or red vertex with out degree $d^+$, sample its in-degree with law $Z^-$ conditioned on $Z^+=d^+$. The in-degree of the black vertices is encoded by $(Y^{-}(k),k\geq 1)$.  Then, for a vertex with in-degree $d^-$, let the edges connecting it to its children have length $d^--1$ (unless it is the root of the component, then let the edges connecting to its children will have length $d^-$). Call the resulting forest with edge lengths $(F^{pr,\ell}(k),k\geq 1)$, and let $(H^{pr,\ell}(k),k\geq 1)$ be the corresponding height process.\\
 We will translate the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to our setting and check them. The conditions are as follows.
 \begin{enumerate}
@@ -33,13 +33,13 @@ We will translate the conditions of Theorem 1 in \cite{deraphelisScalingLimitMul
     \item $1<\E[(Z^+)^2]<\infty$
     \item $\E\left[Z^+\one_{\{Z^->x\}}\right]=o(x^{-2})$ as $x\to \infty$
 \end{enumerate}
-Under these conditions, using the notation from Subsubsection \ref{subsubsec.convheightprocess},
+Under these conditions, using the notation from Subsection \ref{subsubsec.convheightprocess},
 \begin{align}\begin{split}\label{eq.convmodifiedheightprocess}
 &\left(n^{-1/3}Y^{pr}\left(\lfloor t n^{2/3}\rfloor \right),n^{-1/3}H^{pr}\left(\lfloor t n^{2/3}\rfloor \right), n^{-1/3}H^{pr,\ell}\left(\lfloor t n^{2/3}\rfloor \right),t\geq 0\right)\\
 &\overset{d}{\to}\left(\sigma_+ B_s, \frac{2}{\sigma_+}R_s, \frac{2(\sigma_{+-}+\nu_-)}{\mu\sigma_+}R_s,t\geq 0\right)
 \end{split}\end{align}
 in $D(\R_+,\R)^3$ as $n\to \infty$. 
-Then, we observe that the rest of the argument in Subsubsection \ref{subsubsec.convheightprocess} and Subsection \ref{subsubsec.convaftermeasurechange} can be extended to include the height process with edge lengths. This yields the result.\\
+Then, we observe that the rest of the argument in Subsection \ref{subsubsec.convheightprocess} and Subsection \ref{subsubsec.convaftermeasurechange} can be extended to include the height process with edge lengths. This yields the result.\\
 Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to hold. The conditions are equivalent to 
 \begin{enumerate}
     \item $\E[D^+D^-]=\E[D^-]$
@@ -162,7 +162,7 @@ in $\D(\R_+,\R)$ as $n\to \infty$, we observe that for all $i\in [A_T]$, $n^{-2/
 % \end{proof}
 
 \subsection{Convergence of the set of candidates}
-By Proposition \ref{prop.extractexcursions}, we know that the intervals that encode the out-components that contain an ancestral surplus edge converge under rescaling. This convergence holds jointly with the convergence under rescaling of the first time step at which an ancestral surplus is found in each of these components. We will show that the positions of the other candidates in a component converge as well under rescaling. Recall the procedure to sample candidates that is described in Subsubsection \ref{lemma.samplecandidates}. 
+By Proposition \ref{prop.extractexcursions}, we know that the intervals that encode the out-components that contain an ancestral surplus edge converge under rescaling. This convergence holds jointly with the convergence under rescaling of the first time step at which an ancestral surplus is found in each of these components. We will show that the positions of the other candidates in a component converge as well under rescaling. Recall the procedure to sample candidates that is described in Subsection \ref{lemma.samplecandidates}. 
 % \begin{lemma}\label{lemma.samplingprocedure}
 % Suppose we are exploring the component of $(\hat{F}_n(k),k\geq 1)$ that contains vertex $k$, and suppose $k$ is purple. Denote this component by $\cT$, with root $l$. Moreover, suppose the tails of all important surplus edges in $\cT$ that are discovered up to time $k$ are contained in $C_k\subset\{g+1,\dots,k-1\}$. Then, for $S$ a subset of the vertices of $\cT$, let $\cT(S)$ be the subtree of $\cT$ spanned by $S$. Then, $k$ is the tail of an important surplus edge only if the surplus edge corresponding to $k$ has its head in $\cT(C_k\cup\{g,k
 % \})$. 
@@ -174,7 +174,7 @@ By Proposition \ref{prop.extractexcursions}, we know that the intervals that enc
 
 The following proposition shows convergence under rescaling of the sequence of tails of the candidates on a particular component of $(\hat{F}_n(k),k\geq 1)$. 
 \begin{proposition}\label{prop.convergencestartingpointscandidates}
-Fix $T>0$. By Skorokhod's representation theorem, we may work on a probability space where the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions} holds almost surely. Let $(l,\sigma)\in \left\{(L_i,\Sigma_i):i\leq A_T\right\}$, so that, for each $n$ large enough, we can find a $(l_n,\sigma_n)\in\left\{(L_i^n,\Sigma_i^n):i\leq A_n\left(\lfloor Tn^{2/3}\rfloor\right)\right\}$, such that $(l_n,\sigma_n)\to (l,\sigma)$. Set $V_1=\inf\{t\in [l,l+\sigma]:A(t)=A(l)+1\}$, and similary, set $V_1^n=\min\{l_n<k\leq l_n+\sigma_n:A_n(k)=A_n(l_n)+1\}$, which are well-defined by definition of $l$, $\sigma$, $l_n$ and $\sigma_n$.  Then, by construction, $\{l_n+1,\dots,l_n+\sigma_n\}$ encodes a component of $(\hat{F}_n(k),k\geq 1)$. Call this component $T^n_{l_n}$. We apply the procedure defined in \ref{lemma.samplecandidates} to find the tail of candidates in $T^n_{l_n}$. Let $\mathbf{C}_n(l_n)$ denote the sequence of tails of candidates in $T^n_{l_n}$. Similarly, $[l,l+\sigma]$ encodes a component of $(\hat{\cF}(t),t\geq 0)$. Call this component $\cT_l$, and apply procedure in Subsubsection \ref{subsubsec.samplecontinuousobject} to find the tails of candidates in $\cT_l$, and denote its sequence of tails of candidates by $\mathbf{V}(l)$. Then, jointly with the convergence in Proposition \ref{prop.extractexcursions}, 
+Fix $T>0$. By Skorokhod's representation theorem, we may work on a probability space where the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions} holds almost surely. Let $(l,\sigma)\in \left\{(L_i,\Sigma_i):i\leq A_T\right\}$, so that, for each $n$ large enough, we can find a $(l_n,\sigma_n)\in\left\{(L_i^n,\Sigma_i^n):i\leq A_n\left(\lfloor Tn^{2/3}\rfloor\right)\right\}$, such that $(l_n,\sigma_n)\to (l,\sigma)$. Set $V_1=\inf\{t\in [l,l+\sigma]:A(t)=A(l)+1\}$, and similary, set $V_1^n=\min\{l_n<k\leq l_n+\sigma_n:A_n(k)=A_n(l_n)+1\}$, which are well-defined by definition of $l$, $\sigma$, $l_n$ and $\sigma_n$.  Then, by construction, $\{l_n+1,\dots,l_n+\sigma_n\}$ encodes a component of $(\hat{F}_n(k),k\geq 1)$. Call this component $T^n_{l_n}$. We apply the procedure defined in \ref{lemma.samplecandidates} to find the tail of candidates in $T^n_{l_n}$. Let $\mathbf{C}_n(l_n)$ denote the sequence of tails of candidates in $T^n_{l_n}$. Similarly, $[l,l+\sigma]$ encodes a component of $(\hat{\cF}(t),t\geq 0)$. Call this component $\cT_l$, and apply procedure in Subsection \ref{subsubsec.samplecontinuousobject} to find the tails of candidates in $\cT_l$, and denote its sequence of tails of candidates by $\mathbf{V}(l)$. Then, jointly with the convergence in Proposition \ref{prop.extractexcursions}, 
 $$n^{-2/3}\mathbf{V}_n(l_n)\overset{d}{\to}\mathbf{V}(l)$$
 in the $\ell_1$ topology.
 \end{proposition}
@@ -192,7 +192,7 @@ $$\left(K^n_{comp,m+1}\left(\lfloor t n^{2/3}\rfloor \right),V_m\leq t \leq l+\s
 $\D(\R_+,\R_+)$ as $n\to\infty$, which implies that 
 $$(K^n_{m+1}(\lfloor t n^{2/3} \rfloor ),t\geq 0)\overset{d}{\to} (K_{m+1}(t),t\geq 0)$$ in $\D(\R_+,\R_+)$ as $n\to\infty$, and in particular, we can find a coupling such that $K_m(\infty)>0$ if and only only if $K^n_m(\infty)>0$ for all $n$ large enough, and such that on this event,
 $$n^{-2/3}V_{m+1}^n\overset{a.s.}{\to}V_{m+1}.$$
-If $K_m(\infty)=0$, set $\mathbf{V}(l)=(V_1,\dots,V_m)$, $\mathbf{V}_n(l_n)=(V^n_1,\dots,V^n_m)$, and the statement follows. If $K_m(\infty)>0$, apply the induction step to $(V_1,\dots,V_{m+1})$ and $(V^n_1,\dots,V^n_{m+1})$. The fact that $|\mathbf{V}(l)|<\infty$ almost surely, as shown in Subsubsection \ref{subsubsec.samplecontinuousobject}, implies that the induction terminates.
+If $K_m(\infty)=0$, set $\mathbf{V}(l)=(V_1,\dots,V_m)$, $\mathbf{V}_n(l_n)=(V^n_1,\dots,V^n_m)$, and the statement follows. If $K_m(\infty)>0$, apply the induction step to $(V_1,\dots,V_{m+1})$ and $(V^n_1,\dots,V^n_{m+1})$. The fact that $|\mathbf{V}(l)|<\infty$ almost surely, as shown in Subsection \ref{subsubsec.samplecontinuousobject}, implies that the induction terminates.
 \end{proof}
 
 The following proposition shows that the law of the heads of the candidates converges as well under rescaling, and that the convergence holds in the pointed Gromov-Hausdorff topology. 
@@ -220,7 +220,7 @@ almost surely in the $2M+1$-pointed Gromov-Hausdorff topology as $n\to \infty$. 
 $$n^{-1/3}\left|T^{n,\text{mk}}(l_n)\right|\to \left| T^{\text{mk}}(l)\right|$$
 almost surely as $n\to\infty$.
 \end{corollary}
-We now identify the vertices that are part of a candidate as described in Subsubsection \ref{subsubsec.samplecandidates}. In $T^{n,\text{mk}}(l_n)$, set $V_i^n\sim W_i^n$ for each $1\leq i\leq N_n$, and set $M^n_{l_n}:=T^{n,\text{mk}}(l_n)/\sim$. Moreover, in $T^{\text{mk}}(l)$, set $V_i\sim W_i$ for each $1\leq i\leq N$, and set $\cM_l:=T^{\text{mk}}(l)/\sim$. View both as elements of $\vec{\cG}$ in the natural way. To be precise, in  $M^n_{l_n}$, let the vertex set consist of $l_n+1$, $W_i^n$ for $i\leq N_n$, and the branch points $V_i^n\wedge V_j^n$ for $i\neq j\leq N_n$. Similarly, in $\cM_l$, let the vertex set consist of $l$, $W_i$ for $i\leq N$, and the branch points $V_i\wedge V_j$ for $i\neq j\leq N$. Then, the following proposition follows.
+We now identify the vertices that are part of a candidate as described in Subsection \ref{subsubsec.samplecandidates}. In $T^{n,\text{mk}}(l_n)$, set $V_i^n\sim W_i^n$ for each $1\leq i\leq N_n$, and set $M^n_{l_n}:=T^{n,\text{mk}}(l_n)/\sim$. Moreover, in $T^{\text{mk}}(l)$, set $V_i\sim W_i$ for each $1\leq i\leq N$, and set $\cM_l:=T^{\text{mk}}(l)/\sim$. View both as elements of $\vec{\cG}$ in the natural way. To be precise, in  $M^n_{l_n}$, let the vertex set consist of $l_n+1$, $W_i^n$ for $i\leq N_n$, and the branch points $V_i^n\wedge V_j^n$ for $i\neq j\leq N_n$. Similarly, in $\cM_l$, let the vertex set consist of $l$, $W_i$ for $i\leq N$, and the branch points $V_i\wedge V_j$ for $i\neq j\leq N$. Then, the following proposition follows.
 \begin{proposition}
 On the probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely, 
 $n^{-1/3}M^n_{l_n}\overset{a.s.}{\to} \cM_l$
