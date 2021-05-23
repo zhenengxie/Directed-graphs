@@ -57,7 +57,7 @@ We prove a version of the above which does not require the criticality condition
         V^-(n) + n (\nu_- - 1), V^+(n)
      \right)
 \end{equation*}
-and using the continuous mapping theorem.
+and using the continuous mapping theorem. The proof of this result is based upon the proof of \cite[Lemma~6.7]{conchon--kerjanStableGraphMetric2020}
 
 \subsection{Exact form of the measure change}
 
@@ -383,8 +383,8 @@ The fact that we only prove a lower bound may seem strange at first. The idea is
     Thus it suffices to show $\liminf_n \E[Y_n] \geq 1$. This follows since
     \begin{equation*}
         \liminf_n \E[Y_n] =
-        \liminf_n \E[Y_n \wedge 0] \geq
-        \E[Y \wedge 0] =
+        \liminf_n \E[\abs{Y_n}] \geq
+        \E[\abs{Y}] =
         \E[Y] = 1
     \end{equation*}
     where the first and second equalities follow from non-negativity of $Y_n$ and $Y$, and the inequality follows by the Portmanteau theorem.
