@@ -7,16 +7,11 @@ We recall some notation and the lemma we wish to prove. $\vD_1, \vD_2, \ldots$ a
     \quad \text{and} \quad
     \Delta_n = \Xi^-_n - \Xi^+_n.
 \end{equation*}
-Let $p = \P(D^- > 0)$ and define
+We defined
 \begin{equation*}
     \cI_n = \{ i \in [n] : D_i^- > 0 \} \quad \text{and} \quad R_n = \abs{\cI_n}.
 \end{equation*}
-Let $\Sigma_n: [R_n] \to \cI_n$ be a random bijection between two random sets with law
-\begin{equation*}
-    \P(\Sigma_n = \sigma \mid \vD_1, \ldots, \vD_n)
-    = \prod_{i=1}^{R_n} \frac{D^-_{\sigma(i)}}{\sum_{j=i}^{R_n} D^-_{\sigma(j)}}
-\end{equation*}
-for any bijection $\sigma: [R_n] \to \cI_n$. Then define $\hat{\vD}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$. This is referred to as the size-biased ordering by in-degree of $\vD_1, \ldots, \vD_n$. We will be comparing this against a sequence of i.i.d.\ $\N \times \N$-valued random variables $\vZ_1, \vZ_2, \ldots$ where each $\vZ_i$ has law
+$\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, R_n}$ are the elements of $\{\vD_i : u \in \cI_n\}$ in order of discovery according to the eDFS procedure. We will be comparing this against a sequence of i.i.d.\ $\N \times \N$-valued random variables $\vZ_1, \vZ_2, \ldots$ where each $\vZ_i$ has law
 \begin{equation*}
     \P(Z_i^- = k^-, Z_i^+ = k^+) = \frac{k^-}{\mu} \Pr(D^- = k^-, D^+ = k^+).
 \end{equation*}
@@ -66,7 +61,30 @@ and using the continuous mapping theorem.
 
 \subsection{Exact form of the measure change}
 
-We first establish the exact form of the measure change when we condition on the exact value of $R_n$ but not $\Delta_n = 0$.
+We first examine the exact law of the reordering of the vertices. Let $\Sigma_n: [R_n] \to \cI_n$ be a random bijection between two random sets such that $\hat{\vD}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$.
+
+\begin{lemma}
+    $\Sigma_n$ has law
+    \begin{equation*}
+        \P(\Sigma_n = \sigma \mid \vD_1, \ldots, \vD_n)
+        = \prod_{i=1}^{R_n} \frac{D^-_{\sigma(i)}}{\sum_{j=i}^{R_n} D^-_{\sigma(j)}}.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    The key idea is that the eDFS procedure can be adapted to carry out the pairing of in- and out-half-edges that is used the define the configuration model. Instead of keeping a stack of edges, we keep a stack of out-half-edges. When we examine an out-half-edge, we sample the head of the half-edge by picking a uniform choice from the unpaired in-half-edges. Thus when we are exploring a new vertex we are picking it with probability proportional to it's in-degree. This is also why we start new out-components by picking a vertex by it's in-degree.
+
+    Hence the probability of exploring the vertex $v_{\sigma(1)}$ is
+    \begin{equation*}
+        \frac{D_{\sigma(2)}^{-1}}{\sum_{j=1}^{R_n} D_{\sigma(j)}}.
+    \end{equation*}
+    Conditional on the $\Sigma_n(1) = \sigma(1)$, the probability the next vertex we explore is $v_{\sigma(2)}$ is
+    \begin{equation*}
+        \frac{D_{\sigma(2)}^{-1}}{\sum_{j=2}^{R_n} D_{\sigma(j)}}.
+    \end{equation*}
+    Continuing inductively gives the desired result.
+\end{proof}
+
+Next we establish exact form of the measure change when we condition on the exact value of $R_n$ but not $\Delta_n = 0$.
 
 \begin{lemma}
     \label{lem:exact-measure-change-no-conditioning}

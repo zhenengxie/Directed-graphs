@@ -12,30 +12,52 @@ When considering such models, previous work by \citet{cooperSizeLargestStrongly2
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{Content/Pictures/biggraph2.pdf}
-    \caption{A directed graph on [17]. The strongly connected components have vertex sets $\{1,2,5,17\}$, $\{3,6,8,9,14,16\}$, $\{7,11\}$, $\{4\}$, $\{10\}$, $\{12\}$, $\{13\}$, and $\{15\}$. Source figure: \cite{goldschmidtScalingLimitCritical2019}}
+    \caption{A directed graph on [17]. The strongly connected components have vertex sets $\{1,2,5,17\}$, $\{3,6,8,9,14,16\}$, $\{7,11\}$, $\{4\}$, $\{10\}$, $\{12\}$, $\{13\}$, and $\{15\}$. Taken from \cite{goldschmidtScalingLimitCritical2019}} with permission of the authors.
     \label{fig.SCCs}
 \end{figure}
 
-There are two notions of connectivity when working with a directed graph - weak and strong connectivity. We will be working with the strong notation. We say a vertex $v$ leads to a vertex $w$ if there exists a directed path from $v$ to $w$ in the graph. We say $v$ is strongly connected to $w$ if $v$ leads to $w$ and $w$ leads to $v$. A graph is strongly connected if any pair of vertices in the graph are strongly connected. The relation is an equivalence relation. The digraphs induced by the equivalence classes of are referred to as the strongly connected components (SCCs).
+There are two notions of connectivity when working with a directed graph - weak and strong connectivity. We will be working with the strong notation. We say a vertex $v$ leads to a vertex $w$ if there exists a directed path from $v$ to $w$ in the graph. We say $v$ is strongly connected to $w$ if $v$ leads to $w$ and $w$ leads to $v$. A graph is strongly connected if any pair of vertices in the graph are strongly connected. The relation is an equivalence relation. The digraphs induced by the equivalence classes of are referred to as the strongly connected components (SCCs). For each vertex $v$ in a directed graph $\vec{G}$, we will be using the notation $d^-(v)$ for the in-degree of $v$ and $d^+(v)$ for the out-degree of $v$.
 
 \subsection{Description of the model}
 
-We consider $n$ vertices, to each of which we assign an in-degree and an out-degree. The degree tuples are independent and identically distributed with law $\nu$. For each $i\in [n]$, let $\mathbf{D}_i=(D^-_i,D^+_i)$ be the in- and out-degree of vertex $i$. In order for a graph with this degree sequence to exist, we require that $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, so we will condition on this event. Conditional on $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, sample a uniform digraph with this degree sequence. Denote resulting random digraph by $\vec{G}_n(\nu)$. We are interested in the limit under scaling of the strongly connected components of $\vec{G}_n(\nu)$ as $n\to \infty$.
+First consider a deterministic degree sequence $\vd_1, \ldots, \vd_n$ where each $\vd_i = (d_i^-, d_i^+)\in \N \times \N$. We say a directed graph has degree sequence $\vd_1, \ldots, \vd_n$ if there exists a labelling $v_1, \ldots, v_n$ of the vertices in $\vec{G}$ such that for each $i$, $(d^-(v_i), d^+(v_i)) = (d_i^-, d_i^+)$.
 
-We require the degree distribution to satisfy the following properties.
+In order to sample a graph with a given degree sequence uniformly, we first consider the directed configuration model as considered by \citet{cooperSizeLargestStrongly2004}. Take $n$ vertices $v_1, \ldots, v_n$ such that $v_i$ has $d^-(i)$ in-half-edges and $d^+(i)$ out-half-edges. Then construct a multigraph by choosing a uniform random pairing of the in-half-edges with the out-half-edges. The resulting random multigraph is the directed configuration model. \citet{cooperSizeLargestStrongly2004} then proved that if we condition on the directed configuration model being simple, we obtain a uniformly chosen random graph with the given degree sequence.
 
+In this paper we will be considering the case where the degree sequence is a random sequence of $n$ i.i.d.\ random variables conditioned on the total in-degree being equal to the total out-degree. Let $\nu$ be a distribution on $\N \times \N$ and let $\vD_1, \ldots, \vD_n$ a sequence of i.i.d.\ random variables with distribution $\nu$. We condition on the event
+\begin{equation*}
+    \left\{ \textstyle \sum_{i=1}^n D_i^- = \sum_{i=1}^n D_i^+ \right\}.
+\end{equation*}
+Denote the digraph with degree sequence $\vD_1, \ldots, \vD_n$ chosen uniformly at random by $\vec{G}_n(\nu)$. We are interested in the limit under scaling of the strongly connected components of $\vec{G}_n(\nu)$ as $n\to \infty$.
+
+Suppose $(D^-, D^+) \sim \nu$. We will require the following assumptions to hold:
 \begin{enumerate}
     % \item $\E[(D^-) + D^+)^3] < \infty$
     \item $\E[(D^-)^i(D^+)^j]< \infty$ for $1 \leq i+j\leq 3$ and for $\{i,j\}=\{1,3\}$
     \item $\E[D^-] = \E[D^+]$.
-    \item \myworries{lattice condition}
+    \item $D^- - D^+$ is strongly aperiodic. This means $D^- - D^+$ is integer valued and for all $p > 1$ there does not exists $c \in \R$ such that 
+    \begin{equation*}
+        \P(D^- - D^+ \in c + p\Z) = 1.
+    \end{equation*}
+    \item $\E[D^-D^+] = \E[D^{\pm}]$.
 \end{enumerate}
 
 The first condition is required to ensure the steps of a random walk used in the proof has finite variance and thus will convergence (under rescaling) to a Brownian motion.
 
 The second condition and third condition makes sure the event $\{\sum_{i=1}^n D^-_i = \sum_{i=1}^n D^+_i\}$ is well behaved. The second condition ensures this is not a large deviation event and the third condition ensures this event has positive probability for all $n \geq 1$. 
 
-\myworries{go over criticality condition}
+The fourth assumption is the criticality condition. To understand how this arises, consider the directed configuration model with a deterministic degree sequence $\vd_1, \ldots, \vd_n$ and let $(V, W)$ be a uniformly chosen edge. Since we choose an edge pairing uniformly at random, $W = v_i$ with probability proportional to $d^-(i)$. Thus the expected out-degree of $W$ is
+\begin{align*}
+    \E[d^+(W)]
+    &= \sum_{i=1}^n d_i^+ \frac{d_i^-}{\sum_{j=1}^n d_j^-}
+    = \frac{\sum_{i=1}^n d_i^+ d_i^-}{\sum_{i=1}^n d_j^-}.
+\end{align*}
+We can obtain an identical expression for $\E[d^-(V)]$. \citet{cooperSizeLargestStrongly2004} show that, under additional assumptions, there exists a phase transition in the existence of a giant SCC depending on if the above quantity if strictly greater than or less than 1. Returning to the random degree sequence and, for now, ignoring conditioning on equal in- and out-degrees we have
+\begin{equation*}
+    \frac{\sum_{i=1}^n D_i^+ D_i^-}{\sum_{i=1}^n D_j^{-}}
+    \to \frac{\E[D^- D^+]}{\E[D^-]}
+\end{equation*}
+almost surely as $n \to \infty$ by the law of large numbers. Thus the results of Cooper and Frieze suggest the criticality condition to be $\E[D^- D^+] = \E[D^-]$. Our work confirms this is the case.
 
 We define the following parameters, that will determine the behaviour of the strongly connected components in the limit.
 \begin{enumerate}
@@ -180,29 +202,9 @@ The directed configuration model with random in- and out-degrees is also conside
 
 \subsection{Proof outline}
 
-The techniques we will use to investigate the graph model are a combination of the techniques introduced by Conchon-Kerjan and Goldschmidt in \cite{conchon--kerjanStableGraphMetric2020} and the strategy of Goldschmidt and Stephenson in \cite{goldschmidtScalingLimitCritical2019}. The former work discusses the scaling limit of an undirected uniform graph with i.i.d.\ degrees at criticality, and the latter discusses the scaling limit of the strongly connected components of a directed Erd\H{o}s-Renyi graph at criticality.
-
-To investigate the structure of the strongly connected components of a uniform graph with degree sequence $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, conditional on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, we will use a version of the configuration model for digraphs that was introduced by \citet{cooperSizeLargestStrongly2004}.
-
-Consider a degree sequence $\vd_1, \ldots, \vd_n$ where $\vd_i = (d_i^-, d_i^+) \in \N \times \N$. We assume 
-\begin{equation*}
-    \textstyle\sum_{i=1}^n d_i^- = \sum_{i=1}^n d_i^+. 
-\end{equation*}
-To sample the \emph{directed configuration model} with degree sequence $\vd_1, \ldots, \vd_n$ let $v_1, \ldots, v_n$ be vertices such that $v_i$ has $d_i^-$ in-half-edges and $d_i^+$ out-half-edges. We then pair the in-half-edges and out-half-edges uniformly. This results in a random directed multigraph. The directed configuration model is obtained by This is illustrated in Figure \ref{fig.configuration model}. 
-
-If we then condition on the multigraph being simple, we would get a uniform random digraph on $[n]$ conditioned to have the given degree sequence. This is shown by \citet[P. 10--11]{cooperSizeLargestStrongly2004}. 
-
-To explore the structure of a directed multigraph, we describe an edge-based depth first search procedure (eDFS) in \cref{alg:edfs}. This takes as input a directed multigraph and uses a stack of edges. When the stack is empty, we are at the start of a new out-component and thus pick a new vertex $w$ with probability proportional to its in-degree (this choice simplifies \myworries{insert lemma}). Otherwise we remove the last edge $(v, w)$ off the stack. In both cases, if $w$ has not yet been explored, we add the out-edges from this vertex to the end of the stack of edges (this choice is what makes the exploration depth first).
-
-\myworries{define surplus edges and ordering of vertices}
-
-At each step we also maintain $S^-(k)$ and $S^+(k)$. $S^-(k)$ keeps track of the number of in-edges which we have seen but have not explored the tail of yet at step $k$. $S^+(k)$ is akin to a Lukasiewiescz path. At any given step it is equal to the size of the stack of edges after subtracting the number of fully explored out-components.
-
-We also construct a directed forest for which $S^-(k)$ will be a true Lukasiescz path. At each step of the process we will be examining a vertex $w$. If $w$ has not been explored yet then either we are at the start of a new out-component, in which case we add $w$ to the out-forest, or we are exploring an edge $(v, w)$ where $v$ has already been explored and added to the out-forest, in which case we add $w$ and the edge $(v, w)$ to the out-forest. If $w$ has already been explored we cannot add $(v, w)$ to the out-forest without creating loops. Instead add a dummy vertex to the out-forest and an edge from $v$ to the dummy vertex. We call such dummy vertices purple leafs. This is illustrated in Figure \ref{fig.configuration modeloutforest}. We refer to the out-forest corresponding to the exploration up to time $k$ as $\hat{F}_n(k)$.
-
 \def \exploredvertices {\mathcal V}
 \def \explorededges {\mathcal E}
-\def \forest {\mathcal F}
+\def \forest {F}
 \def \edgestack {\mathcal O}
 \begin{algorithm}[htbp]
     \SetAlgoLined
@@ -214,7 +216,7 @@ We also construct a directed forest for which $S^-(k)$ will be a true Lukasiescz
     $S^- \leftarrow 0$ \;
     $S^+ \leftarrow 0$ \;
     $\forest \leftarrow$ an empty directed graph\;
-    \While(){there exists unexplored vertices of positive in-degree}{
+    \While(){there exists undiscovered vertices of positive in-degree}{
         \eIf(){$\edgestack$ is empty}{
             $w \leftarrow$ a random vertex not in $\exploredvertices$ chosen with prob.\ proportional to $d^-(w)$ \;
         }(){
@@ -243,6 +245,16 @@ We also construct a directed forest for which $S^-(k)$ will be a true Lukasiescz
     }
     \caption{The eDFS procedure \label{alg:edfs}}
 \end{algorithm}
+
+The techniques we will use to investigate the graph model are a combination of the techniques introduced by Conchon-Kerjan and Goldschmidt in \cite{conchon--kerjanStableGraphMetric2020} and the strategy of Goldschmidt and Stephenson in \cite{goldschmidtScalingLimitCritical2019}. The former work discusses the scaling limit of an undirected uniform graph with i.i.d.\ degrees at criticality, and the latter discusses the scaling limit of the strongly connected components of a directed Erd\H{o}s-Renyi graph at criticality.
+
+To investigate the structure of the strongly connected components of a uniform graph with degree sequence $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, conditional on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$, we will use an edge-based depth first search procedure (eDFS). This is described in \cref{alg:edfs}. This takes as input a directed multigraph and uses a stack of edges. When the stack is empty, we are at the start of a new out-component and thus pick a new vertex $w$ with probability proportional to its in-degree. Otherwise we remove the last edge $(v, w)$ off the stack. In both cases, if $w$ is not yet in the list of discovered vertices, we add the out-edges from this vertex to the end of the stack of edges (this choice is what makes the exploration depth first) and add $w$ to the list of discovered vertices $\exploredvertices$.  The order in which vertices are added to $\exploredvertices$, i.e.\ the order in which they are discovered, is referred to as the eDFS order. Note that we will not discover any vertex with in-degree 0. From the perspective of finding the SCCs, this is not a problem since such vertices will form a singleton SCC.
+
+At each step we also maintain $S^-(k)$ and $S^+(k)$. $S^-(k)$ keeps track of the number of in-edges which we have seen but have not explored the tail of yet at step $k$. $S^+(k)$ is akin to a \L{}ukasiewiscz path. At any given step it is equal to the size of the stack of edges after subtracting the number of fully explored out-components.
+
+We also construct a directed forest for which $S^-(k)$ will be a true \L{}ukasiewicz path. At each step of the process we will be examining a vertex $w$. If $w$ has not been explored yet then either we are at the start of a new out-component, in which case we add $w$ to the out-forest, or we are exploring an edge $e$ such that $r(e) = (v, w)$ where $v$ has already been explored and added to the out-forest, in which case we add $w$ and the edge $(v, w)$ to the out-forest. If $w$ has already been explored we cannot add $(v, w)$ to the out-forest without creating loops. Instead add a dummy vertex to the out-forest and an edge from $v$ to the dummy vertex. We call such dummy vertices purple leafs. This is illustrated in Figure \ref{fig.configuration modeloutforest}. We refer to the out-forest corresponding to the exploration up to time $k$ as $\hat{F}_n(k)$.
+
+Consider an edge $e$ in the directed multigraph such that $r(e) = (v, w)$. If $(v, w)$ is not in the out-forest we refer to the edge $e$ as surplus. Such edges will instead correspond to an edge $(v, p)$ in the out-forest where $p$ is a purple leaf.
 
 \begin{figure}
     \centering

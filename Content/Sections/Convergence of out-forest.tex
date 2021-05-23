@@ -18,15 +18,17 @@ in $\D(\R_+,\R)^2$ as $n\to \infty$.
 We prove Theorem \ref{thm.convoutforest} by studying two other forests that are related to $\hat{F}_n(m_n)$ via a change of measure.  \\
 The proof is structured as follows.
 \begin{enumerate}
-    \item \label{item.measurechangeexists} Let $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ denote the degree tuples in order of discovery. Fix $m$ and let $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$ be i.i.d. elements of $\N\times \N$, $\mathbf{Z}_i:=(Z_i^-,Z_i^+)$ such that 
+    \item \label{item.measurechangeexists} Let $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,R_n})$ denote the degree tuples in order of discovery. Let $\mathbf{Z}_1, \mathbf{Z}_2, \ldots$ be an i.i.d. sequence of $\N\times \N$-valued random variables, $\mathbf{Z}_i:=(Z_i^-,Z_i^+)$ such that 
     $$\P(Z_i^-=k^-, Z_i^+=k^+)=\frac{k^-\P(D^-=k^-,D^+=k^+)}{\mu}.$$
-    Then, we show that the law of $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ conditionally on $\sum_{i=1}^n D_i^-=\sum_{i=1}^n D_i^+$ is absolutely continuous to $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and we show the convergence of the Radon-Nikodym derivative $\phi_m^n$ for $m=O(n^{2/3})$. This is the content of Subsection \ref{subsec.measurechange}.
+    Then, we show that the law of $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ conditionally on $\sum_{i=1}^n D_i^-=\sum_{i=1}^n D_i^+$ and $m \leq R_n$ is absolutely continuous to $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and we show the convergence of the Radon-Nikodym derivative $\phi_m^n$ for $m=O(n^{2/3})$. This is the content of Subsection \ref{subsec.measurechange}.
     \item Then, \ref{item.measurechangeexists} is the motivation to sample i.i.d. copies of $\mathbf{Z}$, $(\mathbf{Z}_i,i\geq 1)$, and to study a Galton-Watson forest with offspring distributed as $Z_1^+$. Call this forest $(F(k),k\geq 1)$. The convergence of the \L ukasiewicz path of $(F(k),k\geq 1)$ under rescaling follows from Donsker's theorem.
     \item In Subsection \ref{subsec.purpleleavesGWforest}, we modify $(F(k),k\geq 1)$ to include purple leaves. We add extra randomness, similarly to the procedure described in Lemma \ref{lemma.sampleoutforest}, such that at some time steps, a purple leaf is added. We call the resulting forest $(F^p_n(k),k\geq 1)$. We respect the order of the degrees in $(F(k),k\geq 1)$, in the sense that for any $k$, the $k^{th}$ black vertex in $(F^p_n(k),k\geq 1)$ has the same number of children as the $k^{th}$ vertex in $(F(k),k\geq 1)$. $(F^p_n(k),k\geq 1)$ depends on $n$, because the probability of finding a purple vertex depends on $n$. We then show that the \L ukasiewicz path and height process corresponding to $(F^p_n(k),k\geq 1)$ converge under rescaling, jointly with the convergence of the \L ukasiewicz path and height process corresponding to $(F(k),k\geq 1)$ under rescaling up to time $O(n^{2/3})$.
     \item We use the measure change to translate the convergence of the encoding processes of $(F^p_n(k),k\geq 1)$ under rescaling to the convergence of the encoding processes of $(\hat{F}_n(k),k\geq 1)$ under rescaling up to time $O(n^{2/3})$. This yields Theorem \ref{thm.convoutforest}. 
 \end{enumerate}
 
 \subsection{The measure change and its convergence}\label{subsec.measurechange}
+
+The following lemma asserts existence of the measure change and gives the scaling limit of the measure change, jointly with the random walks $Y^-$ and $Y^+$. The measure change is under the conditioning $m \leq R_n$ which is an event that occurs with high probability when $m = \Theta(n^{2/3})$.
 
 \input{Content/Sections/Measure Change.tex}
 

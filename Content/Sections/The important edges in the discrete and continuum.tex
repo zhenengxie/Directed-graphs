@@ -58,11 +58,17 @@ This follows from Definition \ref{def.candidate} and parts \ref{item.factsonsccs
 
 Corollary \ref{cor.edgesinSCCs} implies that for every purple vertex, we only need to know whether it is a candidate, and if so, where its head is. 
 \subsubsection{Sampling the out-forest}\label{subsubsec.samplingoutforest}
-This subsubsection discusses how to obtain the out-forest conditional on the order in which the vertices are discovered. We will study the law of the degrees in order of discovery in Subsection \ref{subsec.measurechange}. Informally, the out-forest is obtained in the following way. Suppose the degrees in order of discovery are given by $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$. Up to time step $k$, suppose we have added the vertices corresponding to the first $m\leq k$ elements of  $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ to the forest. We call these vertices \emph{discovered}. Then, at time $k+1$,
+This subsubsection discusses how to obtain the out-forest conditional on the order in which the vertices are discovered. We will study the law of the degrees in order of discovery in Subsection \ref{subsec.measurechange}. Informally, the out-forest is obtained in the following way. Let
+\begin{equation*}
+    \cI_n = \{i \in [n]: D_i^- > 0\}
+    \quad \text{and} \quad
+    R_n = \abs{\cI_n}
+\end{equation*}
+such that $R_n$ is the number of vertices with positive in-degree. Suppose the degrees in order of discovery (as given by $\exploredvertices$ in the eDFS algorithm) are given by $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n, R_n})$. Up to time step $k$, suppose we have added the vertices corresponding to the first $m\leq k$ elements of  $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n, R_n})$ to the forest. We call these vertices \emph{discovered}. Then, at time $k+1$,
 \begin{enumerate}
     \item If we have finished a component of the out-forest, let the next out-component have a root with out-degree $\hat{D}_{n,m+1}^+$. 
     \item Otherwise,
-    \begin{enumerate}\item With probability proportional to the total in-degree of the undiscovered vertices, i.e. $\sum_{i={m+1}}^n \hat{D}_{n,i}^-$, let the next vertex in depth-first order be a black vertex with out-degree $\hat{D}_{n,m+1}^+$.
+    \begin{enumerate}\item With probability proportional to the total in-degree of the undiscovered vertices, i.e. $\sum_{i={m+1}}^n \hat{D}_{n,i}^-$\myworries{check this expression} , let the next vertex in depth-first order be a black vertex with out-degree $\hat{D}_{n,m+1}^+$. 
     \item With probability proportional to the unpaired in-half-edges of the $l$ discovered vertices, let the next vertex in depth-first order be a purple leaf, and reduce the number of unpaired in-edges of the $l$ discovered vertices by $1$.
 \end{enumerate}
 \end{enumerate}
