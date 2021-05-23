@@ -1,5 +1,5 @@
 \section{Proof of Proposition \ref{prop.heightprocessblackpurplered}}\label{appendix.heightprocessblackpurplered}
-Recall the notation from Subsubsection \ref{subsubsec.convheightprocess}. We will show that there exists a process $(D_t,t\geq 0)$ such that 
+Recall the notation from Subsection \ref{subsubsec.convheightprocess}. We will show that there exists a process $(D_t,t\geq 0)$ such that 
 \begin{align*}
     &\left(n^{-1/3}\left[Y^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right)-E\left(\lfloor n^{2/3}t\rfloor \right)\right], n^{-1/3}H^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right),t\geq 0\right)\\
     &\overset{d}{\to}\left(\sigma_+D_t,\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)
@@ -24,7 +24,7 @@ In particular,
 \begin{equation}\label{eq.convergencecompSprandtheta}\left(n^{-1/3}Y^{pr}\left(\theta_n \left(\lfloor n^{2/3}t\rfloor \right)\right), n^{-1/3}H^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right) \right),t\geq 0 \right) \overset{d}{\to} \left(\sigma_+ B^{pr}_{\theta(t)}, \frac{2}{\sigma_+}R^{pr}_{\theta(t)},t\geq 0\right)\end{equation}
 in $D(\R_+,\R)^2$ as $n\to \infty$ jointly with the convergence above.
 \end{lemma}
-In the proof of Lemma \ref{lemma.convergenceX+} we use the following, straightforward, technical result. 
+In the proof of Lemma \ref{lemma.convergenceX+} we use the following, straightforward, technical result that follows immediately from the characterization of convergence in the Skorokhod topology given in Ethier and Kurtz \cite{ethierMarkovProcessesCharacterization1986}, Proposition 3.6.5.
 
 \begin{lemma}\label{lemma.technicalcomposedfunctions}
 If $h_n\to h$ and $f_n\to f$ in $\D(\R_+,\R)$ as $n\to\infty$, and $h_n$ and $h$ are monotone non-decreasing and $h$ is continuous, then 
@@ -33,13 +33,11 @@ and
 $$f_n\circ h_n \to f\circ h$$
 in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{lemma}
-\begin{proof}
-Using the characterization of convergence in the Skorokhod topology given in Proposition 3.6.5 in \cite{ethierMarkovProcessesCharacterization1986} by Ethier and Kurtz, the result follows immediately.
-\end{proof}
+
 
 
 \begin{proof}[Proof of Lemma \ref{lemma.convergenceX+}]
-Firstly, note that by $(Y^{pr}(k),k\geq 1)$ encoding a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \cite{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
+Firstly, note that by $(Y^{pr}(k),k\geq 1)$ encoding a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \citet{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
 \begin{equation}\label{eq.convergenceX}\left(n^{-1/3}Y^{pr}\left(\lfloor n^{2/3}s\rfloor \right), n^{-1/3}H^{pr}\left(\lfloor n^{2/3}s\rfloor \right), s\geq 0 \right) \overset{d}{\to} \left(\sigma_+ B^*_s,\frac{2}{\sigma_+} \left(B^*_s-\inf\{B^*_u:u\leq s\}\right),  s\geq 0\right) \end{equation}
  in $D(\R_+,\R)^2$ as $n\to \infty$, and $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Moreover, \cite{chaumontInvariancePrinciplesLocal2010} and the fact that $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{red}(k),k\geq 1)\overset{d}{=}(Y^{pr}(k),k\geq 1)$ imply that
 \begin{align}\begin{split}\label{eq.convergencebychaumont}&\left(n^{-1/3}Y^{red}\left(\lfloor n^{2/3} s \rfloor \right), n^{-2/3}\inf\left\{k:n^{-1/3}Y^{red}(k) \leq -x\right\}, s \geq 0, x\geq 0 \right)\\
