@@ -19,7 +19,7 @@ When considering such models, previous work by \citet{cooperSizeLargestStrongly2
 There are two notions of connectivity when working with a directed graph - weak and strong connectivity. We will be working with the strong notation. We say a vertex $v$ leads to a vertex $w$, written $v \leftarrow w$, if there exists a directed path from $v$ to $w$ in the graph. We say $v$ is \emph{strongly connected} to $w$ if $v$, written $v \leftrightarrow w$ leads to $w$ and $w$ leads to $v$. A graph is strongly connected if any pair of vertices in the graph are strongly connected. The relation $v \leftrightarrow w$ is an equivalence relation. The digraphs induced by the equivalence classes of $\leftrightarrow$ are referred to as the strongly connected components (SCCs). For each vertex $v$ in a directed graph $\vec{G}$, we will be using the notation $d^-(v)$ for the in-degree of $v$ and $d^+(v)$ for the out-degree of $v$. Moreover, a directed edge $(v,w)$ has \emph{tail} $v$ and \emph{head} $w$ (see Figure \ref{fig.tailhead}).
 \begin{figure}
     \centering
-    \includegraphics{Content/Pictures/tail-head.eps}
+    \includegraphics{Content/Pictures/tail_head.eps}
     \caption{An edge $(v,w)$ will be depicted as an arrow from $v$ to $w$.}\label{fig.tailhead}
 \end{figure}
 

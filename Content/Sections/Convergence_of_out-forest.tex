@@ -30,7 +30,7 @@ The proof is structured as follows.
 
 The following lemma asserts existence of the measure change and gives the scaling limit of the measure change, jointly with the random walks $Y^-$ and $Y^+$. The measure change is under the conditioning $m \leq R_n$ which is an event that occurs with high probability when $m = \Theta(n^{2/3})$.
 
-\input{Content/Sections/Measure Change.tex}
+\input{Content/Sections/Measure_Change}
 
 \subsection{Convergence of the degrees in order of discovery}
 Recall that
@@ -112,7 +112,7 @@ Then, the probability that, in the $(k+1)^{th}$ time step, we sample a surplus e
 $$p_{k+1}:=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}}.$$
 \end{lemma}
 \begin{proof}
-This is a slight adaptation of Lemma \ref{lemma.sampleoutforest}, with $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ replaced by $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and $\sum_{i=1}^n \hat{D}^-_i$ replaced by its mean $\mu n$.
+This is a slight adaptation of Lemma \ref{lemma.sampleoutforest}, with the sequence $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ replaced by $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and $\sum_{i=1}^n \hat{D}^-_i$ replaced by its mean $\mu n$.
 \end{proof}
 
 We will now define $(F_n^p(k),k\geq 1)$ and its \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ as a function of $(Y^-(k), Y^+(k) ,k\geq 1)$ and extra randomness.
