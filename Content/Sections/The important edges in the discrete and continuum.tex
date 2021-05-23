@@ -9,15 +9,15 @@ Amongst the surplus edges, \emph{ancestral surplus edges}, which are surplus edg
 \begin{lemma}\label{lemma.whatispartofscc}
 The following facts hold for SCCs. 
 \begin{enumerate}
-\item \label{item.factsonsccs1}The vertices of an SCC are contained in one of the components of {$(\hat{F}_n(k),k\geq 1)$}. 
-\item \label{item.factsonsccs2} Ancestral surplus edges are always part of an SCC.
-\item \label{item.factsonsccs4} A non-ancestral surplus edge is only part of an SCC if its head is an ancestor of the tail of a surplus edge that is part of an SCC.
-\item \label{item.factsonsccs4andabit} An edge in $(\hat{F}_n(k),k\geq 1)$ is only part of an SCC if its head is an ancestor of the tail of a a surplus edge that is part of an SCC.
-\item \label{item.factsonsccs5} For any non-trivial SCC, the first surplus edge of the SCC that is explored is an ancestral surplus edge, and a component of  $(\hat{F}_n(k),k\geq 1)$ contains an SCC if and only if it contains an ancestral surplus edge.
+\item \label{item.factsonsccs1}The vertices of a SCC are contained in one of the components of {$(\hat{F}_n(k),k\geq 1)$}. 
+\item \label{item.factsonsccs2} Ancestral surplus edges are always part of a SCC.
+\item \label{item.factsonsccs4} A non-ancestral surplus edge is only part of a SCC if its head is an ancestor of the tail of a surplus edge that is part of a SCC.
+\item \label{item.factsonsccs4andabit} An edge in $(\hat{F}_n(k),k\geq 1)$ is only part of a SCC if its head is an ancestor of the tail of a surplus edge that is part of a SCC.
+\item \label{item.factsonsccs5} For any non-trivial SCC, the first surplus edge of the SCC that is explored is an ancestral surplus edge, and a component of  $(\hat{F}_n(k),k\geq 1)$ contains a SCC if and only if it contains an ancestral surplus edge.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-We start with \ref{item.factsonsccs1}. Let $v$ and $w$ be two vertices in the same SCC. Without loss of generality, $v$ is explored first in depth-first order in the out-direction. Since $v$ and $w$ are part of the same SCC, we know that there is a path from $v$ to $w$ in the out-direction. This implies that $w$ will be part of the out-subtree consisting of the descendants of $v$. This implies that they are part of the same component of $(\hat{F}_n(k),k\geq 1)$.
+We start with \ref{item.factsonsccs1}. Suppose $v$ and $w$ are not in the same sc Without loss of generality, $v$ is explored first in depth-first order in the out-direction. Since $v$ and $w$ are part of the same SCC, we know that there is a path from $v$ to $w$ in the out-direction. This implies that $w$ will be part of the out-subtree consisting of the descendants of $v$. This implies that they are part of the same component of $(\hat{F}_n(k),k\geq 1)$.
 
 To prove \ref{item.factsonsccs2}, suppose there is an ancestral surplus edge from $v$ to $w$. This implies that $w$ is an ancestor of $v$ in an out-component, which implies that there is a path from $w$ to $v$ as well. It follows that $w$ and $v$ are in the same SCC and that the ancestral surplus edge from $v$ to $w$ is in this SCC as well. 
 
