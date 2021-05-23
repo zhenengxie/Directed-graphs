@@ -9,11 +9,11 @@ Amongst the surplus edges, \emph{ancestral surplus edges}, which are surplus edg
 \begin{lemma}\label{lemma.whatispartofscc}
 The following facts hold for SCCs. 
 \begin{enumerate}
-\item \label{item.factsonsccs1}The vertices of a SCC are contained in one of the components of {$(\hat{F}_n(k),k\geq 1)$}. 
-\item \label{item.factsonsccs2} Ancestral surplus edges are always part of a SCC.
-\item \label{item.factsonsccs4} A non-ancestral surplus edge is only part of a SCC if its head is an ancestor of the tail of a surplus edge that is part of a SCC.
-\item \label{item.factsonsccs4andabit} An edge in $(\hat{F}_n(k),k\geq 1)$ is only part of a SCC if its head is an ancestor of the tail of a surplus edge that is part of a SCC.
-\item \label{item.factsonsccs5} For any non-trivial SCC, the first surplus edge of the SCC that is explored is an ancestral surplus edge, and a component of  $(\hat{F}_n(k),k\geq 1)$ contains a SCC if and only if it contains an ancestral surplus edge.
+\item \label{item.factsonsccs1}The vertices of an SCC are contained in one of the components of {$(\hat{F}_n(k),k\geq 1)$}. 
+\item \label{item.factsonsccs2} Ancestral surplus edges are always part of an SCC.
+\item \label{item.factsonsccs4} A non-ancestral surplus edge is part of an SCC only if its head is an ancestor of the tail of a surplus edge that is part of an SCC.
+\item \label{item.factsonsccs4andabit} An edge in $(\hat{F}_n(k),k\geq 1)$ is part of an SCC only if its head is an ancestor of the tail of a surplus edge that is part of an SCC.
+\item \label{item.factsonsccs5} For any non-trivial SCC, the first surplus edge of the SCC that is explored is an ancestral surplus edge, and a component of  $(\hat{F}_n(k),k\geq 1)$ contains an SCC if and only if it contains an ancestral surplus edge.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -21,9 +21,8 @@ We start with \ref{item.factsonsccs1}. Let $v$ and $w$ be two vertices in the sa
 
 To prove \ref{item.factsonsccs2}, suppose there is an ancestral surplus edge from $v$ to $w$. This implies that $w$ is an ancestor of $v$ in an out-component, which implies that there is a path from $w$ to $v$ as well. It follows that $w$ and $v$ are in the same SCC and that the ancestral surplus edge from $v$ to $w$ is in this SCC as well. 
 
-To prove \ref{item.factsonsccs4}, suppose we sample a non-ancestral surplus edge from $v$ to $w$ that is part of an SCC. Then, by \ref{item.factsonsccs2}, there is a path from $w$ to $v$ present at the time of sampling $(v,w)$. Let $(x,y)$ be the first surplus edge on this path. This implies that $(x,y)$ is in the same SCC as $v$ and $w$. Moreover, the path from $w$ to $x$ consists of edges in the out-forest, $x$ is a descendant of $w$.
+To prove \ref{item.factsonsccs4} and \ref{item.factsonsccs4andabit}, suppose there is a non-ancestral surplus edge from $v$ to $w$ that is part of an SCC, or that $(v,w)$ is an edge of $(\hat{F}_n(k),k\geq 1)$ that is part of an SCC. Then, there is some directed path $(x_0,\dots, x_m)$ with $x_0=w$ and $x_m=v$. Let $k$ be minimal such that $x_k$ is not a descendant of $w$ (such a $k$ exists, because by assumption, $v$ is not a descendant of $w$). Then, $(x_{k-1},x_k)$ is a surplus edge that is in the same SCC as $v$ and $w$, and $x_{k-1}$ is a descendant of $v$. 
 
-Next, for \ref{item.factsonsccs4andabit}, suppose $(v,w)$ is an edge of $(\hat{F}_n(k),k\geq 1)$ that is part of an SCC. This means that there is a path from $w$ to $v$. Let $(x,y)$ be the first edge on this path such that $y$ is not a descendant of $w$. Then, $(x,y)$ is a surplus edge that is part of the same SCC as $v$ and $w$, and $(v,w)$ is on the path from the root to $x$. 
 
 Finally, \ref{item.factsonsccs2} and \ref{item.factsonsccs4} imply \ref{item.factsonsccs5}. 
 \end{proof}
@@ -62,7 +61,7 @@ This follows from Definition \ref{def.candidate} and parts \ref{item.factsonsccs
 
 Corollary \ref{cor.edgesinSCCs} implies that for every purple vertex, we only need to know whether it is a candidate, and if so, where its head is. 
 \subsubsection{Sampling the out-forest}\label{subsubsec.samplingoutforest}
-This subsubsection discusses how to obtain the out-forest conditional on the order in which the vertices are discovered. We will study the law of the degrees in order of discovery in Subsection \ref{subsec.measurechange}. Informally, the out-forest is obtained in the following way. Let
+This subsection discusses how to obtain the out-forest conditional on the order in which the vertices are discovered. We will study the law of the degrees in order of discovery in Subsection \ref{subsec.measurechange}. Informally, the out-forest is obtained in the following way. Let
 \begin{equation*}
     \cI_n = \{i \in [n]: D_i^- > 0\}
     \quad \text{and} \quad
@@ -86,7 +85,7 @@ $$\frac{\hat{S}^-_n(k+1)}{\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)+1}\one_{\left\{\ha
 Therefore, we do not need to know the position of the heads of the surplus edges to sample the out-forest.
 \end{lemma}
 \begin{proof}
-Note that if up to time $k$, $\hat{P}_n(k)$ surplus edges have been sampled, this implies that $k-\hat{P}_n(k)$ vertices have been discovered. Thus, up to time $k$, the out-forest contains $\hat{P}_n(k)$ purple leaves, and black vertices with degrees $(\hat{D}^+_{n,1},\dots,\hat{D}^+_{n,k-\hat{P}_n(k)})$, so by definition of the \L ukasiewicz path, its value is indeed equal to $\hat{S}^-_n(k)$ at time $k$. Moreover, up to time $k$, the total in-degree of the discovered vertices is equal to $\sum_{i=1}^{k-\hat{P}_n(k)}\hat{D}^-_{n,i}$. At every time step, we pair $1$ in-half-edge of a discovered vertex, unless we start a new component. $-\hat{I}^+_n(k)$ corresponds to the number of out-components that are finished up to time $k$, so the total number of unpaired in-half-edges of discovered vertices at time $k$ is equal to $\hat{S}^-_n(k)$. By the same reasoning, the total number of unpaired in-half-edges is equal to $\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)+1$. The probability of sampling a surplus edge follows. We note that this probability does not depend on the position of the heads of the surplus edges, which implies that we can sample the out-forest without this information.
+Note that if up to time $k$, $\hat{P}_n(k)$ surplus edges have been sampled, this implies that $k-\hat{P}_n(k)$ vertices have been discovered. Thus, up to time $k$, the out-forest contains $\hat{P}_n(k)$ purple leaves, and black vertices with degrees $(\hat{D}^+_{n,1},\dots,\hat{D}^+_{n,k-\hat{P}_n(k)})$, so by definition of the \L ukasiewicz path, its value is indeed equal to $\hat{S}^+_n(k)$ at time $k$. Moreover, up to time $k$, the total in-degree of the discovered vertices is equal to $\sum_{i=1}^{k-\hat{P}_n(k)}\hat{D}^-_{n,i}$. At every time step, we pair $1$ in-half-edge of a discovered vertex, unless we start a new component. $-\hat{I}^+_n(k)$ corresponds to the number of out-components that are fully explored up to time $k$, so the total number of unpaired in-half-edges of discovered vertices at time $k$ is equal to $\hat{S}^-_n(k)$. By the same reasoning, the total number of unpaired in-half-edges is equal to $\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)+1$. The probability of sampling a surplus edge follows. We note that this probability does not depend on the position of the heads of the surplus edges, which implies that we can sample the out-forest without this information.
 \end{proof}
 \subsubsection{Sampling the candidates}\label{subsubsec.samplecandidates}
 We will now study the law of the candidates conditional on $(\hat{F}_n(k),k\geq 1)$. As before, for each $k$, let $\hat{P}_n(k)$ denote the number of purple vertices amongst the first $k$ vertices in the out-forest, and let $\hat{S}^-(k)$ denote the number of unpaired in-half-edges of discovered vertices at time $k$. We will first identify the tails of the candidates amongst the purple vertices, and then we will sample the position of their heads. \\
@@ -108,8 +107,8 @@ Therefore, the number of unpaired in-half-edges corresponding to ancestors of $k
 
 We now illustrate how to find the other candidates in a component of $(\hat{F}_n(k),k\geq 1)$. 
 \begin{lemma}\label{lemma.samplecandidates}
-Let $T^n_{l_n}$ be a component of $(\hat{F}_n(k),k\geq 1)$ with root $l_n+1$ and component length $\sigma_n$. Suppose the first ancestral surplus edge in $T^n_{l_n}$ corresponds to purple vertex $V^n_1\in [l_n+2,l_n+\sigma_n]$. Let $V^n_1<k\leq l_n+\sigma_n$, and suppose the candidates found up to time $k$ are given by $V^n_1,\dots,V^n_m$. Let $T^{n,\text{mk}}_k$ be the subtree of $T^n_{l_n}$ spanned by $\{l_n+1,V^n_1,\dots,V^n_m,k\}$, and let $\ell(T^{n,\text{mk}}_k)$ be its total length with edge lengths as defined by $(\hat{H}^\ell(m),m\in [l_n+1,l_n+\sigma_n])$. Then, the probability that $k$ is a candidate is given by 
-$$\frac{\ell\left(T^{n,\text{mk}}_k\right)-l}{\hat{S}^-(k)}\one_{\{\hat{P}_n(k)=\hat{P}_n(k-1)+1\}}.$$
+Let $T^n_{l_n}$ be a component of $(\hat{F}_n(k),k\geq 1)$ with root $l_n+1$ and component size $\sigma_n$. Suppose the first ancestral surplus edge in $T^n_{l_n}$ corresponds to purple vertex $V^n_1\in [l_n+2,l_n+\sigma_n]$. Let $V^n_1<k\leq l_n+\sigma_n$, and suppose the candidates found up to time $k$ are given by $V^n_1,\dots,V^n_m$. Let $T^{n,\text{mk}}_k$ be the subtree of $T^n_{l_n}$ spanned by $\{l_n+1,V^n_1,\dots,V^n_m,k\}$, and let $\ell(T^{n,\text{mk}}_k)$ be its total length with edge lengths as defined by $(\hat{H}^\ell(i),i\in [l_n+1,l_n+\sigma_n])$. Then, the probability that $k$ is a candidate is given by 
+$$\frac{\ell\left(T^{n,\text{mk}}_k\right)-m}{\hat{S}^-(k)}\one_{\{\hat{P}_n(k)-\hat{P}_n(k-1)=1\}}.$$
 \end{lemma}
 \begin{proof}
 Note that if $k$ is purple, it gets paired to a uniform pick from the $\hat{S}^-(k)$ unpaired in-half-edges of discovered vertices. By Definition \ref{def.candidate}, in that case, $k$ is a candidate if and only if its head is in $T^{n,\text{mk}}_k$. Observe that $\ell\left(T^{n,\text{mk}}_k\right)$ is equal to the number of in-half-edges of $T_{k}$ that can be used to form surplus edges. By the definition of a candidate, exactly $m$ of those have been paired: one for each element in $\{V^n_1,\dots,V^n_m\}$. This implies that $\ell\left(T^{n,\text{mk}}_k\right)-m$ of the $\hat{S}^-(k)$ options will cause $k$ to be a candidate.
@@ -117,7 +116,7 @@ Note that if $k$ is purple, it gets paired to a uniform pick from the $\hat{S}^-
 
 Note that the probability that a purple vertex corresponds to a candidate only depends on the out-forest and the number of candidates that have been found in the component so far. The position of the heads of the candidates can be found as follows.
 \begin{lemma}\label{lemma.sampleheadcandidates}
-Let $T^n_{l_n}$ be a component of $(\hat{F}_n(k),k\geq 1)$ with root $l_n+1$ and component length $\sigma_n$. Suppose its candidates are given by $\{V^n_1,\dots,V^n_{N_n}\}$. Then, for $1\leq i\leq {N_n}$, suppose the heads of the surplus edges corresponding to $V^n_1,\dots,V^n_{i-1}$ are given by $W_1^n,\dots,W^n_{i-1}$ respectively. Then, the in-half-edge that $V^n_{i}$ gets paired to is a uniform pick from the $$\ell\left(T^{n,\text{mk}}_{V^n_i}\right)-(i-1)$$ unpaired in-half-edges of $T^{n,\text{mk}}_{V^n_i}$ that remain. Call the corresponding vertex $W^n_i$.
+Let $T^n_{l_n}$ be a component of $(\hat{F}_n(k),k\geq 1)$ with root $l_n+1$ and component size $\sigma_n$. Suppose its candidates are given by $\{V^n_1,\dots,V^n_{N_n}\}$. Then, for $1\leq i\leq {N_n}$, suppose the heads of the surplus edges corresponding to $V^n_1,\dots,V^n_{i-1}$ are given by $W_1^n,\dots,W^n_{i-1}$ respectively. Then, the in-half-edge that $V^n_{i}$ gets paired to is a uniform pick from the $$\ell\left(T^{n,\text{mk}}_{V^n_i}\right)-(i-1)$$ unpaired in-half-edges of $T^{n,\text{mk}}_{V^n_i}$ that remain. Call the corresponding vertex $W^n_i$.
 \end{lemma}
 \begin{proof}
 Given that $V^n_{i}$ is a candidate, its head will be in $T^{n,\text{mk}}_{V^n_i}$. Then, the distribution follows.
@@ -133,7 +132,7 @@ Lemmas \ref{lemma.sampleoutforest}, \ref{lemma.probancestral}, \ref{lemma.sample
 \end{align*}
 so that for each $i\geq 1$, $\left(\hat{S}^+(k),k\in [L_i^n+1,L_i^n+\Sigma_i^n]\right)$ encodes the out-tree containing $X_i^n$. For each $(l_n,\sigma_n)\in \{(L_i^n,\Sigma_i^n)\}$, let $T^n_{l_n}$ be the tree in $(\hat{F}_n(k),k\geq 1)$ with root $l_n+1$, and do the following.
     \begin{enumerate}
-    \item \label{item.procedure3} Set $V_1^n=\min\{m\geq 1:A_n(m)=A_n(g)+1\}$, and find the other candidates $\{V_2^n,\dots ,V_{N_n}^n\}$ according to the procedure described in the statement of Lemma \ref{lemma.samplecandidates}.
+    \item \label{item.procedure3} Set $V_1^n=\min\{m\geq 1:A_n(m)=A_n(l_n)+1\}$, and find the other candidates $\{V_2^n,\dots ,V_{N_n}^n\}$ according to the procedure described in the statement of Lemma \ref{lemma.samplecandidates}.
     \item \label{item.procedure4} For $V_1^n,\dots, V_{N_n}^n$, sample their heads $W_1^n,\dots ,W_{N_n}^n$ respectively according to the procedure described in the statement of Lemma \ref{lemma.sampleheadcandidates}.
     \item Let $T^{n,\text{mk}}(l_n)$ be the subtree of $T^n_{l_n}$ spanned by $\{l_n+1,V_1^n,\dots ,V_{N_n}^n\}$, say $V_i^n\sim W_i^n$ for each $1\leq i\leq N_n$, and set $M^n_{l_n}:=T^{n,\text{mk}}(l_n)/\sim$, which we note is a directed graph with surplus $N_n$. 
 \end{enumerate}
@@ -163,7 +162,7 @@ Then, all SCCs of $\vec{G}_n(\nu)$ of which the first candidate is sampled befor
   \label{figure.extractSCCs3}
 \end{subfigure}
 
-\caption{We illustrate the procedure to find the SCCs in a component of the out-forest after finding the candidates. Source figures: \cite{goldschmidtScalingLimitCritical2019}}
+\caption{We illustrate the procedure to find the SCCs in a component of the out-forest after finding the candidates. Taken from \cite{goldschmidtScalingLimitCritical2019} with permission of the authors.}
 \end{figure}
 
 \subsection{The continuum case}\label{subsec.limitobject}
@@ -176,7 +175,7 @@ We will define now define the continuous counterpart of the sampling procedure o
 \subsubsection{The limit object}\label{subsubsec.samplecontinuousobject}
 Let $(B_t,t\geq 0)$ be a Brownian motion, and set $$\left(\hat{B}_t,t\geq 0\right)=\left(B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+\mu}t^2,t\geq 0\right).$$ 
 \begin{remark}
-We note that the coefficient of the parabolic drift is negative. Indeed, the sign of the parabolic drift is the same as the sign of $\mu-\E[D^+(D^-)^2]$, and we note that
+We note that the coefficient of the parabolic drift is negative. Indeed, the sign of the parabolic drift is the same as the sign of $\mu-\E[(D^-)^2D^+]$, and we note that
 $$\frac{\E[(D^-)^2D^+]}{\E[D^+]}-\left(\frac{\E[D^+D^-]}{\E[D^+]}\right)^2=\frac{\E[(Z^+)^2]}{\mu}-1$$
 is the variance of $D^-$ under the law of $\mathbf{D}$ size-biased by $D^+$, which is positive. Hence $\E[D^+(D^-)^2]/\mu\geq 1$, which shows that $(\hat{B}_t)_{t\geq 0}$ is a Brownian motion with a downwards parabolic drift.
 \end{remark}
@@ -191,14 +190,14 @@ L_i&=\inf\left\{t\geq 0:=\hat{B}_t=\inf\{\hat{B}_s:s\leq X_i\}\right\}\text{ for
 so that for each $i$ in $\left[A_T\right]$, $\left(\frac{2}{\sigma_+}\hat{R}_t,t\in [L_i,L_i+\Sigma_i]\right)$ encodes the $\R$-tree in $(\hat{\cF}(t),t\geq 0)$ that contains $X_i$. For each element of $\{(L_i,\Sigma_i):i\in A_T\}$ we will sample the candidates in the $\R$-tree. Fix $i$, and set $(l,\sigma)=[L_i,\Sigma_i]$. Let $V_1=\inf\{s>0:A(s)=A(l)+1\}$, so that $l\leq V_1\leq l+\sigma$ by definition of $(l,\sigma)$. Let $\cT_l$ be the $R$-tree encoded by $\left(\frac{2}{\sigma_+}\hat{R}_t,t\in [l,l+\sigma]\right)$ and let $p_l:[l,l+\sigma]\to \cT_l$ be the projection onto $\cT_l$ given by the encoding. Set $$||\cT_l||=\sup\left\{\frac{2}{\sigma_+}\hat{R}_t,t\in [l,l+\sigma]\right\},$$
 which we note is the height of $\cT_l$. \\
 Suppose we have found candidates $\{V_1,\dots,V_m\}$. For $V_m\leq s\leq l+\sigma$, let $T^{\text{mk}}_s$ be the subtree of $\cT_l$ spanned by $p_l\left(\{l,V_1,\dots,V_m,s\}\right)$, and let $|T^{\text{mk}}_s|$ be its total length. Then, let $V_{m+1}$ be the first arrival time of a Poisson process on $[V_m,l+\sigma]$ of intensity $$\frac{\sigma_{-+}+\nu_-}{\mu^2}|T^{\text{mk}}_s|ds.$$ If the process does not contain a point, let $\{V_1,\dots,V_m\}$ be the candidates of $\cT_l$, and set $N=m$. Otherwise, we repeat the inductive step for $\{V_1,\dots,V_{m+1}\}.$ If the induction does not terminate, we set $N=\infty$.\\
-We claim that $\P(N=\infty)=0$. Indeed, note that $V_m\leq s\leq V_{m+1}$ implies that  $|T^{\text{mk}}_s|<(m+1)||\cT_l||$. Therefore, 
+We show that $\P(N=\infty)=0$, by adapting the argument in Subsection 3.2.2 of \cite{goldschmidtScalingLimitCritical2019} to our set-up. Indeed, note that $V_m\leq s\leq V_{m+1}$ implies that  $|T^{\text{mk}}_s|<(m+1)||\cT_l||$. Therefore, 
 $$\P\left(\left.N\geq l+1,V_{m+1}-V_m<t \right|N\geq l\right)\leq \P(E_{m+1}<t),$$
 for $(E_{k},k\geq 1)$ a sequence of exponential random variables with respective rates $$\frac{\sigma_{-+}+\nu_-}{\mu^2}k||\cT_l||.$$ 
 Then,
 $$\P\left(N=\infty \right)=\P\left(N=\infty\text{ and }\sup\{c_i:i\in \N\}<l+\sigma\right)\leq \P\left(\sum_{i=2}^\infty E_k\leq l+\sigma-V_1\right).$$
 However, $\sum_{i=2}^\infty E_k=\infty$ a.s., because the harmonic series diverges, so, indeed, $\P\left(N<\infty \right)=1$. \\
 Finally, for $1\leq i \leq N$, let the head corresponding to $V_i$, which we call $W_i$, be a uniform pick from the length measure on $T^{\text{mk}}_{V_i}$. \\
-Let $T^{\text{mk}}_l$ be the subtree of $\cT^{l}$ spanned by $\{l,V_1,\dots,V_N\}$. Then, in $T^{\text{mk}}_{l}$, set $V_i\sim W_i$ for each $1\leq i\leq N$, and set $\cM_{l}:=T^{\text{mk}}_{l}/\sim$. View $\cM_{l}$ as an element of $\vec{\cG}$ in the natural way, and call it $M_l$. To be precise,  let the vertex set of $M_l$ consist of $l$, $W_i$ for $i\leq N$, and the branch points $V_i\wedge V_j$ for $i\neq j\leq N$. The directions are inherited from $\cT^l$, by considering all edges directed away from the root. Remove all edges that do not lie in an SCC of $M_{l}$ and delete any isolated vertices that are thus created. Then, for any vertices of degree $2$, merge the neighbouring edges and sum their lengths. This creates a collection $\cC_l$ of strongly connected MDMs. Doing this for each $(l,\sigma)\in \{[L_i,\Sigma_i]\}$ yields the collection of strongly connected MDMs $\cC$ that has the law of the limit in Theorem \ref{thm.main}.
+Let $T^{\text{mk}}(l)$ be the subtree of $\cT^{l}$ spanned by $\{l,V_1,\dots,V_N\}$. Then, in $T^{\text{mk}}(l)$, set $V_i\sim W_i$ for each $1\leq i\leq N$, and set $\cM_{l}:=T^{\text{mk}}(l)/\sim$. View $\cM_{l}$ as an element of $\vec{\cG}$ in the natural way, and call it $M_l$. To be precise,  let the vertex set of $M_l$ consist of $l$, $W_i$ for $i\leq N$, and the branch points $V_i\wedge V_j$ for $i\neq j\leq N$. The directions are inherited from $\cT^l$, by considering all edges directed away from the root. Remove all edges that do not lie in an SCC of $M_{l}$ and delete any isolated vertices that are thus created. Then, apply the smoothing operation as defined in Subsection \ref{subsec.mdmkernels}. This creates a collection $\cC_l$ of strongly connected MDMs. Doing this for each $(l,\sigma)\in \{[L_i,\Sigma_i]\}$ yields the collection of strongly connected MDMs $\cC$ that has the law of the limit in Theorem \ref{thm.main}.
 
 \subsubsection{Properties of the limit object}
 We note that the limit object is encoded by $3$ parameters: the real forest is encoded by a Brownian motion with variance $\sigma_+^2$ and parabolic drift with coefficient $-(\sigma_{-+}+\nu_-)/(2\mu)$, and the identifications are a Cox process with intensity $(\sigma_{-+}+\nu_-)/\mu^2$ on the length measure of the subtree spanned by the previously found candidates and the currently explored point as described in \ref{subsubsec.samplecontinuousobject}. The limit object that is studied in \cite{goldschmidtScalingLimitCritical2019} corresponding to $\lambda=0$ (i.e. at criticality) is equal to our limit object in the case $\sigma_+^2=1$, $-(\sigma_{-+}+\nu_-)/(2\mu)=-1/2$, and $(\sigma_{-+}+\nu_-)/(\mu^2)=1$. Note that these three conditions are satisfied if we let $D^-$ and $D^-$ be independent $\operatorname{Poisson}(1)$ random variables. In \cite{goldschmidtScalingLimitCritical2019}, some properties of the limit object corresponding to these specific parameters are shown. A quick check shows that the proofs do not depend on the values of the parameters, so we deduce that the properties also hold for our limit object. Let $\cM:=\bigcup_{L_i}\cM_{L_i}$.
