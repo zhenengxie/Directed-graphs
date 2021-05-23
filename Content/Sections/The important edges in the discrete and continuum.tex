@@ -72,7 +72,7 @@ such that $R_n$ is the number of vertices with positive in-degree. Suppose the d
 \begin{enumerate}
     \item If we have finished a component of the out-forest, let the next out-component have a root with out-degree $\hat{D}_{n,m+1}^+$. 
     \item Otherwise,
-    \begin{enumerate}\item With probability proportional to the total in-degree of the undiscovered vertices, i.e. $\sum_{i={m+1}}^n \hat{D}_{n,i}^-$\myworries{check this expression} , let the next vertex in depth-first order be a black vertex with out-degree $\hat{D}_{n,m+1}^+$. 
+    \begin{enumerate}\item With probability proportional to the total in-degree of the undiscovered vertices, i.e. $\sum_{i={m+1}}^{R_n} \hat{D}_{n,i}^-$, let the next vertex in depth-first order be a black vertex with out-degree $\hat{D}_{n,m+1}^+$. 
     \item With probability proportional to the unpaired in-half-edges of the $l$ discovered vertices, let the next vertex in depth-first order be a purple leaf, and reduce the number of unpaired in-edges of the $l$ discovered vertices by $1$.
 \end{enumerate}
 \end{enumerate}
