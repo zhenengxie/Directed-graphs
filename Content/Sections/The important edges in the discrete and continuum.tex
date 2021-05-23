@@ -17,7 +17,7 @@ The following facts hold for SCCs.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-We start with \ref{item.factsonsccs1}. Suppose $v$ and $w$ are not in the same sc Without loss of generality, $v$ is explored first in depth-first order in the out-direction. Since $v$ and $w$ are part of the same SCC, we know that there is a path from $v$ to $w$ in the out-direction. This implies that $w$ will be part of the out-subtree consisting of the descendants of $v$. This implies that they are part of the same component of $(\hat{F}_n(k),k\geq 1)$.
+We start with \ref{item.factsonsccs1}. Let $v$ and $w$ be two vertices in the same SCC. Without loss of generality, $v$ is explored first in depth-first order in the out-direction. Since $v$ and $w$ are part of the same SCC, we know that there is a path from $v$ to $w$ in the out-direction. This implies that $w$ will be part of the out-subtree consisting of the descendants of $v$. This implies that they are part of the same component of $(\hat{F}_n(k),k\geq 1)$.
 
 To prove \ref{item.factsonsccs2}, suppose there is an ancestral surplus edge from $v$ to $w$. This implies that $w$ is an ancestor of $v$ in an out-component, which implies that there is a path from $w$ to $v$ as well. It follows that $w$ and $v$ are in the same SCC and that the ancestral surplus edge from $v$ to $w$ is in this SCC as well. 
 
