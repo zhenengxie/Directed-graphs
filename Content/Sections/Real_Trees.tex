@@ -1,4 +1,4 @@
-The continuum analogue of discrete trees are given by $\R$-trees. A survey paper on $\R$-trees can be found in \cite{legallRandomTreesApplications2005}. An $\R$-tree is a compact metric space $(\cT, d)$ such that for every $a, b \in \cT$ the following two properties hold:
+The continuum analogue of discrete trees are given by $\R$-trees. We give the basic definitions here and refer the reader to the survey paper \cite{legallRandomTreesApplications2005} for more details. An $\R$-tree is a compact metric space $(\cT, d)$ such that for every $a, b \in \cT$ the following two properties hold:
 \begin{enumerate}
     \item There exists a unique isometry $$i_{a, b} : [0, d(a, b)] \to \cT$$ such that $i_{a, b}(0) = a$ and $i_{a, b}(d(a, b)) = b$.
     \item If $q: [0, 1] \to \cT$ is any continuous map such that $q(0) = a$ and $q(1) = b$ then the image of $q$ is the same as the image of $i_{a, b}$.
@@ -13,4 +13,4 @@ Using this we can define the quotient space
 \begin{equation*}
     \cT_f = [0, \sigma] / \{d_f = 0\}.
 \end{equation*}
-The space $\cT_f$ equipped with the metric $d_f$ is the $\R$-tree encoded by the excursion $f$. Let $p_f: [0, \sigma] \to \cT_f$ be the natural projection function. Then $\cT_f$ inherits a distinguished root vertex $\rho = p(0) = p(\sigma)$.
+The space $\cT_f$ equipped with the metric $d_f$ is the \emph{$\R$-tree encoded by the excursion $f$}. Let $p_f: [0, \sigma] \to \cT_f$ be the natural projection function. Then $\cT_f$ inherits a distinguished root vertex $\rho = p(0) = p(\sigma)$.
