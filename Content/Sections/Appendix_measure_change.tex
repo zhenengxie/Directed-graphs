@@ -390,14 +390,11 @@ The fact that we only prove a lower bound may seem strange at first. The idea is
     \end{equation*}
     where the first and second equalities follow from non-negativity of $Y_n$ and $Y$, and the inequality follows by the Portmanteau theorem.
 
-    In particular $X_n - Y_n \todist 0$. Since the limit is a constant, this can be included in the joint convergence statement, and so
+    In particular $X_n - Y_n \todist 0$. Since this limit is a constant,
     \begin{equation*}
-        (X_n - Y_n, Y_n, Z_n) \todist (0, Y, Z)
+        \vectwo{X_n}{Z_n} = \vectwo{Y_n}{Z_n} + \vectwo{X_n - Y_n}{0} \todist \vectwo{Y}{Z}
     \end{equation*}
-    as $n \to \infty$. Then by applying the continuous mapping theorem we obtain the desired result that
-    \begin{equation*}
-        (X_n, Z_n) \todist (Y, Z).
-    \end{equation*}
+    as $n \to \infty$ by Slutsky's theorem.
 
     We now prove the uniform integrability. By Skorokhod's representation theorem we can suppose that $X_n \to Y$ almost surely. Then $\E[X_n] = \E[Y] = 1$ for all $n$. Therefore $X_n \to Y$ in $L^1$ by Scheffé's lemma, which entails the required uniform integrability.
 \end{proof}
@@ -503,7 +500,7 @@ $(D^- - D^+, D^-)$ is $\Z^2$ valued and thus certainly lattice valued. Further i
 \end{equation*}
 We have assumed that $D^- - D^+$ has main lattice $\Z$ and therefore $p = 1$. Conditional on $D^- - D^+$ taking some value, $D^-$ will have main lattice $q \Z$. Let $\sigma^2$ be the variance of $D^- - D^+$ and $\Sigma$ be the covariance matrix of $(D^- - D^+, D^-)$.
 
-$\P(R_n < m)$ will decay exponentially thus the asymptotic behaviour of $\P(R_n \leq m, \Delta_n = 0)$ is dictated by the $\Delta_n = 0$ event. This can be handled by the standard local limit theorem.
+$\P(R_n < m)$ will decay exponentially thus the asymptotic behaviour of $\P(R_n \geq m, \Delta_n = 0)$ is dictated by the $\Delta_n = 0$ event. This can be handled by the standard local limit theorem.
 \begin{lemma}
     \label{lem:normal-llt}
     As $n \to \infty$
