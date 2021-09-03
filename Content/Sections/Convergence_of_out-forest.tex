@@ -67,14 +67,14 @@ For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
 
 \end{theorem}
 \begin{proof}
- We recall from the statement of Lemma \ref{lem:measure-change} that $(W^-,W^+)$ is a pair of correlated standard Brownian motions with correlation $\operatorname{Corr}(Z_i^-,Z_i^+)$. 
+ We recall from the statement of Lemma \ref{thm:measure-change} that $(W^-,W^+)$ is a pair of correlated standard Brownian motions with correlation $\operatorname{Corr}(Z_i^-,Z_i^+)$. 
 Let $(B^1_t,t\geq 0)$ and $(B^2_t,t\geq 0)$ be two independent Brownian motions, so that we may define $$(\sigma_-W^-_t,\sigma_+W^+_t,t\geq 0)=\left(\frac{\sigma_{-+}}{\sigma_+}B_t^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2} B_t^2, \sigma_+ B_t^1, t\geq 0\right).$$ 
- Then, Lemma \ref{lem:measure-change} implies that for $F$ a suitable test function, 
+ Then, Lemma \ref{thm:measure-change} implies that for $F$ a suitable test function, 
  \begin{align*}&\E\left[F\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right) \right]\\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
  &=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB^1_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B^1_t,   0\leq t \leq T)\right].\end{align*}
  For the details of the argument, we refer the reader to the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020}. Then, the fact that $(Y(k),k\geq 1)$ is a random walk with steps of mean $\nu_-$ implies that
  $$\left(n^{-2/3}Y^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right),$$
- and then, by Lemma \ref{lem:measure-change}, also 
+ and then, by Lemma \ref{thm:measure-change}, also 
  $$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right).$$
  \end{proof}
  The following lemma characterises the distribution of $(\hat{B}_t, {0\leq t\leq T})$.
@@ -146,13 +146,13 @@ in $D(\R_+,\R)$ as $n\to \infty$.
 \begin{proof}
 Fix $T>0$. Recall that
 $$p_{k+1}=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}}.$$
-Define $M^+(k)=\min\{Y^+(l):l\leq k\}$ so that $0\geq I^{+}(k)\geq M^+(k)-P_n(k)$.  Then, by Lemma \ref{lemma.tightnesssurplusedges}, the convergence under rescaling of $Y^+$ shown in Lemma \ref{lem:measure-change}, and the continuous mapping theorem, $\left(n^{-1/3}I^+(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ is tight for all $t>0$.
+Define $M^+(k)=\min\{Y^+(l):l\leq k\}$ so that $0\geq I^{+}(k)\geq M^+(k)-P_n(k)$.  Then, by Lemma \ref{lemma.tightnesssurplusedges}, the convergence under rescaling of $Y^+$ shown in Lemma \ref{thm:measure-change}, and the continuous mapping theorem, $\left(n^{-1/3}I^+(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ is tight for all $t>0$.
 We will now argue that the indicator, which ensures that the roots are never purple, does not have an effect on $(P_n(k),k\leq m)$ on the scale that we are interested in. Let $t>0$, and set $m=\lfloor n^{2/3}t\rfloor$. Define
 \begin{align*}\begin{split}
 E^p(m):&=\sum_{k=0}^{m-1}\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)\neq I^{+}(k-1)\}}\\
 &\leq I^{+}(m) \frac{Y^-(m)+m}{\mu n - m},\end{split}\end{align*}
 so since $I^{+}(m)$ is of order $n^{1/3}$ and $\frac{Y^{-}(m)+m}{\mu n - m}$ is of order $n^{-1/3}$, $(E^p(m))_{n\geq 1}$ is tight for all $t\geq 0$.  This means that if we allow the roots to be purple, with high probability, we would only sample $O(1)$ purple roots up to time $O(n^{2/3})$. This does not affect $(P_n(k),k\leq m)$ on the scale that we are interested in. \\
- Then, the convergence under rescaling of $Y^-$ and $Y^+$ shown in Lemma \ref{lem:measure-change}, the tightness of $\left(n^{-1/3}I^{+}(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ and Lemma \ref{lemma.tightnesssurplusedges} imply that
+ Then, the convergence under rescaling of $Y^-$ and $Y^+$ shown in Lemma \ref{thm:measure-change}, the tightness of $\left(n^{-1/3}I^{+}(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ and Lemma \ref{lemma.tightnesssurplusedges} imply that
 \begin{align}\begin{split}\label{eq.convergenceprob}
   &\left(n^{1/3}\frac{S_n^{-}\left(\lfloor n^{2/3} t \rfloor\right)}{\mu n - \lfloor n^{2/3} t \rfloor -I^{p,+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
  &=\left(n^{1/3}\frac{Y^-\left[\lfloor n^{2/3} t \rfloor-P_n\left(\lfloor n^{2/3} t \rfloor\right)\right]-P_n\left(\lfloor n^{2/3} t \rfloor\right)-I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1}{\mu n - \lfloor n^{2/3} t \rfloor -I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
@@ -180,7 +180,7 @@ The convergence of $P_n$ under rescaling implies the convergence of $S^{+}$ and 
  in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{corollary}
 \begin{proof}
- This follows from the convergence under rescaling of $Y^+$ and $Y^-$ shown in Lemma \ref{lem:measure-change}, \ref{lemma.convergenceQandP} and the expressions 
+ This follows from the convergence under rescaling of $Y^+$ and $Y^-$ shown in Lemma \ref{thm:measure-change}, \ref{lemma.convergenceQandP} and the expressions 
  $$S_n^{p,+}(k+1)=Y^+\left[k+1-P_n(k+1)\right]-P_n(k+1),$$ and $$S_n^{p,-}(k+1)=Y^-\left[k+1-P_n(k+1)\right]-P_n(k+1)-I^{+}(k)+1.$$
 \end{proof}
 
@@ -239,7 +239,7 @@ We postpone the proof to Appendix \ref{appendix.heightprocessblackpurplered}.
 
 \subsection{Applying the measure change to prove Theorem \ref{thm.convoutforest}}\label{subsubsec.convaftermeasurechange}
 
-We will combine the convergence of the measure change under rescaling, which is the content of Lemma \ref{lem:measure-change}, and the convergence of the encoding processes of $(F^p(k),k\geq 1)$, which is the content of Proposition \ref{prop.convheightprocesspurple}, to prove Theorem \ref{thm.convoutforest}.
+We will combine the convergence of the measure change under rescaling, which is the content of Lemma \ref{thm:measure-change}, and the convergence of the encoding processes of $(F^p(k),k\geq 1)$, which is the content of Proposition \ref{prop.convheightprocesspurple}, to prove Theorem \ref{thm.convoutforest}.
 
 \begin{proof}[Proof of Theorem \ref{thm.convoutforest}]
 Recall that $\hat{P}_n(k)$ denotes the number of purple vertices in $\hat{F}_n(k)$. Set $\hat{I}_n(k)=\min\{\hat{S}^{+}_n(l):l\leq k\}$. Then, as shown in Lemma \ref{lemma.sampleoutforest}, the probability that the $(k+1)^{th}$ vertex in $(\hat{F}_n(k),k\geq 1)$ is purple is given by
@@ -270,7 +270,7 @@ We will use the following notation:\begin{align*}
 \end{align*}
 Let $f:D([0,T],\R)^3\to \R$ be a bounded, continuous test-function. Then,
 \begin{align*}\E\left[f\left(\hat{Y}^+_{(n)}, \hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]&= \E\left[ \E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} T\rfloor)\E\left[\left.f\left(Y^+_{(n)}, S^+_{(n)},  H^+_{(n)}\right)\right| {Y}^+_{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} T\rfloor)f\left(Y^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right],\end{align*}
-where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]$ is a bounded, adapted function of $\hat{Y}^+_{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${Y}^+_{(n)}$ to $\hat{Y}^+_{(n)}$. Then, using Lemma \ref{lem:measure-change} and Proposition \ref{prop.convheightprocesspurple}, following the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} gives us that 
+where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]$ is a bounded, adapted function of $\hat{Y}^+_{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${Y}^+_{(n)}$ to $\hat{Y}^+_{(n)}$. Then, using Lemma \ref{thm:measure-change} and Proposition \ref{prop.convheightprocesspurple}, following the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} gives us that 
 \begin{align*}
     &\E\left[f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]\\
     &\to \E\left[\Phi(T)f\left(\sigma_+ B_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].

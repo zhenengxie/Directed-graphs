@@ -1,5 +1,5 @@
-\begin{restatable}{lemma}{measurechange}
-    \label{lem:measure-change}
+\begin{restatable}{theorem}{measurechange}
+    \label{thm:measure-change}
     For all $m \leq n$ there exists a function $\phi^n_m: (\N \times \N)^m \to \R$ such that 
     \begin{equation*}
         \E\left[ 
@@ -21,7 +21,7 @@
     \begin{align*}
         \Phi(n, m) = \phi^n_m(\vZ_1, \ldots, \vZ_m).
     \end{align*}
-    Further let $(W^-, W^+)$ be a pair of correlated standard Brownian motions with correlation $\corr(Z^-_i, Z^+_i)$ and define
+    Further let $(W^-, W^+)$ be a pair of correlated standard Brownian motions with correlation $\corr(Z^-_1, Z^+_1)$ and define
     \begin{equation*}
         \Phi(t) = \exp \left( 
             - \frac{\sigma_-}{\mu} \int_0^t s \dif W^-_s - \frac{\sigma_-^2}{6 \mu^2} t^3

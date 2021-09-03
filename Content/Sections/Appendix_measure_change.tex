@@ -1,7 +1,7 @@
 \section{Analysis of the measure change}
 \label{sec:measure-change}
 
-We recall some notation and the lemma we wish to prove. $\vD_1, \vD_2, \ldots$ are i.i.d.\ copies of $(D^-, D^+)$ a $\N \times \N$-valued random variable. We assume $\E[D^-] = \E[D^+]$ and call this quantity $\mu$. We will use the notation
+We recall some notation and the lemma we wish to prove. Recall that $\vD_1, \vD_2, \ldots$ are i.i.d.\ copies of $(D^-, D^+)$ a $\N \times \N$-valued random variable. We assume $\E[D^-] = \E[D^+]$ and call this quantity $\mu$. We will use the notation
 \begin{equation*}
     \Xi^{\pm}_n = \textstyle \sum_{i=1}^n D^{\pm}_i
     \quad \text{and} \quad
@@ -11,19 +11,19 @@ We defined
 \begin{equation*}
     \cI_n = \{ i \in [n] : D_i^- > 0 \} \quad \text{and} \quad R_n = \abs{\cI_n}.
 \end{equation*}
-$\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, R_n}$ are the elements of $\{\vD_i : u \in \cI_n\}$ in order of discovery according to the eDFS procedure. We will be comparing this against a sequence of i.i.d.\ $\N \times \N$-valued random variables $\vZ_1, \vZ_2, \ldots$ where each $\vZ_i$ has law
+Then $\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, R_n}$ are the elements of $\{\vD_i : u \in \cI_n\}$ in order of discovery according to the eDFS procedure. We will compare this against a sequence of i.i.d.\ $\N \times \N$-valued random variables $\vZ_1, \vZ_2, \ldots$, where for each $i \geq 1$ $\vZ_i$ has law
 \begin{equation*}
     \P(Z_i^- = k^-, Z_i^+ = k^+) = \frac{k^-}{\mu} \P(D^- = k^-, D^+ = k^+).
 \end{equation*}
-Let $\lambda_{\pm} = \E[Z^{\pm}_i]$. We have $\nu_- = \lambda_- - 1$ and under the criticality condition we have $\lambda_+ = 1$. We used the notation
+Let $\lambda_{\pm} = \E[Z^{\pm}_1]$. We have $\nu_- = \lambda_- - 1$ and under the criticality condition we have $\lambda_+ = 1$. We used the notation
 \begin{equation*}
     Y^{\pm}(n) = \sum_{i=1}^n (Z^{\pm}_i - 1).
 \end{equation*}
-Then the following lemma asserts existence of a measure change under conditioning of equal in- and out-degrees, moreover it gives the scaling limit of the measure change.
+The following theorem asserts the existence of a measure change under conditioning of equal in- and out-degrees and, moreover, it gives the scaling limit of the Radon--Nikodym derivative.
 
 \measurechange*
 
-We prove a version of the above which does not require the criticality condition.
+We observe that the criticality condition $\lambda_+ = 1$ is, in fact, not necssary for this to hold, and instead prove the following more general result.
 
 \begin{lemma}
     \label{lem:measure-change-no-crit}
@@ -31,7 +31,7 @@ We prove a version of the above which does not require the criticality condition
     \begin{equation*}
         V^{\pm}(n) = \sum_{i=1}^n (Z^{\pm} - \lambda_{\pm}).
     \end{equation*}
-    Then using the notation of \cref{lem:measure-change},
+    Then using the notation of \cref{thm:measure-change},
     \begin{align*}
         &\left( 
             \Phi(n, \floor{T n^{2/3}}),
@@ -48,7 +48,7 @@ We prove a version of the above which does not require the criticality condition
     as $n \to \infty$, even in absence of the criticality condition.
 \end{lemma}
 
-\cref{lem:measure-change} then follows as a direct corollary of \cref{lem:measure-change-no-crit} by noting
+\cref{thm:measure-change} then follows as a direct corollary of \cref{lem:measure-change-no-crit} by noting
 \begin{equation*}
     \left( 
         Y^-(n), Y^+(n)
@@ -332,7 +332,7 @@ Using the previous lemma we can prove existence and give an exact form of the de
 
 \subsection{Asymptotic bound of the measure change from below}
 
-In \cref{lem:measure-change} we see the correct scaling to in order to get a sensible scaling limit is $m = \Theta(n^{2/3})$. This will be used to prove the out-components scale as $n^{2/3}$. The following result, which is an analogue of \cite[Lemma 6.7]{conchon--kerjanStableGraphMetric2020}, describes the asymptotic behaviour of the measure change when $m = \Theta(n^{2/3})$.
+In \cref{thm:measure-change} we see the correct scaling to in order to get a sensible scaling limit is $m = \Theta(n^{2/3})$. This will be used to prove the out-components scale as $n^{2/3}$. The following result, which is an analogue of \cite[Lemma 6.7]{conchon--kerjanStableGraphMetric2020}, describes the asymptotic behaviour of the measure change when $m = \Theta(n^{2/3})$.
 \begin{lemma}
     \label{lem:measure-change-approx}
     Define
@@ -351,7 +351,7 @@ In \cref{lem:measure-change} we see the correct scaling to in order to get a sen
     \end{equation*}
     where the $\littleo(1)$ term is independent of $\vk_1, \ldots, \vk_m$ satisfying our assumptions.
 \end{lemma}
-The $1/6$ upper bound on $\epsilon$ is used to show certain terms that arise in the proof will decay to 0, but the exact value of $1/6$ is unimportant. Rather $\epsilon$ should be thought of as a positive constant we can make arbitrarily small to make the proof work. We also explain the condition in \cref{eq:s-condition}. In \cref{lem:measure-change} we evaluate $\phi^n_m$ as 
+The $1/6$ upper bound on $\epsilon$ is used to show certain terms that arise in the proof will decay to 0, but the exact value of $1/6$ is unimportant. Rather $\epsilon$ should be thought of as a positive constant we can make arbitrarily small to make the proof work. We also explain the condition in \cref{eq:s-condition}. In \cref{thm:measure-change} we evaluate $\phi^n_m$ as 
 \begin{equation*}
     \phi^n_m(\vZ_1, \ldots, \vZ_m).
 \end{equation*}
@@ -494,7 +494,7 @@ which is within the $\bigo(n^{1/2})$ range from the mean where the local limit t
 
 We wish to determine the local limit behaviour of $\Delta_n$ under the untilted measure and $\Delta_{n-m}$ under the tilted measures. In the latter case, we wish to show the behaviour remains the same even when conditioning on $\Xi_{n-m}^-$ having fluctuations of order $\bigo(n^{1/2 + \epsilon})$ about its tilted mean. The way we show this is to first show a bivariate local limit theorem.
 
-$(D^- - D^+, D^-)$ is $\Z^2$ valued and thus certainly lattice valued. Further in the degenerate case where $D^- = D^+$ almost surely, the total in-degree and total out-degree will be equal almost surely and thus the conditioned and non-conditioned case are the same. So the proof of \cref{lem:measure-change} will be the same as for \cite[Proposition 4.3]{conchon--kerjanStableGraphMetric2020}. Hence WLOG assume $(D^- - D^+, D^-)$ is non-degenerate. Let $\lattice$ be the main lattice of $(D^- - D^+, D^-)$. Then by \cref{lem:zd-triangular} there exist $p, q, r \in \Z_{\geq 0}$ such that $\lattice$ is generated by the columns of
+$(D^- - D^+, D^-)$ is $\Z^2$ valued and thus certainly lattice valued. Further in the degenerate case where $D^- = D^+$ almost surely, the total in-degree and total out-degree will be equal almost surely and thus the conditioned and non-conditioned case are the same. So the proof of \cref{thm:measure-change} will be the same as for \cite[Proposition 4.3]{conchon--kerjanStableGraphMetric2020}. Hence WLOG assume $(D^- - D^+, D^-)$ is non-degenerate. Let $\lattice$ be the main lattice of $(D^- - D^+, D^-)$. Then by \cref{lem:zd-triangular} there exist $p, q, r \in \Z_{\geq 0}$ such that $\lattice$ is generated by the columns of
 \begin{equation*}
     \begin{pmatrix}
         p & 0 \\
