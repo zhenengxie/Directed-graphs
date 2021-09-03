@@ -18,7 +18,7 @@ Let $(B_t, t\geq 0)$ be a Brownian motion, and define
 $$(\hat{B}_t,t\geq 0):=\left( B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+ \mu}t^2, t\geq 0\right),$$ and $$(\hat{R}_t,t\geq 0)=\left(\hat{B}_t-\inf\left\{\hat{B}_s: s\leq t\right\},t\geq 0\right).$$ 
 Then,
 \begin{align*}&\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3}t\rfloor \right),n^{-1/3}\hat{H}_{n}\left(\lfloor n^{2/3}t\rfloor \right),n^{-1/3}\hat{H}^\ell_{n}\left(\lfloor n^{2/3}t\rfloor \right),  t\geq 0\right)\\
-&\overset{d}{\to}\left(\sigma_+ \hat{B}_t, \frac{2}{\sigma_+} \hat{R}_t,\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu} \hat{R}_t, t\geq 0\right)\end{align*}
+&\todist\left(\sigma_+ \hat{B}_t, \frac{2}{\sigma_+} \hat{R}_t,\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu} \hat{R}_t, t\geq 0\right)\end{align*}
 in $\D(\R_+,\R)^3$,
 jointly with 
 $$\left(n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P}_n\left(\lfloor n^{2/3}t\rfloor \right),t\geq 0\right)\overset{p}{\to}\left(\nu_-t,  \frac{\nu_-}{2\mu} t^2, t\geq 0\right)$$
@@ -36,7 +36,7 @@ We will translate the conditions of Theorem 1 in \cite{deraphelisScalingLimitMul
 Under these conditions, using the notation from Subsection \ref{subsubsec.convheightprocess},
 \begin{align}\begin{split}\label{eq.convmodifiedheightprocess}
 &\left(n^{-1/3}Y^{pr}\left(\lfloor t n^{2/3}\rfloor \right),n^{-1/3}H^{pr}\left(\lfloor t n^{2/3}\rfloor \right), n^{-1/3}H^{pr,\ell}\left(\lfloor t n^{2/3}\rfloor \right),t\geq 0\right)\\
-&\overset{d}{\to}\left(\sigma_+ B_s, \frac{2}{\sigma_+}R_s, \frac{2(\sigma_{+-}+\nu_-)}{\mu\sigma_+}R_s,t\geq 0\right)
+&\todist\left(\sigma_+ B_s, \frac{2}{\sigma_+}R_s, \frac{2(\sigma_{+-}+\nu_-)}{\mu\sigma_+}R_s,t\geq 0\right)
 \end{split}\end{align}
 in $D(\R_+,\R)^3$ as $n\to \infty$. 
 Then, we observe that the rest of the argument in Subsection \ref{subsubsec.convheightprocess} Subsection \ref{subsubsec.convaftermeasurechange}, and Appendix \ref{appendix.heightprocessblackpurplered} can be extended to include the height process with edge lengths. This yields the result.\\
@@ -53,7 +53,7 @@ Note that the first and second condition follow directly from the assumptions, a
 
 \begin{proposition}\label{prop.convergenceancestraledges}
 We have, jointly with the convergence in Lemma \ref{lemma.heightprocesswithlengths},
-\begin{align*}\left(A_n\left(\lfloor tn^{2/3}\rfloor\right),t\geq 0\right)\overset{d}{\to}\left(A_t,t\geq 0\right),\end{align*}
+\begin{align*}\left(A_n\left(\lfloor tn^{2/3}\rfloor\right),t\geq 0\right)\todist\left(A_t,t\geq 0\right),\end{align*}
 as $n\to \infty$, where $(A_t,t\geq 0)$ is a Cox process of intensity $$\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu^2} \hat{R}_t$$ at time $t$. The convergence is in $D(\R_+,\R)$.
 \end{proposition}
 
@@ -66,7 +66,7 @@ By definition, $(A_n(k),k\geq 1)$ is a counting process with compensator
 \end{align*}
  By Theorem 14.2.VIII of Daley and Vere-Jones \cite{daleyIntroductionTheoryPoint2008}, the claimed convergence under rescaling of $(A_n(k),k\geq 1)$ follows if we show that 
 \begin{equation}\label{eq.convergencecompensator}
-    \left(A_n^{comp}\left(\lfloor tn^{2/3}\rfloor \right), t\geq 0\right)\overset{d}{\to}\left(\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu^2} \int_0^t\hat{R}_v dv, t \geq 0\right)
+    \left(A_n^{comp}\left(\lfloor tn^{2/3}\rfloor \right), t\geq 0\right)\todist\left(\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu^2} \int_0^t\hat{R}_v dv, t \geq 0\right)
 \end{equation}
 in $\D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in Lemma \ref{lemma.heightprocesswithlengths}. Therefore, we will now prove that \eqref{eq.convergencecompensator} holds. 
 By
@@ -76,7 +76,7 @@ we get that
 \begin{align*}\left(n^{-2/3}\min\{l\geq 1:n^{-1/3}\hat{P}_n(l)\geq t\},t\geq 0\right)&\overset{p}{\to}\left(\min\left\{s>0: \frac{\nu_-}{2\mu}s^2\geq t\right \}, t\geq 0\right)\\
 &=:\left(p^{-1}(t),t\geq 0\right) \end{align*}
 in $\D(\R_+,\R)$ as $n\to \infty$, because $\left(\frac{\nu_-}{2\mu}t^2,t\geq 0\right)$ is strictly increasing. Then, Lemma \ref{lemma.heightprocesswithlengths}, Lemma \ref{lemma.technicalcomposedfunctions}, Slutsky's lemma and the continuous mapping theorem imply that 
-\begin{align*}&\left(\sum_{j=1}^{\lfloor n^{1/3}t\rfloor}\frac{\hat{H}^\ell(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},t\geq 0\right)\overset{d}{\to} \left( \frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu} \int_0^t \frac{\hat{R}_{p^{-1}(s)}}{\nu_- p^{-1}(s)}ds,t\geq 0 \right)
+\begin{align*}&\left(\sum_{j=1}^{\lfloor n^{1/3}t\rfloor}\frac{\hat{H}^\ell(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},t\geq 0\right)\todist \left( \frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu} \int_0^t \frac{\hat{R}_{p^{-1}(s)}}{\nu_- p^{-1}(s)}ds,t\geq 0 \right)
 \end{align*}
 in $D(\R_+,\R)$ as $n\to\infty$. If we combine this with the convergence under rescaling of $(P_n(k),k\geq 1)$ and apply Lemma \ref{lemma.technicalcomposedfunctions}, some simple analysis then yields \eqref{eq.convergencecompensator}, which proves the statement.
 \end{proof}
@@ -126,7 +126,7 @@ L_i&=\inf\left\{t\geq 0:\sigma_+\hat{B}_t=\inf\{\sigma_+\hat{B}_s:s\leq X_i\}\ri
 \Sigma_i&=\inf\left\{ t\geq 0: \inf\{\sigma_+\hat{B}_s:s\leq L_i+t\} < \inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left[A(T )\right].
 \end{align*}
 Then, for $\operatorname{ord}$ defined as in the statement of Lemma \ref{lemma.extractexcursions}, we get that
-$$\operatorname{ord}\left(\left\{\left(n^{-2/3}L_i^n,n^{-2/3}\Sigma_i^n\right):1\leq i \leq A_n\left(\lfloor T n^{2/3}\rfloor\right)\right\}\right)\overset{d}{\to} \operatorname{ord}\left(\left\{(L_i,\Sigma_i):1\leq i \leq A_T\right\}\right)$$
+$$\operatorname{ord}\left(\left\{\left(n^{-2/3}L_i^n,n^{-2/3}\Sigma_i^n\right):1\leq i \leq A_n\left(\lfloor T n^{2/3}\rfloor\right)\right\}\right)\todist \operatorname{ord}\left(\left\{(L_i,\Sigma_i):1\leq i \leq A_T\right\}\right)$$
 in the $\ell_1$-topology on $(\R^2)^\infty$ as $n\to \infty$, jointly with the convergence in Proposition \ref{prop.convergenceancestraledges}. 
 \end{proposition}
 \begin{proof}
@@ -153,7 +153,7 @@ in $\D(\R_+,\R)$ as $n\to \infty$, we observe that for all $i\in [A_T]$, $n^{-2/
 % For $S=\{(a_i,\mathbf{b}_i), i\in [m]\}$, let $\operatorname{ord}(S)$ be a sequence consisting of the elements of $S$ put in decreasing order of $a_i$, with ties broken arbitrarily, and concatenated with $(0,\mathbf{0})_{i\geq 1}$.\\
 % Then, 
 % \begin{align*}&\operatorname{ord}\left(\left\{\Sigma_i^n, \left(\mathsf{h}_i^n,\mathsf{h}_i^{\ell,n}, \mathsf{s}_i^{-,n}, \mathsf{p}^n_i, \mathsf{a}_i^n\right), i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]\right\}\right)\\
-% &\overset{d}{\to}\operatorname{ord}\left(\left\{\Sigma_i, \left(\mathsf{h}_i,\mathsf{h}_i^{\ell}, \mathsf{s}_i^{-}, \mathsf{p}_i, \mathsf{a}_i, \right), i\in \left[A_T\right]\right\}\right)\end{align*}
+% &\todist\operatorname{ord}\left(\left\{\Sigma_i, \left(\mathsf{h}_i,\mathsf{h}_i^{\ell}, \mathsf{s}_i^{-}, \mathsf{p}_i, \mathsf{a}_i, \right), i\in \left[A_T\right]\right\}\right)\end{align*}
 % as $n\to \infty$. The topology on càdlàg functions of the form $(f(t),t\leq a)$ is given by embedding the functions in $D(\R_+,\R)$ by considering $(\tilde{f}(t),t\geq 0)=(f(t)\one_{t<a}, t\geq 0)$. Then, we use the $\ell_1$-topology on the sequence space.
 % \end{corollary}
 % \begin{proof}
@@ -174,7 +174,7 @@ By Proposition \ref{prop.extractexcursions}, we know that the intervals that enc
 The following proposition shows convergence under rescaling of the sequence of tails of the candidates on a particular component of $(\hat{F}_n(k),k\geq 1)$. 
 \begin{proposition}\label{prop.convergencestartingpointscandidates}
 Fix $T>0$. By Skorokhod's representation theorem, we may work on a probability space where the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions} holds almost surely. Let $(l,\sigma)\in \left\{(L_i,\Sigma_i):i\leq A_T\right\}$, so that, for each $n$ large enough, we can find a $(l_n,\sigma_n)\in\left\{(L_i^n,\Sigma_i^n):i\leq A_n\left(\lfloor Tn^{2/3}\rfloor\right)\right\}$, such that $(l_n,\sigma_n)\to (l,\sigma)$. Set $V_1=\inf\{t\in [l,l+\sigma]:A(t)=A(l)+1\}$, and similary, set $V_1^n=\min\{l_n<k\leq l_n+\sigma_n:A_n(k)=A_n(l_n)+1\}$, which are well-defined by definition of $l$, $\sigma$, $l_n$ and $\sigma_n$.  Then, by construction, $\{l_n+1,\dots,l_n+\sigma_n\}$ encodes a component of $(\hat{F}_n(k),k\geq 1)$. Call this component $T^n_{l_n}$. We apply the procedure defined in \ref{lemma.samplecandidates} to find the tail of candidates in $T^n_{l_n}$. Let $\mathbf{C}_n(l_n)$ denote the sequence of tails of candidates in $T^n_{l_n}$. Similarly, $[l,l+\sigma]$ encodes a component of $(\hat{\cF}(t),t\geq 0)$. Call this component $\cT_l$, and apply procedure in Subsection \ref{subsubsec.samplecontinuousobject} to find the tails of candidates in $\cT_l$, and denote its sequence of tails of candidates by $\mathbf{V}(l)$. Then, jointly with the convergence in Proposition \ref{prop.extractexcursions}, 
-$$n^{-2/3}\mathbf{V}_n(l_n)\overset{d}{\to}\mathbf{V}(l)$$
+$$n^{-2/3}\mathbf{V}_n(l_n)\todist\mathbf{V}(l)$$
 in the $\ell_1$ topology.
 \end{proposition}
 \begin{proof}
@@ -189,7 +189,7 @@ for $t\in [V_m,L+\Sigma]$ and $0$ otherwise. By the convergence under rescaling 
 $$\left(n^{-1/3}\ell\left(T^{n,\text{mk}}_{\lfloor t n^{2/3}\rfloor}\right),V_m\leq t \leq l+\sigma\right)\overset{a.s.}{\to} \left(\frac{\sigma_{-+}+\nu_-}{\mu^2}|T^{\text{mk}}_t|, V_m\leq t \leq l+\sigma\right)$$ in $\D([V_m,l+\sigma],\R_+)$ as $n\to \infty$. Then, a similar argument as used in the proof of Proposition \ref{prop.convergenceancestraledges} implies that 
 $$\left(K^n_{comp,m+1}\left(\lfloor t n^{2/3}\rfloor \right),V_m\leq t \leq l+\sigma\right)\overset{a.s.}{\to}\left(K_{comp,m+1}(t),V_m\leq t \leq l+\sigma\right),$$
 $\D(\R_+,\R_+)$ as $n\to\infty$, which implies that 
-$$(K^n_{m+1}(\lfloor t n^{2/3} \rfloor ),t\geq 0)\overset{d}{\to} (K_{m+1}(t),t\geq 0)$$ in $\D(\R_+,\R_+)$ as $n\to\infty$, and in particular, we can find a coupling such that $K_m(\infty)>0$ if and only only if $K^n_m(\infty)>0$ for all $n$ large enough, and such that on this event,
+$$(K^n_{m+1}(\lfloor t n^{2/3} \rfloor ),t\geq 0)\todist (K_{m+1}(t),t\geq 0)$$ in $\D(\R_+,\R_+)$ as $n\to\infty$, and in particular, we can find a coupling such that $K_m(\infty)>0$ if and only only if $K^n_m(\infty)>0$ for all $n$ large enough, and such that on this event,
 $$n^{-2/3}V_{m+1}^n\overset{a.s.}{\to}V_{m+1}.$$
 If $K_m(\infty)=0$, set $\mathbf{V}(l)=(V_1,\dots,V_m)$, $\mathbf{V}_n(l_n)=(V^n_1,\dots,V^n_m)$, and the statement follows. If $K_m(\infty)>0$, apply the induction step to $(V_1,\dots,V_{m+1})$ and $(V^n_1,\dots,V^n_{m+1})$. The fact that $|\mathbf{V}(l)|<\infty$ almost surely, as shown in Subsection \ref{subsubsec.samplecontinuousobject}, implies that the induction terminates.
 \end{proof}
@@ -198,7 +198,7 @@ The following proposition shows that the law of the heads of the candidates conv
 \begin{proposition}\label{prop.convergenceheadscandidates}
 Suppose the convergence in Propositions \ref{prop.convergenceancestraledges}, \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates} holds almost surely. Then, for $\mathbf{V}_n(l_n)=(V^n_1,\dots, V^n_{N_n})$, $\mathbf{V}(l)=(V_1,\dots, V_{N})$, let $W^n_i$ be the index of the vertex that the surplus edge corresponding to $V^n_i$ connects to. Similarly, let $W_i$ be the index of the vertex that the surplus edge corresponding to $V_i$ connects to. Then, 
 \begin{align*}&\left(n^{-1/3}T^n_{l_n}, n^{-2/3}(l_n+1), \left(n^{-2/3}V^n_1,n^{-2/3}W^n_1\right) \dots, \left(n^{-2/3}V^n_{N_n}, n^{-2/3}W^n_{N_n}\right)\right)\\
-&\overset{d}{\to}\left(\cT_l, l, (V_1,W_1),\dots, (V_{N},W_{N})\right)\end{align*}
+&\todist\left(\cT_l, l, (V_1,W_1),\dots, (V_{N},W_{N})\right)\end{align*}
 in the $2M+1$-pointed Gromov-Hausdorff topology. 
 \end{proposition}
 \begin{proof}
@@ -237,7 +237,7 @@ This follows from Proposition 5.3 in \cite{goldschmidtScalingLimitCritical2019}.
 
 \begin{corollary}\label{cor.sccordereduptotimeT}
 Let $T>0$, and let $(C^T_i(n),i\geq 1)$ be the SCCs in $(G_n(k),k\geq 1)$ with a candidate with label at most $\lfloor T n^{2/3}\rfloor$ ordered by length. Similarly, let $(\cC^T_i,i\geq 1)$ be the SCCs in $\vec{G}_n(\nu)$ with a candidate with label at most $T$ ordered by length. Then,
-$$\left(n^{-1/3}C^T_i(n), i\geq 1\right) \overset{d}{\to} (\cC^T_i,i\geq 1)$$
+$$\left(n^{-1/3}C^T_i(n), i\geq 1\right) \todist (\cC^T_i,i\geq 1)$$
 in the $\vec{\cG}$ product topology as $n\to \infty$. 
 \end{corollary}
 \begin{proof}
@@ -250,7 +250,7 @@ For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of S
 $$\lim_{s\to \infty}\limsup_{n} \P\left(SCC(n,(s,\infty),\delta)\geq 1\right)=0\text{ for all }\delta>0.$$
 \end{lemma}
 \begin{proof}
-Fix $\delta>0$. Suppose there is an SCC $C$ with $vn^{1/3}$ total in-edges. Conditionally on this fact, the in-edges that are paired up to the first in-edge of $C$ is paired, are uniform picks (without replacement) from the total set of in-edges. Denote the time of discovery of the first in-edge of $C$ times $n^{-2/3}$ by $\Xi_n$. Then, $\Xi_n\overset{d}{\to}\operatorname{Exp}(v)$. Fix $\epsilon>0$. We have that, by the memoryless property at time $s$,
+Fix $\delta>0$. Suppose there is an SCC $C$ with $vn^{1/3}$ total in-edges. Conditionally on this fact, the in-edges that are paired up to the first in-edge of $C$ is paired, are uniform picks (without replacement) from the total set of in-edges. Denote the time of discovery of the first in-edge of $C$ times $n^{-2/3}$ by $\Xi_n$. Then, $\Xi_n\todist\operatorname{Exp}(v)$. Fix $\epsilon>0$. We have that, by the memoryless property at time $s$,
 $$\P\left(SCC\left(n,(s,2s),\delta\right)=0|SCC\left(n,(s,\infty),\delta\right)\geq 1\right)$$
 is asymptotically bounded from above by 
 $\exp(-s\delta)$ by the memoryless property at time $s$, so that we can find an $s>0$ such that for all $n$ large enough,
