@@ -10,7 +10,7 @@ Set $$(\hat{R}_t,t\geq 0)= \left(\hat{B}_t-\inf\left\{\hat{B}_s: s\leq t\right\}
 Then,
 
 \begin{align*}\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3}t\rfloor \right),n^{-1/3}\hat{H}_{n}\left(\lfloor n^{2/3}t\rfloor \right), t\geq 0\right)
-\overset{d}{\to}\left(\sigma_+ \hat{B}_t, \frac{2}{\sigma_+} \hat{R}_t, t\geq 0\right)\end{align*}
+\todist\left(\sigma_+ \hat{B}_t, \frac{2}{\sigma_+} \hat{R}_t, t\geq 0\right)\end{align*}
 in $\D(\R_+,\R)^2$, and 
 \begin{align*}\left( n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P}_n\left(\lfloor n^{2/3}t\rfloor \right), t\geq 0\right)\overset{p}{\to}\left(\nu_-t,  \frac{\nu_-}{2\mu} t^2, t\geq 0\right)\end{align*}
 in $\D(\R_+,\R)^2$ as $n\to \infty$. 
@@ -52,7 +52,7 @@ encodes the in-degrees in order of discovery.
 %  \left(\nu_-t, t\geq 0 \right)$$
 %  in $\D(\R_+,\R)^2$ as $n\to \infty$.  Moreover,
 %  \begin{align*} &\left(n^{-1/3}\left({Y}^-\left(\lfloor n^{2/3}t\rfloor\right)-n^{2/3}\nu_-t\right),n^{-1/3}Y^+\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\\
-%  &\overset{d}{\to} 
+%  &\todist 
 %  \left(\mathbf{B}_t, t\geq 0 \right)\end{align*}
 %  in $\D(\R_+,\R)^2$, as $n\to \infty$, with $(\mathbf{B}_t,t\geq 0)$ a Gaussian process with covariance matrix
 %  $$\begin{pmatrix} \sigma_-^2  & \sigma_{-+} \\ \sigma_{-+}  & \sigma_+^2  \end{pmatrix}t.$$
@@ -60,7 +60,7 @@ encodes the in-degrees in order of discovery.
 
 \begin{theorem}\label{theorem.convaftermeasurechange} 
  For $T>0$,
-$$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3} t\rfloor\right), n^{-1/3}\hat{Y}^+\left(\lfloor  n^{2/3} t\rfloor\right), 0\leq t \leq T \right) \overset{d}{\to} \left( \nu_- t, \sigma_+\hat{B}_t, 0 \leq t \leq T \right)$$
+$$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3} t\rfloor\right), n^{-1/3}\hat{Y}^+\left(\lfloor  n^{2/3} t\rfloor\right), 0\leq t \leq T \right) \todist \left( \nu_- t, \sigma_+\hat{B}_t, 0 \leq t \leq T \right)$$
 in the Skorokhod topology as $n\to \infty$, where $(\hat{B}_t, t\geq 0)$ is distributed as follows.
 For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
 \begin{align*} &\E\left[F(\sigma_+ \hat{B}_t,0\leq t \leq T)\right]\\&=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B_t,   0\leq t \leq T)\right].\end{align*}
@@ -165,7 +165,7 @@ Let $\cG=(\cG_k,k\geq 1)$ denote the filtration such that $\cG_{k}$ contains the
 $$M_n(k):=\sum_{i=1}^k (\one_{\{P_n(i)-P_n(i-1)=1\}}-p_i)$$ is a martingale in $\cG$. We claim that $(n^{-1/3}M_n(\lfloor n^{2/3} t\rfloor ), t\geq 0)$ converges to $(0,t\geq 0)$ in probability in $D(\R_+,\R)$. Indeed, for any $t\geq 0$,
 \begin{align*}\E[n^{-2/3}M_n(\lfloor n^{2/3} t\rfloor )^2]&=n^{-2/3}\sum_{i=1}^{\lfloor n^{2/3} t\rfloor} \E[\E[(\one_{\{P_n(i)-P_n(i-1)=1\}}-p_i)^2|\cG_{i-1}]]\\&=n^{-2/3}\sum_{i=1}^{\lfloor n^{2/3} t\rfloor} \E[p_i-p_i^2]\to 0.\end{align*}
 Hence,
-$$\left(n^{-1/3}P_n(\lfloor n^{2/3}t\rfloor), t\geq 0\right)=\left(n^{-1/3}\sum_{i=1}^{\lfloor n^{2/3}t\rfloor}  \one_{\{P_n(i)-P_n(i-1)=1\}}  , t\geq 0\right)\overset{d}{\to} \left( \frac{\nu_-}{2\mu}t^2, t\geq 0 \right),$$
+$$\left(n^{-1/3}P_n(\lfloor n^{2/3}t\rfloor), t\geq 0\right)=\left(n^{-1/3}\sum_{i=1}^{\lfloor n^{2/3}t\rfloor}  \one_{\{P_n(i)-P_n(i-1)=1\}}  , t\geq 0\right)\todist \left( \frac{\nu_-}{2\mu}t^2, t\geq 0 \right),$$
  which proves the statement.
 
 \end{proof}
@@ -174,7 +174,7 @@ The convergence of $P_n$ under rescaling implies the convergence of $S^{+}$ and 
 
 \begin{corollary}\label{cor.lukasiewiczpathpurplevertices}
  Let $(B_t,t\geq 0)$ be a Brownian motion. We have 
- \begin{align*}\left(n^{-1/3}Y^{+}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^{+}_n\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\overset{d}{\to}\left(\sigma_+B_t,\sigma_+B_t-\frac{\nu_-}{2\mu}t^2,  t\geq 0\right)\end{align*}
+ \begin{align*}\left(n^{-1/3}Y^{+}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^{+}_n\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\todist\left(\sigma_+B_t,\sigma_+B_t-\frac{\nu_-}{2\mu}t^2,  t\geq 0\right)\end{align*}
  in $\D(\R_+,\R)^2$  and 
  $$\left(n^{-2/3}S^{-}_n\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right)$$
  in $\D(\R_+,\R)$ as $n\to\infty$.
@@ -193,7 +193,7 @@ Set $$(R^+_t,t\geq 0)=\left({B}^+_t-\inf\left\{{B}^+_s: s\leq t\right\},t\geq 0 
 Then,
 
 \begin{align*}&\left(n^{-1/3}Y^{+}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^{+}_n\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}H^{+}_n\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right) \\
-&\qquad \overset{d}{\to}\left(\sigma_+B_t,\sigma_+{B}^+_t, \frac{2}{\sigma_+} R^+_t,  t\geq 0\right)\end{align*}
+&\qquad \todist\left(\sigma_+B_t,\sigma_+{B}^+_t, \frac{2}{\sigma_+} R^+_t,  t\geq 0\right)\end{align*}
  in $\D(\R_+,\R)^3$, and 
  $$\left(n^{-2/3}S^{-}_n\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right)$$
  in $\D(\R_+,\R)$ as $n\to\infty$.
@@ -231,7 +231,7 @@ Considering the construction above and Corollary \ref{cor.lukasiewiczpathpurplev
 There exists a process $(D_t,t\geq 0)$ such that 
 \begin{align*}
     &\left(n^{-1/3}\left[Y^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right)-E\left(\lfloor n^{2/3}t\rfloor \right)\right], n^{-1/3}H^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right),t\geq 0\right)\\
-    &\overset{d}{\to}\left(\sigma_+D_t,\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)
+    &\todist\left(\sigma_+D_t,\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)
 \end{align*}
 in $\D(\R_+,\R)^2$ as $n\to \infty$ and $\left(\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)$ is the height process corresponding to $(\sigma_+D_t,t\geq 0)$.
 \end{proposition} 
