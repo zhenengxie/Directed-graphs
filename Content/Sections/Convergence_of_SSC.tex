@@ -1,6 +1,6 @@
 \section{Convergence of the SCCs under rescaling}\label{sec.convSCCs}
 
-In this section, we will use the convergence of the out-forest that we obtained in Section \ref{sec.convoutforest} to show that the SCCs ordered by decreasing length converge under rescaling in the $d_{\vec{\cG}}$-product topology. The structure of the argument is as follows. 
+In this section, we will use the convergence of the out-forest that we obtained in Section \ref{sec.convoutforest} to show that the SCCs ordered by decreasing length converge under rescaling in the $d_{\vec{\cG}}$-product topology. 
 % \begin{itemize}
 %     \item In Subsection XXX, we categorise the different type of surplus edges, and identify which of them are part of an SCC. We call these \emph{important} surplus edges.
 %     \item A key category of \emph{important} surplus edges is the \emph{ancestral surplus edges}. Namely, a component of $\hat{F}_n(k)$ can not contain a non-trivial SCC if it does not contain an ancestral surplus edge. In Subsection XXX, we use this fact to identify the components of $\hat{F}_n\left(\lfloor n^{2/3}T\rfloor \right)$ that contain a non-trivial SCC, and show that their metric structure converges jointly with the position of their first ancestral surplus edge. 
@@ -100,7 +100,7 @@ and for $i \in [m]$ define
 \end{align*}
 For $S=\{(a_i,b_i), i\in [m]\}$, let $\operatorname{ord}(S)$ be a sequence consisting of the elements of $S$ put in decreasing order of $a_i$, with ties broken arbitrarily, and concatenated with $(0,0)_{i\geq 1}$ so that $\operatorname{ord}(S)\in (\R^2)^\infty$. Then, 
 $$\operatorname{ord}\left(\left\{(l_i^n,\sigma_i^n):1\leq i \leq m\right\}\right)\to \operatorname{ord}\left(\left\{(l_i,\sigma_i):1\leq i \leq m\right\}\right)$$
-in $(\R^{2})^\infty$ equipped with the $\ell_1$-topology as $n\to \infty$. 
+in $(\R^{2})^\infty$ equipped with the product topology as $n\to \infty$. 
 \end{lemma}
 \begin{proof}
 First, note that $l_i^n$, $\sigma_i^n$, $l_i$, and $\sigma_i$ are well-defined for all $i\in [m]$, $n\geq 1$ by $f(t)\to -\infty$ as $t\to \infty$ and the convergence of $f_n$ to $f$. \\
@@ -134,7 +134,7 @@ L_i&=\inf\left\{t\geq 0:\sigma_+\hat{B}_t=\inf\{\sigma_+\hat{B}_s:s\leq X_i\}\ri
 \end{align*}
 Then, for $\operatorname{ord}$ defined as in the statement of Lemma \ref{lemma.extractexcursions}, we get that
 $$\operatorname{ord}\left(\left\{\left(n^{-2/3}L_i^n,n^{-2/3}\Sigma_i^n\right):1\leq i \leq A_n\left(\lfloor T n^{2/3}\rfloor\right)\right\}\right)\todist \operatorname{ord}\left(\left\{(L_i,\Sigma_i):1\leq i \leq A_T\right\}\right)$$
-in the $\ell_1$-topology on $(\R^2)^\infty$ as $n\to \infty$, jointly with the convergence in Proposition \ref{prop.convergenceancestraledges}. 
+in the product topology on $(\R^2)^\infty$ as $n\to \infty$, jointly with the convergence in Proposition \ref{prop.convergenceancestraledges}. 
 \end{proposition}
 \begin{proof}
 By Skorokhod's representation theorem, we may work on a probability space where the convergence in Proposition \ref{prop.convergenceancestraledges} holds almost surely, and claim that we can apply Lemma \ref{lemma.extractexcursions} to the sample paths of $\left(n^{-1/3}\hat{S}^{p}_n\left(\lfloor n^{2/3}t\rfloor\right),t \geq 0\right)$ with marks $$\left(n^{-2/3}X_n^i\right)_{1\leq i\leq A_n\left(\lfloor T n^{2/3}\rfloor\right)}.$$ We check the conditions.
@@ -182,7 +182,7 @@ The following proposition shows convergence under rescaling of the sequence of t
 \begin{proposition}\label{prop.convergencestartingpointscandidates}
 Fix $T>0$. By Skorokhod's representation theorem, we may work on a probability space where the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions} holds almost surely. Let $(l,\sigma)\in \left\{(L_i,\Sigma_i):i\leq A_T\right\}$, so that, for each $n$ large enough, we can find $(l_n,\sigma_n)\in\left\{(L_i^n,\Sigma_i^n):i\leq A_n\left(\lfloor Tn^{2/3}\rfloor\right)\right\}$ such that $(l_n,\sigma_n)\to (l,\sigma)$. Set $V_1=\inf\{t\in [l,l+\sigma]:A(t)=A(l)+1\}$, and similarly, set $V_1^n=\min\{l_n<k\leq l_n+\sigma_n:A_n(k)=A_n(l_n)+1\}$, which are well-defined by definition of $l$, $\sigma$, $l_n$ and $\sigma_n$. By construction, $\{l_n+1,\dots,l_n+\sigma_n\}$ encodes a component of $(\hat{F}_n(k),k\geq 1)$. Call this component $T^n_{l_n}$. We apply the procedure defined in \cref{lemma.samplecandidates} to find the tails of the candidates in $T^n_{l_n}$. Let $\mathbf{C}_n(l_n)$ denote the sequence of tails of candidates in $T^n_{l_n}$. Similarly, $[l,l+\sigma]$ encodes a component of $(\hat{\cF}(t),t\geq 0)$. Call this component $\cT_l$, and apply the procedure in Subsection \ref{subsubsec.samplecontinuousobject} to find the tails of the candidates in $\cT_l$. Denote the sequence of tails of candidates by $\mathbf{V}(l)$. Then, jointly with the convergence in Proposition \ref{prop.extractexcursions}, 
 $$n^{-2/3}\mathbf{V}_n(l_n)\todist\mathbf{V}(l)$$
-in the $\ell_1$ topology.
+in the product topology.
 \end{proposition}
 \begin{proof}
 We will find a coupling such that $n^{-2/3}\mathbf{V}_n(l_n)\overset{a.s.}{\to}\mathbf{V}(l).$ By the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions}, $n^{-2/3}V_1^n\overset{a.s.}{\to}V_1$. In general, let $V_m^n$ denote the $m^{th}$ candidate that is found in $T^n_{l_n}$, and let $V_m$ denote the $m^{th}$ candidate that is found in $\cT_l$. Suppose that, for some $m$, we have found a coupling such that 
