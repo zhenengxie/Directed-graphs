@@ -1,6 +1,5 @@
 \section{Convergence of the out-forest}\label{sec.convoutforest}
-
-Recall that $(\hat{F}_n(k),k\geq 1)$ is the sequence of out-forests given by the exploration, where we set $\hat{F}_n(k+1)=\hat{F}_n(k)$ if all in-half-edges have been paired at time $k$. In this section we will show that the \L ukasiewicz path and height process corresponding to $(\hat{F}_n(k),k\geq 1)$, denoted by $(\hat{S}^{+}_n(k),\hat{H}_n(k),k\geq 1)$, converge in distribution under rescaling. We show that this convergence occurs jointly with convergence in distribution under rescaling of $(\hat{S}^-_n(k),\hat{P}_n(k), k\geq 1)$, for $\hat{S}^-_n(k)$ the number of unpaired in-half-edges of vertices that have been discovered at time $k$, and $\hat{P}_n(k)$ the number of dummy leaves added in the first $k$ time-steps.  \\
+ In this section we will show that the \L ukasiewicz path and height process corresponding to the out-forest, denoted by $(\hat{S}^{+}_n(k),\hat{H}_n(k),k\geq 1)$, converge in distribution under rescaling. We show that this convergence occurs jointly with convergence in distribution under rescaling of $(\hat{S}^-_n(k),\hat{P}_n(k), k\geq 1)$, for $\hat{S}^-_n(k)$ the number of unpaired in-half-edges of vertices that have been discovered at time $k$, and $\hat{P}_n(k)$ the number of dummy leaves added in the first $k$ time-steps.  \\
 We let $(B_t)_{t\geq 0}$ be a Brownian motion, and define
 $$(\hat{B}_t,t\geq 0):=\left( B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+ \mu}t^2, t\geq 0\right).$$ 
 We define the reflected process $$(\hat{R}_t,t\geq 0)= \left(\hat{B}_t-\inf\left\{\hat{B}_s: s\leq t\right\},t\geq 0\right).$$
@@ -15,15 +14,15 @@ in $\D(\R_+,\R)^2$, and
 \begin{align*}\left( n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P}_n\left(\lfloor n^{2/3}t\rfloor \right), t\geq 0\right)\overset{p}{\to}\left(\nu_-t,  \frac{\nu_-}{2\mu} t^2, t\geq 0\right)\end{align*}
 in $\D(\R_+,\R)^2$ as $n\to \infty$. 
 \end{theorem}
-We prove Theorem \ref{thm.convoutforest} by studying two other forests that are related to $\hat{F}_n(m_n)$ via a change of measure.  \\
+We prove Theorem \ref{thm.convoutforest} by studying two other forests that are related to the out-forest via a change of measure.  \\
 The proof is structured as follows.
 \begin{enumerate}
     \item \label{item.measurechangeexists} Let $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,R_n})$ denote the in- and out-degree pairs in order of discovery. Let $\mathbf{Z}_1, \mathbf{Z}_2, \ldots$ be an i.i.d. sequence of $\N\times \N$-valued random variables, $\mathbf{Z}_i:=(Z_i^-,Z_i^+)$, such that 
     $$\P(Z_i^-=k^-, Z_i^+=k^+)=\frac{k^-\P(D^-=k^-,D^+=k^+)}{\mu}.$$
     Then, we show that the law of $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ conditional on $\sum_{i=1}^n D_i^-=\sum_{i=1}^n D_i^+$ and $m \leq R_n$ is absolutely continuous with respect to that of $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and we show the convergence of the Radon-Nikodym derivative $\phi_m^n$ for $m=O(n^{2/3})$. This is the content of Subsection \ref{subsec.measurechange}.
-    \item Let $(\mathbf{Z}_i,i\geq 1)$ be a sequence of i.i.d.\ copies of $\mathbf{Z}$. Point \ref{item.measurechangeexists} motivates us to study a Bienaymé forest with offspring distributed as $Z_1^+$. Call this forest $(F(k),k\geq 1)$. The convergence of the \L ukasiewicz path of $(F(k),k\geq 1)$ under rescaling follows from Donsker's theorem.
-    \item In Subsection \ref{subsec.purpleleavesGWforest}, we modify $(F(k),k\geq 1)$ in order to include dummy leaves. We add extra randomness, approximating the procedure described in Lemma \ref{lemma.sampleoutforest}, in such a way that at some time-steps, a dummy leaf is added. We call the resulting forest $(F^p_n(k),k\geq 1)$. We respect the order of the degrees in $(F(k),k\geq 1)$, in the sense that for any $k$, the $k^{th}$ black vertex in $(F^p_n(k),k\geq 1)$ has the same number of children as the $k^{th}$ vertex in $(F(k),k\geq 1)$. $(F^p_n(k),k\geq 1)$ depends on $n$, because the probability of finding a dummy leaf depends on $n$. We then show that the \L ukasiewicz path and height process corresponding to $(F^p_n(k),k\geq 1)$ converge under rescaling, jointly with the convergence of the \L ukasiewicz path and height process corresponding to $(F(k),k\geq 1)$ under rescaling up to time $O(n^{2/3})$.
-    \item We show convergence under rescaling of $(\hat{F}_n(k),k\geq 1)$ up to time $O(n^{2/3})$ by applying the measure change to $(F^p_n(k),k\geq 1)$ and showing that the resulting process is a good approximation of $(\hat{F}_n(k),k\geq 1)$. 
+    \item Let $(\mathbf{Z}_i,i\geq 1)$ be a sequence of i.i.d.\ copies of $\mathbf{Z}$. Point \ref{item.measurechangeexists} motivates us to study a Bienaymé forest with offspring distributed as $Z_1^+$. The convergence of the \L ukasiewicz path of this forest under rescaling follows from Donsker's theorem.
+    \item In Subsection \ref{subsec.purpleleavesGWforest}, we modify the Bienaymé forest in order to include dummy leaves. We add extra randomness, approximating the procedure described in Lemma \ref{lemma.sampleoutforest}, in such a way that at some time-steps, a dummy leaf is added. We call the resulting forest \emph{the forest with dummy leaves}. We respect the order of the degrees in the Bienaymé forest, in the sense that for any $k$, the $k^{th}$ true vertex in the forest with dummy leaves has the same number of children as the $k^{th}$ vertex in the Bienaymé forest. The forest with dummy leaves depends on $n$, because the probability of finding a dummy leaf depends on $n$. We then show that the \L ukasiewicz path and height process of the forest with dummy leaves converge under rescaling, jointly with the convergence of the \L ukasiewicz path and height process of the Bienaymé forest under rescaling up to time $O(n^{2/3})$.
+    \item We show convergence under rescaling of the out-forest up to time $O(n^{2/3})$ by applying the measure change to the forest with dummy leaves and showing that the resulting forest is a good approximation of the out-forest. 
 \end{enumerate}
 
 \subsection{The measure change and its convergence}\label{subsec.measurechange}
@@ -116,16 +115,16 @@ We would like to add dummy leaves to the forest encoded by $(S_n^+(l),1\leq l \l
 % \begin{proof}
 % This is a slight adaptation of Lemma \ref{lemma.sampleoutforest}, with the sequence $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ replaced by $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and the total number of in-edges replaced by its mean $\mu n$.
 % \end{proof}
-We use this idea to define $(F_n^p(k),k\geq 1)$ and its \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ as a function of $(Y^-(k), Y^+(k) ,k\geq 1)$ and some extra randomness to decide at which time-steps we add a dummy leaf.
+We use this idea to define the forest with dummy leaves and its \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ as a function of $(Y^-(k), Y^+(k) ,k\geq 1)$ and some extra randomness to decide at which time-steps we add a dummy leaf.
 \begin{enumerate} 
     \item Set $P_n(1)=0$, $S_n^{+}(1)=Z_1^+-1$, $S_n^{-}(1)=Z_1^-$. 
     \item Suppose we are given $(P_n(l),S_n^{+}(l),S_n^{-}(l), 1\leq l \leq k)$. Define 
     $I^{+}(k)=\min\{S_n^{+}(l), l\leq k\}$. Then, with probability $$p_{k+1}:=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}},$$ independent from everything else, set $P_n(k+1)=P_n(k)+1$. Otherwise, set $P_n(k+1)=P_n(k)$. 
     \item Set $$S_n^{+}(k+1)=Y^+(k+1-P_n(k+1))-P_n(k+1),$$ and $$S_n^{-}(k+1)=Y^-(k+1-P_n(k+1))-P_n(k+1)-I^{+}(k)+1.$$
 \end{enumerate}
-Let $(F^p_n(k),k\geq 1)$ be the forest with \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ in which the $k^{th}$ vertex is a dummy leaf if and only if $P^n(k)-P^n(k-1)=1$. 
+Let the forest with dummy leaves be the forest with \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ in which the $k^{th}$ vertex is a dummy leaf if and only if $P^n(k)-P^n(k-1)=1$. 
 \subsubsection{Convergence of the \L ukasiewicz path}
-To show the convergence of the \L ukasiewicz path corresponding to $(F^p_n(k),k\geq 1)$, we will first examine the limit of $(P_n(k), k\geq 1)$ under rescaling. We will first prove tightness, after which we will show convergence.
+To show the convergence of the \L ukasiewicz path corresponding to the forest with dummy leaves, we will first examine the limit of $(P_n(k), k\geq 1)$ under rescaling. We will first prove tightness, after which we will show convergence.
 
 
 \begin{lemma}\label{lemma.tightnesssurplusedges}
@@ -190,9 +189,9 @@ The convergence of $P_n$ under rescaling implies the convergence of $S^{+}$ and 
 \end{proof}
 
 \subsubsection{Convergence of the height process}\label{subsubsec.convheightprocess}
-In this subsection, we will extend Corollary \ref{cor.lukasiewiczpathpurplevertices} to joint convergence under rescaling with the height process corresponding to $(F^p_n(k),k\geq 1)$. We prove the following proposition. 
+In this subsection, we will extend Corollary \ref{cor.lukasiewiczpathpurplevertices} to joint convergence under rescaling with the height process corresponding to the forest with dummy leaves. We prove the following proposition. 
 \begin{proposition}\label{prop.convheightprocesspurple}
-Let $(H^{+}(k),k\geq 1)$ be the height process corresponding to $(F^p(k),k\geq 1)$. Let $(B_t,t\geq 0)$ be a Brownian motion, and define 
+Let $(H^{+}(k),k\geq 1)$ be the height process corresponding to the forest with dummy leaves. Let $(B_t,t\geq 0)$ be a Brownian motion, and define 
 $$({B}^+_t,t\geq 0)=\left(B_t-\frac{\nu_-}{2\mu\sigma_+}t^2,t\geq 0\right).$$ 
 Set $$(R^+_t,t\geq 0)=\left({B}^+_t-\inf\left\{{B}^+_s: s\leq t\right\},t\geq 0 \right).$$
 Then,
@@ -204,32 +203,32 @@ Then,
  in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{proposition}
 
-The difficulty in proving this proposition is the fact that $(F^p_n(k),k\geq 1)$ is not a Bienaymé forest, because the probability of sampling a dummy leaf is dependent on the past of the process. The theory of convergence of height processes under rescaling is well-developed for Bienaymé processes (see e.g. \cite{AST_2002__281__R1_0}), but this is not the case for more general processes.  We will adapt a technique that Broutin, Duquesne and Wang develoved in \cite{broutinLimitsMultiplicativeInhomogeneous2020} to show the convergence of the height process of an inhomogeneous random graph under rescaling. The key idea is that  $(F^p_n(k),k\geq 1)$ itself is not a Bienaymé forest, but we can embed it in a Bienaymé forest, not depending on $n$, say $(F^{pr}(k),k\geq 1)$, which will contain. We call the extra vertices \emph{filler vertices}. We then show convergence under rescaling of the height process corresponding to $(F^{pr}(k),k\geq 1)$, and use this to obtain height process convergence for $(F^p_n(k),k\geq 1)$. \\
-We start by defining $(F^{pr}(k),k\geq 1)$. Informally, we obtain $(F^{pr}(k),k\geq 1)$ by modifying $(F^p_n(k),k\geq 1)$ in such a way that a sub-tree consisting of the descendants of a dummy leaf has the same law as a sub-tree consisting of the descendants of a true vertex. We do this by sampling extra Bienaymé trees with offspring distributed as $Z^+$, whose vertices are all filler vertices, and then identifying their roots with the dummy leaves. The resulting forest is a Bienaymé forest containing true vertices, dummy vertices and filler vertices, in which the forest with true vertices and dummy vertices is embedded. This is illustrated in Figure \ref{fig.blackpurpleredforest}. 
+The difficulty in proving this proposition is the fact that the forest with dummy leaves is not a Bienaymé forest, because the probability of sampling a dummy leaf is dependent on the past of the process. The theory of convergence of height processes under rescaling is well-developed for Bienaymé processes (see e.g. \cite{AST_2002__281__R1_0}), but this is not the case for more general processes.  We will adapt a technique that Broutin, Duquesne and Wang develoved in \cite{broutinLimitsMultiplicativeInhomogeneous2020} to show the convergence of the height process of an inhomogeneous random graph under rescaling. The key idea is that  the forest with dummy leaves itself is not a Bienaymé forest, but we can embed it in a Bienaymé forest, not depending on $n$, which will contain the forest with dummy leaves. We call the extra vertices \emph{filler vertices} and call the resulting forest \emph{the forest with dummy and filler vertices}. We then show convergence under rescaling of the height process corresponding to the forest with dummy and filler vertices, and use this to obtain height process convergence for the forest with dummy leaves. \\
+We start by defining the forest with dummy and filler vertices. Informally, we obtain it by modifying the forest with dummy leaves in such a way that a sub-tree consisting of the descendants of a dummy leaf has the same law as a sub-tree consisting of the descendants of a true vertex. We do this by sampling extra Bienaymé trees with offspring distributed as $Z^+$, whose vertices are all filler vertices, and then identifying their roots with the dummy leaves. The resulting forest is a Bienaymé forest containing true vertices, dummy and filler vertices, in which the forest with true vertices and dummy leaves is embedded. This is illustrated in Figure \ref{fig.blackpurpleredforest}. 
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{Content/Pictures/black_purple_red_tree.eps}
-    \caption{Given a component of $(F^p_n(k),k\geq 1)$ (left), we modify it by sampling independent Bienaymé trees with offspring distributed as $Z^+$ consisting of filler vertices and identifying each dummy leaf with a root of such a tree. The resulting tree (right) is a Bienaymé tree, and the resulting forest $(F^{pr}_n(k),k\geq 1)$ is a Bienaymé forest.}
+    \caption{Given a component of the forest with dummy vertices (left), we modify it by sampling independent Bienaymé trees with offspring distributed as $Z^+$ consisting of filler vertices and identifying each dummy leaf with a root of such a tree. The resulting tree (right) is a Bienaymé tree, and the resulting forest is a Bienaymé forest.}
     \label{fig.blackpurpleredforest}
 \end{figure}
-The formal procedure is as follows. Suppose we are given $(Y^+(k),S^{+}(k),P_n(k),k\geq 1)$, which encode $(F^p_n(k),k\geq 1)$.
+The formal procedure is as follows. Suppose we are given $(Y^+(k),S^{+}(k),P_n(k),k\geq 1)$, which encode the forest with dummy leaves.
 \begin{enumerate}
     \item Let $(Y^{red}(k),k\geq 1)$ be an independent copy of $(Y^+(k),k\geq 1)$, which will encode the pendant subtrees that consist of filler vertices.
     \item Define $\theta_n(k)=k+\min\{j: Y^{red}(j)=-P_n(k-1)\}-P_n(k-1)$. 
     \item Set $\Lambda_n(k)=\max\{j:\theta_n(j)\leq k\}-P_n(\max\{j:\theta_n(j)\leq k\})$. 
     \item We now define \begin{equation}\label{eq.definitionY^{pr}}(Y^{pr}(k),k\geq 1)=(Y^+(\Lambda_n(k))+Y^{red}(k-\Lambda_n(k)),k\geq 1)\end{equation}
-    and we let $(F^{pr}(k),k\geq 1)$ be the Bienaymé process encoded by $(Y^{pr}(k),k\geq 1)$, in which $P_n(\max\{j:\theta_n(j)\leq k\})$ of the first $k$ vertices are dummy vertices, $\Lambda_n(k)$ of the first $k$ vertices are true vertices, and the rest are filler vertices. We let $(H^{pr}(k),k\geq 1)$ be the height process corresponding to $(F^{pr}(k),k\geq 1)$.
+    and we let $(F^{pr}(k),k\geq 1)$ be the Bienaymé process encoded by $(Y^{pr}(k),k\geq 1)$, in which $P_n(\max\{j:\theta_n(j)\leq k\})$ of the first $k$ vertices are dummy vertices, $\Lambda_n(k)$ of the first $k$ vertices are true vertices, and the rest are filler vertices. We let $(H^{pr}(k),k\geq 1)$ be the height process corresponding to the forest with dummy and filler vertices.
 \end{enumerate}
-The subforest consisting of the true vertices and dummy vertices in $F^{pr}(\theta_n(k))$ is, by construction, equal to $F^{p}(k)$. Moreover, $(F^{pr}(k),k\geq 1)$ is a Bienaymé forest. We make the following observations.
+By removing the filler vertices from the forest with dummy and filler vertices, we obtain the original forest with dummy leaves. We make the following observations.
 \begin{enumerate}
-    \item We claim that $$\theta_n(k)=\min\{l: F^p(k)\text{ is a subforest of }F^{pr}(l)\}.$$ Indeed, note that $\min\{j: Y^{red}(j)=-P_n(k-1)\}$ is equal to the number of vertices in the first $P_n(k-1)$ trees in the forest encoded by $Y^{red}$, so that $$\min\{j: Y^{red}(j)=-P_n(k-1)\}-P_n(k-1)$$ is equal to the number of filler vertices we add to $F^p(k)$. Then, $\theta_n(k)$ is the index in $(F^{pr}(k),k\geq 1)$ of the $k^{th}$ black or dummy leaf. 
-    \item Note that $\Lambda_n(k)$ is the number of blue vertices amongst the first $k$ vertices. This follows from the fact that $\max\{j:\theta_n(j)\leq k\}$ is the number of blue or dummy leaves amongst the first $k$ vertices. 
-    \item By the argument above, $(\Lambda_n(k),k\geq 1)$ only takes steps of size $0$ or $1$. Both $(Y^+(k),k\geq 1)$ and $(Y^{red}(k),k\geq 1)$ are random walks with steps distributed as $Z^+-1$, so, by construction, $(Y^{pr}(k),k\geq 1)$ is a random walk with steps distributed as $Z^+-1$, so $(F^{pr}(k),k\geq 1)$ is a Bienaymé forest with offspring distributed as $Z^+$.
-    \item By construction, $(H^{pr}(\theta_n(k)),k\geq 1)$ is the height process corresponding to $(F^p_n(k),k\geq 1)$. Moreover,
+    \item We claim that $\theta_n(k)$ is equal to index in depth first order of the $k$th true or dummy vertex in the forest with dummy and filler vertices. Indeed, note that $\min\{j: Y^{red}(j)=-P_n(k-1)\}$ is equal to the number of vertices in the first $P_n(k-1)$ trees in the forest encoded by $Y^{red}$, so that $$\min\{j: Y^{red}(j)=-P_n(k-1)\}-P_n(k-1)$$ is equal to the number of filler vertices in depth-first order until the $k$th true or dummy vertex. 
+    \item Note that $\Lambda_n(k)$ is the number of true vertices amongst the first $k$ vertices. This follows from the fact that $\max\{j:\theta_n(j)\leq k\}$ is the number of true or dummy vertices amongst the first $k$ vertices. 
+    \item By the argument above, $(\Lambda_n(k),k\geq 1)$ only takes steps of size $0$ or $1$. Both $(Y^+(k),k\geq 1)$ and $(Y^{red}(k),k\geq 1)$ are random walks with steps distributed as $Z^+-1$, so, by construction, $(Y^{pr}(k),k\geq 1)$ is a random walk with steps distributed as $Z^+-1$, so the forest with dummy and filler vertices is a Bienaymé forest with offspring distributed as $Z^+$.
+    \item By construction, $(H^{pr}(\theta_n(k)),k\geq 1)$ is the height process corresponding to the forest with dummy vertices. Moreover,
    \begin{equation}\label{eq.constructionSp}(S^{+}(k),k\geq 1)=(Y^{pr}(\theta_n(k))-E(\theta_n(k)),k\geq 1),\end{equation}
     where 
-    $E(k)$ counts the number of children of the $k^{th}$ vertex in $(F^{pr}(k),k\geq 1)$ that are filler vertices.
+    $E(k)$ counts the number of children of the $k^{th}$ vertex in the forest with dummy and filler vertices that are filler vertices.
 \end{enumerate}
 Considering the construction above and Corollary \ref{cor.lukasiewiczpathpurplevertices}, in order to prove Proposition \ref{prop.convheightprocesspurple}, it is sufficient to prove the following proposition.
 \begin{proposition}\label{prop.heightprocessblackpurplered}
@@ -244,10 +243,12 @@ We postpone the proof to Appendix \ref{appendix.heightprocessblackpurplered}.
 
 \subsection{Proof of Theorem \ref{thm.convoutforest}}\label{subsubsec.convaftermeasurechange}
 We will now show that the 
-We will now combine the convergence of the measure change under rescaling, which is the content of Theorem \ref{thm:measure-change}, and the convergence of the encoding processes of $(F^p(k),k\geq 1)$, which is the content of Proposition \ref{prop.convheightprocesspurple}, in order to prove Theorem \ref{thm.convoutforest}.
+We will now combine the convergence of the measure change under rescaling, which is the content of Theorem \ref{thm:measure-change}, and the convergence of the encoding processes of the forest with dummy leaves, which is the content of Proposition \ref{prop.convheightprocesspurple}, in order to prove Theorem \ref{thm.convoutforest}.
 
 \begin{proof}[Proof of Theorem \ref{thm.convoutforest}]
-Recall that $\hat{P}_n(k)$ denotes the number of dummy leaves in $\hat{F}_n(k)$. Set $\hat{I}_n(k)=\min\{\hat{S}^{+}_n(l):l\leq k\}$. Then, as shown in Lemma \ref{lemma.sampleoutforest}, the probability that the $(k+1)^{th}$ vertex in $(\hat{F}_n(k),k\geq 1)$ is purple is given by
+Recall that $\hat{P}_n(k)$ denotes the number of dummy leaves amongst the first $k$ vertices in the forest with dummy leaves. Set $\hat{I}_n(k)=\min\{\hat{S}^{+}_n(l):l\leq k\}$. 
+{\color{red} CONTINUE HERE}
+Then, as shown in Lemma \ref{lemma.sampleoutforest}, the probability that the $(k+1)^{th}$ vertex in $(\hat{F}_n(k),k\geq 1)$ is purple is given by
 $$q_{k+1}:=\frac{\hat{S}^-(k)}{\sum_{i=0}^n D^-_i-k-\hat{I}_n(k)}\one_{\left\{\hat{I}_n(k-1)= \hat{I}_n(k)\right\}}.$$
 In order to use the results on $(F^p(k),k\geq 1)$, we would like to replace the term $\sum_{i=0}^n D^-_i$ in the denominator by $\mu n$. Therefore, define a new forest $(\hat{F}'_n(k), k\geq 1)$ in which the probability that the $(k+1)^{th}$ vertex is a dummy leaf is
 $${q}'_{k+1}:=\frac{\hat{S}^-(k)}{\mu n-k-\hat{I}'_n(k)}\one_{\left\{\hat{I}'_n(k-1)=\hat{I}'_n(k)\right\}},$$
@@ -283,83 +284,80 @@ where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{
 Since $$(B^+_t,t\geq 0)=\left(B_t-\frac{\nu_-}{2\sigma_+ \mu}t^2,t\geq 0\right),$$
 Lemma \ref{lemma.characterizelimitprocess} implies the convergence under rescaling of $(\hat{S}^+_n(k),\hat{H}_n(k),k\geq 0)$. By Proposition \ref{prop.convheightprocesspurple} , $S^{-}_n$ converges in distribution to a deterministic process under scaling, which will not be affected by the measure change. This completes the proof. 
 \end{proof}
+\input{Content/Sections/anomalousedges}
+% \subsection{The convergence of the out-forest holds conditionally on the multigraph being simple}
+% We will now show that the parts of the directed multigraph we observe up until the timescale in which we are interested are with high probability simple. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that Theorem \ref{thm.convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k^{th}$ vertex of $(\hat{F}_n(k),k\geq 1)$. Following \cite{conchon--kerjanStableGraphMetric2020}, we call these anomalous edges. 
+% \begin{proposition}\label{prop.anomalousedges}
+% Suppose $\beta<1$. Then we have
+% $$\P\left(B_n(\lfloor n^\beta \rfloor)>0\right)\to 0$$
+% as $n\to \infty$.
+% \end{proposition}
+% \begin{remark}
+% We adapt the proof of Lemma 7.1 of \cite{josephComponentSizesCritical2014} and of Proposition 5.3 of \cite{conchon--kerjanStableGraphMetric2020} to the directed setting. A significant complication is caused by the conditioning on $$\left\{\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i\right\}.$$ We observe that in both papers, the proof of the aforementioned result is not fully correct, because the authors use the wrong expression for the probability of sampling an anomalous edge. However, the argument below can be adapted to the setting of \cite{josephComponentSizesCritical2014} and \cite{conchon--kerjanStableGraphMetric2020} to yield a correct proof.
+% \end{remark}
+% \begin{proof}
+% Note that we can only show the convergence of the Radon-Nikodym derivative $\Phi(n,m)$ for $m=O(n^{2/3})$, so it is not straightforward to use the measure change to prove results on the time scale $O(n^\beta)$ for $\beta>2/3$. Therefore, for the proof of this lemma, we will use \emph{Poissonization} to sample $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{R_n,n})$. This technique was also used by Joseph in \cite{josephComponentSizesCritical2014}. 
 
-\subsection{The convergence of the out-forest holds conditionally on the multigraph being simple}
-We will now show that the parts of the directed multigraph we observe up until the timescale in which we are interested are with high probability simple. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that Theorem \ref{thm.convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k^{th}$ vertex of $(\hat{F}_n(k),k\geq 1)$. Following \cite{conchon--kerjanStableGraphMetric2020}, we call these anomalous edges. 
-\begin{proposition}\label{prop.anomalousedges}
-Suppose $\beta<1$. Then we have
-$$\P\left(B_n(\lfloor n^\beta \rfloor)>0\right)\to 0$$
-as $n\to \infty$.
-\end{proposition}
-\begin{remark}
-We adapt the proof of Lemma 7.1 of \cite{josephComponentSizesCritical2014} and of Proposition 5.3 of \cite{conchon--kerjanStableGraphMetric2020} to the directed setting. A significant complication is caused by the conditioning on $$\left\{\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i\right\}.$$ We observe that in both papers, the proof of the aforementioned result is not fully correct, because the authors use the wrong expression for the probability of sampling an anomalous edge. However, the argument below can be adapted to the setting of \cite{josephComponentSizesCritical2014} and \cite{conchon--kerjanStableGraphMetric2020} to yield a correct proof.
-\end{remark}
-\begin{proof}
-Note that we can only show the convergence of the Radon-Nikodym derivative $\Phi(n,m)$ for $m=O(n^{2/3})$, so it is not straightforward to use the measure change to prove results on the time scale $O(n^\beta)$ for $\beta>2/3$. Therefore, for the proof of this lemma, we will use \emph{Poissonization} to sample $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{R_n,n})$. This technique was also used by Joseph in \cite{josephComponentSizesCritical2014}. Let $R_n$ be as before, and conditional on $R_n$, let $D^{0,+}_1,\dots,D^{0,+}_{n-R_n}$ i.i.d.\ random variables with the law of $D^+$ conditional on $D^-=0$, and set $S_{n-R_n}=\sum_{i=1}^{n-R_n}D^{0,+}_i$. Fix $\epsilon>0$. There is an $L$ such that with probability at least $1-\epsilon$, both $R_n$ and $S_{n-R_n}$ are within an interval of width $Ln^{1/2}$ around their mean. We condition on this event. Suppose $R_n=r$ and $S_{n-R_n}=s$. 
-Let
-$$\pi^0(dt,k_1,k_2)=r\P(D^-=k_1,D^+=k_2|D^->0)k_1\exp(-k_1 t)dt$$
-be a measure on $\R_+\times \N^2$, and let $\Pi^0$ be a Poisson point process with intensity measure $\pi^0$ conditional on $\Pi^0(\R,\N,\N)=r$. Then, the second and third coordinates of the points in $\Pi^0$ ordered by their first coordinates have the same law as $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{r,n})$ (before conditioning on the event $\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\}$).  
-The intensity of this process is not constant in $t$, so we perform a time change. Define
-$$\cL_{\mathbf{D}}(x,y)=\E\left[\left.\exp(-xD^--yD^+)\right|D^->0 \right],$$
-and set 
-$$\psi(t)=\left(1-\cL_{\mathbf{D}}(\cdot,0)\right)^{-1},$$
-so that, by a trivial adaptation of Lemma 4.1 of \cite{josephComponentSizesCritical2014}, for 
-$$\pi_r(dt,k_1,k_2):=\P(D^-=k_1,D^+=k_2|D^->0)k_1\exp\left(-k_1 \psi(t/r)\right)\psi'(t/r)dt$$
-on $(0,r)\times \N^2$, we have that for $t\in (0,r)$, there exists a probability measure $P_t$ on $\N^2$ such that
-$$\pi_r(dt,k_1,k_2)=P_t(D^-=k_1,D^+=k_2)dt.$$
-Let ${\Pi}_r$ be a Poisson point process with intensity $\pi_r$.  Now, let $\hat{\Pi}_r$ be a random measure, which is a point process with intensity $\pi_r$, conditioned on 
-\begin{enumerate}
-    \item $N_r:= \hat{\Pi}_r((0,r),\N,\N)=r$, and 
-    \item $\Delta_r:=\int_{(0,r)\times \N^2}(k_1-k_2) \hat{\Pi}_r(dt,k_1,k_2)=s$.
-\end{enumerate}
-Then, the points of $\hat{\Pi}_r$ ordered by time are distributed as $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,r})$ conditional on $\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i$, $R_n=r$ and $S_{n-R_n}=s$. Let $\hat{\pi}^r_t$ be the marginal intensity measure of $\hat{\Pi}^r$ at time $t$, so that there is a probability measure $\hat{P}^r_t$ on $\N^2$  and a measure $\lambda^r_t$ on $\R_+$ such that $$\hat{\pi}^r_t(dt,k_1,k_2)=\lambda^r_t(dt)\times \hat{P}^r_t(D^-=k_1, D^+=k_2).$$
-Note that due to the conditioning, $\lambda^r_t(dt)$ might not be equal to $dt$. However, we claim that, also after conditioning, with high probability, we will have seen between $n^\beta$ and $3n^\beta$ jumps at time $2n^{\beta}$. Indeed,
-\begin{align}\begin{split}\label{eq.numberofjumpsinrandommeasure}\P\left(\left.\Pi_r\left((0,2n^{\beta}),\N,\N\right)\not\in (n^\beta,3n^\beta)\right|\Delta_n=0, N_n=n\right)&\leq \frac{\P\left(\sum_{i=1}^{n^\beta}E_i>2n^{\beta}\text{ or }\sum_{i=1}^{3n^\beta}E_i<2n^{\beta}\right)}{\P(\Delta_r=s, N_r=r)}\\
-&=O(n^{1/2}\exp(-n^\beta)),\end{split}\end{align}
-for $(E_1,E_1,\dots)$ i.i.d. exponential random variables with rate $1$, where the order follows from Cramér's Theorem and the local limit theorem; informally, the numerator is the probability of a large-deviations event, while the denominator is not, since $r$ and $s$ are at distance at most $Ln^{1/2}$ from the mean of $\Delta_r$ and $N_r$. \\
-We will use this set-up to show that with high probability, we do not sample anomalous edges in the first $n^\beta$ time-steps of the eDFS. We distinguish between the following types of anomalous edges.\\
-Self-loops occur when the out-half-edge of a vertex is paired to an in-half-edge of the same vertex.  Let $B^1_n(k)$ be the number of self-loops that are found up to time $k$. For $v$ explored up to time $\lfloor n^\beta\rfloor$, a vertex with in-degree $d^-_v$ and out-degree $d^+_v$, there are $d^-_v d^+_v$ possible combinations of an in-half-edge and an out-half-edge that form a self-loop connected to $v$. Any of these combinations of half-edges is paired with probability bounded above by 
-$$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n\hat{D}^-_i}.$$
-Parallel edges occur when an out-half-edge of a vertex is paired to an in-half-edge of one of its previously explored children. Let $B^2_n(k)$ be the number of parallel edges that are found up to time $k$. For any vertex $v$ with in-degree $d^-_v$, and a parent $p(v)$ with out-degree $d^+_{p(v)}$, there are at most $d^-_v d^+_{p(v)}$ possible combinations of an in-half-edge and an out-half-edge that form a parallel edge from $p(v)$ to $v$. Again, any of these combinations of half-edges is paired with probability bounded above by 
-$$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}.$$
-The last type of anomalous edges is a surplus edge with multiplicity greater than 1. Let $B^3_n(k)$ be the number of surplus edges with multiplicity greater than 1 that are found up to time $k$. For a vertex $w$ with out-degree $d^+_w$ and a vertex $v$ with in-degree $d^-_v$, a multiple surplus edge from $w$ to $v$ can only occur if $v$ is discovered before $w$. In that case, there are at most $(d^+_w)^2(d^-_v)^2$ possible pairs of combinations of half-edges, and each of these pairs appears with probability bounded above by
-$$\left(\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\right)^2.$$
-Let $p(i)$ denote the index of the parent of the vertex with index $i$. Also, denote $$\cG^n=\sigma\left(\hat{D}^-_1,\hat{D}^+_1,\dots,\hat{D}^-_n,\hat{D}^+_n \right).$$ Then, by the conditional version of Markov's inequality, 
+% We will now describe how to use Poissonization to sample $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{R_n,n})$. Let $R_n$ be as before, and conditional on $R_n$, let $D^{0,+}_1,\dots,D^{0,+}_{n-R_n}$ i.i.d.\ random variables with the law of $D^+$ conditional on $D^-=0$, and set $S_{n-R_n}=\sum_{i=1}^{n-R_n}D^{0,+}_i$. Fix $\epsilon>0$. There is an $L$ such that with probability at least $1-\epsilon$, both $R_n$ and $S_{n-R_n}$ are within an interval of width $Ln^{1/2}$ around their mean. We condition on this event. Suppose $R_n=r$ and $S_{n-R_n}=s$. 
+% Let
+% $$\pi^0(dt,k_1,k_2)=r\P(D^-=k_1,D^+=k_2|D^->0)k_1\exp(-k_1 t)dt$$
+% be a measure on $\R_+\times \N^2$, and let $\Pi^0$ be a Poisson point process with intensity measure $\pi^0$ conditional on $\Pi^0(\R,\N,\N)=r$. We view the first coordinate as the time coordinate, and refer to the second and third coordinate as the `point'. Then, the points in $\Pi^0$ ordered by time have the same law as $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{r,n})$ (before conditioning on the event $\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\}$).  
+% The intensity of this process is not constant in $t$, so we perform a time change. Define
+% $$\cL_{\mathbf{D}}(x,y)=\E\left[\left.\exp(-xD^--yD^+)\right|D^->0 \right],$$
+% and set 
+% $$\psi(t)=\left(1-\cL_{\mathbf{D}}(\cdot,0)\right)^{-1},$$
+% so that, by a trivial adaptation of Lemma 4.1 of \cite{josephComponentSizesCritical2014}, for 
+% $$\pi_r(dt,k_1,k_2):=\P(D^-=k_1,D^+=k_2|D^->0)k_1\exp\left(-k_1 \psi(t/r)\right)\psi'(t/r)dt$$
+% on $(0,r)\times \N^2$, we have that for $t\in (0,r)$, there exists a probability measure $P_t$ on $\N^2$ such that
+% $$\pi_r(dt,k_1,k_2)=P_t(D^-=k_1,D^+=k_2)dt.$$
+% Let ${\Pi}_r$ be a Poisson point process with intensity $\pi_r$. Define $N_r= {\Pi}_r((0,r),\N,\N)$ and $\Delta_r=\int_{(0,r)\times \N^2}(k_1-k_2){\Pi}_r(dt,k_1,k_2)=s$. Then, let $\hat{\Pi}_r$ have the law of ${\Pi}_r$ conditional on the events $\{N_r=r\}$ and $\{\Delta_r=s\}$. Then, the points of $\hat{\Pi}_r$ ordered by time are distributed as $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,R_n})$ conditional on the events $\left\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\right\}$, $\{R_n=r\}$ and $\{S_{n-R_n}=s\}$. Let $\hat{\pi}^r_t$ be the marginal intensity measure of $\hat{\Pi}^r$ at time $t$, so that there is a probability measure $\hat{P}^r_t$ on $\N^2$  and a $\lambda^r_t\in(0,\infty)$ such that $$\hat{\pi}^r_t(k_1,k_2)=\lambda^r_t\hat{P}^r_t(D^-=k_1, D^+=k_2).$$
+% Note that due to the conditioning, $\lambda^r_t$ might not be equal to $1$. However, we claim that, also after conditioning, with high probability, we will have seen between $n^\beta$ and $3n^\beta$ jumps at time $2n^{\beta}$. Indeed,
+% \begin{align}\begin{split}\label{eq.numberofjumpsinrandommeasure}\P\left(\left.\Pi_r\left((0,2n^{\beta}),\N,\N\right)\not\in (n^\beta,3n^\beta)\right|\Delta_n=0, N_n=n\right)&\leq \frac{\P\left(\sum_{i=1}^{n^\beta}E_i>2n^{\beta}\text{ or }\sum_{i=1}^{3n^\beta}E_i<2n^{\beta}\right)}{\P(\Delta_r=s, N_r=r)}\\
+% &=O(n^{1/2}\exp(-n^\beta)),\end{split}\end{align}
+% for $(E_1,E_1,\dots)$ i.i.d. exponential random variables with rate $1$, where the order follows from Cramér's Theorem and the local limit theorem; informally, the numerator is the probability of a large-deviations event, while the denominator is not, since $r$ and $s$ are at distance at most $Ln^{1/2}$ from the mean of $\Delta_r$ and $N_r$. \\
+% We will use this set-up to show that with high probability, we do not sample anomalous edges in the first $n^\beta$ time-steps of the eDFS. We distinguish between the following types of anomalous edges.\\
+% Self-loops occur when the out-half-edge of a vertex is paired to an in-half-edge of the same vertex.  Let $B^1_n(k)$ be the number of self-loops that are found up to time $k$. For $v$ explored up to time $\lfloor n^\beta\rfloor$, a vertex with in-degree $d^-_v$ and out-degree $d^+_v$, there are $d^-_v d^+_v$ possible combinations of an in-half-edge and an out-half-edge that form a self-loop connected to $v$. Any of these combinations of half-edges is paired with probability bounded above by 
+% $$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n\hat{D}^-_i}.$$
+% Parallel edges occur when an out-half-edge of a vertex is paired to an in-half-edge of one of its previously explored children. Let $B^2_n(k)$ be the number of parallel edges that are found up to time $k$. For any vertex $v$ with in-degree $d^-_v$, and a parent $p(v)$ with out-degree $d^+_{p(v)}$, there are at most $d^-_v d^+_{p(v)}$ possible combinations of an in-half-edge and an out-half-edge that form a parallel edge from $p(v)$ to $v$. Again, any of these combinations of half-edges is paired with probability bounded above by 
+% $$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}.$$
+% The last type of anomalous edges is a surplus edge with multiplicity greater than 1. Let $B^3_n(k)$ be the number of surplus edges with multiplicity greater than 1 that are found up to time $k$. For a vertex $w$ with out-degree $d^+_w$ and a vertex $v$ with in-degree $d^-_v$, a multiple surplus edge from $w$ to $v$ can only occur if $v$ is discovered before $w$. In that case, there are at most $(d^+_w)^2(d^-_v)^2$ possible pairs of combinations of half-edges, and each of these pairs appears with probability bounded above by
+% $$\left(\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\right)^2.$$
+% Let $p(i)$ denote the index of the parent of the vertex with index $i$. Also, denote $$\cG^n=\sigma\left(\hat{D}^-_1,\hat{D}^+_1,\dots,\hat{D}^-_n,\hat{D}^+_n \right).$$ Then, by the conditional version of Markov's inequality, 
 
-\begin{align*}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\hat{D}^+_i}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\wedge 1,\\
-\P\left(\left.B^2_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\wedge 1,\\
-\P\left(\left.B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor}\sum_{j<i} (\hat{D}^+_i)^2 (\hat{D}^-_j)^2 }{\left(\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i\right)^2 }\wedge 1,\end{align*}
-where we note that $p(i)$ is not adapted to $\cG^n$, because ancestral relations in the tree also depend on the surplus edges. However, we observe that by the Cauchy-Schwarz inequality,
-\begin{align*}\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]&\leq \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} \E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]^2\right)^{1/2}\\
-&\leq\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_i)^3\right)^{1/2}\end{align*}
-where the last inequality follows from the conditional version of Jensen's inequality and the fact that a vertex with out-degree $d^+$ that is discovered before time $n^\beta$ is the parent of at most $d^+$ vertices that are discovered before time $n^\beta$.
+% \begin{align*}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\hat{D}^+_i}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\wedge 1,\\
+% \P\left(\left.B^2_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\wedge 1,\\
+% \P\left(\left.B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor}\sum_{j<i} (\hat{D}^+_i)^2 (\hat{D}^-_j)^2 }{\left(\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i\right)^2 }\wedge 1,\end{align*}
+% where we note that $p(i)$ is not adapted to $\cG^n$, because ancestral relations in the tree also depend on the surplus edges. However, we observe that by the Cauchy-Schwarz inequality,
+% \begin{align*}\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]&\leq \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} \E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]^2\right)^{1/2}\\
+% &\leq\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_i)^3\right)^{1/2}\end{align*}
+% where the last inequality follows from the conditional version of Jensen's inequality and the fact that a vertex with out-degree $d^+$ that is discovered before time $n^\beta$ is the parent of at most $d^+$ vertices that are discovered before time $n^\beta$.
 
-We will show that \begin{equation}\label{eq.conditionalprobanamolousedges}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)+B^2_n(\lfloor n^\beta \rfloor)+B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)\overset{p}{\to}0\end{equation} as $n\to\infty$. The proposition will then follow from the bounded convergence theorem. By the observations above, and the fact that $$\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\hat{D}^-_i,$$ it is sufficient to show that as $n\to \infty$,
-\begin{align}
-\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess1}\\
-\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess2}\\
-\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1^2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess3}\\
-\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\text{ and }\label{eq.convergencemomentpointprocess4}\\
-\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^3 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0.\label{eq.convergencemomentpointprocess5}\end{align}
-We will show \ref{eq.convergencemomentpointprocess1}. The proofs of the other convergences are analogous. \\
-Note that, by \eqref{eq.numberofjumpsinrandommeasure}, for $\hat{E}^r_t$ the expectation under $\hat{P}^r_t$, it is sufficient if we show that for some $C$,
-\begin{equation}\label{eq.expectationtobound}{\hat{E}}^r_t\left[\hat{D}^-\hat{D}^+\right]
-% :=\frac{\E\left[\int_{\N^2}k_1k_2\hat{\Pi}_n(dt,k_1,k_2)\right]}{\E\left[\int_{\N^2}\hat{\Pi}_n(dt,k_1,k_2)\right]}
-<C\end{equation}
-for all $n$ and $t<2n^\beta$. We note that
-$${\hat{E}}^r_t\left[\hat{D}^-\hat{D}^+\right]={E}^r_t\left[\left.\hat{D}^-\hat{D}^+\right| \Delta_r=s, N_r=r\right]={E}^r_t\left[\hat{D}^-\hat{D}^+\frac{\P\left[\left. \Delta_n=s, N_r=r \right| \hat{D}^-_t,\hat{D}^+_t\right]}{\P\left[ \Delta_r=s, N_r=r\right]}\right].$$
-By the fact that $\Pi_r$ is a point process, we have that for $k_1$, $k_2$ in $\N$, 
-$$\P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]=\P\left[ \Delta_r=s+k_2-k_1, N_r=r-1 \right],$$
-so that, since $N_r\sim \operatorname{Poisson}(r)$, and since on the event $\{N_r=r-1\}$ (resp. $\{N_r=r\}$),  $\Delta_r-s$ is the sum of $r-1$ (resp. $r$) i.i.d. random variables with finite variance and mean at most $O(r^{-1/2})$, we observe that 
-\begin{align*}
-    \P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]&=\omega(r^{-1/2})\text{, and}\\
-    \P\left[ \Delta_r=s, N_r=r \right]&=O(r^{-1/2})
-\end{align*} for any $k_1$, $k_2$. Therefore, there exists a $C'$ such that
-$$\frac{\P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]}{\P\left[ \Delta_r=s, N_r=r\right]}<C'$$
-for all $k_1$, $k_2$, $t$ and $n$. If we show that for some $C''$ $${E}^r_t\left[\hat{D}^-\hat{D}^+\right]<C''$$ for all $r$ in the interval that we consider and all $t<2n^\beta$,  \eqref{eq.expectationtobound} follows. We note that by definition of $\pi_r(dt,k_1,k_1)$, 
-$${E}^r_t\left[\hat{D}^-\hat{D}^+\right]=\frac{\frac{d^3}{dx^2 dy}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}{\frac{d}{dx}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}.$$
-Careful analysis of $\cL_{\mathbf{D}}(x,y)$ and $\psi(s)$ implies that this quantity is bounded uniformly for all $r$ in the interval that we consider and all $t\in(0,2n^\beta)$. We refer the reader to the proof of Lemma A.1 in \cite{josephComponentSizesCritical2014} for the details of a similar argument in the undirected setting. Then, \eqref{eq.expectationtobound} follows. \\
-By applying the same techniques, \eqref{eq.convergencemomentpointprocess2}, \eqref{eq.convergencemomentpointprocess3}, \eqref{eq.convergencemomentpointprocess4} and  \eqref{eq.convergencemomentpointprocess5} follow as well, which proves the statement.\end{proof}
+% We will show that \begin{equation}\label{eq.conditionalprobanamolousedges}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)+B^2_n(\lfloor n^\beta \rfloor)+B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)\overset{p}{\to}0\end{equation} as $n\to\infty$. The proposition will then follow from the bounded convergence theorem. By the observations above, and the fact that $$\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\hat{D}^-_i,$$ it is sufficient to show that as $n\to \infty$,
+% \begin{align}
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess1}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess2}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1^2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess3}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\text{ and }\label{eq.convergencemomentpointprocess4}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^3 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0.\label{eq.convergencemomentpointprocess5}\end{align}
+% We will show \ref{eq.convergencemomentpointprocess1}. The proofs of the other convergences are analogous. \\
+% Note that, by \eqref{eq.numberofjumpsinrandommeasure}, for $\hat{E}^r_t$ the expectation under $\hat{P}^r_t$, it is sufficient if we show that for some $C$,
+% \begin{equation}\label{eq.expectationtobound}{\hat{E}}^r_t\left[\hat{D}^-\hat{D}^+\right]
+% % :=\frac{\E\left[\int_{\N^2}k_1k_2\hat{\Pi}_n(dt,k_1,k_2)\right]}{\E\left[\int_{\N^2}\hat{\Pi}_n(dt,k_1,k_2)\right]}
+% <C\end{equation}
+% for all $n$ and $t<2n^\beta$. We note that
+% $${\hat{E}}^r_t\left[\hat{D}^-\hat{D}^+\right]={E}^r_t\left[\left.\hat{D}^-\hat{D}^+\right| \Delta_r=s, N_r=r\right]={E}^r_t\left[\hat{D}^-\hat{D}^+\frac{\P\left[\left. \Delta_n=s, N_r=r \right| \hat{D}^-_t,\hat{D}^+_t\right]}{\P\left[ \Delta_r=s, N_r=r\right]}\right].$$
+% By the fact that $\Pi_r$ is a point process, we have that for $k_1$, $k_2$ in $\N$, 
+% $$\P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]=\P\left[ \Delta_r=s+k_2-k_1, N_r=r-1 \right],$$
+% so that, since $N_r\sim \operatorname{Poisson}(r)$, and since on the event $\{N_r=r-1\}$ (resp. $\{N_r=r\}$),  $\Delta_r-s$ is the sum of $r-1$ (resp. $r$) i.i.d. random variables with finite variance and mean at most $O(r^{-1/2})$, we observe that 
+% \begin{align*}
+%     \P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]&=\omega(r^{-1/2})\text{, and}\\
+%     \P\left[ \Delta_r=s, N_r=r \right]&=O(r^{-1/2})
+% \end{align*} for any $k_1$, $k_2$. Therefore, there exists a $C'$ such that
+% $$\frac{\P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]}{\P\left[ \Delta_r=s, N_r=r\right]}<C'$$
+% for all $k_1$, $k_2$, $t$ and $n$. If we show that for some $C''$ $${E}^r_t\left[\hat{D}^-\hat{D}^+\right]<C''$$ for all $r$ in the interval that we consider and all $t<2n^\beta$,  \eqref{eq.expectationtobound} follows. We note that by definition of $\pi_r(dt,k_1,k_1)$, 
+% $${E}^r_t\left[\hat{D}^-\hat{D}^+\right]=\frac{\frac{d^3}{dx^2 dy}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}{\frac{d}{dx}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}.$$
+% Careful analysis of $\cL_{\mathbf{D}}(x,y)$ and $\psi(s)$ implies that this quantity is bounded uniformly for all $r$ in the interval that we consider and all $t\in(0,2n^\beta)$. We refer the reader to the proof of Lemma A.1 in \cite{josephComponentSizesCritical2014} for the details of a similar argument in the undirected setting. Then, \eqref{eq.expectationtobound} follows. \\
+% By applying the same techniques, \eqref{eq.convergencemomentpointprocess2}, \eqref{eq.convergencemomentpointprocess3}, \eqref{eq.convergencemomentpointprocess4} and  \eqref{eq.convergencemomentpointprocess5} follow as well, which proves the statement.\end{proof}
 
 % Note that we can only show the convergence of the Radon-Nikodym derivative up to time $O(n^{2/3})$, so it is not straightforward to use the measure change to proof results on a time scale $O(n^\beta)$. Therefore, for the proof of this lemma, we will use a different method, that was introduced by Joseph in \cite{josephComponentSizesCritical2014} referred to as \emph{Poissonization}. We note that $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ (before conditioning on $\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i$) are distributed as the jumps ordered by jump time in a Poisson process $\Pi^0$ with intensity measure $\pi^0$ on $\R_+\times \N^2$ such that $$\pi^0(dt,k_1,k_2)=n\P(D^-=k_1,D^+=k_2)k_1\exp(-k_1 t)dt$$
 % conditionally on $\Pi^0(\R,\N,\N)=n$.
