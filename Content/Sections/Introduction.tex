@@ -126,7 +126,7 @@ We now define a distance $\distmdm$ between two MDMs $M$ and $M'$.  Any isomorph
     \begin{subfigure}[htbp]{0.45\textwidth}
         \centering
         \includegraphics[width=0.95\textwidth]{Content/Pictures/smoothing2.eps}
-        \caption{The graph before smoothing $w$}
+        \caption{The graph after smoothing $w$}
     \end{subfigure}
     \caption{Smoothing a vertex $w$}
     \label{fig:smoothing}
@@ -145,7 +145,7 @@ We now define a distance $\distmdm$ between two MDMs $M$ and $M'$.  Any isomorph
         \includegraphics[width=0.90\textwidth]{Content/Pictures/kernel2.eps}
         \caption{$\kernel(\vec{G})$}
     \end{subfigure}
-    \caption{An example of a digraph $\vec{G}$ and its kernel $\kernel(\vec{G})$}
+    \caption{An example of a digraph $\vec{G}$ and its kernel $\kernel(\vec{G})$. The numbers indicate the edge lengths.}
     \label{fig:kernel}
 \end{figure}
 
@@ -169,7 +169,7 @@ We will describe the limit object and some of its properties in Subsection \ref{
 
 We see here why it is important to consider singletons as loops of length zero. For any fixed $k$, the $k$th largest SCC will not be a singleton with high probability. Therefore, no component of our limiting object will be a singleton. Thus we need to pad our SCCs by $\zeroloop$ and consider the kernel of singletons to be $\zeroloop$, to prevent the distance, as defined by $d_{\vec{G}}$, between a singleton in $\left(n^{-1/3}C_i(n),i\in \N\right)$ and any element of $\left(\cC_i,i\in \N\right)$ being infinite.
 
-The law of the limit object places some particular cases of our model in the universality class of the directed Erd\H{o}s--Rényi model as studied by \citet{goldschmidtScalingLimitCritical2019}, although their result holds in a stronger topology. This is the content of the following corollary.
+The law of the limit object places some particular cases of our model in the universality class of the directed Erd\H{o}s--Rényi model as studied by \citet{goldschmidtScalingLimitCritical2019}. This is the content of the following corollary. Note however that their result holds in a stronger topology: they use an $\ell_1$-like topology on the space of sequences of MDMs, whereas we show our result in the product topology. 
 \begin{corollary}\label{cor.erdosrenyi}
 Consider $\vec{G}_n(\nu)$, with $\nu$ such that $$\mu=\sigma_+=\sigma_{-+}+\nu_-=1.$$ 
 Let $(C_i(n), i\geq 1)$ be the SCCs of $\vec{G}_n(\nu)$. Also consider the directed Erd\H{o}s-R\'enyi model on $n$ vertices at criticality, which we denote by $\vec{G}(n,1/n)$, and let $(C'_i(n), i\geq 1)$ be the SCCs of $\vec{G}_n(\nu)$. Then, $\left(n^{-1/3}C_i(n),i\in \N\right)$ and 
@@ -179,7 +179,7 @@ Note that the condition in Corollary \ref{cor.erdosrenyi} is satisfied by $\nu(k
 
 Moreover, Theorem \ref{thm.main} has the following trivial corollaries, which were previously unknown. 
 \begin{corollary}
-There exists a random sequence $(\ell_i,i\in \N)\in \R_+^\infty$, such that for $(L^n_i,i\in \N)$ the total lengths in the SCCs of $\vec{G}_n(\nu)$ ordered by decreasing length (appended with an infinite repeat of $0$), and for $(S^n_i,i\in\N)$ the number of vertices in the the SCCs of $\vec{G}_n(\nu)$ ordered by decreasing size (appended with an infinite repeat of $0$),
+There exists a random sequence $(\ell_i,i\in \N)\in \R_+^\infty$, such that for $(L^n_i,i\in \N)$ the total lengths in the SCCs of $\vec{G}_n(\nu)$ ordered by decreasing length and for $(S^n_i,i\in\N)$ the number of vertices in the the SCCs of $\vec{G}_n(\nu)$ ordered by decreasing size, both appended with an infinite repeat of $0$,
 $$\left(n^{-1/3}L^n_i,n^{-1/3}S^n_i, i\in \N\right)\todist\left(\ell_i,\ell_i,i\in \N\right)$$
 as $n\to \infty$ in the product topology on $(\R^2)^\infty$. 
 \end{corollary}
@@ -278,8 +278,8 @@ An important motivation for studying the out-forest is the fact that the vertex 
 A key fact is that the order in which the true vertices are discovered does not depend on the positions of the dummy leaves. Similarly, the positions of the dummy leaves do not depend on the position of the heads of the surplus edges. Furthermore, we define a necessary condition for a surplus edge to be part of an SCC (see Definition \ref{def.candidate} and Corollary \ref{cor.edgesinSCCs}), and we call purple leaves that correspond to surplus edges with this property \emph{candidates}. The candidates are defined in such a way that whether a dummy leaf is a candidate does not depend on the position of the heads of the surplus edges. This allows us to define the following sampling procedure. (By slight abuse of terminology, we call the dummy leaf that corresponds to a surplus edge its tail.)
 \begin{enumerate}
     \item We sample the order of discovery of the true vertices in the exploration.
-    \item We sample at which time steps a surplus edge is added instead of an edge to an undiscovered vertex, which allows us to define the out-forest $(\hat{F}_n(k),k\geq 1)$. 
-    \item We visit the dummy leaves in $(\hat{F}_n(k),k\geq 1)$ in depth-first order, and for each vertex we sample whether it corresponds to a candidate.
+    \item We sample at which time steps a surplus edge is added instead of an edge to an undiscovered vertex, which allows us to define the out-forest. 
+    \item We visit the dummy leaves in the out-forest in depth-first order, and for each vertex we sample whether it corresponds to a candidate.
     \item We visit the tails of the candidates in depth-first order, and for each of them, sample where the head of the corresponding surplus edge is.
 \end{enumerate}
 For an exact description of the sampling procedure, see Subsection \ref{subsec.discrete}. The analogous sampling procedure for the limit object is described in Subsection \ref{subsubsec.samplecontinuousobject}. Then, our approach to show convergence is as follows.
@@ -292,10 +292,10 @@ For an exact description of the sampling procedure, see Subsection \ref{subsec.d
 \end{figure}
 
 \begin{enumerate}
-    \item We find the limit under rescaling of the \L ukasiewicz path and height process of $\hat{F}_n(m_n)$ for $m_n=O(n^{2/3})$ conditional on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$. (For a definition of the \L ukasiewicz path and height process, see \cite{AST_2002__281__R1_0}, Chapter 0.) This is the content of Theorem \ref{thm.convoutforest}. 
-    \item We establish that the positions of the tails of the candidates converge. This is the content of Proposition \ref{prop.convergenceancestraledges}, Lemma \ref{prop.extractexcursions}, and Proposition \ref{prop.convergencestartingpointscandidates}.
-    \item We show that the positions of the heads of the candidates converge, which is the content of Proposition \ref{prop.convergenceheadscandidates}. 
-    \item We identify the tails and heads of the candidates, and recover the SCCs from the resulting digraph via a cutting procedure. We use a result from \cite{goldschmidtScalingLimitCritical2019} to show that the cutting procedure converges. This summarised in Corollary \ref{cor.sccordereduptotimeT}.
+    \item We find the limit under rescaling of the \L ukasiewicz path and height process of the out-forest up to time $m_n=O(n^{2/3})$ conditional on the event $\left\{\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i\right\}$. Note that we condition on a singular event, which causes significant difficulties. (For a definition of the \L ukasiewicz path and height process, see \cite{AST_2002__281__R1_0}, Chapter 0.) This is the content of Theorem \ref{thm.convoutforest}. 
+    \item We establish that the positions of the tails of the surplus edges corresponding to the candidates converge. This is the content of Proposition \ref{prop.convergenceancestraledges}, Lemma \ref{prop.extractexcursions}, and Proposition \ref{prop.convergencestartingpointscandidates}.
+    \item We show that the positions of the heads of the surplus edges corresponding to the candidates converge, which is the content of Proposition \ref{prop.convergenceheadscandidates}. 
+    \item We identify the tails and heads of the surplus edges corresponding to the candidates, and recover the SCCs from the resulting digraph via a cutting procedure. We use a result from \cite{goldschmidtScalingLimitCritical2019} to show that the cutting procedure converges. This summarised in Corollary \ref{cor.sccordereduptotimeT}.
     \item We show that conditioning on the resulting multigraph being simple does not affect the sampling procedure on the time scale $O(n^{2/3})$. This is the content of Proposition \ref{prop.anomalousedges}. 
     \item We prove that for any $\delta>0$, with high probability, all SCCs with length larger than $\delta n^{1/3}$ are contained in the exploration up to time $O(n^{2/3})$. Therefore, we can choose $m_n$ such that, with high probability, we do not miss any large SCCs by not considering the exploration beyond time $m_n$, which finishes the proof of the convergence in the product topology. This is the content of Lemma \ref{lemma.largesccfoundfirst}. 
 \end{enumerate}

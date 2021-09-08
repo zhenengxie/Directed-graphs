@@ -14,8 +14,9 @@ In this section, we will use the convergence of the out-forest that we obtained 
 In this subsection, we will prove that the components of $\hat{F}_n\left(\lfloor n^{2/3}t\rfloor\right)$ that contain an ancestral surplus edge converge under rescaling. Recall the definition of $(A_n(k),k\geq 1)$ from Subsection \ref{subsubsec.samplecandidates}, and recall that the components in $(\hat{F}_n(k),k\geq 1)$ that contain a non-trivial SCC correspond to the components in $(\hat{F}_n(k),k\geq 1)$ on which $(A_n(k),k\geq 1)$ increases. Moreover, if $(A_n(k),k\geq 1)$ increases on a component, the law of the first increase time corresponds to the position of the tail of the first ancestral surplus edge in the component. \\
 We first study the convergence of $(\hat{H}_n^\ell(k),k\geq 1)$ under rescaling. This is an extension of Theorem \ref{thm.convoutforest}.
 \begin{lemma}\label{lemma.heightprocesswithlengths}
-Let $(B_t, t\geq 0)$ be a Brownian motion, and define
-$$(\hat{B}_t,t\geq 0):=\left( B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+ \mu}t^2, t\geq 0\right),$$ and $$(\hat{R}_t,t\geq 0)=\left(\hat{B}_t-\inf\left\{\hat{B}_s: s\leq t\right\},t\geq 0\right).$$ 
+Let $(B_t, t\geq 0)$ be a standard  Brownian motion, and define
+$$(\hat{B}_t,t\geq 0):=\left( B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+ \mu}t^2, t\geq 0\right),$$ and its reflected process
+$$(\hat{R}_t,t\geq 0)=\left(\hat{B}_t-\inf\left\{\hat{B}_s: s\leq t\right\},t\geq 0\right).$$ 
 Then,
 \begin{align*}
     &\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3}t\rfloor \right),n^{-1/3}\hat{H}_{n}\left(\lfloor n^{2/3}t\rfloor \right),n^{-1/3}\hat{H}^\ell_{n}\left(\lfloor n^{2/3}t\rfloor \right),  t\geq 0\right)\\
@@ -27,8 +28,8 @@ $$\left(n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P
 in $\D(\R_+,\R)^2$ as $n\to \infty$.
 \end{lemma}
 \begin{proof}
-We use \citet[Theorem 1]{deraphelisScalingLimitMultitype2017}, which shows the convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the black-purple-red Galton-Watson forest $(F^{pr}(k),k\geq 1)$, as defined in Subsection \ref{subsubsec.convheightprocess}. \\
-We equip $(F^{pr}(k),k\geq 1)$ with edge lengths in the following manner. For a purple or red vertex with out degree $d^+$, sample its in-degree with law $Z^-$ conditioned on $Z^+=d^+$. The in-degree of the black vertices is encoded by $(Y^{-}(k),k\geq 1)$.  Then, for a vertex with in-degree $d^-$, let the edges connecting it to its children have length $d^--1$ (unless it is the root of the component, then let the edges connecting to its children have length $d^-$). Call the resulting forest with edge lengths $(F^{pr,\ell}(k),k\geq 1)$, and let $(H^{pr,\ell}(k),k\geq 1)$ be the corresponding height process.\\
+We use \citet[Theorem 1]{deraphelisScalingLimitMultitype2017}, which shows the convergence of the height process of a Galton-Watson forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the Bienaymé forest consisting of true vertices, dummy vertices and filler vertices $(F^{pr}(k),k\geq 1)$, as defined in Subsection \ref{subsubsec.convheightprocess}. \\
+We equip the Galton-Watson forest $(F^{pr}(k),k\geq 1)$ with edge lengths similarly to how we equipped the out-forest with edge-lengths in order to sample the candidates in Subsection \ref{subsubsec.samplecandidates}. We do this as follows. For a dummy vertex or filler vertex with out degree $d^+$, sample its in-degree with law $Z^-$ conditional on the event $\{Z^+=d^+\}$. The in-degree of the true vertices is encoded by $(Y^{-}(k),k\geq 1)$.  Then, for a vertex with in-degree $d^-$, let the edges connecting it to its children have length $d^--1$ (unless it is the root of the component, then let the edges connecting it to its children have length $d^-$). Call the resulting forest with edge lengths $(F^{pr,\ell}(k),k\geq 1)$, and let $(H^{pr,\ell}(k),k\geq 1)$ be the corresponding height process.\\
 We will translate the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to our setting and check them. The conditions are as follows.
 \begin{enumerate}
     \item $\E[Z^+]=1$
@@ -42,7 +43,7 @@ Under these conditions, using the notation from Subsection \ref{subsubsec.convhe
     &\hspace{17em} \todist\left(\sigma_+ B_s, \frac{2}{\sigma_+}R_s, \frac{2(\sigma_{+-}+\nu_-)}{\mu\sigma_+}R_s,t\geq 0\right)
 \end{align}
 in $D(\R_+,\R)^3$ as $n\to \infty$. 
-Then, we observe that the rest of the argument in Subsection \ref{subsubsec.convheightprocess} Subsection \ref{subsubsec.convaftermeasurechange}, and Appendix \ref{appendix.heightprocessblackpurplered} can be extended to include the height process with edge lengths. This yields the result.\\
+Then, we observe that the rest of the argument in Subsections \ref{subsubsec.convheightprocess} and  \ref{subsubsec.convaftermeasurechange}, and Appendix \ref{appendix.heightprocessblackpurplered} can be extended to include the height process with edge lengths. This yields the result.\\
 Therefore, to finish the proof, we need the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to hold. The conditions are equivalent to 
 \begin{enumerate}
     \item $\E[D^+D^-]=\E[D^-]$
@@ -76,24 +77,24 @@ $$\left(n^{-1/3}\hat{P}_n\left(\lfloor n^{2/3}t\rfloor \right),t\geq 0\right)\ov
 in $\D(\R_+,\R)$ as $n\to \infty$,
 we get that
 \begin{align*}\left(n^{-2/3}\min\{l\geq 1:n^{-1/3}\hat{P}_n(l)\geq t\},t\geq 0\right)&\overset{p}{\to}\left(\min\left\{s>0: \frac{\nu_-}{2\mu}s^2\geq t\right \}, t\geq 0\right)\\
-&=:\left(p^{-1}(t),t\geq 0\right) \end{align*}
+&=:\left(\tau(t),t\geq 0\right) \end{align*}
 in $\D(\R_+,\R)$ as $n\to \infty$, because $\left(\frac{\nu_-}{2\mu}t^2,t\geq 0\right)$ is strictly increasing. Then, Lemma \ref{lemma.heightprocesswithlengths}, Lemma \ref{lemma.technicalcomposedfunctions}, Slutsky's lemma and the continuous mapping theorem imply that 
-\begin{align*}&\left(\sum_{j=1}^{\lfloor n^{1/3}t\rfloor}\frac{\hat{H}^\ell(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},t\geq 0\right)\todist \left( \frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu} \int_0^t \frac{\hat{R}_{p^{-1}(s)}}{\nu_- p^{-1}(s)}ds,t\geq 0 \right)
+\begin{align*}&\left(\sum_{j=1}^{\lfloor n^{1/3}t\rfloor}\frac{\hat{H}^\ell(\min\{l:\hat{P}_n(l)\geq k\})}{\hat{S}^-_n(\min\{l:\hat{P}_n(l)\geq k\})},t\geq 0\right)\todist \left( \frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu} \int_0^t \frac{\hat{R}_{\tau(s)}}{\nu_- \tau(s)}ds,t\geq 0 \right)
 \end{align*}
 in $D(\R_+,\R)$ as $n\to\infty$. If we combine this with the convergence under rescaling of $(P_n(k),k\geq 1)$ and apply Lemma \ref{lemma.technicalcomposedfunctions}, some simple analysis then yields \eqref{eq.convergencecompensator}, which proves the statement.
 \end{proof}
 
 \subsection{Finding the important components in the out-forest}\label{subsec.componentswithancestral}
 
-In this subsection, we will show that, conditional on the convergence under rescaling in Proposition \ref{prop.convergenceancestraledges}, the sequence of intervals that encode the trees with ancestral surplus edges in $(\hat{F}_n(k),k\leq \lfloor T n^{2/3}\rfloor )$ converges as well under rescaling. Lemma \ref{lemma.extractexcursions} is a statement about extracting excursion intervals from deterministic functions with marks, which we will apply to the sample paths of $(\hat{S}_n^{+}(k),k\geq 1)$ and the increase times of $(A_n(k),k\geq 1)$. The lemma tells us that if the sample paths and increase times converge under rescaling, the beginnings and endpoints of the excursions above the running infimum that contain the increase times converge as well. 
+In this subsection, we will show that, conditional on the convergence under rescaling in Proposition \ref{prop.convergenceancestraledges}, the sequence of intervals that encode the trees with ancestral surplus edges in $(\hat{F}_n(k),k\leq \lfloor T n^{2/3}\rfloor )$ converges as well under rescaling. Lemma \ref{lemma.extractexcursions} is a statement about extracting excursion intervals from deterministic functions with marks, which we will apply to the sample paths of $(\hat{S}_n^{+}(k),k\geq 1)$ with the increase times of $(A_n(k),k\geq 1)$ playing the rôle of the marks. The lemma tells us that if the sample paths and increase times converge under rescaling, the beginnings and endpoints of the excursions above the running infimum that contain the increase times converge as well. 
 \begin{lemma}\label{lemma.extractexcursions}
 Let $(f_n(t), t\geq 0)$ for $n\geq 1$, and $(f(t),t\geq 0)$ be functions in $\D(\R_+,\R)$, such that 
-$$(f_n(t), t\geq 0)\to (f(t),t\geq 0)$$ in $\D(\R_+,\R)$ as $n\to \infty$. Assume that $(f(t),t\geq 0)$ is continuous, that $f(t)\to -\infty$ as $t\to \infty$, and that the local minima of $(f(t),t\geq 0)$ are unique. Moreover, let $(x_i^n)_{1\leq i\leq m}$, for $n\geq 1$, and $(x_i)_{1\leq i\leq m}$ be elements of $\R^{m}$ such that for all $i\in [m]$, $x_i^n\to x_i$ in $\R$ as $n\to \infty$, and such that $f(x_i)-\inf\{f(s):s\leq x_i\}>0$ for all $i\in [m]$. For $i \in [m], n \geq 1$, define
+$$(f_n(t), t\geq 0)\to (f(t),t\geq 0)$$ in $\D(\R_+,\R)$ as $n\to \infty$. Assume that $(f(t),t\geq 0)$ is continuous, that $f(t)\to -\infty$ as $t\to \infty$, and that the local minima of $(f(t),t\geq 0)$ are unique. Moreover, let $(x_i^n)_{1\leq i\leq m}$, for $n\geq 1$, and $(x_i)_{1\leq i\leq m}$ be elements of $\R^{m}$ such that for all $i\in [m]$, $x_i^n\to x_i$ in $\R$ as $n\to \infty$, and such that $f(x_i)-\inf\{f(s):s\leq x_i\}>0$ for all $i\in [m]$. For $i \in [m], n \geq 1$, let $l_i^n$ be the left endpoint of the excursion of $f_n$ above its running infimum that contains $x_i^n$, and let $\sigma_i^n$ be the length of this excursion, i.e. 
 \begin{align*}
     l_i^n&=\inf\left\{t\geq 0:f_n(t)=\inf\{f_n(s):s\leq x_i^n\}\right\}, \\
-    \sigma_i^n&=\inf\left\{ t\geq 0: \inf\{f_n(s):s\leq l_i^n+t\} < \inf\{f_n(s):s\leq x_i^n\}\right\},
+    \sigma_i^n&=\inf\left\{ t\geq 0: \inf\{f_n(s):s\leq l_i^n+t\} < \inf\{f_n(s):s\leq x_i^n\}\right\}.
 \end{align*}
-and for $i \in [m]$ define
+Similarly, let $l_i$ be the left endpoint of the excursion of $f$ above its running infimum that contains $x_i$, and let $\sigma_i$ be the length of this excursion, i.e. 
 \begin{align*}
     l_i&=\inf\left\{t\geq 0:f(t)=\inf\{f(s):s\leq x_i\}\right\}, \\
     \sigma_i&=\inf\left\{ t\geq 0: \inf\{f(s):s\leq l_i+ t\} < \inf\{f(s):s\leq x_i\}\right\}.
@@ -102,6 +103,7 @@ For $S=\{(a_i,b_i), i\in [m]\}$, let $\operatorname{ord}(S)$ be a sequence consi
 $$\operatorname{ord}\left(\left\{(l_i^n,\sigma_i^n):1\leq i \leq m\right\}\right)\to \operatorname{ord}\left(\left\{(l_i,\sigma_i):1\leq i \leq m\right\}\right)$$
 in $(\R^{2})^\infty$ equipped with the product topology as $n\to \infty$. 
 \end{lemma}
+Note that if a given excursion of $f$ above its running infimum contains multiple marks, only one instance of its left endpoint and excursion length will appear in $\operatorname{ord}\left(\left\{(l_i^n,\sigma_i^n):1\leq i \leq m\right\}\right)$. Therefore, the number of non-zero entries of $\operatorname{ord}\left(\left\{(l_i^n,\sigma_i^n):1\leq i \leq m\right\}\right)$ can vary as $n$ varies, which is why we work in  $(\R^{2})^\infty$. 
 \begin{proof}
 First, note that $l_i^n$, $\sigma_i^n$, $l_i$, and $\sigma_i$ are well-defined for all $i\in [m]$, $n\geq 1$ by $f(t)\to -\infty$ as $t\to \infty$ and the convergence of $f_n$ to $f$. \\
 Fix $i$. We will first show that $l^n_i\to l_i$ and $\sigma_i^n\to \sigma_i$ as $n\to \infty$. Firstly, note that by the assumption that $f(x_i)-\inf\{f(s):s\leq x_i\}>0$ and the continuity of $f$, $l_i<x_i<l_i+\sigma_i$. Fix $0<\epsilon<\min\{x_i-l_i,l_i+\sigma_i-x_i\}/2$. We claim that the following conditions are sufficient for $l^n_i\to l_i$ and $\sigma_i^n\to \sigma_i$ as $n\to \infty$. For all $n$ large enough,
@@ -124,23 +126,26 @@ $$\#\left\{(l_i^n,\sigma_i^n):1\leq i \leq m\right\}\to \#\left\{(l_i,\sigma_i):
 Then, the result follows.
 \end{proof}
 
-We now apply this result to our process to extract the excursion intervals that contain the marks representing ancestral backedges.
-\begin{proposition}\label{prop.extractexcursions}
-Fix $T>0$. Use notation as before. For $i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]$, set $X_i^n=\min\{k:A_n(k)=i\}$. Similarly, for $i$ in $\left[A_T\right]$, set $X_i=\min\{t:A_T=i\}$. Define, for $n\geq 1$,
-\begin{align*}L_i^n&=\min\left\{k\geq 1:\hat{S}^{p,+}_n(k)=\min\{\hat{S}^{p,+}_n(l):l\leq X_i^n\}\right\}\text{ for }i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]\\
-\Sigma_i^n&=\min\left\{k \geq 1: \min\left\{\hat{S}^{p,+}_n(l):l\leq L_i^n+k\right\} < \min\left\{\hat{S}^{p,+}_n(l):l\leq X_i^n\right\}\right\}\text{ for }i\in \left[A_n\left(\lfloor T n^{2/3}\rfloor\right)\right]\\
-L_i&=\inf\left\{t\geq 0:\sigma_+\hat{B}_t=\inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left[A(T )\right]\text{ and}\\
-\Sigma_i&=\inf\left\{ t\geq 0: \inf\{\sigma_+\hat{B}_s:s\leq L_i+t\} < \inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left[A(T )\right].
+We now apply this result to our process to extract the excursion intervals that contain the marks representing ancestral backedges. We recall the following definitions from Subsection  \ref{subsubsec.samplecandidates}. We have that $L_i^n$ is the left endpoint of the excursion of $\hat{S}_n^+$ above its running infimum that encodes the out-component that contains the $i$th ancestral surplus edge, and $\Sigma_i^n$ is the length of this excursion.  Moreover, $L_i$ and $\Sigma_i$ are their continuous counterparts. Formally, for $T>0$, for $i\in \left\{1,\dots, A_n\left(\lfloor T n^{2/3}\rfloor\right)\right\}$, 
+\begin{align*}L_i^n&=\min\left\{k\geq 1:\hat{S}^{+}_n(k)=\min\{\hat{S}^{p,+}_n(l):l\leq X_i^n\}\right\}\text{ for }i\in \left\{1,\dots, A_n\left(\lfloor T n^{2/3}\rfloor\right)\right\}\text{ and}\\
+\Sigma_i^n&=\min\left\{k \geq 1: \min\left\{\hat{S}^{p,+}_n(l):l\leq L_i^n+k\right\} < \min\left\{\hat{S}^{p,+}_n(l):l\leq X_i^n\right\}\right\},
 \end{align*}
-Then, for $\operatorname{ord}$ defined as in the statement of Lemma \ref{lemma.extractexcursions}, we get that
+and for $i\in \left\{1,\dots, A\left(T\right)\right\}$, 
+\begin{align*}
+L_i&=\inf\left\{t\geq 0:\sigma_+\hat{B}_t=\inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left\{1,\dots,A(T )\right\}\text{ and}\\
+\Sigma_i&=\inf\left\{ t\geq 0: \inf\{\sigma_+\hat{B}_s:s\leq L_i+t\} < \inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ for }i\in \left\{1,\dots,A(T )\right\}.
+\end{align*}
+We recall that the function $\operatorname{ord}$ sorts a set of elements by decreasing second coordinate and appends an infinite sequence of zeroes; for the formal definition, see the statement of Lemma \ref{lemma.extractexcursions}. 
+\begin{proposition}\label{prop.extractexcursions}
+It holds that
 $$\operatorname{ord}\left(\left\{\left(n^{-2/3}L_i^n,n^{-2/3}\Sigma_i^n\right):1\leq i \leq A_n\left(\lfloor T n^{2/3}\rfloor\right)\right\}\right)\todist \operatorname{ord}\left(\left\{(L_i,\Sigma_i):1\leq i \leq A_T\right\}\right)$$
 in the product topology on $(\R^2)^\infty$ as $n\to \infty$, jointly with the convergence in Proposition \ref{prop.convergenceancestraledges}. 
 \end{proposition}
 \begin{proof}
-By Skorokhod's representation theorem, we may work on a probability space where the convergence in Proposition \ref{prop.convergenceancestraledges} holds almost surely, and claim that we can apply Lemma \ref{lemma.extractexcursions} to the sample paths of $\left(n^{-1/3}\hat{S}^{p}_n\left(\lfloor n^{2/3}t\rfloor\right),t \geq 0\right)$ with marks $$\left(n^{-2/3}X_n^i\right)_{1\leq i\leq A_n\left(\lfloor T n^{2/3}\rfloor\right)}.$$ We check the conditions.
+By Skorokhod's representation theorem, we may work on a probability space where the convergence in Proposition \ref{prop.convergenceancestraledges} holds almost surely, and claim that we can apply Lemma \ref{lemma.extractexcursions} to the sample paths of $\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3}t\rfloor\right),t \geq 0\right)$ with marks $$\left(n^{-2/3}X_n^i\right)_{1\leq i\leq A_n\left(\lfloor T n^{2/3}\rfloor\right)}.$$ We check the conditions.
 Firstly, note that by $A_n\left(\lfloor T n^{2/3}\rfloor\right)\to A\left(T\right)$ almost surely as $n\to \infty$, we can pick $n$ large enough such that $A_n\left(\lfloor T n^{2/3}\rfloor\right)=A\left(T\right)$, where we ignore events of $0$ probability. Furthermore, we observe that $(\hat{B}_t,t\geq 0)$ is a Brownian motion with negative parabolic drift, so the sample paths of $(\sigma_+\hat{B}_t,t\geq 0)$ are continuous and drift to $-\infty$ almost surely. By the local absolute continuity of $(\hat{B}_t,t\geq 0)$ to a Brownian motion, its local minima are almost surely unique. Since
 $$\left(A_n\left(\lfloor t n^{2/3}\rfloor\right), t\leq T\right) \overset{a.s.}{\to}\left(A\left(t\right),t\geq 0\right)$$
-in $\D(\R_+,\R)$ as $n\to \infty$, we observe that for all $i\in [A_T]$, $n^{-2/3}X_i^n\to X_i$ almost surely in $\R$ as $n\to \infty$. The intensity of $(A_t,t\geq 0)$ at time $t$ is proportional to $\hat{R}_t$, so $\hat{R}_{X_i}>0$ for all $i$ almost surely. This allows us to apply Lemma \ref{lemma.extractexcursions}, and the convergence follows.
+in $\D(\R_+,\R)$ as $n\to \infty$, we observe that for all $i\in \{1,\dots,A(T)\}$, $n^{-2/3}X_i^n\to X_i$ almost surely in $\R$ as $n\to \infty$. The intensity of $(A_t,t\geq 0)$ at time $t$ is proportional to $\hat{R}_t$, so $\hat{R}_{X_i}>0$ for all $i$ almost surely. This allows us to apply Lemma \ref{lemma.extractexcursions}, and the convergence follows.
 \end{proof}
 
 % Given the convergence of the excursion intervals that contain the ancestral surplus edges, it is straightforward to obtain convergence of the encoding processes of the components of $(\hat{F}_n(k), k\geq 1)$ that contain the marks. 
@@ -178,7 +183,7 @@ By Proposition \ref{prop.extractexcursions}, we know that the intervals that enc
 % \end{proof}
 
 
-The following proposition shows convergence under rescaling of the sequence of tails of the candidates in a particular component of $(\hat{F}_n(k),k\geq 1)$. 
+The following proposition shows convergence under rescaling of the sequence of tails of the candidates in a particular component of $(\hat{F}_n(k),k\geq 1)$ . 
 \begin{proposition}\label{prop.convergencestartingpointscandidates}
 Fix $T>0$. By Skorokhod's representation theorem, we may work on a probability space where the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions} holds almost surely. Let $(l,\sigma)\in \left\{(L_i,\Sigma_i):i\leq A_T\right\}$, so that, for each $n$ large enough, we can find $(l_n,\sigma_n)\in\left\{(L_i^n,\Sigma_i^n):i\leq A_n\left(\lfloor Tn^{2/3}\rfloor\right)\right\}$ such that $(l_n,\sigma_n)\to (l,\sigma)$. Set $V_1=\inf\{t\in [l,l+\sigma]:A(t)=A(l)+1\}$, and similarly, set $V_1^n=\min\{l_n<k\leq l_n+\sigma_n:A_n(k)=A_n(l_n)+1\}$, which are well-defined by definition of $l$, $\sigma$, $l_n$ and $\sigma_n$. By construction, $\{l_n+1,\dots,l_n+\sigma_n\}$ encodes a component of $(\hat{F}_n(k),k\geq 1)$. Call this component $T^n_{l_n}$. We apply the procedure defined in \cref{lemma.samplecandidates} to find the tails of the candidates in $T^n_{l_n}$. Let $\mathbf{C}_n(l_n)$ denote the sequence of tails of candidates in $T^n_{l_n}$. Similarly, $[l,l+\sigma]$ encodes a component of $(\hat{\cF}(t),t\geq 0)$. Call this component $\cT_l$, and apply the procedure in Subsection \ref{subsubsec.samplecontinuousobject} to find the tails of the candidates in $\cT_l$. Denote the sequence of tails of candidates by $\mathbf{V}(l)$. Then, jointly with the convergence in Proposition \ref{prop.extractexcursions}, 
 $$n^{-2/3}\mathbf{V}_n(l_n)\todist\mathbf{V}(l)$$
