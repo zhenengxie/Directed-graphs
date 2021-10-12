@@ -334,7 +334,7 @@ Using the previous lemma we can prove existence and give the exact form of the d
 
 The following result, which is an analogue of \cite[Lemma 6.7]{conchon--kerjanStableGraphMetric2020}, describes the asymptotic behaviour of the measure change when $m = \Theta(n^{2/3})$.
 \begin{lemma}
-    \label{lem:measure-change-approx}
+    \label{prop:measure-change-approx}
     Define
     \begin{equation*}
         s^{\pm}(i) = \textstyle{\sum_{j=1}^i (k_i^{\pm} - \lambda_{\pm})}.
@@ -486,7 +486,7 @@ Hence,
 \end{align*}
 which is within the $\bigo(n^{1/2})$ range from the mean required for a typical deviation. This justifies our choice of $\theta_n = \frac{m}{\mu n}$.
 
-It will turn out that the same exponential tilting is approximately achieved by the Radon-Nikodym derivative $\phi^n_m(\vk_1, \ldots, \vk_m)$, and so this perspective will play a key role in the proof of \cref{lem:measure-change-approx}.
+It will turn out that the same exponential tilting is approximately achieved by the Radon-Nikodym derivative $\phi^n_m(\vk_1, \ldots, \vk_m)$, and so this perspective will play a key role in the proof of \cref{prop:measure-change-approx}.
 
 \subsubsection{Local limit results}
 
@@ -559,10 +559,10 @@ Next we show the local limit theorem holds for $(\Delta_{n-m}, \Xi^-_{n-m})$ und
     as $L \to \infty$, since $\vX$ is assumed to have finite second moment. Thus the desired result follows from \cref{thm:multi-triangular-llt}. There is a slight change in that we have $n - m$ terms in the summations for $\Delta_{n-m}$ and $\Xi^-_{n-m}$ rather than $n$ terms, but since $m = \Theta(n^{2/3})$ this does not matter asymptotically.
 \end{proof}
 
-Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same asymptotic behaviour as $\P(\Delta_n = 0)$ even when we condition on $\Xi_{n-m}^-$ not `varying too much' about its tilted mean. We only prove a lower bound, but this is sufficient for proving \cref{lem:measure-change-approx}.
+Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same asymptotic behaviour as $\P(\Delta_n = 0)$ even when we condition on $\Xi_{n-m}^-$ not `varying too much' about its tilted mean. We only prove a lower bound, but this is sufficient for proving \cref{prop:measure-change-approx}.
 \begin{lemma}
     \label{lem:mod-dev-local}
-    Under the assumptions of \cref{lem:measure-change-approx},
+    Under the assumptions of \cref{prop:measure-change-approx},
     \begin{equation*}
         \mathbb P_n \left(
             \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-), \ 
@@ -684,8 +684,8 @@ Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same 
 
 \subsubsection{Poof of the asymptotic lower bound}
 
-We are now ready to prove \cref{lem:measure-change-approx}.
-\begin{proof}[Proof of \cref{lem:measure-change-approx}]
+We are now ready to prove \cref{prop:measure-change-approx}.
+\begin{proof}[Proof of \cref{prop:measure-change-approx}]
     Firstly,
     \begin{equation*}
         \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} = \exp(X_n - Y_n),
@@ -718,9 +718,9 @@ We are now ready to prove \cref{lem:measure-change-approx}.
     \end{align*}
     The summation contributes order $m = O(n^{2/3})$. Thus we keep terms of order $\Omega(n^{-2/3})$ when expanding $\log(1 + A_n^i + B_n + C_n^i)$. Write
     \begin{equation*}
-        \omegaevent_n = \left\{ \abs{\Omega^-_n} \leq 2n^{\frac{1}{2} + \epsilon} \right\}.
+        \omegaEvent_n = \left\{ \abs{\Omega^-_n} \leq 2n^{\frac{1}{2} + \epsilon} \right\}.
     \end{equation*}
-    On the event $\omegaevent_n$, we can check that the $A_n^i, B_n, C_n^i$ and $(C_n^i)^2$ terms are the only ones in the expansion which have order $\Omega(n^{-2/3})$. Moreover,
+    On the event $\omegaEvent_n$, we can check that the $A_n^i, B_n, C_n^i$ and $(C_n^i)^2$ terms are the only ones in the expansion which have order $\Omega(n^{-2/3})$. Moreover,
     \begin{equation*}
         \sum_{i=1}^m C_n^i = - \frac{\lambda_-}{2 \mu} \frac{m^2}{n} + \littleo(1) \quad \text{and} \quad
         \sum_{i=1}^m (C_n^i)^2 = \frac{\lambda_-^2}{3 \mu^2} \frac{m^3}{n^2} + \littleo(1).
@@ -744,7 +744,7 @@ We are now ready to prove \cref{lem:measure-change-approx}.
     \begin{align*}
         \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}}
         &\geq \exp \Bigg( \frac{1}{\mu n} \sum_{i=1}^m (s^-(i) - s^-(m)) \nonumber \\
-        &\hspace{4em} - \frac{m}{\mu n} \Omega^-_n + \frac{(\lambda_- - \mu)}{2 \mu} \frac{m^2}{n} + \frac{(\lambda_-^2 - \mu^2)}{6 \mu^2} \frac{m^3}{n^2} \Bigg) \one_{\omegaevent_n}.
+        &\hspace{4em} - \frac{m}{\mu n} \Omega^-_n + \frac{(\lambda_- - \mu)}{2 \mu} \frac{m^2}{n} + \frac{(\lambda_-^2 - \mu^2)}{6 \mu^2} \frac{m^3}{n^2} \Bigg) \one_{\omegaEvent_n}.
     \end{align*}
     In addition, using \cref{lem:asym-expansions}, the measure change can be expanded as
     \begin{equation*}
@@ -760,11 +760,11 @@ We are now ready to prove \cref{lem:measure-change-approx}.
         \geq& \frac{1}{\P(R_n \geq m, \Delta_n = 0)} \E_n \left[ \exp \left(
                 \frac{1}{\mu n} \sum_{i=1}^m \left( s^-(i) - s^-(m) \right)
                 - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1)
-            \right) \one_{\omegaevent_n \cap A_n} \right] \\
+            \right) \one_{\omegaEvent_n \cap A_n} \right] \\
         \geq& \exp \left(
                 \frac{1}{\mu n} \sum_{i=1}^m \left( s^-(i) - s^-(m) \right)
                 - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
-            \right) (1 + \littleo(1)) \frac{\P_n(\omegaevent_n \cap A_n)}{\P(R_m \geq n, \Delta_n = 0)}.
+            \right) (1 + \littleo(1)) \frac{\P_n(\omegaEvent_n \cap A_n)}{\P(R_m \geq n, \Delta_n = 0)}.
     \end{align*}
     By \cref{lem:asym-expansions} we have that
     \begin{equation*}
@@ -772,14 +772,14 @@ We are now ready to prove \cref{lem:measure-change-approx}.
     \end{equation*}
     In particular, for all sufficiently large $n$,
     \begin{equation*}
-        \P_n(\omegaevent_n \cap A_n) \geq
+        \P_n(\omegaEvent_n \cap A_n) \geq
         \P_n\left(
             \abs{\Xi^-_{n-m} - \E[\Xi^-_{n-m}]} \leq n^{1/2 + \epsilon}, \Delta_{n-m} = \sum_{i=1}^m (k^+_i - k^-_i)
         \right).
     \end{equation*}
     Thus by \cref{lem:normal-llt,lem:mod-dev-local},
     \begin{equation*}
-        \frac{\P_n(\omegaevent_n \cap A_n)}{\P(R_n \geq m, \Delta_n = 0)} \geq 1 + \littleo(1)
+        \frac{\P_n(\omegaEvent_n \cap A_n)}{\P(R_n \geq m, \Delta_n = 0)} \geq 1 + \littleo(1)
     \end{equation*}
     as $n \to \infty$, which gives the desired final result.
 \end{proof}
@@ -843,7 +843,7 @@ We are now ready to prove the main result of this section.
             \max_{i=1, \ldots, m} \abs{V^+(i)} \leq m^{1/2 + \epsilon}
          \right\}
     \end{equation*}
-    for $\epsilon \in (0, 1/6)$. By \cref{lem:measure-change-approx}, it is the case that
+    for $\epsilon \in (0, 1/6)$. By \cref{prop:measure-change-approx}, it is the case that
     \begin{equation*}
         \Phi(n, m) \geq (\Gamma(n, m) + \littleo(1)) \one_{E_m}.
     \end{equation*}

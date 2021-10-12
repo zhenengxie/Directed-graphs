@@ -1,8 +1,27 @@
 \subsection{Asymptotic lower bound on the measure change}
 
-The following result, which is an analogue of \cite[Lemma 6.7]{conchon--kerjanStableGraphMetric2020}, describes the asymptotic behaviour of the measure change when $m = \Theta(n^{2/3})$.
-\begin{lemma}
-    \label{lem:measure-change-approx}
+Recall that our goal in \cref{lem:measure-change-no-crit} is to determine the limiting distribution of
+\begin{equation*}
+    \Phi(n, m) = \phi^n_m(\vZ_1, \ldots, \vZ_m),
+\end{equation*}
+as $n \to \infty$, in the regime where $m = \Theta(n^{2/3})$. When dealing with convergence in distribution, it suffices to work on a sequence of events occuring with high probability. In particular, for the proof of \cref{lem:measure-change-no-crit}, we work on the event $\walkDeviationEvent_m$ where
+\begin{align*}
+    \walkDeviationEvent_m
+    &= \Bigg\{ 
+    \max_{i=1, \ldots, m } \abs*{
+        \textstyle\sum_{j=1}^i (Z^{-}_j - \lambda_{-}) 
+    } \leq m^{1/2} \log(m) \\
+    &\hspace{13em} \text{and} \quad
+    \max_{i=1, \ldots, m } \abs*{
+        \textstyle\sum_{j=1}^i (Z^{+}_j - \lambda_{+}) 
+    } \leq m^{1/2} \log(m)
+    \Bigg\}.
+\end{align*}
+This says that the centered random walks corresponding to $Z^+_i$ and $Z^-_i$ both do not deviate by more than $m^{1/2} \log(m)$ in the first $m$ steps. Each $Z^+_i$ and $Z^-_i$ has finite variance, thus this event will occur with high probability. 
+
+The following lemma is an analogue of \citet[Lemma 6.7]{conchon--kerjanStableGraphMetric2020}. In it we prove a deterministic lower bound on $\phi^n_m(\vk_1, \ldots, \vk_m)$, for all $\vk_1, \ldots, \vk_m$ corresponding to the event $\walkDeviationEvent_m$, up to an error which vanishes as $n \to \infty$.
+\begin{proposition}
+    \label{prop:measure-change-approx}
     Define
     \begin{equation*}
         s^{\pm}(i) = \textstyle{\sum_{j=1}^i (k_i^{\pm} - \lambda_{\pm})}.
@@ -14,30 +33,16 @@ The following result, which is an analogue of \cite[Lemma 6.7]{conchon--kerjanSt
         \quad \text{and} \quad
         \max_{i=1, \ldots, m} \abs{s^{+}(i)} \leq m^{\frac{1}{2}} \log(m)
     \end{equation}
-    Then in the regime $m = \Theta(n^{2/3})$,
+    Then in the regime $m = \Theta(n^{2/3})$, as $n \to \infty$,
     \begin{equation*}
         \phi^n_m(\vk_1, \ldots, \vk_m)
         \geq \exp\left( \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} \right) + \littleo(1),
     \end{equation*}
-    where the $\littleo(1)$ term is independent of $\vk_1, \ldots, \vk_m$ satisfying our assumptions.
-\end{lemma}
-Let us explain the condition in \cref{eq:s-condition}. In \cref{thm:measure-change}, we evaluate $\phi^n_m$ as 
-\begin{equation*}
-    \phi^n_m(\vZ_1, \ldots, \vZ_m).
-\end{equation*}
-Thus the condition in \cref{eq:s-condition} corresponds to the event
-\begin{equation*}
-    \max_{i=1, \ldots, m } \abs*{
-        \sum_{j=1}^i (Z^{-}_j - \lambda_{-}) 
-    } \leq m^{1/2} \log(m)
-    \quad \text{and} \quad
-    \max_{i=1, \ldots, m } \abs*{
-        \sum_{j=1}^i (Z^{+}_j - \lambda_{+}) 
-    } \leq m^{1/2} \log(m)
-\end{equation*}
-This says that the centered random walks corresponding to $Z^+_i$ and $Z^-_i$ do not deviate by more than $m^{1/2} \log(m)$ in the first $m$ steps. This event will occur with high probability, and so \cref{eq:s-condition} is not a restrictive condition to take.
+    where the $\littleo(1)$ error term is independent of $\vk_1, \ldots, \vk_m$ satisfying the assumption in \cref{eq:s-condition}.
+\end{proposition}
 
-The fact that we only prove a lower bound may seem strange at first. First note that all measure changes are non-negative random variables and have expectation 1. Hence if the sequence of lower bounds on the measure changes converge to a limit that also has expectation 1, then we have not have lost a significant amount of probability mass and thus the measure changes converge to the same limit as the lower bounds. The following lemma, adapted from \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020}, makes this formal.
+
+The fact that we only prove a lower bound may seem strange at first. To understand why this is sufficient, first note that all measure changes are non-negative random variables and have expectation 1. Hence if the sequence of lower bounds on the measure changes converge to a limit that also has expectation 1, then we have not have lost a significant amount of probability mass. It follows that the measure changes converge to the same limit as the lower bounds. This is made formal by \citet[Lemma 4.8]{conchon--kerjanStableGraphMetric2020}. In \cref{lem:measure-change-no-crit} we are considering the joint convergence of the measure change with two other random walks, and thus we adapt \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} to allow for an additional coordinate that is converging jointly with the first coordinate.
 \begin{lemma}
     \label{lem:sandwiching-lemma}
     Let $(X_n, Y_n, Z_n)_{n \geq 1}$ be a sequence of $[0, \infty) \times [0, \infty) \times S$-valued random variables where $S$ is a metric space. Suppose there exists a $[0, \infty) \times S$-valued random variable $(Y, Z)$ such that the following holds:
@@ -48,68 +53,152 @@ The fact that we only prove a lower bound may seem strange at first. First note 
     \end{enumerate}
     Then $(X_n, Z_n) \todist (Y, Z)$ also. Moreover $(X_n)_{n \geq 1}$ is a sequence of uniformly integrable random variables.
 \end{lemma}
+The proof of this lemma is obtained by simply adding the corresponding $Z_n$ or $Z$ coordinate to quantities in the proof of \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} and so we will not repeat it here.
+
+\subsubsection{Discrete local limit theorem}
+
+To prove \cref{prop:measure-change-approx}, we first need to understand the denominator of $\phi^n_m$, which, as given by \cref{lem:exact-measure-change}, is $\P(\Delta_n = 0, R_n \geq m)$. We show at the end of this section that the asymptotic behaviour of $\P(\Delta_n = 0, R_n \geq m)$ is dominated by the event $\{\Delta_n = 0\}$. The random variable $\Delta_n$ is a sum of independent integer-valued random variables and the asymptotic behaviour of such a sum being equal to some value is described by the discrete local limit theorem. Such a theorem was first proven by \citet{gnedenkoLocalLimitTheorem1948}. Here we borrow the presentation from \citet[Section 3.5]{durrettProbabilityTheoryExamples2019}.
+
+Let $X_1, X_2, \ldots$ be i.i.d.\ integer-valued random variables with mean $\mu$ and finite variance $\sigma^2$. Then, by the central limit theorem,
+\begin{equation*}
+    \frac{ \sum_{i=1}^n X_i - n \mu }{\sigma \sqrt{n}}
+    \todist
+    N(0, 1)
+\end{equation*}
+as $n \to \infty$. Thus we expect $\sum_{i=1}^n X_i$ to be distributed like a $N(n \mu, n \sigma^2)$ random variable for large values of $n$. Therefore the probability mass function of $\sum_{i=1}^n X_i$ should be well approximated by the probability density function of a $N(n \mu, n \sigma^2)$ distribution, i.e.
+\begin{equation*}
+    \P\big( \textstyle \sum_{i=1}^n X_i = s \big)
+    \approx
+    \frac{1}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
+        \frac{-(s - n \mu)^2}{2 n \sigma^2}
+    \right)
+\end{equation*}
+for all integers $s$. Specifically we hope that
+\begin{equation}
+    \label{eq:llt-approx}
+    \sup_{s \in \Z} \abs*{
+        \P\big( \textstyle \sum_{i=1}^n X_i = s \big) 
+        -
+        \frac{1}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
+            \frac{-(s - n \mu)^2}{2 n \sigma^2}
+        \right)
+    } = \littleo(n^{-1/2}).
+\end{equation}
+
+This, however, is not always the case. Suppose, for example, that each $X_i$ is almost surely even such that $\P\left( \sum_{i=1}^n X_i = s \right) = 0$ for all odd $s$. Let $s_n$ be the closest odd integer to $n \mu$. Then
+\begin{equation*}
+    \sup_{s \in \Z} \abs*{
+        \P\big( \textstyle \sum_{i=1}^n X_i = s \big) 
+        -
+        \frac{1}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
+            \frac{-(s - n \mu)^2}{2 n \sigma^2}
+        \right)
+    }
+    \geq
+    \frac{1}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
+        \frac{-(s_n - n \mu)^2}{2 n \sigma^2}
+    \right)
+    = 
+    \Theta(n^{ -1/2 }).
+\end{equation*}
+
+Fortunately this kind of periodic behaviour can be mitigated by normalizing the random variables. A one-dimensional random variable $X$ is \emph{lattice} if it is not almost surely constant, and there exists $h > 0$ and $c \in \R$ such that $X \in c + h\Z$ almost surely. The largest such $h$ is called the \emph{span} of $X$. For example, if $X$ is almost surely even then $X$ has span at least 2. If $X$ is lattice with span $h$ and $c$ is in the support of $X$, then the affine transform $\frac{1}{h}(X - c)$ is an integer-valued random variable with span 1. After normalization, the approximation in \cref{eq:llt-approx} does hold, and is the subject of the discrete local limit theorem.
+
+\begin{theorem}[Discrete local limit theorem]
+    \label{thm:discrete-llt}
+    Let $X_1, X_2, \ldots$ be i.i.d.\ integer-valued random variables with span 1 and finite variance $\sigma^2$. Then
+    \begin{equation*}
+        \sup_{s \in \Z} \abs*{
+            \P\big( \textstyle \sum_{i=1}^n X_i = s \big) 
+            -
+            \frac{1}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
+                \frac{-(s - n \mu)^2}{2 n \sigma^2}
+            \right)
+        } = \littleo(n^{-1/2}).
+    \end{equation*}
+\end{theorem}
+\begin{remark}
+    \label{rem:llt-limitations}
+    For each sequence of integers $(s_n)_{n \geq 1}$ such that $\abs{s_n - n \mu} = \littleomega(n^{1/2})$, we have that
+    \begin{equation*}
+        \frac{1}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
+            \frac{-(s_n - n \mu)^2}{2 n \sigma^2}
+        \right)
+        = \littleo(n^{-1/2}).
+    \end{equation*}
+    Hence the discrete local limit theorem (\cref{thm:discrete-llt}) tells you only that $\P\left(\sum_{i=1}^n X_i = s_n\right) = \littleo(n^{-1/2})$; it gives no precise characterization of the leading order term.
+\end{remark}
+
+While this remark will be important later, here $\Delta_n$ is centered and we are interested in the probability $\P(\Delta_n = 0)$. Thus the following lemma can be proven with the discrete local limit theorem (\cref{thm:discrete-llt}).
+\begin{lemma}
+    \label{lem:measure-change-denominator-control}
+    If $m = \Theta(m^{2/3})$, then
+    \begin{equation*}
+        \P(\Delta_n = 0, R_n \geq m) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} + \littleo(n^{-1/2})
+    \end{equation*}
+    as $n \to \infty$, where $\sigma$ is the variance of $D^- - D^+$.
+\end{lemma}
+\begin{remark}
+    The exact value of $\sigma^2$ is not important for the asymptotic behaviour of $\phi^n_m$ because we show later that it will cancel with a term in the numerator of $\phi^n_m$.
+\end{remark}
 \begin{proof}
-    We first show $X_n - Y_n \to 0$ in $L^1$ as $n \to \infty$. Since $X_n \geq Y_n$,
+    We have that $\Delta_n$ is equal to the sum $\sum_{i=1}^n (D_i^- - D_i^+)$ of i.i.d.\ random variables. The assumption in GIVE REFERENCE guarantees exactly that each $D^-_i - D^+_i$ has span 1. Moreover each $D_i^- - D_i^+$ is centered, and so the discrete local limit theorem (\cref{thm:discrete-llt}) gives that
     \begin{equation*}
-        \limsup_{n \to \infty} \E \abs{X_n - Y_n}
-        = \limsup_{n \to \infty} \E[X_n - Y_n]
-        = 1 - \liminf_{n \to \infty} \E[Y_n].
+        \P(\Delta_n = 0) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} + \littleo(n^{-1/2}).
     \end{equation*}
-    Thus it suffices to show $\liminf_n \E[Y_n] \geq 1$. This follows since
+    Moreover
     \begin{equation*}
-        \liminf_n \E[Y_n] =
-        \liminf_n \E[\abs{Y_n}] \geq
-        \E[\abs{Y}] =
-        \E[Y] = 1,
+        \abs{\P(\Delta_n = 0) - \P(\Delta_n = 0, R_n \geq m)} \leq \P(R_n < m).
     \end{equation*}
-    where the first and second equalities follow from the non-negativity of $Y_n$ and $Y$, and the inequality follows by the Portmanteau theorem.
-
-    In particular $X_n - Y_n \todist 0$. Since this limit is a constant, it follows by Slutsky's theorem that
+    Therefore it suffices to show that $\P(R_n < m) = \littleo(n^{-1/2})$. Recall that $R_n \sim \text{Binomial}(n, p)$ and that $p > 0$. Thus if $m = \Theta(n^{2/3})$, then $m < \frac{1}{2} p n$ for sufficiently large $n$. Therefore if $R_n < m$, then $R_n$ is at least distance $\frac{1}{2} p n$ away from it's mean. It follows, by Hoeffding's inquality, that
     \begin{equation*}
-        \vectwo{X_n}{Z_n} = \vectwo{Y_n}{Z_n} + \vectwo{X_n - Y_n}{0} \todist \vectwo{Y}{Z}.
+        \P(R_n < m) \leq \exp\left( - \tfrac{1}{2} p^2 n \right) = \littleo(n^{-1/2}). \qedhere
     \end{equation*}
-
-    We now prove the uniform integrability. By Skorokhod's representation theorem we may suppose that $X_n \to Y$ almost surely. Then $\E[X_n] = \E[Y] = 1$ for all $n$. Therefore, $X_n \to Y$ in $L^1$ by Scheffé's lemma, which entails the required uniform integrability.
 \end{proof}
 
-\subsubsection{Local Limit Theorems}
+\subsubsection{Exponential Tilting}
 
-The denominator of $\phi^n_m$, as given by \cref{lem:exact-measure-change}, is $\P(\Delta_n = 0)$. The random variable $\Delta_n$ is a sum of independent random variables and the asymptotic behaviour of such a sum being equal to some value is described by the local limit theorem.
-
-Let $X_1, X_2, \ldots$ be i.i.d.\ random variables with mean $\mu$ and finite variance $\sigma^2$. Then, by the central limit theorem,
+Next we turn to the numerator of $\phi^n_m$. By \cref{lem:exact-measure-change}, this is given by
+\begin{equation}
+    \label{eq:measure-change-numerator}
+    \E\left[ 
+        \one \left\{ \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-) \right\}
+        \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \Xi_{n-m}^-}
+    \right].
+\end{equation}
+For convenience, let $\lltEvent_n$ denote the event in the indicator function, i.e.
 \begin{equation*}
-    \tfrac{1}{\sqrt{n}} \big( \textstyle \sum_{i=1}^n X_i - n \mu \big) \todist N(0, \sigma^2)
+    \lltEvent_n = \left\{ \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-) \right\}.
 \end{equation*}
-as $n \to \infty$. Hence we conjecture that
+When the $\vk_1, \ldots, \vk_m$ satisfy the condition in \cref{eq:s-condition}, we face two problems in evaluating the expectation in \cref{eq:measure-change-numerator}.
+
+
+The first problem concerns the event $\lltEvent_n$. To evaluate the expectation we need to understand the asymptotic probability of this event. Unfortunately a naïve application of the discrete local limit theorem will not work in this case, as we now explain. Firstly, note that
 \begin{equation*}
-    f(X) = \sin(X) + 1
+    \sum_{i=1}^m (k_i^- - k_i^+) = s^-(m) - s^+(m) + (\lambda_+ - \lambda_-) m.
 \end{equation*}
-where $f$ is the density of a standard normal distribution.
-
-\subsubsection{Asymptotic behaviour of the numerator of the measure change}
-
-The numerator takes form OIJOIJOJ and we are interested in the case where INSERT CONDITION. There are currently two problems.
-
-Firstly note that
+We have that
 \begin{equation*}
-    \E[Z^- - Z^+] = \frac{1}{\mu} \E[D^-D^+ - (D^-)^2].
+    \lambda_+ - \lambda_- = \E[Z^- - Z^+] = \tfrac{1}{\mu} \E[D^-D^+ - (D^-)^2]
 \end{equation*}
-This quantity is, in general, non-zero, even if $\E[D^- - D^+] = 0$. The deviation of a sum of the $Z^{\pm}_i$ around its mean is controlled by the assumption in \cref{eq:s-condition}. If $\vk_1, \ldots, \vk_n$ satisfy \cref{eq:s-condition} and $m = \Theta(n^{2/3})$ then
+which is, in general, non-zero. Then $m = \Theta(n^{2/3})$ whereas, if $\vk_1, \ldots, \vk_n$ satisfy \cref{eq:s-condition}, $s^{-}(m)$ and $s^+(m)$ are both of order $\bigo(n^{1/3} \log n)$. Therefore
 \begin{equation*}
-    \sum_{i=1}^m (k_i^- - k_i^+) = s^-(m) - s^+(m) + (\lambda_+ - \lambda_-) m = \Theta(n^{2/3}).
+    \sum_{i=1}^m (k_i^- - k_i^+) = \Theta(n^{2/3}).
 \end{equation*}
+In contrast, $\Delta_{n-m}$ is centered, so $\lltEvent$ is looking at the event that $\Delta_{n-m}$ takes a value at distance $\Theta(n^{2/3})$ away from its mean. As stated in \cref{rem:llt-limitations}, the discrete local limit theorem provides no useful information in this regime. 
 
-In contrast, $\Delta_{n-m}$ is centered, so
-\begin{equation*}
-    \left\{ \Delta_{n-m} = \textstyle \sum_{i=1}^m (k_i^+ - k_i^-) \right\}  
-\end{equation*}
-is looking at the event that $\Delta_{n-m}$ takes a value at distance $n^{2/3}$ away from its mean. As remarked earlier INSERT REFERENCE, the local limit provides no useful information in this regime. 
+The second problem is that even in absence of the indicator function, the expectation being evaluated in \cref{eq:measure-change-numerator} is not dictated by the typical fluctuations of the random variables $\Xi^-_{n-m}$. In other words it is not the case that
+\begin{equation}
+    \E\left[ 
+        \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \Xi_{n-m}^-}
+    \right]
+    \not \approx
+    \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \E[\Xi_{n-m}^-]}
+\end{equation}
 
-The second problem is that even in absence of the indicator function, the expectation of the exponential of a random variable is often not dictated by the standard behaviour of the random variable. Although large values of IJOIJ are less likely, the exponential FINISH EXPLANATION.
+It turns out that both of these issues by means introducing a sequence of exponentially tilted measures.  The first effect of the exponentially tilted measures will be to shift the mean of $\Delta_{n-m}$ and $\Xi_{n-m}$ in such a way that, after the tilting, the event $\lltEvent_n$ concerns only a typical deviation of $\Delta_{n-m}$ which can be addressed by a local limit theorem. The second effect is that the expectation being evaluated in \cref{eq:measure-change-numerator} will be dictated by the typical fluctations of $\Xi^-_{n-m}$ under the tilted measure. 
 
-We address both of these issues by means introducing a sequence of exponentially tilted measures.
-
-The effect of the exponentially tilted measures will be to shift the mean of $\Delta_{n-m}$ in such a way that, under the new measure, the event concerns only a typical deviation. The next result defines this tilt and then gives asymptotic expansions for cumulant generating function of $D^-$, the mean of $D^-$ and the mean of $D^+$ under this tilting. 
+The next result defines this tilt and then gives asymptotic expansions for cumulant generating function of $D^-$, the mean of $D^-$ and the mean of $D^+$ under this tilting. 
 \begin{lemma}
     \label{lem:asym-expansions}
     Define an measure $\P_{\theta}$, for $\theta \geq 0$, by its Radon--Nikodym derivative
@@ -176,48 +265,311 @@ Hence,
 \begin{align*}
     \textstyle \sum_{i=1}^m (k_i^+ - k_i^-) - \E_n[\Delta_{n-m}] 
     &= s^-(m) - s^+(m) + \Big[ m(\lambda_+ - \lambda_-) - \E_n[\Delta_{n-m}] \Big] \\
-    &= \bigo(n^{1/3 + \epsilon}),
+    &= \bigo(n^{1/3} \log n),
 \end{align*}
-which is within the $\bigo(n^{1/2})$ range from the mean required for a typical deviation. This justifies our choice of $\theta_n = \frac{m}{\mu n}$.
+which is within the $\bigo(n^{1/2})$ range from the mean required for a typical deviation. This justifies our choice of $\theta_n = \frac{m}{\mu n}$. Remarkably the same tilting correctly recenters $\Xi_{n-m}^-$ such that the expectation in \cref{eq:measure-change-numerator} is dominated by the typical behaviour of $\Xi_{n-m}^-$ under $\P_n$.
 
-It will turn out that the same exponential tilting is approximately achieved by the Radon-Nikodym derivative $\phi^n_m(\vk_1, \ldots, \vk_m)$, and so this perspective will play a key role in the proof of \cref{lem:measure-change-approx}.
+\subsubsection{Expansion of the numerator}
+
+Using \cref{lem:asym-expansions}, we have that
+\begin{equation*}
+    \E_n[\Xi_{n-m}^-] =  \mu n - \lambda_- m + \bigo(n^{1/3})
+\end{equation*}
+under the tilting. Thus we will expand the numerator under the event
+\begin{equation*}
+    \omegaEvent_n = \left\{ 
+        \abs{\Xi_{n-m} - \mu n + \lambda_- m} \leq n^{1/2} \log(n)
+     \right\}.
+\end{equation*}
+
+The next lemma expands the numerator on the event $\omegaEvent_n$.
+\begin{lemma}
+    We have that
+    \begin{align*}
+        \E\left[ 
+            \one_{\lltEvent_n \cap \omegaEvent_n}
+            \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \Xi_{n-m}^-}
+        \right]
+        & =
+        \left\{ \exp\left(
+            \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
+        \right) + \littleo(1) \right\} \\
+        & \hspace{18em} \times \P_n(\lltEvent_n \cap \omegaEvent_n)
+    \end{align*}
+    where the $\littleo(1)$ term is bounded independently of $\vk_1, \ldots, \vk_m$ satisfying the assumption in \vref{eq:s-condition}.
+\end{lemma}
+\begin{proof}
+    Firstly,
+    \begin{equation*}
+        \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} = \exp(X_n - Y_n),
+    \end{equation*}
+    where
+    \begin{equation*}
+        X_n = \sum_{i=1}^m \log\left( 1 - \frac{i-1}{n} \right)
+        \quad \text{and} \quad
+        Y_n = \sum_{i=1}^m \log\left( \frac{\sum_{k=i}^m k_i^- + \Xi^-_{n-m}}{\mu n} \right).
+    \end{equation*}
+    Note that
+    \begin{equation*}
+        \sum_{j=i}^m k^-_j = s^-(m) - s^-(i - 1) + (m - i + 1) \lambda_-,
+    \end{equation*}
+    and define
+    \begin{equation*}
+        \Omega^-_n = \Xi^-_{n-m} - \mu n + \lambda_- m
+    \end{equation*}
+    such that $\omegaEvent = \{ \abs{\Omega^-_n} < n^{1/2} \log n \}$. Then we have
+    \begin{align*}
+        Y_n 
+        &= \sum_{i=1}^m \log \left( \frac{s^-(m) - s^-(i-1) + (m - i + 1) \lambda_- + \Omega^-_n + \mu n - \lambda_- m}{\mu n} \right) \\
+        &= \sum_{i=1}^m \log \left( 1 + A_{i, n} + B_{i, n} \right)
+    \end{align*}
+    where
+    \begin{align*}
+        A_{i, n} = \frac{1}{\mu n} \left\{ 
+            \Omega_n^- -\left[ s^-(i-1) - s^-(m) \right] 
+        \right\}, \quad
+        B_{i, n} = - \frac{\lambda_-}{\mu n} (i-1).
+    \end{align*}
+    Then on the event $\omegaEvent_n$,
+    \begin{equation*}
+        \max_{i=1, \ldots, m} \abs{A_n^i} = \bigo(n^{-1/2} \log n)
+        \quad \text{and} \quad
+        \max_{i=1, \ldots, m} \abs{B_n^i} = \bigo(n^{-1/3}).
+    \end{equation*}
+    where the $\bigo$ bounds are uniform for $\vk_1, \ldots, \vk_m$ satifying \cref{eq:s-condition}. There are $m = \theta(n^{2/3})$ terms in the summation. Thus to keep all terms of order $\Omega(1)$, we keep terms of order $\Omega(n^{-2/3})$, uniformly in $i$, when expanding $\log(1 + A_{i, n} + B_{i, n})$. The only such terms are $A_{i, n}, B_{i, n}$ and $B_{i, n}^2$. Moreover,
+    \begin{equation*}
+        \sum_{i=1}^m B_n^i = - \frac{\lambda_-}{2 \mu} \frac{m^2}{n} + \littleo(1) \quad \text{and} \quad
+        \sum_{i=1}^m (B_n^i)^2 = \frac{\lambda_-^2}{3 \mu^2} \frac{m^3}{n^2} + \littleo(1).
+    \end{equation*}
+    Therefore,
+    \begin{align*}
+        Y_n
+        &= \sum_{i=1}^m (A_{i, n} + B_{i, n} + - \tfrac{1}{2} B_{i, n}^2) + \littleo(1) \\
+        &= - \frac{1}{\mu n} \sum_{i=0}^m \left( s^-(i) - s^-(m) \right)
+        + \frac{m}{\mu n} \Omega_n^-
+        - \frac{\lambda_-}{2\mu} \frac{m^2}{n} - \frac{\lambda_-^2}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1),
+    \end{align*}
+    where we use that $\sum_{i=1}^m \left( s^-(i-1) - s^-(m) \right) = \sum_{i=0}^m \left( s^-(i) - s^-(m) \right)$.
+
+    Similarly we can expand $X_n$ as
+    \begin{equation*}
+        X_n = - \frac{m}{2 n} - \frac{m^3}{3 n^2} + \littleo(1).
+    \end{equation*}
+
+    Thus,
+    \begin{align*}
+        &\one_{\lltEvent_n \cap \omegaEvent_n} \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} \\
+        = &\exp \Bigg( \frac{1}{\mu n} \sum_{i=1}^m (s^-(i) - s^-(m)) \nonumber
+         - \frac{m}{\mu n} \Omega^-_n + \frac{(\lambda_- - \mu)}{2 \mu} \frac{m^2}{n} + \frac{(\lambda_-^2 - \mu^2)}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1) \Bigg) \one_{\lltEvent_n \cap \omegaEvent_n}.
+    \end{align*}
+    In addition, using \cref{lem:asym-expansions}, the measure change can be expanded as
+    \begin{equation*}
+        \diff{\P_n}{\P} = \exp \left( 
+            - \frac{m}{\mu n} \Omega_n^- + \frac{(\lambda_- - \mu)}{2\mu} \frac{m^2}{n}
+            + \frac{(\lambda_-^2 - \mu^2)}{6 \mu^2} \frac{m^3}{n^2} + \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1)
+        \right).
+    \end{equation*}
+    Hence,
+    \begin{align*}
+        &\E\left[ 
+            \one_{\lltEvent_n \cap \omegaEvent_n}
+            \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}}
+        \right] \\
+        =& \E_n\left[ 
+            \frac{\dif \P}{\dif \P_n}
+            \one_{\lltEvent_n \cap \omegaEvent_n}
+            \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}}
+        \right] \\
+        =& \E_n \left[ 
+            \one_{\lltEvent_n \cap \omegaEvent_n}
+            \exp \left( 
+                \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1)
+            \right)
+        \right] \\
+        =& \left\{  
+            \exp \left( 
+                \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
+            \right) + \littleo(1)
+         \right\} \P_n(\lltEvent_n \cap \omegaEvent_n)
+    \end{align*}
+    as required.
+\end{proof}
 
 \subsubsection{Multivariate Local Limit Theorem}
 
-We wish to determine the local limit behaviour of $\Delta_n$ under the untilted measure and $\Delta_{n-m}$ under the tilted measures. In the latter case, we wish to show the behaviour remains the same even when conditioning on $\Xi_{n-m}^-$ having fluctuations of order $\bigo(n^{1/2 + \epsilon})$ about its tilted mean. The way we show this is to first show a bivariate local limit theorem. Such a theorem is described by Muk
-
-To make this work we first need to define the analogue of span for $\Z^2$-valued random variables.
-
-$(D^- - D^+, D^-)$ is $\Z^2$ valued and thus certainly lattice valued. Further, in the degenerate case where $D^- = D^+$ almost surely, the total in-degree and total out-degree will be equal almost surely and thus the conditioned and non-conditioned case are the same. So the proof of \cref{thm:measure-change} in that case is the same as that of \cite[Proposition 4.3]{conchon--kerjanStableGraphMetric2020}. Hence WLOG assume $(D^- - D^+, D^-)$ is non-degenerate. Let $\lattice$ be the main lattice of $(D^- - D^+, D^-)$. Then by \cref{lem:zd-triangular} there exist $p, q, r \in \Z_{\geq 0}$ such that $\lattice$ is generated by the columns of
+To complete the proof of \cref{prop:measure-change-approx} we need to understand the asymptotic behaviour of $\P_n(\lltEvent_n \cap \omegaEvent_n)$. Recall an effect of the tilting was to center $\Delta_{n-m}$ in such a way that the probability of the event
 \begin{equation*}
-    \begin{pmatrix}
-        p & 0 \\
-        r & q
+    \lltEvent_n = \left\{ 
+        \Delta_{n-m} = \textstyle \sum_{i=1}^m (k_i^+ - k_i^-)
+    \right\}
+\end{equation*}
+can be addressed by the local limit theorem. However, due to the tilting, $\P_n$ changes with $n$. In effect, $\Delta_n$ under $\P_n$ has the same distribution as $\sum_{i=1}^n X_{n, i}$ where $(X_{n, i})_{i=1}^n$ has the same joint distribution as $(D_i^- - D_i^+)_{i=1}^n$ under $\P_n$. Then $X_{n, 1}, \ldots, X_{n, n}$ are i.i.d.\ but the distribution of $X_{n, 1}$ can change with $n$. A collection of random variables $(X_{n, 1}, \ldots, X_{n, n})_{n = 1}^{\infty}$ satisfying this property is a \emph{row-wise i.i.d.\ triangular array}. Thus we require a generalisation of the discrete local limit theorem which can deal with such arrays. In addition, to deal with the event
+\begin{equation*}
+    \omegaEvent_n = \left\{ 
+        \abs*{\Xi_{n-m}^- - \mu n + \lambda_- m} \leq n^{1/2} \log n
+    \right\},
+\end{equation*}
+we will prove a multivariate local limit theorem applicable to $(\Delta_n, \Xi^-_n)$ under $\P_n$ and then sum over the possible values of $\Xi^-_n$.
+
+The specific result we use is \citet[FIND COROLLARY]{mukhinLocalLimitTheorems1992}. Before we quote it, we define some terminology. Firstly, a set of points in $\R^d$ is a \emph{lattice} if there exists a basis $\va_1, \ldots, \va_d$ of $\R^d$ such that
+\begin{equation*}
+    \lattice = \left\{ 
+        \textstyle \sum_{i=1}^d n_i \va_i : n_i \in \Z \text{ for $i = 1, \ldots, d$}
+    \right\}.
+\end{equation*}
+We say $\lattice$ is generated by $\va_1, \ldots, \va_d$. The choice of basis generating a lattice is not unique. REF shows each integer lattice can be generated by a basis of a specific form. We say a $d \times d$ matrix $A$ is in \emph{Hermite normal form} if 
+\begin{equation*}
+    A = \begin{pmatrix}
+        a_{1, 1} &        & 0 \\
+        \vdots   & \ddots &   \\
+        a_{d, 1} & \cdots & a_{d, d}
     \end{pmatrix}
 \end{equation*}
-We have assumed that $D^- - D^+$ has main lattice $\Z$ and therefore $p = 1$. Conditional on $D^- - D^+$ taking some value, $D^-$ will have main lattice $q \Z$. Let $\sigma^2$ be the variance of $D^- - D^+$ and $\Sigma$ be the covariance matrix of $(D^- - D^+, D^-)$.
-
-We will show that $\P(R_n < m)$ decays exponentially and so the asymptotic behaviour of $\P(R_n \geq m, \Delta_n = 0)$ is dictated by the $\Delta_n = 0$ event. This can be handled by the standard local limit theorem.
+is a lower triangular matrix with non-negative integer entries satisfying
+\begin{enumerate}
+    \item $a_{i, i} > 0$ for all $i = 1, \ldots, d$, and
+    \item $a_{j, i} < a_{i, i}$ for all $j > i$.
+\end{enumerate}
 \begin{lemma}
-    \label{lem:normal-llt}
-    As $n \to \infty$
-    \begin{equation*}
-        \P(R_n \geq m, \Delta_n = 0) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} \left( 1 + \littleo(1) \right).
-    \end{equation*}
+    \label{lem:hnf-basis}
+    Suppose $\lattice \subset \Z^d$ is a lattice. Then there exists a $d \times d$ matrix $A$ in Hermite normal form such that the columns of $A$ form a basis which generates $\lattice$.
+\end{lemma}
+
+An $\R^d$-valued random variable $\vX$ is \emph{non-degenerate} if it is not supported on an affine hyperplane of $\R^d$. $\vX$ is \emph{lattice} if it is non-degenerated and support on a translation of a lattice.
+
+To avoid dealing with translations, define the \emph{symmetrisation} of $\vX$ to be the random variable $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. For each lattice $\lattice$, $\vX$ is supported on a translation of $\lattice$ if and only if $\vX^*$ is supported on $\lattice$ without translation.
+
+If $\vX$ is lattice, the \emph{main lattice} $\lattice(\vX)$ of $\vX$ is the intersection of all lattices containing the support of $\vX^*$. This is in itself a lattice, and is explicitly given by
+\begin{equation*}
+    \lattice(\vX) = \bigcup_{k=1}^{\infty} \left\{ 
+        \textstyle \sum_{i=1}^k n_i \vx^*_i : \text{$n_i \in \Z$ and $\vx^*_i \in \supp(\vX^*)$ for $i = 1, \ldots, k$}
+    \right\}.
+\end{equation*}
+
+For $x \in \R$, let $\langle x \rangle$ be the distance from $x$ to the closest integer. If $\vX$ is an $\R^d$-valued random variable and non-zero $\vd \in \R^d$ then define
+\begin{equation*}
+    H(\vX, \vd) = \inf_{\vc \in \R} \E\left[ 
+        \langle \vX^* \cdot \vd \rangle^2
+    \right].
+\end{equation*}
+Then $H(\vX, \vd) = 0$ if and only if $\vX^*$ is supported on a countable union of hyperplanes which are orthogonal to $\vD$ and equally spaced at distance $\frac{1}{\abs{\vd}}$ from each other. 
+\begin{lemma}
+    Let $\vX$ be a $\R^d$-valued random variable. Then the following are equivalent:
+    \begin{enumerate}
+        \item $\vX$ is lattice with main lattice $\Z^d$.
+        \item $H(\vX, \vd) = 0$ if and only if $\vd \in \Z^d$.
+    \end{enumerate}
 \end{lemma}
 \begin{proof}
-    $R_n \sim \text{Binomial}(n, p)$ for $p > 0$ and, for sufficiently large $n$, $m \leq \frac{1}{2} pn$. So by Hoeffding's inequality,
+    Suppose that $\vX$ is lattice with main lattice $\Z^d$. Then $H(\vX, \vd) = 0$ if $\vx^* \cdot \vd \in \Z$ for all $\vx^* \in \supp(\vX^*)$. Therefore $\vx \cdot \vd \in \Z$ for all $\vx \in \lattice(\vX) = \Z^d$. In particular, setting $\vx = \ve_1, \ldots, \ve_d$ in turn, where each $\ve_i$ is a standard basis vector of $\R^d$, shows that $\vd \in \Z^d$. On the other hand if $\vd \in \Z^d$ then $\vX^* \cdot \vd \in \Z$ almost surely, and thus $H(\vX, \vd) = 0$ as claimed.
+
+    Conversely suppose that $H(\vX, \vd) = 0$ if and only if $\vd \in \Z^d$. Then since $H(\vX, \ve_i) = 0$ for all $i = 1, \ldots, d$, it is the case that $\vX^*$ is supported on $\Z^d$. Thus the main lattice $\lattice(\vX^*)$ is some sublattice of $\Z^d$. By \cref{lem:hnf-basis}, there exists a matrix
     \begin{equation*}
-        \P(\Delta_n = 0) - \P(R_n \geq m, \Delta_n = 0) \leq \P(R_n < m) \leq \P(\abs{R_n - np} < \tfrac{1}{2}pn) \leq e^{-cn}
+        A = \begin{pmatrix}
+            a_{1, 1} &        & 0 \\
+            \vdots   & \ddots &   \\
+            a_{d, 1} & \cdots & a_{d, d}
+        \end{pmatrix}
     \end{equation*}
-    for some $c > 0$.  The random variable $D^- - D^+$ is assumed to have finite variance $\sigma$ and main lattice $\Z$. Moreover it is centered and $0$ is in the main lattice $\Z$. Thus,
+    in Hermite normal form such that $\lattice(\vX^*)$ is generated by the columns of $A$. Suppose, for a contradiction, that $\lattice(\vX^*) \neq \Z^d$. Then $A$ cannot be the identity matrix, so there exists an index $I$ such that $a_{1, 1} = a_{2, 2} = \cdots = a_{I-1, I-1} = 1$ and $a_{I, I} > 1$. As $A$ is in Hermite normal form, $A$ must be of the form
     \begin{equation*}
-        \P(R_n \geq m, \Delta_n = 0) = \P(\Delta_n = 0) + \littleo(n^{-1/2}) = \frac{1}{\sqrt{2 \pi \sigma^2 n}}(1 + \littleo(1)),
+        A = \begin{pmatrix}
+            1 & & & & & 0 \\
+            0 & \ddots & & & & \\
+            \vdots & \ddots & 1 & & & \\
+            0 & & 0 & a_{I, I} & & \\
+            \vdots & & \vdots & \vdots & \ddots & \\
+            0 & \cdots & 0 & a_{d, I} & \cdots & a_{d, d}
+        \end{pmatrix}.
     \end{equation*}
-    where the second equality is by \cref{thm:normal-multi-llt}.
+    Let $\vd = \frac{1}{a_{I, I}} \ve_I$. Then $\vd \not \in \Z^d$ but $\vX^* \cdot \vd \in \Z$ almost surely, and thus $H(\vX, \vd) = 0$. This contradicts our assumptions.
+\end{proof}
+We can now state the local limit theorem.
+\begin{lemma}
+    Suppose $(\vX_{n, 1}, \ldots, \vX_{n, n})_{n = 1}^{\infty}$ is a row-wise i.i.d.\ triangular array of $\Z^d$-valued random variables. Define
+    \begin{align*}
+        \Sigma_n &= \cov(X_{n, 1}), \\
+        \sigma_n^2 &= \E \left[ \abs{X_{n,1} - \E X_{n,1}}^2 \right] = \tr(\Sigma_n), \quad \text{and} \\
+        p_n &= \sup_{m \in \Z^s} \P(X_{n,1} = m).
+    \end{align*}
+    Assume that $\sigma_n^2 < \infty$ for all $n$, and that there exists $C > 0$ such that 
+    \begin{equation*}
+        \liminf_{n \to \infty} \sigma_n^{-2} \inf_{\abs{\vc} = 1} \E\left[ 
+            \left( 
+                \frac{\vX_{n, 1}}{\sigma_n} \cdot \vc
+            \right)^2
+            \one \left\{ 
+                \abs*{\frac{\vX_{n, 1}}{\sigma_n}} \leq C
+            \right\}
+        \right] > 0
+    \end{equation*}
+    and
+    \begin{equation*}
+        \sigma_n^d p_n \exp\left\{ 
+            -2n \inf_{(C\sigma_n)^{-1} \leq \norm{\vd}_{\infty} \leq 1/2} H(\vX_{n, 1}, \vd)
+        \right\} = 0.
+    \end{equation*}
+    Further assume the central limit theorem applies, meaning that
+    \begin{equation*}
+        STATE CENTRAL LIMIT THEOREM
+    \end{equation*}
+    Then
+    \begin{equation*}
+        STATE LLT
+    \end{equation*}
+\end{lemma}
+This lemma accounts for the case where $\sigma_n \to \infty$. When $\sigma_n \to \infty$ it is stil possible to have a central limit theorem, we just need to normalise by $\sigma_n$. This is why condition REF is stated in terms of $X_{n, 1} / \sigma_n$. What this condition prevents is support of $X_{n, 1} / \sigma_n$ becoming concentrated on some affine hyperplane.
+
+The condition in REF is a lattice condition. Since we assume that each $\vX_{n, i} \in \Z^d$, CONDITION is a sufficient condition for each $\vX_{n, i}$ to have main lattice $\Z^d$. This lemma allows for the case where
+\begin{equation*}
+    LATTICE CONDITION TO 0
+\end{equation*}
+and the purpose of the condition in REF is to limit the speed at which this convergence can occur. Fortuantely in our use case it is neither the case that $\sigma_n \to \infty$ nor the case that CONDITION.
+
+\begin{lemma}
+    Suppose $(\vX_{n, 1}, \ldots, \vX_{n, n})_{n = 1}^{\infty}$ is a row-wise i.i.d.\ triangular array of $\Z^d$-valued random variables. For notational convenience, let $\vX_n$ have the same distribution as $\vX_{n, 1}$. Assume there exists $\vX_{\infty}$ such that
+    \begin{equation*}
+        \vX_n \todist \vX_{\infty}
+    \end{equation*}
+    as $n \to \infty$. Further assume the following holds for each $n \geq 1$ and $n = \infty$:
+    \begin{enumerate}
+        \item $\vX_n$ is non-degenerate.
+        \item $\vX_n$ has a common main lattice $\Lambda$.
+        \item SECOND MOMENT CONDITION
+    \end{enumerate}
+    Then 
+\end{lemma}
+\begin{proof}
+    Let $\Sigma_n, \sigma_n$ and $p_n$ be as defined in REF. Then since $\vX_n \todist \vX$ as $n \to \infty$, it is the case that
+    \begin{equation*}
+        CVGS
+    \end{equation*}
+    as $n \to \infty$. Thus to show the conditions in REF hold, it suffices to show that
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    Further it is the case that we only need to show that
+    In addition it suffices to show that 
 \end{proof}
 
-Next we show the local limit theorem holds for $(\Delta_{n-m}, \Xi^-_{n-m})$ under the tilting.
+We wish to apply REF to
+\begin{equation*}
+    delta xi
+\end{equation*}
+where
+\begin{equation*}
+    x def
+\end{equation*}
+Recall the exponential tilting is given by
+
+thus as $n \to \infty$,
+
+The exponential tilting has no effect on the support of the random variables. Hence REF and REF have a common main lattice $\lattice$. By REF there exists integers $p, q > 0$ and an integer $r \in \{0, \ldots, p\}$ such that $\lattice$ is generated by the columns of
+
+Then it is clear that REF has span $p$, and condition REF ensures that REF has span 1. Thus $p = 1$, and $A$ has the form
+
+Finally let $\Sigma$ be the 
+
 \begin{lemma}
     \label{lem:bivar-llt}
     Let $\vc_n \in \Z^2$ be such that $\vc_n + \Lambda$ contains the support of $(\Delta_{n-m}, \Xi^-_{n-m})$. Then uniformly for $(x, y) \in \vc_n + \Lambda$,
@@ -241,24 +593,20 @@ Next we show the local limit theorem holds for $(\Delta_{n-m}, \Xi^-_{n-m})$ und
     as $n \to \infty$.
 \end{lemma}
 \begin{proof}
-    Let $\vX_{n1}, \ldots, \vX_{nn}$ have the same distribution as 
-    \begin{equation*}
-        \vectwo{D^-_1 - D^+_1}{D^-_1}, \ldots, \vectwo{D^-_n - D^+_n}{D^-_n}
-    \end{equation*}
-    under the tilted measure $\P_n$. Then since $\theta_n = \littleo(1)$, it is simple to show that $\vX_{n1}$ tends weakly in law to $\vX = (D^- - D^+, D^-)$ under the non-tilted measure. The measure change does not change the support of the random variables and thus all $\vX_{n1}$ and $\vX$ have the same main lattice $\lattice$. Finally, we check the uniform integrability condition. Since $\theta_n = \littleo(1)$, we have $M = - \inf_n \alpha(\theta_n) < \infty$. Then
-    \begin{align*}
-        \sup_n \E[\norm{\vX_{n1}}^2 \one \{ \norm{\vX_{n1}}^2 \geq L \} ]
-        &= \sup_n \E[e^{-\theta_n D^- - \alpha(\theta_n)} \norm{\vX}^2 \one\{\norm{\vX}^2 \geq L \} ] \\
-        &\leq e^M \E[\norm{\vX}^2 \one\{\norm{\vX}^2 \geq L \} ] \\
-        & \to 0
-    \end{align*}
-    as $L \to \infty$, since $\vX$ is assumed to have finite second moment. Thus the desired result follows from \cref{thm:multi-triangular-llt}. There is a slight change in that we have $n - m$ terms in the summations for $\Delta_{n-m}$ and $\Xi^-_{n-m}$ rather than $n$ terms, but since $m = \Theta(n^{2/3})$ this does not matter asymptotically.
+    Let $\sigma^2_n$ and $p_n$ be defined as in INSERT REF. Further let $\sigma^2 = \tr(\Sigma)$ and $p_{\text{max}} = $. then
+
+    thus to show the conditions in REF hold, it suffices to prove that
+    \begin{enumerate}
+        \item CONDITION
+        \item CONDITION
+    \end{enumerate}
+    We approximate the indicator function in REF from below by a continuous function $f_C: \R \to [0, 1]$ such that $f(x) = 1$ for all $x \leq \frac{1}{2} C$ and $f(x) = 0$ for all $x \geq C$. 
 \end{proof}
 
-Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same asymptotic behaviour as $\P(\Delta_n = 0)$ even when we condition on $\Xi_{n-m}^-$ not `varying too much' about its tilted mean. We only prove a lower bound, but this is sufficient for proving \cref{lem:measure-change-approx}.
+Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same asymptotic behaviour as $\P(\Delta_n = 0)$ even when we condition on $\Xi_{n-m}^-$ not `varying too much' about its tilted mean. We only prove a lower bound, but this is sufficient for proving \cref{prop:measure-change-approx}.
 \begin{lemma}
     \label{lem:mod-dev-local}
-    Under the assumptions of \cref{lem:measure-change-approx},
+    Under the assumptions of \cref{prop:measure-change-approx},
     \begin{equation*}
         \mathbb P_n \left(
             \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-), \ 
@@ -272,7 +620,7 @@ Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same 
     \begin{equation*}
         P_n = \mathbb P_n \left(
             \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-), \ 
-            \abs{\Xi^-_{n-m} - \E_n[\Xi^-_{n-m}]} \leq n^{\frac{1}{2} + \epsilon}
+            \abs{\Xi^-_{n-m} - \E_n[\Xi^-_{n-m}]} \leq n^{\frac{1}{2}} \log n
         \right).
     \end{equation*}
     Define
@@ -294,7 +642,7 @@ Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same 
     \end{equation*}
     we must have $L_n = y_0 + q\Z$. Fix an arbitrary $M > 0$. Then
     \begin{align*}
-        P_n &= \sum_{\substack{y \in L_n \\ \abs{y} \leq n^{1/2 + \epsilon}}} \mathbb P_n \left( \Delta_{n-m} = \E_n[\Delta_{n-m}] + a_n, \ \Xi^-_{n-m} = \E_n[\Xi^-_{n-m}] + y \right) \\
+        P_n &= \sum_{\substack{y \in L_n \\ \abs{y} \leq n^{1/2} \log n}} \mathbb P_n \left( \Delta_{n-m} = \E_n[\Delta_{n-m}] + a_n, \ \Xi^-_{n-m} = \E_n[\Xi^-_{n-m}] + y \right) \\
         &\geq \sum_{\substack{y \in L_n \\ \abs{y} \leq M n^{1/2}}} \mathbb P_n \left( \Delta_{n-m} = \E_n[\Delta_{n-m}] + a_n, \ \Xi^-_{n-m} = \E_n[\Xi^-_{n-m}] + y \right)
     \end{align*}
     for all $n$ sufficiently large. By \cref{lem:bivar-llt}, using that the error is uniform, we have that
@@ -376,106 +724,4 @@ Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same 
         P_n \geq \frac{1}{\sqrt{2 \pi \sigma^2 n}} \left( 1 + \littleo(1) \right),
     \end{equation*}
     as required.
-\end{proof}
-
-\subsubsection{Poof of the asymptotic lower bound}
-
-We are now ready to prove \cref{lem:measure-change-approx}.
-\begin{proof}[Proof of \cref{lem:measure-change-approx}]
-    Firstly,
-    \begin{equation*}
-        \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} = \exp(X_n - Y_n),
-    \end{equation*}
-    where
-    \begin{equation*}
-        X_n = \sum_{i=1}^m \log\left( 1 - \frac{i-1}{n} \right)
-        \quad \text{and} \quad
-        Y_n = \sum_{i=1}^m \log\left( \frac{\sum_{k=i}^m k_i^- + \Xi^-_{n-m}}{\mu n} \right).
-    \end{equation*}
-    Note that
-    \begin{equation*}
-        \sum_{j=i}^m k^-_j = s^-(m) - s^-(i - 1) + (m - i + 1) \lambda_-,
-    \end{equation*}
-    and define
-    \begin{equation*}
-        \Omega^-_n = \Xi^-_{n-m} - (n-m)\mu + (\lambda_- + \mu)m.
-    \end{equation*}
-    Then $\Omega_n^-$ is almost the centering of $\Xi_{n-m}^-$ under $\P_n$. We have
-    \begin{align*}
-        Y_n 
-        &= \sum_{i=1}^m \log \left( \frac{s^-(m) - s^-(i-1) + (m - i + 1) \lambda_- + \Omega^-_n + \mu n - \lambda_- m}{\mu n} \right) \\
-        &= \sum_{i=1}^m \log \left( 1 + A_n^i + B_n + C_n^i \right)
-    \end{align*}
-    where
-    \begin{align*}
-        A_n^i = - \frac{1}{\mu n} \left[ s^-(i-1) - s^-(m) \right], \quad
-        B_n = \frac{1}{\mu n} \Omega^-_n, \quad
-        C_n^i = - \frac{\lambda_-}{\mu n} (i-1).
-    \end{align*}
-    The summation contributes order $m = O(n^{2/3})$. Thus we keep terms of order $\Omega(n^{-2/3})$ when expanding $\log(1 + A_n^i + B_n + C_n^i)$. Write
-    \begin{equation*}
-        \omegaevent_n = \left\{ \abs{\Omega^-_n} \leq 2n^{\frac{1}{2} + \epsilon} \right\}.
-    \end{equation*}
-    On the event $\omegaevent_n$, we can check that the $A_n^i, B_n, C_n^i$ and $(C_n^i)^2$ terms are the only ones in the expansion which have order $\Omega(n^{-2/3})$. Moreover,
-    \begin{equation*}
-        \sum_{i=1}^m C_n^i = - \frac{\lambda_-}{2 \mu} \frac{m^2}{n} + \littleo(1) \quad \text{and} \quad
-        \sum_{i=1}^m (C_n^i)^2 = \frac{\lambda_-^2}{3 \mu^2} \frac{m^3}{n^2} + \littleo(1).
-    \end{equation*}
-    Therefore,
-    \begin{align*}
-        Y_n
-        &= \sum_{i=1}^m (A_n^i + B_n + C_n^i - \tfrac{1}{2} (C_n^i)^2) + \littleo(1) \\
-        &= - \frac{1}{\mu n} \sum_{i=0}^m \left( s^-(i) - s^-(m) \right)
-        + \frac{m}{\mu n} \Omega_n^-
-        - \frac{\lambda_-}{2\mu} \frac{m^2}{n} - \frac{\lambda_-^2}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1),
-    \end{align*}
-    where we use that $\sum_{i=1}^m \left( s^-(i-1) - s^-(m) \right) = \sum_{i=0}^m \left( s^-(i) - s^-(m) \right)$.
-
-    Similarly we can expand $X_n$ as
-    \begin{equation*}
-        X_n = - \frac{m}{2 n} - \frac{m^3}{3 n^2} + \littleo(1).
-    \end{equation*}
-
-    Thus,
-    \begin{align*}
-        \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}}
-        &\geq \exp \Bigg( \frac{1}{\mu n} \sum_{i=1}^m (s^-(i) - s^-(m)) \nonumber \\
-        &\hspace{4em} - \frac{m}{\mu n} \Omega^-_n + \frac{(\lambda_- - \mu)}{2 \mu} \frac{m^2}{n} + \frac{(\lambda_-^2 - \mu^2)}{6 \mu^2} \frac{m^3}{n^2} \Bigg) \one_{\omegaevent_n}.
-    \end{align*}
-    In addition, using \cref{lem:asym-expansions}, the measure change can be expanded as
-    \begin{equation*}
-        \diff{\P_n}{\P} = \exp \left( 
-            - \frac{m}{\mu n} \Omega_n^- + \frac{(\lambda_- - \mu)}{2\mu} \frac{m^2}{n}
-            + \frac{(\lambda_-^2 - \mu^2)}{6 \mu^2} \frac{m^3}{n^2} + \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1)
-         \right).
-    \end{equation*}
-    Hence,
-    \begin{align*}
-        &\phi^n_m(\vk_1, \ldots, \vk_m) \\
-        =& \frac{1}{\P(R_m \geq n, \Delta_n = 0)} \E \left[\prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} \one_{A_n} \right] \\
-        \geq& \frac{1}{\P(R_n \geq m, \Delta_n = 0)} \E_n \left[ \exp \left(
-                \frac{1}{\mu n} \sum_{i=1}^m \left( s^-(i) - s^-(m) \right)
-                - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1)
-            \right) \one_{\omegaevent_n \cap A_n} \right] \\
-        \geq& \exp \left(
-                \frac{1}{\mu n} \sum_{i=1}^m \left( s^-(i) - s^-(m) \right)
-                - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
-            \right) (1 + \littleo(1)) \frac{\P_n(\omegaevent_n \cap A_n)}{\P(R_m \geq n, \Delta_n = 0)}.
-    \end{align*}
-    By \cref{lem:asym-expansions} we have that
-    \begin{equation*}
-        \Omega^-_n = \Xi^-_{n-m} - \E_n[\Xi^-_{n-m}] + \bigo(n^{1/3}).
-    \end{equation*}
-    In particular, for all sufficiently large $n$,
-    \begin{equation*}
-        \P_n(\omegaevent_n \cap A_n) \geq
-        \P_n\left(
-            \abs{\Xi^-_{n-m} - \E[\Xi^-_{n-m}]} \leq n^{1/2 + \epsilon}, \Delta_{n-m} = \sum_{i=1}^m (k^+_i - k^-_i)
-        \right).
-    \end{equation*}
-    Thus by \cref{lem:normal-llt,lem:mod-dev-local},
-    \begin{equation*}
-        \frac{\P_n(\omegaevent_n \cap A_n)}{\P(R_n \geq m, \Delta_n = 0)} \geq 1 + \littleo(1)
-    \end{equation*}
-    as $n \to \infty$, which gives the desired final result.
 \end{proof}
