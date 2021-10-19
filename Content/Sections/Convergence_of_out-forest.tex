@@ -1,45 +1,49 @@
 \section{Convergence of the out-forest}\label{sec.convoutforest}
- In this section we will show that the \L ukasiewicz path and height process corresponding to the out-forest, denoted by $(\hat{S}^{+}_n(k),\hat{H}_n(k),k\geq 1)$, converge in distribution under rescaling. We show that this convergence occurs jointly with convergence in distribution under rescaling of $(\hat{S}^-_n(k),\hat{P}_n(k), k\geq 1)$, for $\hat{S}^-_n(k)$ the number of unpaired in-half-edges of vertices that have been discovered at time $k$, and $\hat{P}_n(k)$ the number of dummy leaves added in the first $k$ time-steps.  \\
+ Fix $T>0$. In this section we will show that the \L ukasiewicz path and height process corresponding to the out-forest converge under rescaling up to time $\lfloor T n^{2/3}\rfloor$. Note that the out-forest will contain at least $n$ vertices, so for $n$ large enough, $\lfloor T n^{2/3}\rfloor\leq n$ and the encoding processes are well-defined up to time $\lfloor T n^{2/3}\rfloor$. 
+ 
+We will show that the convergence under rescaling of the \L ukasiewicz path and height process $(\hat{S}^{+}_n(k),\hat{H}_n(k),k\leq \lfloor Tn^{2/3}\rfloor)$ occurs jointly with convergence in distribution under rescaling of $(\hat{S}^-_n(k),\hat{P}_n(k), k\leq \lfloor Tn^{2/3}\rfloor)$, for $\hat{S}^-_n(k)$ the number of unpaired in-half-edges of vertices that have been discovered at time $k$, and $\hat{P}_n(k)$ the number of dummy leaves added in the first $k$ time-steps.  \\
 We let $(B_t)_{t\geq 0}$ be a Brownian motion, and define
 $$(\hat{B}_t,t\geq 0):=\left( B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+ \mu}t^2, t\geq 0\right).$$ 
 We define the reflected process $$(\hat{R}_t,t\geq 0)= \left(\hat{B}_t-\inf\left\{\hat{B}_s: s\leq t\right\},t\geq 0\right).$$
 
 The main result of this section is as follows. 
 
-\begin{theorem}\label{thm.convoutforest}
+\begin{proposition}\label{prop:convoutforest}
 It holds that
-\begin{align*}\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3}t\rfloor \right),n^{-1/3}\hat{H}_{n}\left(\lfloor n^{2/3}t\rfloor \right), t\geq 0\right)
-\todist\left(\sigma_+ \hat{B}_t, \frac{2}{\sigma_+} \hat{R}_t, t\geq 0\right)\end{align*}
-in $\D(\R_+,\R)^2$, and 
-\begin{align*}\left( n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P}_n\left(\lfloor n^{2/3}t\rfloor \right), t\geq 0\right)\overset{p}{\to}\left(\nu_-t,  \frac{\nu_-}{2\mu} t^2, t\geq 0\right)\end{align*}
-in $\D(\R_+,\R)^2$ as $n\to \infty$. 
-\end{theorem}
-We prove Theorem \ref{thm.convoutforest} by studying two other forests that are related to the out-forest via a change of measure.  \\
+\begin{align*}\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3}t\rfloor \right),n^{-1/3}\hat{H}_{n}\left(\lfloor n^{2/3}t\rfloor \right), t\leq T \right)
+\todist\left(\sigma_+ \hat{B}_t, \frac{2}{\sigma_+} \hat{R}_t, t\leq T \right)\end{align*}
+in $\D([0,T],\R)^2$, and 
+\begin{align*}\left( n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P}_n\left(\lfloor n^{2/3}t\rfloor \right), t\leq T \right)\toprob\left(\nu_-t,  \frac{\nu_-}{2\mu} t^2, t\leq T \right)\end{align*}
+in $\D([0,T],\R)^2$ as $n\to \infty$. 
+\end{proposition}
+We prove \cref{prop:convoutforest} by studying two other forests that are related to the out-forest via a change of measure.  \\
 The proof is structured as follows.
 \begin{enumerate}
-    \item \label{item.measurechangeexists} Let $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,R_n})$ denote the in- and out-degree pairs in order of discovery. Let $\mathbf{Z}_1, \mathbf{Z}_2, \ldots$ be an i.i.d. sequence of $\N\times \N$-valued random variables, $\mathbf{Z}_i:=(Z_i^-,Z_i^+)$, such that 
+    \item \label{item.measurechangeexists} Let $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ denote the in- and out-degree pairs in order of discovery. Let $\mathbf{Z}_1, \mathbf{Z}_2, \ldots$ be an i.i.d.\ sequence of $\N\times \N$-valued random variables, $\mathbf{Z}_i:=(Z_i^-,Z_i^+)$, such that 
     $$\P(Z_i^-=k^-, Z_i^+=k^+)=\frac{k^-\P(D^-=k^-,D^+=k^+)}{\mu}.$$
-    Then, we show that the law of $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ conditional on $\sum_{i=1}^n D_i^-=\sum_{i=1}^n D_i^+$ and $m \leq R_n$ is absolutely continuous with respect to that of $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and we show the convergence of the Radon-Nikodym derivative $\phi_m^n$ for $m=O(n^{2/3})$. This is the content of Subsection \ref{subsec.measurechange}.
+    Then, we show that the law of $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ conditional on $\sum_{i=1}^n D_i^-=\sum_{i=1}^n D_i^+$ and $m \leq R_n$ is absolutely continuous with respect to that of $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and we show the convergence under rescaling of the Radon-Nikodym derivative $\phi_m^n$ for $m=\lfloor T n^{2/3}\rfloor$. This is the content of Subsection \ref{subsec.measurechange}.
     \item Let $(\mathbf{Z}_i,i\geq 1)$ be a sequence of i.i.d.\ copies of $\mathbf{Z}$. Point \ref{item.measurechangeexists} motivates us to study a Bienaymé forest with offspring distributed as $Z_1^+$. The convergence of the \L ukasiewicz path of this forest under rescaling follows from Donsker's theorem.
-    \item In Subsection \ref{subsec.purpleleavesGWforest}, we modify the Bienaymé forest in order to include dummy leaves. We add extra randomness, approximating the procedure described in Lemma \ref{lemma.sampleoutforest}, in such a way that at some time-steps, a dummy leaf is added. We call the resulting forest \emph{the forest with dummy leaves}. We respect the order of the degrees in the Bienaymé forest, in the sense that for any $k$, the $k^{th}$ true vertex in the forest with dummy leaves has the same number of children as the $k^{th}$ vertex in the Bienaymé forest. The forest with dummy leaves depends on $n$, because the probability of finding a dummy leaf depends on $n$. We then show that the \L ukasiewicz path and height process of the forest with dummy leaves converge under rescaling, jointly with the convergence of the \L ukasiewicz path and height process of the Bienaymé forest under rescaling up to time $O(n^{2/3})$.
-    \item We show convergence under rescaling of the out-forest up to time $O(n^{2/3})$ by applying the measure change to the forest with dummy leaves and showing that the resulting forest is a good approximation of the out-forest. 
+    \item In Subsection \ref{subsec.purpleleavesGWforest}, we modify the Bienaymé forest in order to include dummy leaves. We add extra randomness, approximating the procedure described in \cref{prop:sampleoutforest}, in such a way that at some time-steps, a dummy leaf is added. We call the resulting forest \emph{the forest with dummy leaves}. We respect the order of the degrees in the Bienaymé forest, in the sense that for any $k$, the $k$th true vertex in the forest with dummy leaves has the same number of children as the $k$th vertex in the Bienaymé forest. The law of the forest with dummy leaves depends on $n$, because the probability of finding a dummy leaf depends on $n$. We then show that the \L ukasiewicz path and height process of the forest with dummy leaves converge under rescaling, jointly with the convergence of the \L ukasiewicz path and height process of the Bienaymé forest under rescaling up to time $\lfloor T n^{2/3}\rfloor$.
+    \item We show convergence under rescaling of the out-forest up to time $\lfloor T n^{2/3}\rfloor$ by applying the measure change to the forest with dummy leaves and showing that the resulting forest is a good approximation of the out-forest. 
 \end{enumerate}
 
 \subsection{The measure change and its convergence}\label{subsec.measurechange}
 
-The following theorem asserts existence of the measure change and gives the scaling limit of the measure change, jointly with the random walks $Y^-$ and $Y^+$. The measure change is under the conditioning $m \leq R_n$ which is an event that occurs with high probability when $m = \Theta(n^{2/3})$. (Indeed, $R_n$ is equal to the number of vertices with in-degree unequal to $0$, so $R_n\overset{d}{=}\mathrm{Binom}(n,\P(D^-\neq 0))$, which is $O(n)$ with high probability.)
+The following theorem asserts existence of the measure change and gives the scaling limit of the measure change, jointly with the random walks $Y^-$ and $Y^+$. The measure change is under the conditioning $m \leq R_n$ which is an event that occurs with high probability when $m =\lfloor T n^{2/3}\rfloor$. (Indeed, $R_n$ is equal to the number of vertices with in-degree unequal to $0$, so $R_n\overset{d}{=}\mathrm{Binom}(n,\P(D^-\neq 0))$, which is $\Theta(n)$ in probability.)
 
 \input{Content/Sections/Measure_Change}
 
 This result is proved in Appendix \ref{sec:measure-change}. 
 
 \subsection{Convergence before adding the dummy leaves}
-Recall that
+We let
 $$ \hat{Y}^+(k)=\sum\limits_{i=1}^k (\hat{D}^+_{n,i}-1)$$
-encodes the out-degrees in order of discovery, while 
+encode the out-degrees in order of discovery, while 
 $$ \hat{Y}^-(k)=\sum\limits_{i=1}^k (\hat{D}^-_{n,i}-1)$$
 encodes the in-degrees in order of discovery.
- We will study these processes via the measure change that we defined in Subsection \ref{subsec.measurechange}. 
+ We will study these processes via the measure change that we defined in Subsection \ref{subsec.measurechange}. Let $(\hat{B}_t,t\geq 0)$ be distributed as follows. For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
+\begin{align*} &\E\left[F(\sigma_+ \hat{B}_t,0\leq t \leq T)\right]\\&=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B_t,   0\leq t \leq T)\right].\end{align*}
+
  
 %  Recall that 
 %  $$ {Y}^+(k)=\sum\limits_{i=1}^k (Z^+_i-1),$$ 
@@ -49,7 +53,7 @@ encodes the in-degrees in order of discovery.
 % \begin{lemma}
 % \label{lem.jointconvergenceinout}
 %  We have $$ \left(n^{-2/3}{Y}^-\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)
-%  \overset{p}{\to} 
+%  \toprob 
 %  \left(\nu_-t, t\geq 0 \right)$$
 %  in $\D(\R_+,\R)^2$ as $n\to \infty$.  Moreover,
 %  \begin{align*} &\left(n^{-1/3}\left({Y}^-\left(\lfloor n^{2/3}t\rfloor\right)-n^{2/3}\nu_-t\right),n^{-1/3}Y^+\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\\
@@ -59,35 +63,35 @@ encodes the in-degrees in order of discovery.
 %  $$\begin{pmatrix} \sigma_-^2  & \sigma_{-+} \\ \sigma_{-+}  & \sigma_+^2  \end{pmatrix}t.$$
 % \end{lemma} 
 
-\begin{theorem}\label{theorem.convaftermeasurechange} 
- For $T>0$,
+\begin{proposition}\label{prop:convaftermeasurechange} 
+ We have that
 $$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3} t\rfloor\right), n^{-1/3}\hat{Y}^+\left(\lfloor  n^{2/3} t\rfloor\right), 0\leq t \leq T \right) \todist \left( \nu_- t, \sigma_+\hat{B}_t, 0 \leq t \leq T \right)$$
-in the Skorokhod topology as $n\to \infty$, where $(\hat{B}_t, t\geq 0)$ is distributed as follows.
-For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
-\begin{align*} &\E\left[F(\sigma_+ \hat{B}_t,0\leq t \leq T)\right]\\&=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B_t,   0\leq t \leq T)\right].\end{align*}
-
-\end{theorem}
+in the Skorokhod topology as $n\to \infty$.
+\end{proposition}
 \begin{proof}
- We recall from the statement of Theorem \ref{thm:measure-change} that $(W^-,W^+)$ is a pair of correlated standard Brownian motions with correlation $\operatorname{Corr}(Z_1^-,Z_1^+)$. 
+ We recall from the statement of \cref{prop:measure-change} that $(W^-,W^+)$ is a pair of correlated standard Brownian motions with correlation $\operatorname{Corr}(Z_1^-,Z_1^+)$. 
 Let $(B^1_t,t\geq 0)$ and $(B^2_t,t\geq 0)$ be two independent Brownian motions, so that we may define $$(\sigma_-W^-_t,\sigma_+W^+_t,t\geq 0)=\left(\frac{\sigma_{-+}}{\sigma_+}B_t^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2} B_t^2, \sigma_+ B_t^1, t\geq 0\right).$$ 
- Then, Theorem \ref{thm:measure-change} implies that for $F$ a suitable test function, 
- \begin{align*}&\E\left[F\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right) \right]\\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
+ Then, \cref{prop:measure-change} implies that for $F$ a continuous, bounded test function, 
+ \begin{align*}&\E\left[F\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right) \right]\\
+ &=\E\left[F\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right)\one_{\lfloor Tn^{2/3}\rfloor \leq R_n} \right]+o(1)
+ \\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
  &=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB^1_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B^1_t,   0\leq t \leq T)\right].\end{align*}
  For the details of the argument, we refer the reader to the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020}. Then, the fact that $(Y(k),k\geq 1)$ is a random walk with steps of mean $\nu_-$ implies that
- $$\left(n^{-2/3}Y^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right),$$
- and then, by Theorem \ref{thm:measure-change}, also 
- $$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right),$$
+ $$\left(n^{-2/3}Y^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\toprob\left(\nu_- t,t\geq 0\right),$$
+ and then, by \cref{prop:measure-change}, also 
+ $$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\toprob\left(\nu_- t,t\geq 0\right),$$
  which proves the statement.
  \end{proof}
- The following lemma characterises the distribution of $(\hat{B}_t, {0\leq t\leq T})$.
- \begin{lemma}\label{lemma.characterizelimitprocess}
- For $(\hat{B}_t, {0\leq t\leq T})$ as in the statement of Theorem \ref{theorem.convaftermeasurechange}, we have  
- $$(\sigma_+ \hat{B}_t, {0\leq t\leq T})\overset{d}{=}\left(\sigma_+ B_t-\frac{\sigma_{-+}}{2\mu}t^2, {0\leq t\leq T}\right)$$
+ The following proposition characterises the distribution of $(\hat{B}_t, {0\leq t\leq T})$.
+ \begin{proposition}
+ \label{prop:characterizelimitprocess}
+ We have that
+ $$(\sigma_+ \hat{B}_t, {0\leq t\leq T})\overset{d}{=}\left(\sigma_+ B_t-\frac{\sigma_{-+}}{2\mu}t^2, {0\leq t\leq T}\right),$$
  where $(B_t)_{t\geq 0}$ is a standard Brownian motion.
- \end{lemma}
+ \end{proposition}
  \begin{proof}
  Firstly, we have that for any $t\in [0,T]$ and $\theta>0$,
- \begin{align*} \E\left[\exp(-\theta \sigma_+ \hat{B}_t^+)\right] &= \E \left[ \exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t s dB_s-\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}-\theta\sigma_+ B_t  \right)\right]\\
+ \begin{align*} \E\left[\exp(-\theta \sigma_+ \hat{B}_t)\right] &= \E \left[ \exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t s dB_s-\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}-\theta\sigma_+ B_t  \right)\right]\\
  &=\E\left[\exp \left( -\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t \left(s+\frac{\sigma_+^2\theta \mu}{\sigma_{-+}}\right) dB_s -\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\right] \\
  &= \exp\left(-\frac{\sigma_{-+}^2}{2\sigma_+^2 \mu^2}\int_0^t \left(s+\frac{\sigma_+^2\theta \mu}{\sigma_{-+}}\right)^2 ds -\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\\
  &=\exp\left(\frac{\sigma_+^2 t}{2}\theta^2+\frac{\sigma_{-+} t^2}{2\mu}\theta \right)\\
@@ -105,11 +109,11 @@ Let $(B^1_t,t\geq 0)$ and $(B^2_t,t\geq 0)$ be two independent Brownian motions,
  \end{align*}
  which proves the result.
  \end{proof}
-\subsection{Adding dummy leaves to a Bienaymé forest forest}\label{subsec.purpleleavesGWforest}
-We would like to add dummy leaves to the forest encoded by $(S_n^+(l),1\leq l \leq k)$. However, in the absence of a true stack of in-edges, we need to approximate the probability of adding a dummy leaf. We do this by approximating the stack size by $\mu n$. 
+\subsection{Adding dummy leaves to a Bienaymé forest}\label{subsec.purpleleavesGWforest}
+We would like to add dummy leaves to the forest encoded by $(Y^+(l),1\leq l \leq k)$. However, in the absence of a true stack of in-edges, we need to approximate the probability of adding a dummy leaf. We do this by approximating the stack size by its mean $\mu n$. 
 % \begin{lemma}
 % Consider an eDFS of a configuration model on $n$ vertices, with the total number of in-half-edges equal to $\mu n$. Suppose the number of unpaired in-half-edges of discovered vertices at step $k$ in the exploration is equal to $S_n^{-}(k)$, suppose $(S_n^{+}(l),1\leq l\leq k)$ encodes the \L ukasiewicz path of the out-forest up to time $k$, and set $$I_n^{+}(k)=\inf\left\{S_n^{+}(l),1\leq l\leq k\right\}.$$
-% Then, the probability that, in the $(k+1)^{th}$ time-step, we sample a surplus edge is given by
+% Then, the probability that, in the $(k+1)$th time-step, we sample a surplus edge is given by
 % $$p_{k+1}:=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}}.$$
 % \end{lemma}
 % \begin{proof}
@@ -122,46 +126,47 @@ We use this idea to define the forest with dummy leaves and its \L ukasiewicz pa
     $I^{+}(k)=\min\{S_n^{+}(l), l\leq k\}$. Then, with probability $$p_{k+1}:=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}},$$ independent from everything else, set $P_n(k+1)=P_n(k)+1$. Otherwise, set $P_n(k+1)=P_n(k)$. 
     \item Set $$S_n^{+}(k+1)=Y^+(k+1-P_n(k+1))-P_n(k+1),$$ and $$S_n^{-}(k+1)=Y^-(k+1-P_n(k+1))-P_n(k+1)-I^{+}(k)+1.$$
 \end{enumerate}
-Let the forest with dummy leaves be the forest with \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ in which the $k^{th}$ vertex is a dummy leaf if and only if $P^n(k)-P^n(k-1)=1$. 
+Let the forest with dummy leaves be the forest with \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ in which the $k$th vertex is a dummy leaf if and only if $P^n(k)-P^n(k-1)=1$. 
 \subsubsection{Convergence of the \L ukasiewicz path}
 To show the convergence of the \L ukasiewicz path corresponding to the forest with dummy leaves, we will first examine the limit of $(P_n(k), k\geq 1)$ under rescaling. We will first prove tightness, after which we will show convergence.
 
 
 \begin{lemma}\label{lemma.tightnesssurplusedges}
- For every $T>0$, $$\left(n^{-1/3}P_n\left(\lfloor  n^{2/3}T\rfloor \right) \right)_{n\geq 1}$$ 
- is tight.
+ We have that, $$\left(n^{-1/3}P_n\left(\lfloor  n^{2/3}t\rfloor \right) \right)_{n\geq 1}$$ 
+ is tight for all $t>0$.
  \end{lemma}
  \begin{proof}
-Set $m=\lfloor  n^{2/3}T\rfloor$ and fix $\epsilon>0$. It is trivial that for any $k\leq m$, $$S^{-}(k)\leq \sum_{i=1}^k Z^-_i=Y^-(k)+k.$$ Moreover, $\mu n - k -I^{+}(l)+1>\mu n-k$.  Therefore, $$p_{k+1}\leq \frac{Y^-(k)+k}{\mu n - k}.$$
+Set $m=\lfloor  n^{2/3}t\rfloor$ and fix $\epsilon>0$. It is trivial that for any $k\leq m$, $$S^{-}(k)\leq \sum_{i=1}^k Z^-_i=Y^-(k)+k.$$ Moreover, $\mu n - k -I^{+}(l)+1>\mu n-k$.  Therefore, $$p_{k+1}\leq \frac{Y^-(k)+k}{\mu n - k}.$$
 This upper bound is increasing in $k$. Consequently, conditional on $(Y^+(j),Y^-(j),j\geq 1),$ $n^{-1/3}P_n(m)$ is stochastically dominated by a binomial random variable with parameters  $m$ and $$\frac{Y^-(m)+m}{\mu n - m}\wedge 1.$$
 Since $(Y^-(k)+k,k\geq 1)$ is a random walk with steps of finite mean, $\left(n^{-2/3}(Y^-(m)+m)\right)_{n\geq 1}$ is tight. Therefore,
-$$\left(n^{1/3} \frac{Y^-(m)+m}{\mu n - m}\right)_{n\geq 1}$$ is tight, which proves the statement.
+$$\left(n^{1/3} \frac{Y^-(m)+m}{\mu n - m}\right)_{n\geq 1}$$ is tight, which implies that a binomial random variable with parameters  $m$ and $$\frac{Y^-(m)+m}{\mu n - m}\wedge 1$$
+is tight. The statement follows.
 \end{proof}
 \begin{lemma}\label{lemma.convergenceQandP}
 We have  
-$$\left(n^{-1/3}P_n(\lfloor n^{2/3}t\rfloor), t \geq 0\right)\overset{p}{\to} \left(\frac{\nu_-}{2\mu} t^2, t\geq 0\right)$$
+$$\left(n^{-1/3}P_n(\lfloor n^{2/3}t\rfloor), t \geq 0 \right)\toprob \left(\frac{\nu_-}{2\mu} t^2, t\geq 0 \right)$$
 in $D(\R_+,\R)$ as $n\to \infty$.
 
 \end{lemma}
 \begin{proof}
-Fix $T>0$. Recall that
+Recall that
 $$p_{k+1}=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}}.$$
-Define $M^+(k)=\min\{Y^+(l):l\leq k\}$ so that $0\geq I^{+}(k)\geq M^+(k)-P_n(k)$.  Then, by Lemma \ref{lemma.tightnesssurplusedges}, the convergence under rescaling of $Y^+$ shown in Theorem \ref{thm:measure-change}, and the continuous mapping theorem, $\left(n^{-1/3}I^+(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ is tight for all $t>0$.
-We will now argue that the indicator, which ensures that the roots are never dummy leaves, does not have an effect on $(P_n(k),k\leq m)$ on the scale of interest. Let $t>0$, and set $m=\lfloor n^{2/3}t\rfloor$. Define
+Define $M^+(k)=\min\{Y^+(l):l\leq k\}$ so that $0\geq I^{+}(k)\geq M^+(k)-P_n(k)$.  Then, by Lemma \ref{lemma.tightnesssurplusedges}, the convergence under rescaling of $Y^+$ shown in \cref{prop:measure-change}, and the continuous mapping theorem, $\left(n^{-1/3}I^+(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ is tight for all $t\geq 0$.
+We will now argue that the indicator, which ensures that the roots are never dummy leaves, does not have an effect on $(P_n(k),k\leq m)$ on the scale of interest. Let $m=\lfloor n^{2/3}t\rfloor$. Define
 \begin{align*}\begin{split}
 E^p(m)&:=\sum_{k=0}^{m-1}\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)\neq I^{+}(k-1)\}}\\
 &\leq -I^{+}(m) \frac{Y^-(m)+m}{\mu n - m},\end{split}\end{align*}
-so since $I^{+}(m)$ is of order $n^{1/3}$ and $\frac{Y^{-}(m)+m}{\mu n - m}$ is of order $n^{-1/3}$, $(E^p(m))_{n\geq 1}$ is tight for all $t\geq 0$.  This means that if we allow the roots to be dummy leaves, with high probability, we would only sample $O(1)$ roots that are dummy leaves up to time $O(n^{2/3})$. This does not affect $(P_n(k),k\leq m)$ on the scale of interest. \\
- Then, the convergence under rescaling of $Y^-$ and $Y^+$ shown in Theorem \ref{thm:measure-change}, the tightness of $\left(n^{-1/3}I^{+}(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ and Lemma \ref{lemma.tightnesssurplusedges} imply that
+so since $I^{+}(m)$ is of order $n^{1/3}$ and $\frac{Y^{-}(m)+m}{\mu n - m}$ is of order $n^{-1/3}$, $(E^p(m))_{n\geq 1}$ is tight.  This means that if we allow the roots to be dummy leaves, with high probability, we would only sample $O(1)$ roots that are dummy leaves up to time $O(n^{2/3})$. This does not affect $(P_n(k),k\leq m)$ on the scale of interest. \\
+ Then, the convergence under rescaling of $Y^-$ and $Y^+$ shown in \cref{prop:measure-change}, the tightness of $\left(n^{-1/3}I^{+}(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ and Lemma \ref{lemma.tightnesssurplusedges} imply that
 \begin{align}\begin{split}\label{eq.convergenceprob}
   &\left(n^{1/3}\frac{S_n^{-}\left(\lfloor n^{2/3} t \rfloor\right)}{\mu n - \lfloor n^{2/3} t \rfloor -I^{p,+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
  &=\left(n^{1/3}\frac{Y^-\left(\lfloor n^{2/3} t \rfloor-P_n\left(\lfloor n^{2/3} t \rfloor\right)\right)-P_n\left(\lfloor n^{2/3} t \rfloor\right)-I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1}{\mu n - \lfloor n^{2/3} t \rfloor -I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
- &\overset{p}{\to} \left(\frac{\nu_-}{\mu}t,t\geq 0\right)\end{split}\end{align}
+ &\toprob \left(\frac{\nu_-}{\mu}t,t\geq 0\right)\end{split}\end{align}
 in $D(\R_+,\R)$ as $n\to \infty$. 
 Then, by the continuous mapping theorem and the tightness of $(E^p(m))_{n\geq 1}$,
-$$\left(n^{-1/3}\sum_{i=0}^{\lfloor n^{2/3}t \rfloor} p_k , t \geq 0\right)\overset{p}{\to} \left(\frac{\nu_-}{2\mu}t^2,t\geq 0\right)$$
+$$\left(n^{-1/3}\sum_{i=0}^{\lfloor n^{2/3}t \rfloor} p_k , t \geq 0\right)\toprob \left(\frac{\nu_-}{2\mu}t^2,t\geq 0\right)$$
 in $D(\R_+,\R)$ as $n\to \infty$. \\
-Let $\cG=(\cG_k,k\geq 1)$ denote the filtration such that $\cG_{k}$ contains the information on the shape of the forest until time $k$, including the colours of the vertices. Then, 
+Let $\cG=(\cG_k,k\geq 1)$ denote the filtration such that $\cG_{k}$ contains the information on the shape of the forest until time $k$, including which of the first $k$ vertices are dummy vertices. Then, 
 $$M_n(k):=\sum_{i=1}^k (\one_{\{P_n(i)-P_n(i-1)=1\}}-p_i)$$ is a $\cG$-martingale. We claim that $(n^{-1/3}M_n(\lfloor n^{2/3} t\rfloor ), t\geq 0)$ converges to $0$ in probability in $D(\R_+,\R)$. Indeed, for any $t\geq 0$,
 \begin{align*}\E[n^{-2/3}M_n(\lfloor n^{2/3} t\rfloor )^2]&=n^{-2/3}\sum_{i=1}^{\lfloor n^{2/3} t\rfloor} \E[\E[(\one_{\{P_n(i)-P_n(i-1)=1\}}-p_i)^2|\cG_{i-1}]]\\&=n^{-2/3}\sum_{i=1}^{\lfloor n^{2/3} t\rfloor} \E[p_i-p_i^2]\to 0.\end{align*}
 Hence, since for all $t\geq 0$,
@@ -174,119 +179,246 @@ $$\left(n^{-1/3}P_n(\lfloor n^{2/3}t\rfloor),t\geq 0\right)\todist  \left( \frac
 
 \end{proof}
 
-The convergence of $P_n$ under rescaling implies the convergence of $S^{+}$ and $S^{-}$ under rescaling, which is the content of the following corollary. 
+The convergence of $P_n$ under rescaling implies the convergence of $S^{+}_n$ and $S^{-}_n$ under rescaling, which is the content of the following lemma. Let $(B_t,t\geq 0)$ be a Brownian motion, and define 
+$$({B}^{\mathrm{d}}_t,t\geq 0)=\left(B_t-\frac{\nu_-}{2\mu\sigma_+}t^2,t\geq 0\right).$$ 
 
-\begin{corollary}\label{cor.lukasiewiczpathpurplevertices}
- Let $(B_t,t\geq 0)$ be a standard Brownian motion. We have 
- \begin{align*}\left(n^{-1/3}Y^{+}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^{+}_n\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\todist\left(\sigma_+B_t,\sigma_+B_t-\frac{\nu_-}{2\mu}t^2,  t\geq 0\right)\end{align*}
+\begin{lemma}
+\label{lem:lukasiewiczpathpurplevertices}
+ We have 
+ \begin{align*}\left(n^{-1/3}Y^{+}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^{+}_n\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right)\todist\left(\sigma_+B_t,\sigma_+B^{\mathrm{d}}_t,  t\geq 0\right)\end{align*}
  in $\D(\R_+,\R)^2$  and 
- $$\left(n^{-2/3}S^{-}_n\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right)$$
+ $$\left(n^{-2/3}S^{-}_n\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\toprob\left(\nu_- t,t\geq 0\right)$$
  in $\D(\R_+,\R)$ as $n\to\infty$.
-\end{corollary}
+\end{lemma}
 \begin{proof}
- This follows from the convergence under rescaling of $Y^+$ and $Y^-$ shown in Theorem \ref{thm:measure-change} and Lemma \ref{lemma.convergenceQandP}, and the expressions 
- $$S_n^{p,+}(k+1)=Y^+\left(k+1-P_n(k+1)\right)-P_n(k+1),$$ and $$S_n^{p,-}(k+1)=Y^-\left(k+1-P_n(k+1)\right)-P_n(k+1)-I^{+}(k)+1.$$
+ This follows from the convergence under rescaling of $Y^+$ and $Y^-$ shown in \cref{prop:measure-change} and Lemma \ref{lemma.convergenceQandP}, and the expressions 
+ $$S_n^{+}(k+1)=Y^+\left(k+1-P_n(k+1)\right)-P_n(k+1),$$ and $$S_n^{-}(k+1)=Y^-\left(k+1-P_n(k+1)\right)-P_n(k+1)-I^{+}(k)+1.$$
 \end{proof}
 
 \subsubsection{Convergence of the height process}\label{subsubsec.convheightprocess}
-In this subsection, we will extend Corollary \ref{cor.lukasiewiczpathpurplevertices} to joint convergence under rescaling with the height process corresponding to the forest with dummy leaves. We prove the following proposition. 
-\begin{proposition}\label{prop.convheightprocesspurple}
-Let $(H^{+}(k),k\geq 1)$ be the height process corresponding to the forest with dummy leaves. Let $(B_t,t\geq 0)$ be a Brownian motion, and define 
-$$({B}^+_t,t\geq 0)=\left(B_t-\frac{\nu_-}{2\mu\sigma_+}t^2,t\geq 0\right).$$ 
-Set $$(R^+_t,t\geq 0)=\left({B}^+_t-\inf\left\{{B}^+_s: s\leq t\right\},t\geq 0 \right).$$
-Then,
-
+In this subsection, we will extend \cref{lem:lukasiewiczpathpurplevertices}. We will show that, under rescaling, the height process of the forest with dummy leaves converges jointly with the other encoding processes of the forest with dummy leaves. 
+Let $(H^+_n(k),k\geq 1)$ be the height process corresponding to the forest with dummy leaves. Set $$(R^{\mathrm{d}}_t,t\geq 0)=\left({B}^{\mathrm{d}}_t-\inf\left\{{B}^{\mathrm{d}}_s: s\leq t\right\},t\geq 0 \right).$$
+\begin{proposition}
+\label{prop:convheightprocesspurple}
+We have that 
 \begin{align*}&\left(n^{-1/3}Y^{+}\left(\lfloor n^{2/3}t\rfloor\right), n^{-1/3}S^{+}_n\left(\lfloor n^{2/3}t\rfloor\right),n^{-1/3}H^{+}_n\left(\lfloor n^{2/3}t\rfloor\right), t\geq 0\right) \\
-&\qquad \todist\left(\sigma_+B_t,\sigma_+{B}^+_t, \frac{2}{\sigma_+} R^+_t,  t\geq 0\right)\end{align*}
+&\qquad \todist\left(\sigma_+B_t,\sigma_+{B}^{\mathrm{d}}_t, \frac{2}{\sigma_+} R^{\mathrm{d}}_t,  t\geq 0\right)\end{align*}
  in $\D(\R_+,\R)^3$, and 
- $$\left(n^{-2/3}S^{-}_n\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\overset{p}{\to}\left(\nu_- t,t\geq 0\right)$$
+ $$\left(n^{-2/3}S^{-}_n\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\toprob\left(\nu_- t,t\geq 0\right)$$
  in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{proposition}
 
-The difficulty in proving this proposition is the fact that the forest with dummy leaves is not a Bienaymé forest, because the probability of sampling a dummy leaf is dependent on the past of the process. The theory of convergence of height processes under rescaling is well-developed for Bienaymé processes (see e.g. \cite{AST_2002__281__R1_0}), but this is not the case for more general processes.  We will adapt a technique that Broutin, Duquesne and Wang develoved in \cite{broutinLimitsMultiplicativeInhomogeneous2020} to show the convergence of the height process of an inhomogeneous random graph under rescaling. The key idea is that  the forest with dummy leaves itself is not a Bienaymé forest, but we can embed it in a Bienaymé forest, not depending on $n$, which will contain the forest with dummy leaves. We call the extra vertices \emph{filler vertices} and call the resulting forest \emph{the forest with dummy and filler vertices}. We then show convergence under rescaling of the height process corresponding to the forest with dummy and filler vertices, and use this to obtain height process convergence for the forest with dummy leaves. \\
-We start by defining the forest with dummy and filler vertices. Informally, we obtain it by modifying the forest with dummy leaves in such a way that a sub-tree consisting of the descendants of a dummy leaf has the same law as a sub-tree consisting of the descendants of a true vertex. We do this by sampling extra Bienaymé trees with offspring distributed as $Z^+$, whose vertices are all filler vertices, and then identifying their roots with the dummy leaves. The resulting forest is a Bienaymé forest containing true vertices, dummy and filler vertices, in which the forest with true vertices and dummy leaves is embedded. This is illustrated in Figure \ref{fig.blackpurpleredforest}. 
+The difficulty in proving this proposition is the fact that the forest with dummy leaves is not a Bienaymé forest, because the probability of sampling a dummy leaf changes as the exploration is performed. The theory of convergence of height processes under rescaling is well-developed for Bienaymé processes (see e.g. \citet{AST_2002__281__R1_0}), but this is not the case for more general processes.  We will adapt a technique that Broutin, Duquesne and Wang developed in \cite{broutinLimitsMultiplicativeInhomogeneous2020} to show the convergence of the height process of an inhomogeneous random graph under rescaling. The key idea is that  the forest with dummy leaves itself is not a Bienaymé forest, but we can embed it in a Bienaymé forest that does not depend on $n$. We call the extra vertices \emph{filler vertices} and call the resulting forest \emph{the forest with dummy and filler vertices}. We then show convergence under rescaling of the height process corresponding to the forest with dummy and filler vertices, and use this to obtain height process convergence for the forest with dummy leaves. \\
+We start by defining the forest with dummy and filler vertices. Informally, we obtain it by modifying the forest with dummy leaves in such a way that a sub-tree consisting of the descendants of a dummy vertex has the same law as a sub-tree consisting of the descendants of a true vertex. We do this by sampling extra Bienaymé trees with offspring distributed as $Z^+$, whose vertices are all filler vertices, and then identifying their roots with the dummy leaves. The resulting forest is a Bienaymé forest containing true, dummy and filler vertices, in which the forest with true vertices and dummy leaves is embedded. This is illustrated in Figure \ref{fig.blackpurpleredforest}. 
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.6]{Content/Pictures/black_purple_red_tree.eps}
+    \includegraphics[scale=1]{Content/Pictures/dummy_filler.eps}
     \caption{Given a component of the forest with dummy vertices (left), we modify it by sampling independent Bienaymé trees with offspring distributed as $Z^+$ consisting of filler vertices and identifying each dummy leaf with a root of such a tree. The resulting tree (right) is a Bienaymé tree, and the resulting forest is a Bienaymé forest.}
     \label{fig.blackpurpleredforest}
 \end{figure}
-The formal procedure is as follows. Suppose we are given $(Y^+(k),S^{+}(k),P_n(k),k\geq 1)$, which encode the forest with dummy leaves.
+The formal procedure is as follows. Suppose we are given $(Y^+(k),S^{+}_n(k),P_n(k),k\geq 1)$, which encodes the forest with dummy leaves.
 \begin{enumerate}
-    \item Let $(Y^{red}(k),k\geq 1)$ be an independent copy of $(Y^+(k),k\geq 1)$, which will encode the pendant subtrees that consist of filler vertices.
-    \item Define $\theta_n(k)=k+\min\{j: Y^{red}(j)=-P_n(k-1)\}-P_n(k-1)$. 
+    \item Let $(Y^{\mathrm{f}}(k),k\geq 1)$ be an independent copy of $(Y^+(k),k\geq 1)$, which will encode the pendant subtrees that consist of filler vertices.
+    \item Define $\theta_n(k)=k-P_n(k-1)+\min\{j: Y^{\mathrm{f}}(j)=-P_n(k-1)\}$. 
     \item Set $\Lambda_n(k)=\max\{j:\theta_n(j)\leq k\}-P_n(\max\{j:\theta_n(j)\leq k\})$. 
-    \item We now define \begin{equation}\label{eq.definitionY^{pr}}(Y^{pr}(k),k\geq 1)=(Y^+(\Lambda_n(k))+Y^{red}(k-\Lambda_n(k)),k\geq 1)\end{equation}
-    and we let $(F^{pr}(k),k\geq 1)$ be the Bienaymé process encoded by $(Y^{pr}(k),k\geq 1)$, in which $P_n(\max\{j:\theta_n(j)\leq k\})$ of the first $k$ vertices are dummy vertices, $\Lambda_n(k)$ of the first $k$ vertices are true vertices, and the rest are filler vertices. We let $(H^{pr}(k),k\geq 1)$ be the height process corresponding to the forest with dummy and filler vertices.
+    \item We now define \begin{equation}\label{eq.definitionYdf}(Y^{\mathrm{df}}(k),k\geq 1)=(Y^+(\Lambda_n(k))+Y^{\mathrm{f}}(k-\Lambda_n(k)),k\geq 1)\end{equation}
+    and we let \emph{the forest with dummy and filler vertices} be the forest with \L ukasiewicz path $(Y^{\mathrm{df}}(k),k\geq 1)$, in which $P_n(\max\{j:\theta_n(j)\leq k\})$ of the first $k$ vertices are dummy vertices, $\Lambda_n(k)$ of the first $k$ vertices are true vertices, and the rest are filler vertices. We let $(H^{\mathrm{df}}(k),k\geq 1)$ be the height process corresponding to the forest with dummy and filler vertices.
 \end{enumerate}
 By removing the filler vertices from the forest with dummy and filler vertices, we obtain the original forest with dummy leaves. We make the following observations.
 \begin{enumerate}
-    \item We claim that $\theta_n(k)$ is equal to index in depth first order of the $k$th true or dummy vertex in the forest with dummy and filler vertices. Indeed, note that $\min\{j: Y^{red}(j)=-P_n(k-1)\}$ is equal to the number of vertices in the first $P_n(k-1)$ trees in the forest encoded by $Y^{red}$, so that $$\min\{j: Y^{red}(j)=-P_n(k-1)\}-P_n(k-1)$$ is equal to the number of filler vertices in depth-first order until the $k$th true or dummy vertex. 
+    \item We claim that $\theta_n(k)$ is equal to index in depth first order of the $k$th true or dummy vertex in the forest with dummy and filler vertices. Indeed, note that $\min\{j: Y^{\mathrm{f}}(j)=-P_n(k-1)\}$ is equal to the number of vertices in the first $P_n(k-1)$ trees in the forest encoded by $Y^{\mathrm{f}}$, so that $$\min\{j: Y^{\mathrm{f}}(j)=-P_n(k-1)\}-P_n(k-1)$$ is equal to the number of filler vertices in depth-first order until the $k$th true or dummy vertex. 
     \item Note that $\Lambda_n(k)$ is the number of true vertices amongst the first $k$ vertices. This follows from the fact that $\max\{j:\theta_n(j)\leq k\}$ is the number of true or dummy vertices amongst the first $k$ vertices. 
-    \item By the argument above, $(\Lambda_n(k),k\geq 1)$ only takes steps of size $0$ or $1$. Both $(Y^+(k),k\geq 1)$ and $(Y^{red}(k),k\geq 1)$ are random walks with steps distributed as $Z^+-1$, so, by construction, $(Y^{pr}(k),k\geq 1)$ is a random walk with steps distributed as $Z^+-1$, so the forest with dummy and filler vertices is a Bienaymé forest with offspring distributed as $Z^+$.
-    \item By construction, $(H^{pr}(\theta_n(k)),k\geq 1)$ is the height process corresponding to the forest with dummy vertices. Moreover,
-   \begin{equation}\label{eq.constructionSp}(S^{+}(k),k\geq 1)=(Y^{pr}(\theta_n(k))-E(\theta_n(k)),k\geq 1),\end{equation}
+    \item By the previous remark, $(\Lambda_n(k),k\geq 1)$ only takes steps of size $0$ or $1$. Both $(Y^+(k),k\geq 1)$ and $(Y^{\mathrm{f}}(k),k\geq 1)$ are random walks with steps distributed as $Z^+-1$, so, by construction, $(Y^{\mathrm{df}}(k),k\geq 1)$ is a random walk with steps distributed as $Z^+-1$, so the forest with dummy and filler vertices is a Bienaymé forest with offspring distributed as $Z^+$.
+    \item By construction, $(H^{\mathrm{df}}(\theta_n(k)),k\geq 1)$ is the height process corresponding to the forest with dummy vertices. Moreover,
+   \begin{equation}\label{eq.constructionSp}(S^{+}_n(k),k\geq 1)=(Y^{\mathrm{df}}(\theta_n(k))-E(\theta_n(k)),k\geq 1),\end{equation}
     where 
-    $E(k)$ counts the number of children of the $k^{th}$ vertex in the forest with dummy and filler vertices that are filler vertices.
+    $E(k)$ counts the number of children of the $k$th vertex in the forest with dummy and filler vertices that are filler vertices.
 \end{enumerate}
-Considering the construction above and Corollary \ref{cor.lukasiewiczpathpurplevertices}, in order to prove Proposition \ref{prop.convheightprocesspurple}, it is sufficient to prove the following proposition.
-\begin{proposition}\label{prop.heightprocessblackpurplered}
+In order to prove \cref{prop:convheightprocesspurple}, considering the construction above and \cref{lem:lukasiewiczpathpurplevertices}, it is sufficient to prove the following lemma.
+\begin{lemma}\label{lem:heightprocessblackpurplered}
 There exists a process $(D_t,t\geq 0)$ such that 
 \begin{align*}
-    &\left(n^{-1/3}\left[Y^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right)-E\left(\lfloor n^{2/3}t\rfloor \right)\right], n^{-1/3}H^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right),t\geq 0\right)\\
-    &\todist\left(\sigma_+D_t,\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)
+    &\left(n^{-1/3}\left[Y^{\mathrm{df}}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right)-E\left(\lfloor n^{2/3}t\rfloor \right)\right], n^{-1/3}H^{\mathrm{df}}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right),t\geq 0\right)\\
+    &\hspace{15em}\todist\left(\sigma_+D_t,\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)
 \end{align*}
 in $\D(\R_+,\R)^2$ as $n\to \infty$ and $\left(\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)$ is the height process corresponding to $(\sigma_+D_t,t\geq 0)$.
-\end{proposition} 
-We postpone the proof to Appendix \ref{appendix.heightprocessblackpurplered}. 
+\end{lemma} 
 
-\subsection{Proof of Theorem \ref{thm.convoutforest}}\label{subsubsec.convaftermeasurechange}
-We will now show that the 
-We will now combine the convergence of the measure change under rescaling, which is the content of Theorem \ref{thm:measure-change}, and the convergence of the encoding processes of the forest with dummy leaves, which is the content of Proposition \ref{prop.convheightprocesspurple}, in order to prove Theorem \ref{thm.convoutforest}.
+The next lemma show that the pathwise construction of $(Y^{\mathrm{df}}(k),H^{\mathrm{df}}(k),k\geq 1)$ converges to its continuous counterpart.
 
-\begin{proof}[Proof of Theorem \ref{thm.convoutforest}]
-Recall that $\hat{P}_n(k)$ denotes the number of dummy leaves amongst the first $k$ vertices in the forest with dummy leaves. Set $\hat{I}_n(k)=\min\{\hat{S}^{+}_n(l):l\leq k\}$. 
-{\color{red} CONTINUE HERE}
-Then, as shown in Lemma \ref{lemma.sampleoutforest}, the probability that the $(k+1)^{th}$ vertex in $(\hat{F}_n(k),k\geq 1)$ is purple is given by
-$$q_{k+1}:=\frac{\hat{S}^-(k)}{\sum_{i=0}^n D^-_i-k-\hat{I}_n(k)}\one_{\left\{\hat{I}_n(k-1)= \hat{I}_n(k)\right\}}.$$
-In order to use the results on $(F^p(k),k\geq 1)$, we would like to replace the term $\sum_{i=0}^n D^-_i$ in the denominator by $\mu n$. Therefore, define a new forest $(\hat{F}'_n(k), k\geq 1)$ in which the probability that the $(k+1)^{th}$ vertex is a dummy leaf is
-$${q}'_{k+1}:=\frac{\hat{S}^-(k)}{\mu n-k-\hat{I}'_n(k)}\one_{\left\{\hat{I}'_n(k-1)=\hat{I}'_n(k)\right\}},$$
-where $\hat{P}'_n(k)$ is the number of dummy leaves in $\hat{F}'_n(k)$, and $\hat{I}'_n(k)$ is the number of components in $\hat{F}'_n(k)$. 
+Let $(B_t, t \geq 0)$ and $(B^{\mathrm{f}}_t, t\geq 0)$ be two independent Brownian motions and let $$\theta(t):=t+\inf\left\{s\geq 0 : \sigma_+ B^{\mathrm{f}}_s< -\frac{\nu_-}{2\mu} t^2\right\},$$ and $\Lambda(t)=\inf\{s\geq 0:\theta(s)> t\}$. Define \begin{equation}\label{eq.definitionBpr}\left(B^{\mathrm{df}}_t,t \geq 0\right):=\left( B_{\Lambda(t)}+ B^{\mathrm{f}}_{t-\Lambda(t)}, t\geq 0\right)\end{equation}
+and set
+$$(R^{\mathrm{df}}_t, t\geq 0):=\left(B^{\mathrm{df}}_t-\inf\{B^{\mathrm{df}}_s,s\leq t\},t\geq 0\right).$$ 
+
+\begin{lemma}\label{lemma.convergenceX+}
+We have that $\left((2/\sigma_+)R^{\mathrm{df}}_t, t\geq 0\right)$
+is the height process corresponding to $\left(\sigma_+ B^{\mathrm{df}}_t,t \geq 0\right)$.
+Moreover,
+
+\begin{equation}\label{eq.convergenceYpr} \left(n^{-1/3}Y^{\mathrm{df}}\left( \lfloor n^{2/3}t \rfloor \right), n^{-1/3}H^{\mathrm{df}}\left( \lfloor n^{2/3}t \rfloor \right),t\geq 0\right)\todist\left( \sigma_+ B^{\mathrm{df}}_{t} ,\frac{2}{\sigma_+}R^{\mathrm{df}}_t, t\geq 0\right)\end{equation}
+in $D(\R_+,\R)^2$, jointly with 
+$$\left(n^{-1/3}Y^+\left(\lfloor n^{2/3}t \rfloor \right), n^{-1/3}Y^{\mathrm{f}}\left(\lfloor n^{2/3}t \rfloor \right), t\geq 0\right) \todist\left(\sigma_+ B_t,\sigma_+ B^{\mathrm{f}}_t, t\geq 0\right)$$
+in $D(\R_+,\R)^2$ and 
+$$\left(n^{-2/3} \Lambda_n\left(\lfloor n^{2/3}t\rfloor \right), n^{-2/3}\theta_n\left(\lfloor n^{2/3}t\rfloor \right),t\geq 0\right)\todist\left(\Lambda(t),\theta(t), t\geq 0 \right)$$
+in $D(\R_+,\R)^2$ as $n\to \infty$. 
+Moreover,   
+\begin{equation}\label{eq.convergencecompSprandtheta}\left(n^{-1/3}Y^{\mathrm{df}}\left(\theta_n \left(\lfloor n^{2/3}t\rfloor \right)\right), n^{-1/3}H^{\mathrm{df}}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right) \right),t\geq 0 \right) \todist \left(\sigma_+ B^{\mathrm{df}}_{\theta(t)}, \frac{2}{\sigma_+}R^{\mathrm{df}}_{\theta(t)},t\geq 0\right)\end{equation}
+in $D(\R_+,\R)^2$ as $n\to \infty$ jointly with the other convergences.
+\end{lemma}
+In the proof of Lemma \ref{lemma.convergenceX+} we use the following straightforward technical result that follows immediately from the characterization of convergence in the Skorokhod topology given in Ethier and Kurtz \cite[Proposition 3.6.5]{ethierMarkovProcessesCharacterization1986}, .
+
+\begin{lemma}\label{lemma.technicalcomposedfunctions}
+If $h_n\to h$ and $f_n\to f$ in $\D(\R_+,\R)$ as $n\to\infty$, and $h_n$ and $h$ are monotone non-decreasing and $h$ is continuous, then 
+$$h_n\circ f_n \to h\circ f$$
+and 
+$$f_n\circ h_n \to f\circ h$$
+in $\D(\R_+,\R)$ as $n\to\infty$.
+\end{lemma}
+
+We also use the following technical result, that is proved in Appendix \ref{app.technical}.
+
+\begin{lemma}\label{lem.technicalhittingtimes}
+If $f_n\to f$ in $\D(\R_+,\R)$ as $n\to\infty$, and $f$ is a continuous function that is not bounded from above, with $f(0)=0$ and  with unique local maxima, then 
+$$\left(\inf\{t:f_n(t)>s\},s>0\right)\to \left(\inf\{t:f(t)>s\},s>0\right)$$
+in $\D(\R_+,\R)$ as $n\to\infty$.
+\end{lemma}
+
+
+\begin{proof}[Proof of Lemma \ref{lemma.convergenceX+}]
+Firstly, note that since $(Y^{\mathrm{df}}(k),k\geq 1)$ encodes a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \citet{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
+\begin{align}\label{eq.convergenceX}
+&\left(n^{-1/3}Y^{\mathrm{df}}\left(\lfloor n^{2/3}s\rfloor \right), n^{-1/3}H^{\mathrm{df}}\left(\lfloor n^{2/3}s\rfloor \right), s\geq 0 \right) \nonumber \\
+& \hspace{15em} \todist \left(\sigma_+ B^*_s,\frac{2}{\sigma_+} \left(B^*_s-\inf\{B^*_u:u\leq s\}\right),  s\geq 0\right)
+\end{align} 
+ in $D(\R_+,\R)^2$ as $n\to \infty$, and that $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Then, we note that since $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{\mathrm{df}}(k),k\geq 1)$, so that also
+ $$\left(n^{-1/3}Y^+\left(\lfloor n^{2/3} t\rfloor \right),t\geq 0\right)\todist\left(\sigma_+ B_t, t\geq 0\right)$$
+in $D(\R_+,\R)$ as $n\to \infty$. Then, since also $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{\mathrm{f}}(k),k\geq 1)$ and by Lemma \ref{lem.technicalhittingtimes} and the almost sure uniqueness of the local minima of Brownian, we get that
+\begin{align}\begin{split}\label{eq.convergencebychaumont}&\left(n^{-1/3}Y^{\mathrm{f}}\left(\lfloor n^{2/3} s \rfloor \right), n^{-2/3}\inf\left\{k:n^{-1/3}Y^{\mathrm{f}}(k) \leq -x\right\}, s \geq 0, x\geq 0 \right)\\
+&\hspace{15em}\todist\left( \sigma_+ B^{\mathrm{f}}_s, \inf\left\{u:\sigma_+ B^{\mathrm{f}}_u < -x\right\}, s\geq 0, x \geq 0\right)\end{split}\end{align}
+in $D(\R_+,\R)^2$ as $n\to \infty$.
+ 
+Since $(P_n(k),k\geq 1)$ is non-decreasing, applying Lemma \ref{lemma.technicalcomposedfunctions}, and combining the convergence in \eqref{eq.convergencebychaumont} with Lemma \ref{lemma.convergenceQandP} gives that also
+$$\left(n^{-2/3}\inf\left\{k:Y^{\mathrm{f}}(k) \leq - P_n\left(\lfloor n^{2/3} t \rfloor -1\right)\right\},t\geq 0\right)\todist\left(\inf\left\{u:\sigma_+ B^{\mathrm{f}}_u< -\frac{\nu_-}{2\mu} t^2\right\},t\geq 0\right)$$
+  in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \eqref{eq.convergencebychaumont}. Therefore, 
+ \begin{equation}\label{eq.convergencetheta}\left(n^{-2/3}\theta_n\left(\lfloor n^{2/3}t\rfloor \right),t\geq 0 \right) \todist \left(\theta(t),t\geq 0\right)\end{equation}
+  in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \eqref{eq.convergencebychaumont}.
+Recall that 
+$$\Lambda_n(k)=\max\{j:\theta_n(j)\leq k\}-P_n(\max\{j:\theta_n(j)\leq k\}). $$ By definition, for all $n$, $(\theta_n(k),k\geq 1)$ and $(\theta(t),t\geq 0)$ are strictly increasing, so
+$$\left(n^{-2/3}\max\{j:\theta_n(j)\leq \lfloor n^{2/3} t \rfloor\} ),t\geq 0\right)\todist\left( \Lambda(t),t\geq0 \right)$$
+in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \eqref{eq.convergencebychaumont} and \eqref{eq.convergencetheta}. Since $\max\{j:\theta_n(j)\leq \lfloor n^{2/3} t \rfloor\}$ is of order $n^{2/3}$, and, by Lemma \ref{lemma.convergenceQandP}, $P_n(\lfloor n^{2/3}t\rfloor)$ is of order $n^{1/3}$, we get that 
+$$\left(n^{-2/3}\Lambda_n\left(\lfloor n^{2/3} t \rfloor\} \right),t\geq 0\right)\todist\left( \Lambda(t),t\geq0 \right)$$
+in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \eqref{eq.convergencebychaumont} and \eqref{eq.convergencetheta}.\\
+To finish the proof, we examine the construction of $(Y^{\mathrm{df}}(k),k\geq 1)$ in \eqref{eq.definitionYdf} and the construction of $(B^{\mathrm{df}}_s,s\geq 0)$ in \eqref{eq.definitionBpr}. 
+Note that $\Lambda_n(k)$ and $k-\Lambda_n(k)$ are non-decreasing. Again, by Lemma \ref{lemma.technicalcomposedfunctions}, this implies that 
+$$\left(n^{-1/3}Y^{\mathrm{df}}\left( \lfloor n^{2/3} t \rfloor \right), t\geq 0 \right)\todist \left( B^{\mathrm{df}}_{t}, t\geq 0\right)$$
+in $D(\R_+,\R)$ as $n\to \infty$ jointly with all earlier mentioned convergences. Combining this with the convergence in \eqref{eq.convergenceX} proves \eqref{eq.convergenceYpr}. The fact that $(\theta_n(k),k\geq 1)$ is non-decreasing and Lemma \ref{lemma.technicalcomposedfunctions} then imply \eqref{eq.convergencecompSprandtheta}. 
+\end{proof}
+
+\begin{lemma}\label{lemma.subtracterrorconverges}
+We have that 
+\begin{align*}
+& \left(n^{-1/3}S^{+}\left(\lfloor n^{2/3}t\rfloor \right)), n^{-1/3}H^{+}\left(\lfloor n^{2/3}t\rfloor \right) ,t\geq 0 \right) \\
+& \hspace{15em} \todist \left(\sigma_+ B^{\mathrm{df}}_{\theta (t)},\frac{2}{\sigma_+} \left(B^{\mathrm{df}}_{\theta (t)}-\inf\{B^{\mathrm{df}}_{s}:s\leq \theta(t)\}\right) ,t\geq 0 \right)
+\end{align*}
+in $\D(\R_+,\R)^2$ as $n\to \infty$. 
+\end{lemma}
+
+
+\begin{proof}
+By \eqref{eq.constructionSp}, and by Lemma \ref{lemma.convergenceX+}, it is sufficient to show that for any $t>0$,
+$$n^{-1/3}\max_{k\leq \lfloor n^{2/3}t\rfloor}E(k)\toprob0.$$
+We remind the reader that $E(k)$ counts the number children of the $k$th vertex in the forest with dummy and filler vertices that are filler vertices, so
+$$n^{-1/3}\max_{k\leq \lfloor n^{2/3}t\rfloor}E(k)\leq n^{-1/3}\max_{k\leq \theta_n(\lfloor n^{2/3}t\rfloor)}(Y^{\mathrm{f}}(k)-Y^{\mathrm{f}}(k-1)+1),$$
+which converges to $0$ by tightness of $\left(n^{-2/3}\theta^{n}(\lfloor n^{2/3}t\rfloor)\right)_{n\geq 1}$ and the fact that $$\left(n^{-1/3}Y^{\mathrm{f}}\left(\lfloor n^{2/3}s\rfloor\right),s\geq 0\right)$$ converges in distribution to a continuous process in $D(\R_+,\R)$ as $n\to\infty$.
+\end{proof}
+
+The following lemma is the last ingredient in the proof of \cref{lem:heightprocessblackpurplered}.
+\begin{lemma}\label{lemma.heightprocesstimechange}
+We have that with probability $1$, $$\left(\frac{2}{\sigma_+} \left(B^{\mathrm{df}}_{\theta (t)}-\inf\{B^{\mathrm{df}}_{s}:s\leq \theta(t)\}\right), t\leq T \right)=\left(\frac{2}{\sigma_+} \left(B^{\mathrm{df}}_{\theta (t)}-\inf\{B^{\mathrm{df}}_{\theta(s)}:s\leq t\}\right), t\leq T \right),$$ which is continuous, and it is the height process corresponding to $\left(\sigma_+ B^{\mathrm{df}}_{\theta (t)},t\leq T\right)$. 
+\end{lemma}
+\begin{proof}
+From \cite{legallRandomTreesApplications2005}, we know that $\left(\frac{2}{\sigma_+}R^{\mathrm{df}}_t,t\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^{\mathrm{df}}_{t},t\geq 0\right)$. By definition of the height process, it is sufficient to show that, firstly, with probability $1$, $(B^{\mathrm{df}}_{\theta(t)},t\geq 0)$ is continuous, and, secondly, for all $t\geq 0$, and all $s$ such that $\theta(t-)<s<\theta(t)$, we have $B^{\mathrm{df}}_s > B^{\mathrm{df}}_{\theta(t)}$.
+
+Recall that $(B_t, t \geq 0)$ and $(B^{\mathrm{f}}_t, t\geq 0)$ are two independent Brownian motions, $$\theta(t)=t+\inf\left\{s\geq 0 : \sigma_+ B^{\mathrm{f}}_s< -\frac{\nu_-}{2\mu} t^2\right\},$$ we have $\Lambda(t)=\inf\{s\geq 0:\theta(s)> t\}$, and 
+\begin{equation*}
+  \left(B^{\mathrm{df}}_t,t \geq 0\right):=\left( B_{\Lambda(t)}+ B^{\mathrm{f}}_{t-\Lambda(t)}, t\geq 0\right).
+\end{equation*}
+
+Firstly, note that the jumps of $\theta$ correspond to excursions above the infimum of $B^{\mathrm{f}}$.  With probability $1$, for each of these excursions, the minimum on the excursion is only attained at the endpoints. This can be seen by the almost sure uniqueness of local minima of Brownian motion. We will work on this event of probability 1.
+
+Now fix $t$ such that $\theta(t-)\neq \theta(t)$ and let $s\in (\theta(t-),\theta(t))$. Observe that $\Lambda$ is equal to $t$ on $[\theta(t-),\theta(t)]$. For $[\theta(t-),\theta(t))$ this follows by definition of $\Lambda$, and for $\theta(t)$ it follows since $(\theta(u):u\geq 0)$ is strictly increasing. This implies that
+\begin{equation*}
+  s-\Lambda(s)<\theta(t)-\Lambda(\theta(t))=\inf\left\{ u\geq 0: \sigma_+ B_u^{\mathrm{f}}<-\frac{\nu_-}{2\mu} t^2\right\}. 
+\end{equation*}
+By our assumption on the minima of the excursions above the infimum of $B^{\mathrm{f}}$, this implies that
+\begin{equation*}
+  B^{\mathrm{f}}_{s-\Lambda(s)}>-\frac{\nu_-}{2\mu} t^2=B^{\mathrm{f}}_{\theta(t)-\Lambda(\theta(t))}
+\end{equation*}
+where the last equality follows from continuity of $B^{\mathrm{f}}$. Combining this with $\Lambda(s)=\Lambda(\theta(t))$ implies that
+$B^{\mathrm{df}}_s>B^{\mathrm{df}}_{\theta(t)}$.
+
+Finally, 
+$$B^{\mathrm{df}}_{\theta(t-)}=B_{\Lambda(\theta(t-))}+B^{\mathrm{f}}_{\theta(t-)-\Lambda(\theta(t-))}
+=B_{t}+B^{\mathrm{f}}_{\theta(t-)-t}$$
+and by continuity of $(B^{\mathrm{f}}_s,s\geq 0)$,
+\begin{align*}B^{\mathrm{f}}_{\theta(t-)-t}&=B^{\mathrm{f}}\left({\lim_{s\uparrow t}\inf\{u:B^{\mathrm{f}}_u<-\frac{\nu_-}{2\mu} s^2\}}\right)\\&=\lim_{s\uparrow t} B^{\mathrm{f}}\left({\inf\left\{u:B^{\mathrm{f}}_u<-\frac{\nu_-}{2\mu} s^2\right\}}\right)\\&= -\frac{\nu_-}{2\mu^2}t^2\\
+&=B^{\mathrm{f}}_{\theta(t)-t}, \end{align*}
+so 
+$B^{\mathrm{df}}_{\theta(t-)}=B^{\mathrm{df}}_{\theta(t)}.$
+\end{proof}
+
+
+
+
+
+\subsection{Proof of Proposition \ref{prop:convoutforest}}\label{subsubsec.convaftermeasurechange}
+We will now combine the convergence of the measure change under rescaling, which is the content of \cref{prop:measure-change}, and the convergence of the encoding processes of the forest with dummy leaves, which is the content of \cref{prop:convheightprocesspurple}, in order to prove \cref{prop:convoutforest}.
+
+\begin{proof}[Proof of \cref{prop:convoutforest}]
+Recall that $\hat{P}_n(k)$ denotes the number of dummy leaves amongst the first $k$ vertices in the forest with dummy leaves. Then, as shown in \cref{prop:sampleoutforest}, the probability that the $(k+1)$th vertex in the out-forest is purple, given the degrees in order of discovery and the dummy leaves amongst the first $k$ vertices is equal to
+$$q_{k+1}:=\frac{\hat{S}^-_n(k)}{\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)}\one_{\left\{\hat{I}^+_n(k-1)= \hat{I}^+_n(k)\right\}},$$
+where $\hat{I}^+_n(k)=\min\{\hat{S}^{+}_n(l):l\leq k\}$.
+In order to use the results on the forest with dummy leaves, we need to replace the term $\sum_{i=1}^n D^-_i$ in the denominator by $\mu n$. Therefore, define a new forest, \emph{the approximate out-forest}, in which the degrees in order of discovery are the same as in the out-forest. However, in this forest, the probability that the $(k+1)$th vertex is a dummy leaf, given the degrees in order of discovery and the dummy leaves amongst the first $k$ vertices, is equal to
+$$\tilde{q}_{k+1}:=\frac{\tilde{S}^-_n(k)}{\mu n-k-\tilde{I}_n(k)}\one_{\left\{\tilde{I}_n(k-1)=\tilde{I}_n(k)\right\}},$$
+where $\tilde{S}^-_n(k)$ is the number of unused in-edges of previously discovered vertices in the approximate out-forest up to time $k$ and $-\tilde{I}^+_n(k)$ is the number of components in the approximate out-forest up to time $k$. We let $\tilde{P}_n(k)$ denote the number of dummy leaves amongst the first $k$ vertices in the approximate out-forest. 
 We claim that there exists a coupling such that
-$$\sum_{i=1}^{\lfloor n^{2/3}T\rfloor }|q_i-q'_i|\overset{p}{\to}0$$
+$$\sum_{i=1}^{\lfloor n^{2/3}T\rfloor }|q_i-\tilde{q}_i|\toprob0$$
 as $n\to \infty$. 
-Indeed, by the convergence in Theorem \ref{theorem.convaftermeasurechange}, 
-$$\left(n^{-2/3}\sum_{i=1}^{\lfloor n^{2/3}T\rfloor} \hat{D}^n_i\right)_{n>0}$$ is tight. Moreover, with a slight adaptation to the proof of Lemma \ref{lemma.tightnesssurplusedges}, we can show that $\left(n^{-1/3}\hat{P}'_n\left(\lfloor n^{2/3}T\rfloor \right)\right)_{n>0}$ is tight. This, combined with the convergence under rescaling of $(\hat{Y}^+_n(k),k\geq 1)$, implies that also $\left(n^{-1/3}\hat{I}'_n\left(\lfloor n^{2/3}T\rfloor \right)\right)_{n>0}$ is tight.  Since $D^-_1,\dots,D^-_n$ are i.i.d. random variables with mean $\mu$ and finite variance,
-$\left(n^{-1/2}\left(\sum_{i=0}^{n-1}D^-_i-\mu n\right)\right)_{n>0}$ is tight. By using the trivial identity $a/b-c/d=(b(a-c)-c(d-b))/bd$, this implies that
-$\left(n^{2/3}\max_{k\leq \lfloor n^{2/3}T\rfloor }|q_k-q'_k|\right)_{n>0}$ is tight, which implies that there exists a coupling such that $\left(\max_{k\leq \lfloor n^{2/3}T\rfloor } |\hat{P}_n(k)-\hat{P}'_n(k)|\right)_{n>1}$ and $\left(\max_{k\leq \lfloor n^{2/3}T\rfloor } |\hat{I}_n(k)-\hat{I}'_n(k)|\right)_{n>1}$ are tight, which implies that, again by $a/b-c/d=(b(a-c)-c(d-b))/bd$, 
-$\left(n^{5/6}\max_{k\leq \lfloor n^{2/3}T\rfloor }|q_k-q'_k|\right)_{n>0}$ is tight, which implies that 
-$$\sum_{i=0}^{\lfloor n^{2/3}T\rfloor }|q_i-q'_i|\overset{p}{\to}0$$
+Indeed, by the convergence in \cref{prop:convaftermeasurechange}, 
+$$\left(n^{-2/3}\sum_{i=1}^{\lfloor n^{2/3}T\rfloor} \hat{D}^n_i\right)_{n>0}$$ is tight. Moreover, with a slight adaptation to the proof of Lemma \ref{lemma.tightnesssurplusedges}, we can show that $\left(n^{-1/3}\tilde{P}_n\left(\lfloor n^{2/3}T\rfloor \right)\right)_{n>0}$ is tight. This, combined with the convergence under rescaling of $(\hat{Y}^+_n(k),k\geq 1)$, implies that also $\left(n^{-1/3}\tilde{I}^+_n\left(\lfloor n^{2/3}T\rfloor \right)\right)_{n>0}$ is tight.  Since $D^-_1,\dots,D^-_n$ are i.i.d.\ random variables with mean $\mu$ and finite variance,
+$\left(n^{-1/2}\left(\sum_{i=1}^{n}D^-_i-\mu n\right)\right)_{n>0}$ is tight. By using the trivial identity $a/b-c/d=(b(a-c)-c(d-b))/bd$, this implies that
+$\left(n^{2/3}\max_{k\leq \lfloor n^{2/3}T\rfloor }|q_k-\tilde{q}_k|\right)_{n>0}$ is tight, which implies that there exists a coupling such that $\left(\max_{k\leq \lfloor n^{2/3}T\rfloor } |\hat{P}_n(k)-\tilde{P}_n(k)|\right)_{n>1}$ and $\left(\max_{k\leq \lfloor n^{2/3}T\rfloor } |\hat{I}^+_n(k)-\tilde{I}^+_n(k)|\right)_{n>1}$ are tight, which implies that, again by $a/b-c/d=(b(a-c)-c(d-b))/bd$, 
+$\left(n^{5/6}\max_{k\leq \lfloor n^{2/3}T\rfloor }|q_k-\tilde{q}_k|\right)_{n>0}$ is tight, which implies that 
+$$\sum_{i=1}^{\lfloor n^{2/3}T\rfloor }|q_i-\tilde{q}_i|\toprob0$$
 as $n\to \infty$. 
 Therefore, under the right coupling, 
-$$\P\left(\max_{k\leq \lfloor n^{2/3} T \rfloor}|\hat{P}_n(k)-\hat{P}'(k)|>0\right)\to 0.$$
-In other words, we can couple $(\hat{F}_n(k),k\geq 1)$ and $(\hat{F}'_n(k),k\geq 1)$ in such a way that we do not see the difference on the scale of interest. Therefore, we can show convergence under rescaling of the encoding processes of $(\hat{F}'_n(k),k\geq 1)$ instead. To avoid further complicating notation, we will from now on refer to its encoding processes as $$(\hat{S}^{+}_n(k),\hat{H}_n, \hat{S}^-_n(k), \hat{P}_n(k),k\leq \lfloor n^{2/3}T\rfloor).$$ Then, these processes are constructed out of sample paths of $(\hat{Y}^+(k),\hat{Y}^-(k), k\leq \lfloor n^{2/3}T\rfloor )$ and independent randomness in the exact same way as the sample paths of $$({S}_n^{+}(k),{H}_n^+(k),{S}_n^-(k),P_n(k), k \leq \lfloor n^{2/3}T\rfloor )$$ are constructed out of sample paths of $(Y^+(k),Y^-(k), k\leq \lfloor n^{2/3}T\rfloor )$ and independent randomness. 
+$$\P\left(\max_{k\leq \lfloor n^{2/3} T \rfloor}|\hat{P}_n(k)-\tilde{P}_n(k)|>0\right)\to 0.$$
+In other words, we can couple the out-forest and the approximate out-forest in such a way that we do not see any difference on the scale of interest. Therefore, we can show convergence under rescaling of the encoding processes of the approximate out-forest instead. To avoid further complicating notation, we will from now on refer to its encoding processes as $$(\hat{S}^{+}_n(k),\hat{H}_n, \hat{S}^-_n(k), \hat{P}_n(k),k\leq \lfloor n^{2/3}T\rfloor).$$ Then, these processes are constructed out of sample paths of $(\hat{Y}^+(k),\hat{Y}^-(k), k\leq \lfloor n^{2/3}T\rfloor )$ and independent randomness in exactly the same way as the sample paths of $$({S}_n^{+}(k),{H}_n^+(k),{S}_n^-(k),P_n(k), k \leq \lfloor n^{2/3}T\rfloor )$$  (corresponding to the forest with dummy vertices) are constructed out of sample paths of $(Y^+(k),Y^-(k), k\leq \lfloor n^{2/3}T\rfloor )$ and independent randomness. 
 We will use the following notation:\begin{align*}
-    \hat{S}^{+}_{(n)}&:=\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3} t \right),0\leq t \leq T\right)\\
-    \hat{H}_{(n)}&:=\left(n^{-1/3}\hat{H}_n\left(\lfloor n^{2/3} t \right),0\leq t \leq T\right)\\
-    \hat{Y}^+_{(n)}&:=\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3} t \right),0\leq t \leq T\right)\\
-     {S}^{+}_{(n)}&:=\left(n^{-1/3}{S}^{+}_n\left(\lfloor n^{2/3} t \right),0\leq t \leq T\right)\\
-    {H}^+_{(n)}&:=\left(n^{-1/3}{H}^+_n\left(\lfloor n^{2/3} t \right),0\leq t \leq T\right)\\
-    {Y}^+_{(n)}&:=\left(n^{-1/3}{Y}^+\left(\lfloor n^{2/3} t \right),0\leq t \leq T\right).
+    \hat{S}^{+}_{(n)}&:=\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
+    \hat{H}_{(n)}&:=\left(n^{-1/3}\hat{H}_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
+    \hat{Y}^+_{(n)}&:=\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
+     {S}^{+}_{(n)}&:=\left(n^{-1/3}{S}^{+}_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
+    {H}^+_{(n)}&:=\left(n^{-1/3}{H}^+_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
+    {Y}^+_{(n)}&:=\left(n^{-1/3}{Y}^+\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right).
 \end{align*}
-Let $f:D([0,T],\R)^3\to \R$ be a bounded, continuous test-function. Then,
-\begin{align*}\E\left[f\left(\hat{Y}^+_{(n)}, \hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]&= \E\left[ \E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} T\rfloor)\E\left[\left.f\left(Y^+_{(n)}, S^+_{(n)},  H^+_{(n)}\right)\right| {Y}^+_{(n)}\right]\right]\\&=\E\left[ \Phi(n,\lfloor n^{2/3} T\rfloor)f\left(Y^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right],\end{align*}
-where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{Y}^+_{(n)}\right]$ is a bounded, adapted function of $\hat{Y}^+_{(n)}$, and that $\Phi(n,\lfloor n^{2/3} t\rfloor)$ is the measure change from ${Y}^+_{(n)}$ to $\hat{Y}^+_{(n)}$. Then, using Theorem \ref{thm:measure-change} and Proposition \ref{prop.convheightprocesspurple}, following the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2020} gives us that 
+Let $f:D([0,T],\R)^3\to \R$ be a bounded, continuous test-function. Then, for $m=\lfloor n^{2/3}T\rfloor$
+\begin{align*}\E\left[f\left(\hat{Y}^+_{(n)}, \hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]&= \E\left[f\left(\hat{Y}^+_{(n)}, \hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \one_{R_n\geq m} \right]+o(1)\\
+&=\E\left[ \E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m} \right]\one_{R_n\geq m} \right]+o(1)
+ \\&=\E\left[ \Phi(n,m)\E\left[\left.f\left(Y^+_{(n)}, S^+_{(n)},  H^+_{(n)}\right)\right| \mathbf{Z}_1,\dots, \mathbf{Z}_m\right]\right]+o(1)\\&=\E\left[ \Phi(n,m)f\left(Y^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right]+o(1),
+\end{align*}
+where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right| \hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m}\right]$ and $\one_{R_n\geq m}$ are bounded, adapted functions of $\hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m}$, and that $\Phi(n,m)$ is the measure change from  $(\hat{\mathbf{Z}}_{1},\dots, \hat{\mathbf{Z}}_{m})$ to $(\hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m})$. Then, using \cref{prop:measure-change} and \cref{prop:convheightprocesspurple}, following the proof of \cite[Theorem 4.1]{conchon--kerjanStableGraphMetric2020} gives us that 
 \begin{align*}
     &\E\left[f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]\\
     &\to \E\left[\Phi(T)f\left(\sigma_+ B_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].
 \end{align*}
 Since $$(B^+_t,t\geq 0)=\left(B_t-\frac{\nu_-}{2\sigma_+ \mu}t^2,t\geq 0\right),$$
-Lemma \ref{lemma.characterizelimitprocess} implies the convergence under rescaling of $(\hat{S}^+_n(k),\hat{H}_n(k),k\geq 0)$. By Proposition \ref{prop.convheightprocesspurple} , $S^{-}_n$ converges in distribution to a deterministic process under scaling, which will not be affected by the measure change. This completes the proof. 
+ \cref{prop:characterizelimitprocess} implies the convergence under rescaling of $(\hat{S}^+_n(k),\hat{H}_n(k),k\geq 0)$. By \cref{prop:convheightprocesspurple}, $S^{-}_n$ converges in distribution under rescaling to a deterministic process, which will not be affected by the measure change. This completes the proof. 
 \end{proof}
 \input{Content/Sections/anomalousedges}
 % \subsection{The convergence of the out-forest holds conditionally on the multigraph being simple}
-% We will now show that the parts of the directed multigraph we observe up until the timescale in which we are interested are with high probability simple. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that Theorem \ref{thm.convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k^{th}$ vertex of $(\hat{F}_n(k),k\geq 1)$. Following \cite{conchon--kerjanStableGraphMetric2020}, we call these anomalous edges. 
+% We will now show that the parts of the directed multigraph we observe up until the timescale in which we are interested are with high probability simple. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that Theorem \ref{thm.convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k$th vertex of $(\hat{F}_n(k),k\geq 1)$. Following \cite{conchon--kerjanStableGraphMetric2020}, we call these anomalous edges. 
 % \begin{proposition}\label{prop.anomalousedges}
 % Suppose $\beta<1$. Then we have
 % $$\P\left(B_n(\lfloor n^\beta \rfloor)>0\right)\to 0$$
@@ -332,13 +464,13 @@ Lemma \ref{lemma.characterizelimitprocess} implies the convergence under rescali
 % &\leq\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_i)^3\right)^{1/2}\end{align*}
 % where the last inequality follows from the conditional version of Jensen's inequality and the fact that a vertex with out-degree $d^+$ that is discovered before time $n^\beta$ is the parent of at most $d^+$ vertices that are discovered before time $n^\beta$.
 
-% We will show that \begin{equation}\label{eq.conditionalprobanamolousedges}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)+B^2_n(\lfloor n^\beta \rfloor)+B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)\overset{p}{\to}0\end{equation} as $n\to\infty$. The proposition will then follow from the bounded convergence theorem. By the observations above, and the fact that $$\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\hat{D}^-_i,$$ it is sufficient to show that as $n\to \infty$,
+% We will show that \begin{equation}\label{eq.conditionalprobanamolousedges}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)+B^2_n(\lfloor n^\beta \rfloor)+B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)\toprob0\end{equation} as $n\to\infty$. The proposition will then follow from the bounded convergence theorem. By the observations above, and the fact that $$\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\hat{D}^-_i,$$ it is sufficient to show that as $n\to \infty$,
 % \begin{align}
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess1}\\
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess2}\\
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1^2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess3}\\
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^2 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0,\text{ and }\label{eq.convergencemomentpointprocess4}\\
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^3 \hat{\Pi}_r(dt,k_1,k_2)&\overset{p}{\to}0.\label{eq.convergencemomentpointprocess5}\end{align}
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \hat{\Pi}_r(dt,k_1,k_2)&\toprob0,\label{eq.convergencemomentpointprocess1}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1 \hat{\Pi}_r(dt,k_1,k_2)&\toprob0,\label{eq.convergencemomentpointprocess2}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1^2 \hat{\Pi}_r(dt,k_1,k_2)&\toprob0,\label{eq.convergencemomentpointprocess3}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^2 \hat{\Pi}_r(dt,k_1,k_2)&\toprob0,\text{ and }\label{eq.convergencemomentpointprocess4}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^3 \hat{\Pi}_r(dt,k_1,k_2)&\toprob0.\label{eq.convergencemomentpointprocess5}\end{align}
 % We will show \ref{eq.convergencemomentpointprocess1}. The proofs of the other convergences are analogous. \\
 % Note that, by \eqref{eq.numberofjumpsinrandommeasure}, for $\hat{E}^r_t$ the expectation under $\hat{P}^r_t$, it is sufficient if we show that for some $C$,
 % \begin{equation}\label{eq.expectationtobound}{\hat{E}}^r_t\left[\hat{D}^-\hat{D}^+\right]
@@ -396,13 +528,13 @@ Lemma \ref{lemma.characterizelimitprocess} implies the convergence under rescali
 % &\leq\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_i)^3\right)^{1/2}\end{align*}
 % where the last inequality follows from the conditional Jensen inequality and the fact that a vertex with out-degree $d^+$ that is discovered before time $n^\beta$ is the parent of at most $d^+$ vertices that are discovered before time $n^\beta$.
 
-% We will show that \begin{equation}\label{eq.conditionalprobanamolousedges}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)+B^2_n(\lfloor n^\beta \rfloor)+B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)\overset{p}{\to}0\end{equation} as $n\to\infty$. Then, the proposition follows from the bounded convergence theorem. By the observations above, and the fact that $$\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\hat{D}^-_i,$$ it is sufficient to show that as $n\to \infty$,
+% We will show that \begin{equation}\label{eq.conditionalprobanamolousedges}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)+B^2_n(\lfloor n^\beta \rfloor)+B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)\toprob0\end{equation} as $n\to\infty$. Then, the proposition follows from the bounded convergence theorem. By the observations above, and the fact that $$\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\hat{D}^-_i,$$ it is sufficient to show that as $n\to \infty$,
 % \begin{align}
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2\hat{\Pi}_n(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess1}\\
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1\hat{\Pi}_n(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess2}\\
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1^2\hat{\Pi}_n(dt,k_1,k_2)&\overset{p}{\to}0,\label{eq.convergencemomentpointprocess3}\\
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^2\hat{\Pi}_n(dt,k_1,k_2)&\overset{p}{\to}0,\text{ and }\label{eq.convergencemomentpointprocess4}\\
-% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^3\hat{\Pi}_n(dt,k_1,k_2)&\overset{p}{\to}0.\label{eq.convergencemomentpointprocess5}\end{align}
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2\hat{\Pi}_n(dt,k_1,k_2)&\toprob0,\label{eq.convergencemomentpointprocess1}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1\hat{\Pi}_n(dt,k_1,k_2)&\toprob0,\label{eq.convergencemomentpointprocess2}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1^2\hat{\Pi}_n(dt,k_1,k_2)&\toprob0,\label{eq.convergencemomentpointprocess3}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^2\hat{\Pi}_n(dt,k_1,k_2)&\toprob0,\text{ and }\label{eq.convergencemomentpointprocess4}\\
+% \frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_2^3\hat{\Pi}_n(dt,k_1,k_2)&\toprob0.\label{eq.convergencemomentpointprocess5}\end{align}
 % We will show \ref{eq.convergencemomentpointprocess1}. The proof of the other equations is analogous. \\
 % We start with the proof of \ref{eq.convergencemomentpointprocess1}. Note that by \eqref{eq.numberofjumpsinrandommeasure}, for $\hat{E}^n_t$ the expectation under $\hat{P}^n_t$, it is sufficient if we show that for some $C$,
 % \begin{equation}\label{eq.expectationtobound}{\hat{E}}^n_t\left[\hat{D}^-_t\hat{D}^+_t\right]
@@ -427,9 +559,9 @@ Lemma \ref{lemma.characterizelimitprocess} implies the convergence under rescali
 
 
 
-\begin{corollary}
- Theorem \ref{thm.convoutforest} holds conditionally on the resulting multigraph being simple. 
-\end{corollary}
+\begin{proposition}
+ \cref{prop:convoutforest} holds conditionally on the resulting multigraph being simple. 
+\end{proposition}
 \begin{proof}
 Let $\rho(n)=\inf\{k\geq 1:B_n(k)>0\}$, and note that the event that the multigraph formed by the configuration model on $n$ vertices is simple is equal to $\{\rho(n)=\infty\}$. Proposition \ref{prop.anomalousedges} shows that we do not observe any anomalous edges far beyond the timescale in which we explore the largest components of the out-forest. This allows us to conclude that all of the results we prove using the exploration up to time $O(n^{2/3})$ are also true conditioned on $\{\rho(n)=\infty\}$. This follows from the proof of Theorem 3.2 in \cite{josephComponentSizesCritical2014}.
 \end{proof}

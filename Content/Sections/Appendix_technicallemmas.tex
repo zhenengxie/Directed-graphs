@@ -1,0 +1,43 @@
+\section{Proof of technical lemmas}\label{app.technical}
+\begin{proof}[Proof of Lemma \ref{lem.technicalhittingtimes}]
+Denote $g_n(s)=\inf\{t:f_n(t)>s\}$ and $g(s)=\inf\{t:f(t)>s\}$. By Proposition 3.6.5 in the book by Ethier and Kurtz \cite{ethierMarkovProcessesCharacterization2005}, it is sufficient to show that for any $s>0$, for any $s_n\to s$, 
+\begin{enumerate}
+    \item $\max\{|g_n(s_n)-g(s)|,|g_n(s_n)-g(s-)|\}\to 0$;
+    \item If $u_n\leq s_n$ for all $n$, $s_n\to s$, $u_n\to s$ and $g_n(s_n)\to g(s-)$, then $g_n(u_n)\to g(s-)$;
+    \item If $u_n\geq s_n$ for all $n$, $s_n\to s$, $u_n\to s$ and $g_n(s_n)\to g(s)$, then $g_n(u_n)\to g(s)$. 
+\end{enumerate}
+Fix $s>0$. If $g(s-)=g(s)$, the result is straightforward, so we focus on $g(s-)<g(s)$.  
+
+We start by proving the first property. Fix $\epsilon>0$ and suppose $s_n\to s$. We observe that $g(s-)<g(s)$ implies that $f$ has a local maximum at $g(s-)$ and that $f(g(s-))=f(g(s))=s$. By the uniqueness of local maxima of $f$ and the definition of $g$, there exists a $\delta_1>0$ such that for all $t<g(s-)-\epsilon$, we have that $f(t)<s-\delta_1$. Similarly, there exists a $\delta_2>0$ such that for all $g(s-)+\epsilon<t<g(s)-\epsilon$, we have that $f(t)<s-\delta_2$. Moreover, define $$\delta_3=\sup\left\{f(t):g(s)<t<g(s)+\epsilon\right\}-s,$$ so that, by definition of $g$, we have that $\delta_3>0$. Define $\delta=\min\{\delta_1,\delta_2,\delta_3\}$. 
+Now, let $n$ be large enough such that $\sup_{t\in [0,g(s)+\epsilon]}|f_n(s)-f(s)|<\delta/2$ and $|s_n-s|<\delta/2$. 
+Then, it holds that 
+\begin{enumerate}
+    \item $f_n(t)<s-\delta/2<s_n$ for all $t<g(s-)-\epsilon$;
+    \item $f_n(t)<s-\delta<s_n$ for all $g(s-)+\epsilon<t<g(s)-\epsilon$;
+    \item There is a $g(s)<t<g(s)+\epsilon$ such that $f_n(t)>s+\delta/2>s_n$.
+\end{enumerate}
+These tree facts imply that $g_n(s_n)\subset [g(s-)-\epsilon,g(s-)+\epsilon]\cup[g(s)-\epsilon,g(s)+\epsilon]$, which proves the first of the three conditions.
+
+Then, the second and third property follow immediately from the first property and the monotonicity of $g_n$ and $g$. \end{proof}
+
+\begin{proof}[Proof of Lemma \ref{lemma.extractexcursions}]
+First, note that $g_i^n$, $\sigma_i^n$, $g_i$, and $\sigma_i$ are well-defined for all $i\in [m]$, $n\geq 1$ by $f(t)\to -\infty$ as $t\to \infty$ and the convergence of $f_n$ to $f$. \\
+Fix $i$. We will first show that $g^n_i\to g_i$ and $\sigma_i^n\to \sigma_i$ as $n\to \infty$. Firstly, note that by the assumption that $f(x_i)-\inf\{f(s):s\leq x_i\}>0$ and the continuity of $f$, $g_i<x_i<g_i+\sigma_i$. Fix $0<\epsilon<\min\{x_i-g_i,g_i+\sigma_i-x_i\}/2$. We claim that the following conditions are sufficient for $g^n_i\to g_i$ and $\sigma_i^n\to \sigma_i$ as $n\to \infty$. For all $n$ large enough,
+\begin{enumerate}
+    \item \label{cond.excursions1} $g_i+\epsilon<x^n_i<g_i+\sigma_i-\epsilon$
+    \item \label{cond.excursions2}$\inf\left\{f_n(s):s\in (g_i-\epsilon, g_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [g_i+\epsilon,g_i+\sigma_i-\epsilon] \right\}$, 
+    \item \label{cond.excursions3}$\inf\left\{f_n(s):s\in (g_i-\epsilon, g_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [0,g_i-\epsilon]\right\}$,
+    \item \label{cond.excursions4} $\inf\left\{ f_n(s):s\in (g_i+\sigma_i-\epsilon,g_i+\sigma_i+\epsilon)\right\}<\inf\left\{f_n(s):s\in [0,g_i+\sigma_i-\epsilon]\right\}$
+\end{enumerate}
+Indeed, conditions \ref{cond.excursions1}, \ref{cond.excursions2} and \ref{cond.excursions3} imply $|g^n_i-g_i|<\epsilon$, while conditions \ref{cond.excursions1}, \ref{cond.excursions2} and \ref{cond.excursions4} imply $|(g^n_i+\sigma^n_i)-(g_i+\sigma_i)|<\epsilon$. Note that condition \ref{cond.excursions1} holds for $n$ large enough by definition of $\epsilon$ and the convergence of $x_i^n$ to $x_i$. To show the other conditions, define
+\begin{align*}\delta_1&=\inf\left\{f(s):s\in [g_i+\epsilon,g_i+\sigma_i-\epsilon]\right\}-\inf\left\{f(s):s\in (g_i-\epsilon,g_i+\epsilon)\right\}\\
+\delta_2&=\inf\left\{f(s):s\in [0,g_i-\epsilon]\right\}-\inf\left\{f(s):s\in (g_i-\epsilon,g_i+\epsilon)\right\}\\
+\delta_3&=\inf\left\{f(s):s\in [0,g_i+\sigma_i-\epsilon]\right\}-\inf\left\{f(s):s\in (g_i+\sigma_i-\epsilon,g_i+\sigma_i+\epsilon)\right\}.
+\end{align*}
+By uniqueness of local minima and the definition of $g_i$ and $\sigma_i$, we have $\delta:=\min\{\delta_1,\delta_2,\delta_3\}/3>0$. Then, note that for $n$ large enough, $\sup\{|f_n(s)-f(s)|:s\leq g_i+\epsilon\}<\delta$, which implies conditions \ref{cond.excursions2}, \ref{cond.excursions3}, and \ref{cond.excursions4} for such $n$. \\
+Since $i$ was arbitrary, and $m$ is finite, we find that $$(g_i^n,\sigma_i^n)_{1\leq i\leq m}\to (g_i,\sigma_i)_{1\leq i\leq m}$$
+in $\R^{2m}$ as $n\to \infty$. \\
+We now claim that $g_i^n\to g_i$ and $g_j^n\to g_i$ implies that $g_i^n=g_j^n$ for $n$ large enough. Indeed, by definition of $g_i^n$, $g_j^n$ and $\sigma_i^n$, we have that $g_i^n<g_j^n$ implies that $g_j^n-g_i^n\geq \sigma_i^n$, and by the argument above, $\sigma_i^n\to \sigma_i>0$, so $g_i^n-g_j^n\to 0$ can only hold if $g_i^n=g_j^n$ for $n$ large enough. This implies that 
+$$\#\left\{(g_i^n,\sigma_i^n):1\leq i \leq m\right\}\to \#\left\{(g_i,\sigma_i):1\leq i \leq m\right\}.$$
+Then, the result follows.
+\end{proof}
