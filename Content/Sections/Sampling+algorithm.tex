@@ -1,0 +1,118 @@
+\begin{algorithm}[htbp]
+    \SetAlgoLined
+    \KwData{A set of vertices $\{v_1,\dots, v_n\}$ with degree pairs $(d^-(v_1),d^+(v_1)),\dots, (d^-(v_n),d^+(v_n))$ satisfying $\sum d^-(v_i)=\sum d^+(v_i)$}
+    $\exploredvertices \leftarrow$ an empty ordered list of vertices \tcp*[f]{the list of discovered vertices}\;
+    $\edgestack \leftarrow$ an empty ordered list of vertices \tcp*[f]{the queue}\;
+    $(d^-_{\mathrm{unpaired}}(v_1),\dots,d^-_{\mathrm{unpaired}}(v_n))\leftarrow (d^-(v_1),\dots,d^-(v_n))$  \tcp*[f]{the number of unpaired in-edges per vertex}\;
+    $k \leftarrow 0$ \tcp*[f]{the index of the current step} \;
+    $\hat{s}^- \leftarrow 0$ \tcp*[f]{the number of seen but unpaired in-edges}\;
+    $\hat{s}^+ \leftarrow 0$ \tcp*[f]{the total stack size minus the number of explored out-components} \;
+    $\forest \leftarrow$ a directed forest containing vertices $v_1,\dots v_n$ and no edges
+    \tcp*[f]{the current out-forest}\;
+     $M \leftarrow$ a directed multigraph containing vertices $v_1,\dots v_n$ and no edges
+    \tcp*[f]{the current directed multigraph}\;
+    \While(){there exist undiscovered vertices with positive in-degree OR $\exploredvertices$ is non-empty}{
+        \eIf(){$\edgestack$ is non-empty}{
+            $v \leftarrow$ last entry in $\edgestack$ \;
+            remove last entry from $\edgestack$ \;
+            $\hat{s}^+\leftarrow \hat{s}^+-1$\;
+            $w \leftarrow$ a random vertex chosen with prob.\ proportional to $d^-_{\mathrm{unused}}(w)$\;
+            add the edge $(v,w)$ to $M$\;
+            $d^-_{\mathrm{unused}}(w)\leftarrow d^-_{\mathrm{unused}}(w)-1$\;
+            $\hat{s}^-\leftarrow \hat{s}^--1$\;
+            \eIf(\tcp*[f]{we sampled a surplus edge}){$w\in \exploredvertices$}{
+            add a dummy leaf to $F$ and an edge from $v$ to the leaf\;}{
+            add the edge $(v,w)$ to $F$\;
+            }
+        }{
+        $w\leftarrow$ a random vertex not in $\exploredvertices$ chosen with prob.\ proportional to $d^-(w)$ \tcp*[f]{we start a new out-component}\;
+        $\hat{s}^+\leftarrow \hat{s}^+-1$\;}
+        \If(){$w\not\in \exploredvertices$}{
+        append $w$ to $\exploredvertices$\;
+        append $d^+(w)$ repeats of $w$ to $\edgestack$\;
+        $\hat{s}^+\leftarrow \hat{s}^++d^+(w)$
+        $\hat{s}^-\leftarrow \hat{s}^-+d^-(w)$
+        }
+        $k\leftarrow k+1$\;
+        $\hat{s}^+_k\to \hat{s}^+$\;
+        $\hat{s}^-_k\to \hat{s}^-$\;
+        }
+        
+    \While(){there exist undiscovered vertices OR $\exploredvertices$ is non-empty}{
+        \eIf(){$\edgestack$ is non-empty}{
+            $v \leftarrow$ last entry in $\edgestack$ \;
+            remove last entry from $\edgestack$ \;
+            $w \leftarrow$ a random vertex chosen with prob.\ proportional to $d^-_{\mathrm{unused}}(w)$\;
+            add the edge $(v,w)$ to $M$\;
+            $d^-_{\mathrm{unused}}(w)\leftarrow d^-_{\mathrm{unused}}(w)-1$\;
+            }{
+            $w\leftarrow$ a random vertex not in $\exploredvertices$\;
+            append $w$ to $\exploredvertices$\;
+            append $d^+(w)$ repeats of $w$ to $\edgestack$\;
+        }
+        }
+    
+    \caption{The eDFS procedure \label{alg:edfs}}
+\end{algorithm}
+
+
+
+\begin{algorithm}[htbp]
+    \SetAlgoLined
+    \KwData{A set of vertices with degree pairs $(d^-(v_1),d^+(v_1)),\dots, (d^-(v_n),d^+(v_n))$ satisfying $\sum d^-(v_i)=\sum d^+(v_i)$}
+    $\exploredvertices \leftarrow$ an empty ordered list of vertices \tcp*[f]{the list of discovered vertices}\;
+    $\edgestack \leftarrow$ an empty ordered list of vertices \tcp*[f]{the queue}\;
+    $(d^-_{\mathrm{unpaired}}(v_1),\dots,d^-_{\mathrm{unpaired}}(v_n))\leftarrow (d^-(v_1),\dots,d^-(v_n))$  \tcp*[f]{the number of unpaired in-edges per vertex}\;
+    $k \leftarrow 0$ \tcp*[f]{the index of the current step} \;
+    $\hat{s}^- \leftarrow 0$ \tcp*[f]{the number of seen but unpaired in-edges}\;
+    $\hat{s}^+ \leftarrow 0$ \tcp*[f]{the total stack size minus the number of explored out-components} \;
+    $\forest \leftarrow$ an empty directed graph
+    \tcp*[f]{the current out-forest}\;
+     $G \leftarrow$ an empty directed graph
+    \tcp*[f]{the current directed-graph}\;
+    \While(){there exist unpaired out-half-edges of vertices with positive in-degree}{
+        \eIf(\tcp*[f]{we are starting a new out-component}){$\edgestack$ is empty}{
+            $w \leftarrow$ a random vertex not in $\exploredvertices$ chosen with prob.\ proportional to $d^-(w)$ \;
+            $\hat{s}^+ \leftarrow \hat{s}^+ - 1$ \tcp*[f]{we have finished exploring another out-component} \;
+        }(){
+            $v \leftarrow$ last entry in $\edgestack$ \;
+            remove last entry from $\edgestack$ \;
+            $w \leftarrow$ a random vertex chosen with prob.\ proportional to $d^-_{\mathrm{unused}}(w)$\;
+            $d^-_{\mathrm{unused}}(w)\leftarrow d^-_{\mathrm{unused}}(w)-1$ \tcp*[f]{we have paired an in-edge of $w$}\;
+            $\hat{s}^- \leftarrow \hat{s}^- - 1$ \tcp*[f]{we have paired an in-edge} \;
+            $\hat{s}^+ \leftarrow \hat{s}^+ - 1$ \tcp*[f]{we have removed and edge from the stack} \;
+        }
+        \eIf(){$w \not \in \exploredvertices$}{
+            append $w$ to $\exploredvertices$ \; 
+            add the vertex $w$ to $\forest$ \;
+            add the vertex $w$ to $M$ \;
+            \If(){$\edgestack$ is non-empty}{
+                add the edge $(v, w)$ to $\forest$\;
+                add the edge $(v, w)$ to $M$\;
+            }
+            append $d^+(w)$ repeats of $w$ to the end of $\edgestack$ \;
+            $\hat{s}^- \leftarrow \hat{s}^- + d^-(w)$ \tcp*[f]{we have discovered $d^-(w)$ new unpaired in-edges} \;
+            $\hat{s}^+ \leftarrow \hat{s}^+ + d^+(w)$ \tcp*[f]{we have added $d^+(w)$ new entries to the stack}\;
+        }{
+            add a dummy leaf to $\forest$ and and edge from $v$ to the leaf \tcp*[f]{we have discovered a surplus edge and add a dummy leaf to the forest} \;
+            add the edge $(v, w)$ to $M$\;
+        }
+        $k \leftarrow k + 1$ \;
+        $\hat{s}^-_k \leftarrow \hat{s}^-$ \;
+        $\hat{s}^+_k \leftarrow \hat{s}^+$ \;
+    }
+    \While(){there exist unpaired out-half-edges}{
+    \eIf(){$\cQ$ is empty}
+    {$w\leftarrow$ a uniformly random vertex not in $\cV$\;
+    append $w$ to $\cV$\;
+    add $w$ to $M$\;}
+    {$v \leftarrow$ last entry in $\edgestack$ \;
+            remove last entry from $\edgestack$ \;
+            $w \leftarrow$ a random vertex chosen with prob.\ proportional to $d^-_{\mathrm{unused}}(w)$\;
+            $d^-_{\mathrm{unused}}(w)\leftarrow d^-_{\mathrm{unused}}(w)-1$ \tcp*[f]{we have paired an in-edge of $w$}\;
+            add the edge $(v,w)$ to $M$\;
+    }
+    }
+    
+    \caption{The eDFS procedure \label{alg:edfs}}
+\end{algorithm}

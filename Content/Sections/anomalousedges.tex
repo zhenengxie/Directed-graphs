@@ -1,12 +1,12 @@
 \subsection{The convergence of the out-forest holds conditionally on the multigraph being simple}
-We will now show that the parts of the directed multigraph we observe far beyond the timescale of interest are with high probability simple. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that Theorem \ref{thm.convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k^{th}$ vertex of $(\hat{F}_n(k),k\geq 1)$. Following \cite{conchon--kerjanStableGraphMetric2020}, we call these anomalous edges. 
+We will now show that the parts of the directed multigraph we observe far beyond the timescale of interest are with high probability simple. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that \cref{prop:convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of `bad edges' up to time $k$; to be precise, it equals be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k$th vertex of the out-forest. Following \cite{conchon--kerjanStableGraphMetric2020}, we call these anomalous edges. 
 \begin{proposition}\label{prop.anomalousedges}
 Suppose $\beta<1$. Then we have
 $$\P\left(B_n(\lfloor n^\beta \rfloor)>0\right)\to 0$$
 as $n\to \infty$.
 \end{proposition}
 \begin{remark}
-We adapt the proof of Lemma 7.1 of \cite{josephComponentSizesCritical2014} and of Proposition 5.3 of \cite{conchon--kerjanStableGraphMetric2020} to the directed setting. A significant complication is caused by the conditioning on $$\left\{\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i\right\}.$$ We observe that in both papers, the proof of the aforementioned result is not fully correct, because the authors use the wrong expression for the probability of sampling an anomalous edge. However, the argument below can be adapted to the setting of \cite{josephComponentSizesCritical2014} and \cite{conchon--kerjanStableGraphMetric2020} to yield a correct proof.
+We adapt the proof of \cite[Lemma 7.1]{josephComponentSizesCritical2014} and of \cite[Proposition 5.3]{conchon--kerjanStableGraphMetric2020} to the directed setting. A significant complication is caused by the conditioning on $$\left\{\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i\right\}.$$ We observe that in both papers, the proof of the aforementioned result is not fully correct, because the authors use the wrong expression for the probability of sampling an anomalous edge. However, the argument below can be adapted to the setting of \cite{josephComponentSizesCritical2014} and \cite{conchon--kerjanStableGraphMetric2020} to yield a correct proof.
 \end{remark}
 \begin{proof}
 We distinguish between the following types of anomalous edges.\\
@@ -46,7 +46,7 @@ The intensity of this process is not constant in $t$, so we perform a time chang
 $$\cL_{\mathbf{D}}(x,y)=\E\left[\left.\exp(-xD^--yD^+)\right|D^->0 \right],$$
 and set 
 $$\psi(t)=\left(1-\cL_{\mathbf{D}}(\cdot,0)\right)^{-1},$$
-so that, by a trivial adaptation of Lemma 4.1 of \cite{josephComponentSizesCritical2014}, for 
+so that, by a trivial adaptation of \cite[Lemma 4.1]{josephComponentSizesCritical2014}, for 
 $$\pi_r(dt,k_1,k_2):=\P(D^-=k_1,D^+=k_2|D^->0)k_1\exp\left(-k_1 \psi(t/r)\right)\psi'(t/r)dt$$
 on $(0,r)\times \N^2$, we have that for $t\in (0,r)$, there exists a probability measure $P_t$ on $\N^2$ such that
 $$\pi_r(dt,k_1,k_2)=P_t(D^-=k_1,D^+=k_2)dt.$$
@@ -74,28 +74,28 @@ so that, since $N_r\sim \operatorname{Poisson}(r)$, and since on the event $\{N_
 \begin{align*}
     \P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]&=O(n^{-1/2})\text{, and}\\
     \P\left[ \Delta_r=s, N_r=r \right]&=\Theta(n^{-1/2})
-\end{align*} for any $k_1$ and $k_2$, and any $r$ and $s$ that we consider on $\cE_L$. Therefore, there exists a $C'$ such that
-$$\frac{\P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]}{\P\left[ \Delta_r=s, N_r=r\right]}<C'$$
-for any $k_1$, $k_2$, $t$ and $n$, and any $r$ and $s$ that we consider on $\cE_L$. If we show that for some $C''$ $${E}^r_t\left[\hat{D}^-\hat{D}^+\right]<C''$$ for all $r$ in the interval that we consider and all $t<2n^\beta$, it follows that there is a $C$ such that
-$${E}^{r,s}_t\left[\hat{D}^-\hat{D}^+\right]<C$$ 
+\end{align*} for any $k_1$ and $k_2$, and any $r$ and $s$ that we consider on $\cE_L$. Therefore, there exists a $c_1$ such that
+$$\frac{\P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]}{\P\left[ \Delta_r=s, N_r=r\right]}<c_1$$
+for any $k_1$, $k_2$, $t$ and $n$, and any $r$ and $s$ that we consider on $\cE_L$. If we show that for some $c_2$ $${E}^r_t\left[\hat{D}^-\hat{D}^+\right]<c_2$$ for all $r$ in the interval that we consider and all $t<2n^\beta$, it follows that there is a $c_3$ such that
+$${E}^{r,s}_t\left[\hat{D}^-\hat{D}^+\right]<c_3$$ 
 for any $k_1$, $k_2$, $t$ and $n$, and any $r$ and $s$ that we consider on $\cE_L$.
 We note that by definition of $\pi_r(dt,k_1,k_1)$, 
 $${E}^r_t\left[\hat{D}^-\hat{D}^+\right]=\frac{\frac{d^3}{dx^2 dy}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}{\frac{d}{dx}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}.$$
-Careful analysis of $\cL_{\mathbf{D}}(x,y)$ and $\psi(s)$ implies that this quantity is bounded uniformly for all $n$, all $r$ in the interval that we consider and all $t\in(0,2n^\beta)$. We refer the reader to the proof of Lemma A.1 in \cite{josephComponentSizesCritical2014} for the details of a similar argument in the undirected setting.
+Careful analysis of $\cL_{\mathbf{D}}(x,y)$ and $\psi(s)$ implies that this quantity is bounded uniformly for all $n$, all $r$ in the interval that we consider and all $t\in(0,2n^\beta)$. We refer the reader to the proof of   \cite[Lemma A.1]{josephComponentSizesCritical2014} for the details of a similar argument in the undirected setting.
 This implies that 
 $$\E\left[\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{r,s}(dt,k_1,k_2) \right]\leq \frac{C}{n}\E\left[\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)\right].$$
 Then, we note that for any $x>0$, for $P$ a Poisson random variable with rate $2n^\beta$,
 $$\P\left(\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)>(x+1)2n^\beta\right)\leq \frac{\P\left[P>(x+1)2n^\beta \right]}{\P\left[ \Delta_r=s, N_r=r\right]}.$$
-Then, by the local limit theorem and the exponential tail of the Poisson distribution, we obtain that there exist $c_1,c_2>0$ such that for all $n$, all $r$ and $s$ in the interval of interest and all $x>1$,
-$$\P\left(\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)>(x+1)2n^\beta\right)\leq c_1\exp(-c_2xn^\beta).$$
-This implies that there is a constant $c_3$ such that 
-$$\E\left[\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)\right]\leq c_3 n^\beta$$
+Then, by the local limit theorem and the exponential tail of the Poisson distribution, we obtain that there exist $c_4,c_5>0$ such that for all $n$, all $r$ and $s$ in the interval of interest and all $x>1$,
+$$\P\left(\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)>(x+1)2n^\beta\right)\leq c_4\exp(-c_5xn^\beta).$$
+This implies that there is a constant $c_6$ such that 
+$$\E\left[\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)\right]\leq c_6 n^\beta$$
 for all $n$ and all $r$ and $s$ that we consider under $\cE_L$. 
 It then follows that 
 $$\E\left[\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{r,s}(dt,k_1,k_2) \right]\to 0$$
 as $n\to \infty$ uniformly in all $r$ and $s$ of interest, so for $n$ large enough,
 $$\P\left(\left.\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{R_n,S_n}(dt,k_1,k_2)>\epsilon  \right|\cE_L \right)<\epsilon.$$
-It follows that 
+This implies that
 $$\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}\hat{D}_i^- \hat{D}_i^+\overset{p}{\to}0.$$
 The other convergences are proved similarly, and the result follows. 
 \end{proof}

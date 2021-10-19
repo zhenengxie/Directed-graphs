@@ -3,7 +3,7 @@
 
 \usepackage{amsfonts, amssymb, amsmath}
 \usepackage{mathtools}
-
+\usepackage{fullwidth}
 \usepackage{graphicx}
 
 \usepackage{caption}
@@ -126,6 +126,7 @@
 
 % CONVERGENCE
 \def \todist {\xrightarrow[]{\mathrm{(d)}}}
+\def \toprob {\xrightarrow[]{\mathrm{(p)}}}
 \def \toas {\xrightarrow[]{\mathrm{a.s.}}}
 
 % PROJECT SPECIFIC SYMBOLS
@@ -148,7 +149,7 @@
 
 %%%%%%%%%%%%%%
 
-\title{Universality for the directed configuration model with random degrees: metric space convergence of the strongly connected components at criticality}
+\title{Universality for the directed configuration model: metric space convergence of the strongly connected components at criticality}
 \author{Serte Donderwinkel and Zheneng Xie}
 \date{Version: \today}
 
@@ -157,18 +158,20 @@
 \maketitle
 \input{Content/Support/Abstract}
 % \tableofcontents
-\include{Content/Sections/Introduction}
-\include{Content/Sections/The_important_edges_in_the_discrete_and_continuum}
-\include{Content/Sections/Convergence_of_out-forest}
-\include{Content/Sections/Convergence_of_SSC}
-\include{Content/Support/Acknowledgements}
+\input{Content/Sections/Introduction}
+\input{Content/Sections/The_important_edges_in_the_discrete_and_continuum}
+\input{Content/Sections/Convergence_of_out-forest}
+\input{Content/Sections/Convergence_of_SSC}
+\input{Content/Sections/openproblems}
+\input{Content/Support/Acknowledgements}
 
 \newpage 
 
 \begin{appendices}
-\input{Content/Sections/Appendix_convergence_height_process}
+%\input{Content/Sections/Appendix_convergence_height_process}
 \input{Content/Sections/Appendix_local_limit_theorems}
 \input{Content/Sections/Appendix_measure_change}
+\input{Content/Sections/Appendix_technicallemmas}
 \end{appendices}
 
 \bibliography{Content/Support/Bibliography.bib}
