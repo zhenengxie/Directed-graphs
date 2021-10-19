@@ -115,24 +115,24 @@ We are now ready to prove the main result of this section.
              \Phi(T), (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
           \right)
     \end{align*}
-    in $\R \times \D([0, T], \R)$, as $n \to \infty$. Define the event
+    in $\R \times \D([0, T], \R)$, as $n \to \infty$. Recall the event
     \begin{equation*}
-        E_m = \left\{ 
-            \max_{i=1, \ldots, m} \abs{V^-(i)} \leq m^{1/2 + \epsilon}
+        \walkDeviationEvent_m = \left\{ 
+            \max_{i=1, \ldots, m} \abs{V^-(i)} \leq m^{1/2} \log m
             \quad \text{and} \quad
-            \max_{i=1, \ldots, m} \abs{V^+(i)} \leq m^{1/2 + \epsilon}
+            \max_{i=1, \ldots, m} \abs{V^+(i)} \leq m^{1/2} \log m
          \right\}
     \end{equation*}
-    for $\epsilon \in (0, 1/6)$. By \cref{prop:measure-change-approx}, it is the case that
+    By \cref{prop:measure-change-approx}, it is the case that
     \begin{equation*}
-        \Phi(n, m) \geq (\Gamma(n, m) + \littleo(1)) \one_{E_m}.
+        \Phi(n, m) \geq (\Gamma(n, m) + \littleo(1)) \one_{\walkDeviationEvent_m}.
     \end{equation*}
     The processes $(V^{\pm}(n))_{n \geq 0}$ are discrete martingales. Therefore, by Doob's maximal inequality,
     \begin{equation*}
         \P\left(\max_{i=1, \ldots, m} \abs{V^{\pm}(i)} > m^{1/2 + \epsilon}\right)
-        \leq \frac{\E[(V^{\pm}(m))^2]}{m^{1 + 2 \epsilon}} = \frac{\sigma_{\pm}^2}{m^{2 \epsilon}} \to 0
+        \leq \frac{\E[(V^{\pm}(m))^2]}{m (\log m)^2} = \frac{\sigma_{\pm}^2}{(\log m)^2} \to 0
     \end{equation*}
-    as $m \to \infty$. Thus $\P(E_m) \to 1$ as $m \to \infty$. Hence, we still have that
+    as $m \to \infty$. Thus $\P(\walkDeviationEvent_m) \to 1$ as $m \to \infty$. Hence, we still have that
     \begin{align*}
         &\left( 
             (\Gamma(n, \floor{T n^{2/3}}) + \littleo(1))\one_{E_{\floor{T n^{2/3}}}} ,

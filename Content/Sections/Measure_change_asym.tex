@@ -102,21 +102,21 @@ This, however, is not always the case. Suppose, for example, that each $X_i$ is 
     \Theta(n^{ -1/2 }).
 \end{equation*}
 
-Fortunately this kind of periodic behaviour can be mitigated by normalizing the random variables. A one-dimensional random variable $X$ is \emph{lattice} if it is not almost surely constant, and there exists $h > 0$ and $c \in \R$ such that $X \in c + h\Z$ almost surely. The largest such $h$ is called the \emph{span} of $X$. For example, if $X$ is almost surely even then $X$ has span at least 2. If $X$ is lattice with span $h$ and $c$ is in the support of $X$, then the affine transform $\frac{1}{h}(X - c)$ is an integer-valued random variable with span 1. After normalization, the approximation in \cref{eq:llt-approx} does hold, and is the subject of the discrete local limit theorem.
-
+Fortunately this kind of periodic behaviour can be mitigated by normalizing the random variables. A one-dimensional random variable $X$ is \emph{lattice} if it is not almost surely constant, and there exists $h > 0$ and $c \in \R$ such that $X \in c + h\Z$ almost surely. The largest such $h$ is called the \emph{span} of $X$. For example, if $X$ is almost surely even then $X$ has span at least 2. If $X$ is lattice with span $h$ and $c$ is in the support of $X$, then the affine transform $\frac{1}{h}(X - c)$ is an integer-valued random variable with span 1, for which it can be shown that the approximation in \cref{eq:llt-approx} does hold. This gives us the discrete local limit theorem:
 \begin{theorem}[Discrete local limit theorem]
     \label{thm:discrete-llt}
-    Let $X_1, X_2, \ldots$ be i.i.d.\ integer-valued random variables with span 1 and finite variance $\sigma^2$. Then
+    Let $X_1, X_2, \ldots$ be i.i.d.\ $\R$-valued lattice random variables with span $h$ and fix arbitrary $c \in \supp(X)$. Then
     \begin{equation*}
-        \sup_{s \in \Z} \abs*{
+        \sup_{s \in n c + h \Z} \abs*{
             \P\big( \textstyle \sum_{i=1}^n X_i = s \big) 
             -
-            \frac{1}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
+            \frac{h}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
                 \frac{-(s - n \mu)^2}{2 n \sigma^2}
             \right)
         } = \littleo(n^{-1/2}).
     \end{equation*}
 \end{theorem}
+
 \begin{remark}
     \label{rem:llt-limitations}
     For each sequence of integers $(s_n)_{n \geq 1}$ such that $\abs{s_n - n \mu} = \littleomega(n^{1/2})$, we have that
@@ -129,32 +129,18 @@ Fortunately this kind of periodic behaviour can be mitigated by normalizing the 
     Hence the discrete local limit theorem (\cref{thm:discrete-llt}) tells you only that $\P\left(\sum_{i=1}^n X_i = s_n\right) = \littleo(n^{-1/2})$; it gives no precise characterization of the leading order term.
 \end{remark}
 
-While this remark will be important later, here $\Delta_n$ is centered and we are interested in the probability $\P(\Delta_n = 0)$. Thus the following lemma can be proven with the discrete local limit theorem (\cref{thm:discrete-llt}).
-\begin{lemma}
-    \label{lem:measure-change-denominator-control}
+While this remark will be important later, here $\Delta_n$ is centered and we are interested in the probability $\P(\Delta_n = 0)$. In addition, the strong aperiodicity condition in REF tells us exactly that the $D^- - D^+$ is lattice with span 1. Thus the following is a direct corollary of the discrete local limit theorem (\cref{thm:discrete-llt}).
+\begin{corollary}
+    \label{cor:measure-change-denominator-control}
     If $m = \Theta(m^{2/3})$, then
     \begin{equation*}
-        \P(\Delta_n = 0, R_n \geq m) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} + \littleo(n^{-1/2})
+        \P(\Delta_n = 0) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} + \littleo(n^{-1/2})
     \end{equation*}
     as $n \to \infty$, where $\sigma$ is the variance of $D^- - D^+$.
-\end{lemma}
+\end{corollary}
 \begin{remark}
     The exact value of $\sigma^2$ is not important for the asymptotic behaviour of $\phi^n_m$ because we show later that it will cancel with a term in the numerator of $\phi^n_m$.
 \end{remark}
-\begin{proof}
-    We have that $\Delta_n$ is equal to the sum $\sum_{i=1}^n (D_i^- - D_i^+)$ of i.i.d.\ random variables. The assumption in GIVE REFERENCE guarantees exactly that each $D^-_i - D^+_i$ has span 1. Moreover each $D_i^- - D_i^+$ is centered, and so the discrete local limit theorem (\cref{thm:discrete-llt}) gives that
-    \begin{equation*}
-        \P(\Delta_n = 0) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} + \littleo(n^{-1/2}).
-    \end{equation*}
-    Moreover
-    \begin{equation*}
-        \abs{\P(\Delta_n = 0) - \P(\Delta_n = 0, R_n \geq m)} \leq \P(R_n < m).
-    \end{equation*}
-    Therefore it suffices to show that $\P(R_n < m) = \littleo(n^{-1/2})$. Recall that $R_n \sim \text{Binomial}(n, p)$ and that $p > 0$. Thus if $m = \Theta(n^{2/3})$, then $m < \frac{1}{2} p n$ for sufficiently large $n$. Therefore if $R_n < m$, then $R_n$ is at least distance $\frac{1}{2} p n$ away from it's mean. It follows, by Hoeffding's inquality, that
-    \begin{equation*}
-        \P(R_n < m) \leq \exp\left( - \tfrac{1}{2} p^2 n \right) = \littleo(n^{-1/2}). \qedhere
-    \end{equation*}
-\end{proof}
 
 \subsubsection{Exponential Tilting}
 
@@ -267,22 +253,21 @@ Hence,
     &= s^-(m) - s^+(m) + \Big[ m(\lambda_+ - \lambda_-) - \E_n[\Delta_{n-m}] \Big] \\
     &= \bigo(n^{1/3} \log n),
 \end{align*}
-which is within the $\bigo(n^{1/2})$ range from the mean required for a typical deviation. This justifies our choice of $\theta_n = \frac{m}{\mu n}$. Remarkably the same tilting correctly recenters $\Xi_{n-m}^-$ such that the expectation in \cref{eq:measure-change-numerator} is dominated by the typical behaviour of $\Xi_{n-m}^-$ under $\P_n$.
+which is within the $\bigo(n^{1/2})$ range from the mean required for a typical deviation. This justifies our choice of $\theta_n = \frac{m}{\mu n}$. 
 
 \subsubsection{Expansion of the numerator}
 
-Using \cref{lem:asym-expansions}, we have that
+Remarkably the same tilting to apply the local limit theorem also correctly recenters $\Xi_{n-m}^-$ such that the expectation in \cref{eq:measure-change-numerator} is dominated by the typical behaviour of $\Xi_{n-m}^-$ under $\P_n$. Using \cref{lem:asym-expansions}, we have that
 \begin{equation*}
     \E_n[\Xi_{n-m}^-] =  \mu n - \lambda_- m + \bigo(n^{1/3})
 \end{equation*}
 under the tilting. Thus we will expand the numerator under the event
 \begin{equation*}
     \omegaEvent_n = \left\{ 
-        \abs{\Xi_{n-m} - \mu n + \lambda_- m} \leq n^{1/2} \log(n)
+        \abs{\Xi^-_{n-m} - \mu n + \lambda_- m} \leq n^{1/2} \log(n)
      \right\}.
 \end{equation*}
-
-The next lemma expands the numerator on the event $\omegaEvent_n$.
+This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its tilted mean. The next lemma then expands numerator on the event $\omegaEvent_n$.
 \begin{lemma}
     We have that
     \begin{align*}
@@ -411,13 +396,19 @@ can be addressed by the local limit theorem. However, due to the tilting, $\P_n$
 \end{equation*}
 we will prove a multivariate local limit theorem applicable to $(\Delta_n, \Xi^-_n)$ under $\P_n$ and then sum over the possible values of $\Xi^-_n$.
 
-The specific result we use is \citet[FIND COROLLARY]{mukhinLocalLimitTheorems1992}. Before we quote it, we define some terminology. Firstly, a set of points in $\R^d$ is a \emph{lattice} if there exists a basis $\va_1, \ldots, \va_d$ of $\R^d$ such that
+Before we state the result we use, we first define some terminology regarding lattices in $\R^d$. A set of points in $\R^d$ is a \emph{lattice} if there exists a basis $\va_1, \ldots, \va_d$ of $\R^d$ such that
 \begin{equation*}
     \lattice = \left\{ 
         \textstyle \sum_{i=1}^d n_i \va_i : n_i \in \Z \text{ for $i = 1, \ldots, d$}
     \right\}.
 \end{equation*}
-We say $\lattice$ is generated by $\va_1, \ldots, \va_d$. The choice of basis generating a lattice is not unique. REF shows each integer lattice can be generated by a basis of a specific form. We say a $d \times d$ matrix $A$ is in \emph{Hermite normal form} if 
+We say $\lattice$ is generated by $\va_1, \ldots, \va_d$. We can summarise the basis by a $n \times n$ matrix $A$ whose columns are $\va_1, \ldots, \va_n$. In other words $A_{ij} = \va_j^{(i)}$. The choice of basis generating a lattice is not unique, but any the following lemma from REF characterises when two basis generate the same lattice.
+\begin{lemma}
+    Let $A$ and $B$ be $n \times n$ matrices of full rank. Then the columns of $A$ and $B$ generate the same matrix if and only if there exists a matrix $U$ such that $U$ has integer entries, $\det(U) = \pm 1$ and $A = UB$.
+\end{lemma}
+Therefore we can define $\det(\lattice)$ to be $\abs{\det(A)}$ for any matrix $A$ whose columns generate $\lattice$.
+
+For integer lattices, we can obtain a canonical choice of the basis generating the lattice. We say a $d \times d$ matrix $A$ is in \emph{Hermite normal form} if $A$ is lower triangular with entries 
 \begin{equation*}
     A = \begin{pmatrix}
         a_{1, 1} &        & 0 \\
@@ -425,19 +416,19 @@ We say $\lattice$ is generated by $\va_1, \ldots, \va_d$. The choice of basis ge
         a_{d, 1} & \cdots & a_{d, d}
     \end{pmatrix}
 \end{equation*}
-is a lower triangular matrix with non-negative integer entries satisfying
+satisfying
 \begin{enumerate}
+    \item $a_{i, j}$ is a non-negative integer for all $i = 1, \ldots, d$ and $j \geq i$,
     \item $a_{i, i} > 0$ for all $i = 1, \ldots, d$, and
     \item $a_{j, i} < a_{i, i}$ for all $j > i$.
 \end{enumerate}
+Then the following lemma gives existence of a canonical choice of basis generating an integer lattice.
 \begin{lemma}
     \label{lem:hnf-basis}
     Suppose $\lattice \subset \Z^d$ is a lattice. Then there exists a $d \times d$ matrix $A$ in Hermite normal form such that the columns of $A$ form a basis which generates $\lattice$.
 \end{lemma}
 
-An $\R^d$-valued random variable $\vX$ is \emph{non-degenerate} if it is not supported on an affine hyperplane of $\R^d$. $\vX$ is \emph{lattice} if it is non-degenerated and support on a translation of a lattice.
-
-To avoid dealing with translations, define the \emph{symmetrisation} of $\vX$ to be the random variable $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. For each lattice $\lattice$, $\vX$ is supported on a translation of $\lattice$ if and only if $\vX^*$ is supported on $\lattice$ without translation.
+An $\R^d$-valued random variable $\vX$ is \emph{non-degenerate} if it is not supported on an affine hyperplane of $\R^d$. $\vX$ is \emph{lattice} if it is non-degenerated and support on a translation of a lattice. To avoid dealing with translations, it is convenient to work with the \emph{symmetrisation} of $\vX$. This is the random variable $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. For each lattice $\lattice$, $\vX$ is supported on a translation of $\lattice$ if and only if $\vX^*$ is supported on $\lattice$ without translation.
 
 If $\vX$ is lattice, the \emph{main lattice} $\lattice(\vX)$ of $\vX$ is the intersection of all lattices containing the support of $\vX^*$. This is in itself a lattice, and is explicitly given by
 \begin{equation*}
@@ -445,134 +436,74 @@ If $\vX$ is lattice, the \emph{main lattice} $\lattice(\vX)$ of $\vX$ is the int
         \textstyle \sum_{i=1}^k n_i \vx^*_i : \text{$n_i \in \Z$ and $\vx^*_i \in \supp(\vX^*)$ for $i = 1, \ldots, k$}
     \right\}.
 \end{equation*}
+It will turn out that if $\vX$ is an $\R^d$-valued lattice random variable with main lattice $\lattice$, then $\det(\lattice)$ can be seen as a generalisation of the span of an $\R$-valued random variable.
 
-For $x \in \R$, let $\langle x \rangle$ be the distance from $x$ to the closest integer. If $\vX$ is an $\R^d$-valued random variable and non-zero $\vd \in \R^d$ then define
+To deal with the triangular array, we recall the exponential tilt is given by
 \begin{equation*}
-    H(\vX, \vd) = \inf_{\vc \in \R} \E\left[ 
-        \langle \vX^* \cdot \vd \rangle^2
-    \right].
+    \frac{\dif \P_n}{\dif \P} = \exp(
+        - \theta_n \Xi^-_{n-m} - (n - m) \alpha(\theta_n)
+    )
 \end{equation*}
-Then $H(\vX, \vd) = 0$ if and only if $\vX^*$ is supported on a countable union of hyperplanes which are orthogonal to $\vD$ and equally spaced at distance $\frac{1}{\abs{\vd}}$ from each other. 
-\begin{lemma}
-    Let $\vX$ be a $\R^d$-valued random variable. Then the following are equivalent:
+where $\theta_n = \frac{m}{\mu n}$. Since $\theta_n \to 0$, the distribution of $\vD_i$ under $\P_n$ is converging to that of $\vD_i$ under $\P$ as $n \to \infty$. This allows us to ignore the tilting in the limit.
+
+\begin{restatable}{theorem}{llt}
+    \label{thm:multi-triangular-llt}
+    For each $n \geq 1$ let $\vX_n$ be an $\R^d$ valued random variable and
+    \begin{equation*}
+        \vX_{n, 1}, \vX_{n, 2}, \ldots, \vX_{n, n}  
+    \end{equation*}
+    be i.i.d.\ copies of $\vX_n$. Assume that the following holds:
     \begin{enumerate}
-        \item $\vX$ is lattice with main lattice $\Z^d$.
-        \item $H(\vX, \vd) = 0$ if and only if $\vd \in \Z^d$.
+        \item There exists a random variable $\vX$ such that $\vX_n \todist \vX$ as $n \to \infty$.
+        \item $(\norm{\vX_n}^2)_{n \geq 1}$ is a uniformly integrable sequence of random variables. Explicitly
+            \begin{equation}
+                \label{eq:ui-condition}
+                \lim_{L \to \infty} \sup_n \E\left[
+                    \norm{\vX_n}^2
+                    \one \left\{ \norm{\vX_n}^2 > L \right\}
+                \right] = 0.
+            \end{equation}
+        \item For all $n$, $\vX_n$ and $\vX$ are lattice with common main lattice $\lattice$.
     \end{enumerate}
-\end{lemma}
-\begin{proof}
-    Suppose that $\vX$ is lattice with main lattice $\Z^d$. Then $H(\vX, \vd) = 0$ if $\vx^* \cdot \vd \in \Z$ for all $\vx^* \in \supp(\vX^*)$. Therefore $\vx \cdot \vd \in \Z$ for all $\vx \in \lattice(\vX) = \Z^d$. In particular, setting $\vx = \ve_1, \ldots, \ve_d$ in turn, where each $\ve_i$ is a standard basis vector of $\R^d$, shows that $\vd \in \Z^d$. On the other hand if $\vd \in \Z^d$ then $\vX^* \cdot \vd \in \Z$ almost surely, and thus $H(\vX, \vd) = 0$ as claimed.
+    Then $\vX$ has finite second moment. Further, for each $n$ let $\vc_n$ be an arbitrary element in the support of $\sum_{i=1}^n \vX_{n, i}$. Then uniformly for $\vy \in \vc_n + \lattice$,
+    \begin{equation*}
+        \P\Big(
+            \textstyle \sum_{i=1}^n \vX_{n, i} = \vy
+        \Big)
+        = n^{-d/2} \det(\lattice) f\left( \vx_n \right) + \littleo \left( n^{-d/2} \right)
+        \quad \text{where} \quad
+        \vx_n = \frac{\vy - n \E[\vX_n]}{\sqrt{n}}
+    \end{equation*}
+    and $f$ is the density of a $N(0, \cov(\vX))$ distribution. This means that
+    \begin{equation*}
+        \lim_{n \to \infty} \sup_{\vy \in \vc_n + \lattice} \abs*{
+            n^{d/2} \P\Big( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \Big)
+            - \det(\lattice) f(\vx_n)
+        } = 0.
+    \end{equation*}
+\end{restatable}
 
-    Conversely suppose that $H(\vX, \vd) = 0$ if and only if $\vd \in \Z^d$. Then since $H(\vX, \ve_i) = 0$ for all $i = 1, \ldots, d$, it is the case that $\vX^*$ is supported on $\Z^d$. Thus the main lattice $\lattice(\vX^*)$ is some sublattice of $\Z^d$. By \cref{lem:hnf-basis}, there exists a matrix
-    \begin{equation*}
-        A = \begin{pmatrix}
-            a_{1, 1} &        & 0 \\
-            \vdots   & \ddots &   \\
-            a_{d, 1} & \cdots & a_{d, d}
-        \end{pmatrix}
-    \end{equation*}
-    in Hermite normal form such that $\lattice(\vX^*)$ is generated by the columns of $A$. Suppose, for a contradiction, that $\lattice(\vX^*) \neq \Z^d$. Then $A$ cannot be the identity matrix, so there exists an index $I$ such that $a_{1, 1} = a_{2, 2} = \cdots = a_{I-1, I-1} = 1$ and $a_{I, I} > 1$. As $A$ is in Hermite normal form, $A$ must be of the form
-    \begin{equation*}
-        A = \begin{pmatrix}
-            1 & & & & & 0 \\
-            0 & \ddots & & & & \\
-            \vdots & \ddots & 1 & & & \\
-            0 & & 0 & a_{I, I} & & \\
-            \vdots & & \vdots & \vdots & \ddots & \\
-            0 & \cdots & 0 & a_{d, I} & \cdots & a_{d, d}
-        \end{pmatrix}.
-    \end{equation*}
-    Let $\vd = \frac{1}{a_{I, I}} \ve_I$. Then $\vd \not \in \Z^d$ but $\vX^* \cdot \vd \in \Z$ almost surely, and thus $H(\vX, \vd) = 0$. This contradicts our assumptions.
-\end{proof}
-We can now state the local limit theorem.
-\begin{lemma}
-    Suppose $(\vX_{n, 1}, \ldots, \vX_{n, n})_{n = 1}^{\infty}$ is a row-wise i.i.d.\ triangular array of $\Z^d$-valued random variables. Define
-    \begin{align*}
-        \Sigma_n &= \cov(X_{n, 1}), \\
-        \sigma_n^2 &= \E \left[ \abs{X_{n,1} - \E X_{n,1}}^2 \right] = \tr(\Sigma_n), \quad \text{and} \\
-        p_n &= \sup_{m \in \Z^s} \P(X_{n,1} = m).
-    \end{align*}
-    Assume that $\sigma_n^2 < \infty$ for all $n$, and that there exists $C > 0$ such that 
-    \begin{equation*}
-        \liminf_{n \to \infty} \sigma_n^{-2} \inf_{\abs{\vc} = 1} \E\left[ 
-            \left( 
-                \frac{\vX_{n, 1}}{\sigma_n} \cdot \vc
-            \right)^2
-            \one \left\{ 
-                \abs*{\frac{\vX_{n, 1}}{\sigma_n}} \leq C
-            \right\}
-        \right] > 0
-    \end{equation*}
-    and
-    \begin{equation*}
-        \sigma_n^d p_n \exp\left\{ 
-            -2n \inf_{(C\sigma_n)^{-1} \leq \norm{\vd}_{\infty} \leq 1/2} H(\vX_{n, 1}, \vd)
-        \right\} = 0.
-    \end{equation*}
-    Further assume the central limit theorem applies, meaning that
-    \begin{equation*}
-        STATE CENTRAL LIMIT THEOREM
-    \end{equation*}
-    Then
-    \begin{equation*}
-        STATE LLT
-    \end{equation*}
-\end{lemma}
-This lemma accounts for the case where $\sigma_n \to \infty$. When $\sigma_n \to \infty$ it is stil possible to have a central limit theorem, we just need to normalise by $\sigma_n$. This is why condition REF is stated in terms of $X_{n, 1} / \sigma_n$. What this condition prevents is support of $X_{n, 1} / \sigma_n$ becoming concentrated on some affine hyperplane.
-
-The condition in REF is a lattice condition. Since we assume that each $\vX_{n, i} \in \Z^d$, CONDITION is a sufficient condition for each $\vX_{n, i}$ to have main lattice $\Z^d$. This lemma allows for the case where
+We now make a few remarks. Firstly $\vX$ is assumed to be lattice and thus non-degenerate. Hence $\cov(\vX)$ is invertible, ensuring $N(0, \cov(\vX))$ has a valid density $f$, explicitly given by
 \begin{equation*}
-    LATTICE CONDITION TO 0
+    f(\vx) = \frac{1}{\sqrt{(2 \pi)^d \det(\cov(\vX))}}
+    \exp \Bigg(
+        -\frac{1}{2} \vx \cdot \cov(\vX)^{-1} \vx
+        \Bigg).
 \end{equation*}
-and the purpose of the condition in REF is to limit the speed at which this convergence can occur. Fortuantely in our use case it is neither the case that $\sigma_n \to \infty$ nor the case that CONDITION.
 
-\begin{lemma}
-    Suppose $(\vX_{n, 1}, \ldots, \vX_{n, n})_{n = 1}^{\infty}$ is a row-wise i.i.d.\ triangular array of $\Z^d$-valued random variables. For notational convenience, let $\vX_n$ have the same distribution as $\vX_{n, 1}$. Assume there exists $\vX_{\infty}$ such that
-    \begin{equation*}
-        \vX_n \todist \vX_{\infty}
-    \end{equation*}
-    as $n \to \infty$. Further assume the following holds for each $n \geq 1$ and $n = \infty$:
-    \begin{enumerate}
-        \item $\vX_n$ is non-degenerate.
-        \item $\vX_n$ has a common main lattice $\Lambda$.
-        \item SECOND MOMENT CONDITION
-    \end{enumerate}
-    Then 
-\end{lemma}
-\begin{proof}
-    Let $\Sigma_n, \sigma_n$ and $p_n$ be as defined in REF. Then since $\vX_n \todist \vX$ as $n \to \infty$, it is the case that
-    \begin{equation*}
-        CVGS
-    \end{equation*}
-    as $n \to \infty$. Thus to show the conditions in REF hold, it suffices to show that
-    \begin{enumerate}
-        \item 
-    \end{enumerate}
-    Further it is the case that we only need to show that
-    In addition it suffices to show that 
-\end{proof}
+Secondly, since the $\vX_1, \vX_2, \ldots$ do not necessarily live in the same probability space we should not technically refer to the sequence $(\norm{\vX}_n^2)_{n \geq 1}$ as uniformly integrable. However the condition in \cref{eq:ui-condition} is still well defined. 
 
-We wish to apply REF to
+We apply \Cref{thm:multi-triangular-llt} to $(\Xi_{n-m}^-, \Delta_{n-m})$. Let $\lattice$ be the main lattice of $(D^- - D^+, D^-)$. By \cref{lem:hnf-basis}, $\lattice$ is generated by the columns of a matrix $A$ in Hermite normal formal. Since $D^- - D^+$ has span 1, it must be the case that $A_{1, 1} = 1$. Thus there is some positive integer $q$ such that
 \begin{equation*}
-    delta xi
+    A = \begin{pmatrix}
+        1 & 0 \\ 
+        0 & q
+    \end{pmatrix}.
 \end{equation*}
-where
-\begin{equation*}
-    x def
-\end{equation*}
-Recall the exponential tilting is given by
-
-thus as $n \to \infty$,
-
-The exponential tilting has no effect on the support of the random variables. Hence REF and REF have a common main lattice $\lattice$. By REF there exists integers $p, q > 0$ and an integer $r \in \{0, \ldots, p\}$ such that $\lattice$ is generated by the columns of
-
-Then it is clear that REF has span $p$, and condition REF ensures that REF has span 1. Thus $p = 1$, and $A$ has the form
-
-Finally let $\Sigma$ be the 
-
+Finally let $\Sigma$ be the covariance matrix of $(D^- - D^+, D^-)$. With this notation, the following lemma holds:
 \begin{lemma}
     \label{lem:bivar-llt}
-    Let $\vc_n \in \Z^2$ be such that $\vc_n + \Lambda$ contains the support of $(\Delta_{n-m}, \Xi^-_{n-m})$. Then uniformly for $(x, y) \in \vc_n + \Lambda$,
+    For each $n$, let $\vc_n$ be in the support of $(\Delta_{n-m}, \Xi^-_{n-m})$. Then uniformly for $(x, y) \in \vc_n + \Lambda$,
     \begin{align*}
         &\P_n\left(
             \Delta_{n-m} = \E \big[ \Delta_{n-m} \big] + x, \ 
@@ -587,30 +518,55 @@ Finally let $\Sigma$ be the
             \begin{pmatrix}
                 x \\ y
             \end{pmatrix}
-         \right)
-         + \littleo( n^{-1} )
+        \right)
+        + \littleo( n^{-1} )
     \end{align*}
     as $n \to \infty$.
 \end{lemma}
 \begin{proof}
-    Let $\sigma^2_n$ and $p_n$ be defined as in INSERT REF. Further let $\sigma^2 = \tr(\Sigma)$ and $p_{\text{max}} = $. then
+    Let $\vX = (D^- - D^+, D^-)$. For each $n$, let $\vX_n$ be distributed as $(D^- - D^+, D^-)$ under $\P_{\theta_n}$. Then
+    \begin{equation*}
+        \vectwo{D_1^- - D_1^+}{D_1^-},
+        \ldots,
+        \vectwo{D_n^- - D_n^+}{D_n^-}
+    \end{equation*}
+    under $\P_n$ can be seen as $n$ i.i.d.\ copies of $\vX_n$. Since $\theta_n \to 0$, we have that $\vX_n \todist \vX$ as $n \to \infty$. 
 
-    thus to show the conditions in REF hold, it suffices to prove that
-    \begin{enumerate}
-        \item CONDITION
-        \item CONDITION
-    \end{enumerate}
-    We approximate the indicator function in REF from below by a continuous function $f_C: \R \to [0, 1]$ such that $f(x) = 1$ for all $x \leq \frac{1}{2} C$ and $f(x) = 0$ for all $x \geq C$. 
+    For any $L > 0$,
+    \begin{align*}
+        \sup_n \E \left[ 
+            \norm{\vX_n}_2^2 \one\{\norm{\vX_n}_2^2 > L\}
+        \right]
+        &=
+        \sup_n \E \left[ 
+            e^{- \theta_n D^- - \alpha(\theta_n)}
+            \norm{\vX}_2^2 \one\{\norm{\vX}_2^2 > L\}
+        \right] \\
+        &\leq
+        \left(\sup_n e^{- \alpha(\theta_n)}\right) 
+        \E \left[ 
+            \norm{\vX}_2^2 \one\{\norm{\vX}_2^2 > L\}
+        \right]
+    \end{align*}
+    since $\theta_n$ and $D^-_n$ are non-negative. Since $\theta_n$ is convergent,
+    \begin{equation*}
+        \sup_n e^{-\alpha(\theta_n)} < \infty.
+    \end{equation*}
+    Moreover $\E \left[ \norm{\vX}_2^2 \one\{\norm{\vX}_2^2 > L\} \right] \to 0$ as $L \to \infty$ as $\vX$ has finite second moment. Thus $(\norm{\vX_n}_2^2)_{n \geq 1}$ satisfies the uniform integrability condition in \cref{eq:ui-condition}.
+
+    Finally the exponential tilt does not change the support of the random variables. Thus $\vX$ and $\vX_n$ share a common main lattice $\lattice$. In addition, $\det(\lattice) = q$.
+
+    Hence the result follows by \cref{thm:multi-triangular-llt}. There is a small change in that we are considering a sum of $n - m$ random variables rather than $n$. However since $m = \littleo(n)$, the same asymptotic result holds.
 \end{proof}
 
-Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same asymptotic behaviour as $\P(\Delta_n = 0)$ even when we condition on $\Xi_{n-m}^-$ not `varying too much' about its tilted mean. We only prove a lower bound, but this is sufficient for proving \cref{prop:measure-change-approx}.
+Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour as $\P(\Delta_n = 0)$. We only prove a lower bound, but this is sufficient for proving \cref{prop:measure-change-approx}.
 \begin{lemma}
     \label{lem:mod-dev-local}
     Under the assumptions of \cref{prop:measure-change-approx},
     \begin{equation*}
         \mathbb P_n \left(
             \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-), \ 
-            \abs{\Xi^-_{n-m} - \E_n[\Xi^-_{n-m}]} \leq n^{\frac{1}{2} + \epsilon}
+            \abs{\Xi^-_{n-m} - \E_n[\Xi^-_{n-m}]} \leq n^{\frac{1}{2}} \log n
         \right)
         \geq \frac{1}{\sqrt{2 \pi \sigma^2 n}} (1 + \littleo(1)).
     \end{equation*}
@@ -637,7 +593,7 @@ Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same 
     \begin{equation*}
         \begin{pmatrix}
             1 & 0 \\
-            r & q
+            0 & q
         \end{pmatrix}
     \end{equation*}
     we must have $L_n = y_0 + q\Z$. Fix an arbitrary $M > 0$. Then
@@ -675,7 +631,7 @@ Now we show the $\P(\Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-))$ have the same 
     \end{align*}
     Therefore 
     \begin{equation*}
-        a_n = s_+(m) - s_-(m) + \bigo(n^{1/3}) = \bigo(n^{1/3 + \epsilon}),
+        a_n = s_+(m) - s_-(m) + \bigo(n^{1/3}) = \bigo(n^{1/3} \log n),
     \end{equation*}
     by the assumption in \cref{eq:s-condition}. Thus
     \begin{equation*}

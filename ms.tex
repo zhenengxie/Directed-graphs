@@ -34,7 +34,7 @@
 % THEOREM ENVIRONMENTS
 
 \usepackage{amsthm}
-\usepackage{thmtools}
+\usepackage{thmtools, thm-restate}
 
 \declaretheorem[numberwithin=section]{theorem}
 \declaretheorem[sibling=theorem]{lemma}
@@ -61,7 +61,6 @@
 \date{Version: \today}
 
 % INCLUDEONLY FOR QUICKER COMPILES
-\includeonly{Content/Sections/Appendix_measure_change}
 
 \begin{document}
 
@@ -70,6 +69,7 @@
 % \tableofcontents
 \include{Content/Sections/Introduction}
 \include{Content/Sections/The_important_edges_in_the_discrete_and_continuum}
+\include{Content/Sections/Appendix_measure_change}
 \include{Content/Sections/Convergence_of_out-forest}
 \include{Content/Sections/Convergence_of_SSC}
 \include{Content/Support/Acknowledgements}
@@ -78,7 +78,7 @@
 
 \begin{appendices}
 \include{Content/Sections/Appendix_convergence_height_process}
-\include{Content/Sections/Appendix_measure_change}
+\include{Content/Sections/Appendix_local_limit_theorems.tex}
 \end{appendices}
 
 

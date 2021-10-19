@@ -106,8 +106,8 @@ Using the previous lemma we can prove existence and give the exact form of the d
     \begin{equation*}
         \E \left[
             u\left( \hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m} \right)
+            \one\{R_n \geq m\}
             \,\middle\vert\,
-            R_n \geq m,
             \Delta_n = 0
         \right] \\
         =
@@ -119,7 +119,7 @@ Using the previous lemma we can prove existence and give the exact form of the d
     where
     \begin{align*}
         \phi^n_m(\vk_1, \ldots, \vk_m) =
-        \frac{1}{\P(R_n \geq m, \Delta_n = 0)} \E\left[ 
+        \frac{1}{\P(\Delta_n = 0)} \E\left[ 
             \one \left\{ \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-) \right\}
             \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \Xi_{n-m}^-}
         \right].
@@ -266,5 +266,5 @@ Using the previous lemma we can prove existence and give the exact form of the d
             \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
         \right].
     \end{align*}
-    Finally, dividing by $\P(R_n \geq m, \Delta_n = 0)$ yields the desired form of $\phi^n_m$.
+    Finally, dividing by $\P(\Delta_n = 0)$ yields the desired form of $\phi^n_m$.
 \end{proof}
