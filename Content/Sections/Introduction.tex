@@ -63,15 +63,19 @@ We obtain an identical expression for $\E[d^-(V)]$. Call this quantity $d$. Any 
     \frac{\sum_{i=1}^n D_i^+ D_i^-}{\sum_{i=1}^n D_j^{-}}
     \to \frac{\E[D^- D^+]}{\E[D^-]}
 \end{equation*}
-almost surely as $n \to \infty$ by the law of large numbers. Thus, the results of Cooper and Frieze suggest the criticality condition to be $\E[D^- D^+] = \E[D^-]$. Our work in the sequel confirms that this is the case.
+almost surely as $n \to \infty$ by the law of large numbers. Thus, the results of Cooper and Frieze suggest the criticality condition to be $\E[D^- D^+] = \E[D^-]$. Our work in the sequel confirms that this is the case. Further the law of $(d^-(W), d^+(W))$ in the limit $n \to \infty$ will converge to that of the degree distribution sized biased by in-degree. This is the law of $\Z$ where
+\begin{equation*}
+    \P(Z^- = k^-, Z^+ = k^+) = \frac{k^-}{\mu} \P(D^- = k^-, D^+ = k^+).
+\end{equation*}
+The criticality condition is then equivalent to assuming $\E[Z^+] = 1$.
 
 We define the following parameters that will determine the behaviour of the SCCs in the limit.
 \begin{enumerate}
     \item $\mu:=\E[D^-]=\E[D^+]=\E[D^-D^+]$
-    \item $\nu_-:=\frac{\E[(D^-)^2]-\mu}{\mu}$ 
-    \item $\sigma_-:=\left(\frac{\mu\E[(D^-)^3]-\E[(D^-)^2]^2}{\mu^2}\right)^{1/2}$ 
-    \item $\sigma_+:=\left(\frac{\E[D^-(D^+)^2]-\mu}{\mu}\right)^{1/2}$ 
-    \item $\sigma_{-+}:=\frac{\E[(D^-)^2D^+]-\E[(D^-)^2]}{\mu}$ 
+    \item $\nu_-:= \E[Z^-] = \frac{\E[(D^-)^2]-\mu}{\mu}$ 
+    \item $\sigma_-^2 := \var(Z^-) = \frac{\mu\E[(D^-)^3]-\E[(D^-)^2]^2}{\mu^2}$ 
+    \item $\sigma_+^2 := \var(Z^+) = \frac{\E[D^-(D^+)^2]-\mu}{\mu}$ 
+    \item $\sigma_{-+} := \cov(Z^-, Z^+) = \frac{\E[(D^-)^2D^+]-\E[(D^-)^2]}{\mu}$ 
 \end{enumerate}
 % \begin{remark}
 % Conditions \ref{cond.beta} and \ref{cond.gamma} ensure that the Central Limit Theorem applies to the fluctuations of the first explored in-degrees around their mean. Condition \ref{cond.critical} ensures that the branching process corresponding to the depth-first exploration (i.e. the exploration of the out-components) is critical. Condition \ref{cond.rho} ensures that this branching process has Brownian scaling. Condition \ref{cond.tau} ensures that the covariance of the in- and out-degrees that are discovered first is finite. Condition \ref{cond.iota} ensures that the strongly connected components are $3$-regular. 
