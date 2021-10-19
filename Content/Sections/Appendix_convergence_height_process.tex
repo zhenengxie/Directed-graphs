@@ -1,28 +1,28 @@
 \section{Proof of Proposition \ref{prop.heightprocessblackpurplered}}\label{appendix.heightprocessblackpurplered}
 Recall the notation from Subsection \ref{subsubsec.convheightprocess}. We will show that there exists a process $(D_t,t\geq 0)$ such that 
 \begin{align*}
-    &\left(n^{-1/3}\left[Y^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right)-E\left(\lfloor n^{2/3}t\rfloor \right)\right], n^{-1/3}H^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right),t\geq 0\right)\\
+    &\left(n^{-1/3}\left[Y^{\mathrm{df}}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right)-E\left(\lfloor n^{2/3}t\rfloor \right)\right], n^{-1/3}H^{\mathrm{df}}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right)\right),t\geq 0\right)\\
     &\todist\left(\sigma_+D_t,\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)
 \end{align*}
 in $\D(\R_+,\R)^2$ as $n\to \infty$ and $\left(\frac{2}{\sigma_+}\left(D_t-\inf\left\{D_s,s\leq t\right\}\right),t\geq 0\right)$ is the height process corresponding to $(\sigma_+D_t,t\geq 0)$.
 
-The next lemma show that the pathwise construction of $(Y^{pr}(k),H^{pr}(k),k\geq 1)$ converges to its continuous counterpart.
+The next lemma show that the pathwise construction of $(Y^{\mathrm{df}}(k),H^{\mathrm{df}}(k),k\geq 1)$ converges to its continuous counterpart.
 
 \begin{lemma}\label{lemma.convergenceX+}
-Let $(B_t, t \geq 0)$ and $(B^{red}_t, t\geq 0)$ be two independent Brownian motions and let $$\theta(t):=t+\inf\left\{s\geq 0 : \sigma_+ B^{red}_s< -\frac{\nu_-}{2\mu} t^2\right\},$$ and $\Lambda(t)=\inf\{s\geq 0:\theta(s)> t\}$. Define \begin{equation}\label{eq.definitionBpr}\left(B^{pr}_t,t \geq 0\right):=\left( B_{\Lambda(t)}+ B^{red}_{t-\Lambda(t)}, t\geq 0\right).\end{equation}
-Then, for $$(R^{pr}_t, t\geq 0):=\left(B^{pr}_t-\inf\{B^{pr}_s,s\leq t\},t\geq 0\right),$$
-$\left((2/\sigma_+)R^{pr}_t, t\geq 0\right)$
-is the height process corresponding to $\left(\sigma_+ B^{pr}_t,t \geq 0\right)$.
+Let $(B_t, t \geq 0)$ and $(B^{\mathrm{f}}_t, t\geq 0)$ be two independent Brownian motions and let $$\theta(t):=t+\inf\left\{s\geq 0 : \sigma_+ B^{\mathrm{f}}_s< -\frac{\nu_-}{2\mu} t^2\right\},$$ and $\Lambda(t)=\inf\{s\geq 0:\theta(s)> t\}$. Define \begin{equation}\label{eq.definitionBpr}\left(B^{\mathrm{df}}_t,t \geq 0\right):=\left( B_{\Lambda(t)}+ B^{\mathrm{f}}_{t-\Lambda(t)}, t\geq 0\right).\end{equation}
+Then, for $$(R^{\mathrm{df}}_t, t\geq 0):=\left(B^{\mathrm{df}}_t-\inf\{B^{\mathrm{df}}_s,s\leq t\},t\geq 0\right),$$
+$\left((2/\sigma_+)R^{\mathrm{df}}_t, t\geq 0\right)$
+is the height process corresponding to $\left(\sigma_+ B^{\mathrm{df}}_t,t \geq 0\right)$.
 Moreover,
 
-\begin{equation}\label{eq.convergenceYpr} \left(n^{-1/3}Y^{pr}\left( \lfloor n^{2/3}t \rfloor \right), n^{-1/3}H^{pr}\left( \lfloor n^{2/3}t \rfloor \right),t\geq 0\right)\todist\left( \sigma_+ B^{pr}_{t} ,\frac{2}{\sigma_+}R^{pr}_t, t\geq 0\right)\end{equation}
+\begin{equation}\label{eq.convergenceYpr} \left(n^{-1/3}Y^{\mathrm{df}}\left( \lfloor n^{2/3}t \rfloor \right), n^{-1/3}H^{\mathrm{df}}\left( \lfloor n^{2/3}t \rfloor \right),t\geq 0\right)\todist\left( \sigma_+ B^{\mathrm{df}}_{t} ,\frac{2}{\sigma_+}R^{\mathrm{df}}_t, t\geq 0\right)\end{equation}
 in $D(\R_+,\R)^2$, jointly with 
-$$\left(n^{-1/3}Y^+\left(\lfloor n^{2/3}t \rfloor \right), n^{-1/3}Y^{red}\left(\lfloor n^{2/3}t \rfloor \right), t\geq 0\right) \todist\left(\sigma_+ B_t,\sigma_+ B^{red}_t, t\geq 0\right)$$
+$$\left(n^{-1/3}Y^+\left(\lfloor n^{2/3}t \rfloor \right), n^{-1/3}Y^{\mathrm{f}}\left(\lfloor n^{2/3}t \rfloor \right), t\geq 0\right) \todist\left(\sigma_+ B_t,\sigma_+ B^{\mathrm{f}}_t, t\geq 0\right)$$
 in $D(\R_+,\R)^2$ and 
 $$\left(n^{-2/3} \Lambda_n\left(\lfloor n^{2/3}t\rfloor \right), n^{-2/3}\theta_n\left(\lfloor n^{2/3}t\rfloor \right),t\geq 0\right)\todist\left(\Lambda(t),\theta(t), t\geq 0 \right)$$
 in $D(\R_+,\R)^2$ as $n\to \infty$. 
-In particular, 
-\begin{equation}\label{eq.convergencecompSprandtheta}\left(n^{-1/3}Y^{pr}\left(\theta_n \left(\lfloor n^{2/3}t\rfloor \right)\right), n^{-1/3}H^{pr}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right) \right),t\geq 0 \right) \todist \left(\sigma_+ B^{pr}_{\theta(t)}, \frac{2}{\sigma_+}R^{pr}_{\theta(t)},t\geq 0\right)\end{equation}
+In particular,   
+\begin{equation}\label{eq.convergencecompSprandtheta}\left(n^{-1/3}Y^{\mathrm{df}}\left(\theta_n \left(\lfloor n^{2/3}t\rfloor \right)\right), n^{-1/3}H^{\mathrm{df}}\left(\theta_n\left(\lfloor n^{2/3}t\rfloor \right) \right),t\geq 0 \right) \todist \left(\sigma_+ B^{\mathrm{df}}_{\theta(t)}, \frac{2}{\sigma_+}R^{\mathrm{df}}_{\theta(t)},t\geq 0\right)\end{equation}
 in $D(\R_+,\R)^2$ as $n\to \infty$ jointly with the convergence above.
 \end{lemma}
 In the proof of Lemma \ref{lemma.convergenceX+} we use the following, straightforward, technical result that follows immediately from the characterization of convergence in the Skorokhod topology given in Ethier and Kurtz \cite{ethierMarkovProcessesCharacterization1986}, Proposition 3.6.5.
@@ -38,19 +38,19 @@ in $\D(\R_+,\R)$ as $n\to\infty$.
 
 
 \begin{proof}[Proof of Lemma \ref{lemma.convergenceX+}]
-Firstly, note that since $(Y^{pr}(k),k\geq 1)$ encodes a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \citet{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
+Firstly, note that since $(Y^{\mathrm{df}}(k),k\geq 1)$ encodes a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \citet{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
 \begin{align}\label{eq.convergenceX}
-&\left(n^{-1/3}Y^{pr}\left(\lfloor n^{2/3}s\rfloor \right), n^{-1/3}H^{pr}\left(\lfloor n^{2/3}s\rfloor \right), s\geq 0 \right) \nonumber \\
+&\left(n^{-1/3}Y^{\mathrm{df}}\left(\lfloor n^{2/3}s\rfloor \right), n^{-1/3}H^{\mathrm{df}}\left(\lfloor n^{2/3}s\rfloor \right), s\geq 0 \right) \nonumber \\
 & \hspace{15em} \todist \left(\sigma_+ B^*_s,\frac{2}{\sigma_+} \left(B^*_s-\inf\{B^*_u:u\leq s\}\right),  s\geq 0\right)
 \end{align} 
- in $D(\R_+,\R)^2$ as $n\to \infty$, and that $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Moreover, \cite{chaumontInvariancePrinciplesLocal2010} and the fact that $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{red}(k),k\geq 1)\overset{d}{=}(Y^{pr}(k),k\geq 1)$ imply that
-\begin{align}\begin{split}\label{eq.convergencebychaumont}&\left(n^{-1/3}Y^{red}\left(\lfloor n^{2/3} s \rfloor \right), n^{-2/3}\inf\left\{k:n^{-1/3}Y^{red}(k) \leq -x\right\}, s \geq 0, x\geq 0 \right)\\
-&\todist\left( \sigma_+ B^{red}_s, \inf\left\{u:\sigma_+ B^{red}_u < -x\right\}, s\geq 0, x \geq 0\right)\end{split}\end{align}
+ in $D(\R_+,\R)^2$ as $n\to \infty$, and that $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Moreover, \cite{chaumontInvariancePrinciplesLocal2010} and the fact that $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{\mathrm{f}}(k),k\geq 1)\overset{d}{=}(Y^{\mathrm{df}}(k),k\geq 1)$ imply that
+\begin{align}\begin{split}\label{eq.convergencebychaumont}&\left(n^{-1/3}Y^{\mathrm{f}}\left(\lfloor n^{2/3} s \rfloor \right), n^{-2/3}\inf\left\{k:n^{-1/3}Y^{\mathrm{f}}(k) \leq -x\right\}, s \geq 0, x\geq 0 \right)\\
+&\todist\left( \sigma_+ B^{\mathrm{f}}_s, \inf\left\{u:\sigma_+ B^{\mathrm{f}}_u < -x\right\}, s\geq 0, x \geq 0\right)\end{split}\end{align}
 in $D(\R_+,\R)^2$ and 
 $$\left(n^{-1/3}Y^+\left(\lfloor n^{2/3} t\rfloor \right),t\geq 0\right)\todist\left(\sigma_+ B_t, t\geq 0\right)$$
 in $D(\R_+,\R)$ as $n\to \infty$. 
 Since $(P_n(k),k\geq 1)$ is non-decreasing, applying Lemma \ref{lemma.technicalcomposedfunctions}, and combining the convergence in \eqref{eq.convergencebychaumont} with Lemma \ref{lemma.convergenceQandP} gives that also
-$$\left(n^{-2/3}\inf\left\{k:Y^{red}(k) \leq - P_n\left(\lfloor n^{2/3} t \rfloor -1\right)\right\},t\geq 0\right)\todist\left(\inf\left\{u:\sigma_+ B^{red}_u< -\frac{\nu_-}{2\mu} t^2\right\},t\geq 0\right)$$
+$$\left(n^{-2/3}\inf\left\{k:Y^{\mathrm{f}}(k) \leq - P_n\left(\lfloor n^{2/3} t \rfloor -1\right)\right\},t\geq 0\right)\todist\left(\inf\left\{u:\sigma_+ B^{\mathrm{f}}_u< -\frac{\nu_-}{2\mu} t^2\right\},t\geq 0\right)$$
   in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \eqref{eq.convergencebychaumont}. Therefore, 
  \begin{equation}\label{eq.convergencetheta}\left(n^{-2/3}\theta_n\left(\lfloor n^{2/3}t\rfloor \right),t\geq 0 \right) \todist \left(\theta(t),t\geq 0\right)\end{equation}
   in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \eqref{eq.convergencebychaumont}.
@@ -60,9 +60,9 @@ $$\left(n^{-2/3}\max\{j:\theta_n(j)\leq \lfloor n^{2/3} t \rfloor\} ),t\geq 0\ri
 in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \eqref{eq.convergencebychaumont} and \eqref{eq.convergencetheta}. Since $\max\{j:\theta_n(j)\leq \lfloor n^{2/3} t \rfloor\}$ is of order $n^{2/3}$, Lemma \ref{lemma.tightnesssurplusedges} implies that also 
 $$\left(n^{-2/3}\Lambda_n\left(\lfloor n^{2/3} t \rfloor\} \right),t\geq 0\right)\todist\left( \Lambda(t),t\geq0 \right)$$
 in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \eqref{eq.convergencebychaumont} and \eqref{eq.convergencetheta}.\\
-To finish the proof, we examine the construction of $(Y^{pr}(k),k\geq 1)$ in \eqref{eq.definitionY^{pr}} and the construction of $(B^{pr}_s,s\geq 0)$ in \eqref{eq.definitionBpr}. 
+To finish the proof, we examine the construction of $(Y^{\mathrm{df}}(k),k\geq 1)$ in \eqref{eq.definitionYdf} and the construction of $(B^{\mathrm{df}}_s,s\geq 0)$ in \eqref{eq.definitionBpr}. 
 Note that $\Lambda_n(k)$ and $k-\Lambda_n(k)$ are non-decreasing. Again, by Lemma \ref{lemma.technicalcomposedfunctions}, this implies that 
-$$\left(n^{-1/3}Y^{pr}\left( \lfloor n^{2/3} t \rfloor \right), t\geq 0 \right)\todist \left( B^{pr}_{t}, t\geq 0\right)$$
+$$\left(n^{-1/3}Y^{\mathrm{df}}\left( \lfloor n^{2/3} t \rfloor \right), t\geq 0 \right)\todist \left( B^{\mathrm{df}}_{t}, t\geq 0\right)$$
 in $D(\R_+,\R)$ as $n\to \infty$ jointly with all earlier mentioned convergences. Combining this with the convergence in \eqref{eq.convergenceX} proves \eqref{eq.convergenceYpr}. The fact that $(\theta_n(k),k\geq 1)$ is non-decreasing and Lemma \ref{lemma.technicalcomposedfunctions} then imply \eqref{eq.convergencecompSprandtheta}. 
 \end{proof}
 
@@ -70,7 +70,7 @@ in $D(\R_+,\R)$ as $n\to \infty$ jointly with all earlier mentioned convergences
 We have that 
 \begin{align*}
 & \left(n^{-1/3}S^{+}\left(\lfloor n^{2/3}t\rfloor \right)), n^{-1/3}H^{+}\left(\lfloor n^{2/3}t\rfloor \right) ,t\geq 0 \right) \\
-& \hspace{15em} \todist \left(\sigma_+ B^{pr}_{\theta (t)},\frac{2}{\sigma_+} \left(B^{pr}_{\theta (t)}-\inf\{B^{pr}_{s}:s\leq \theta(t)\}\right) ,t\geq 0 \right)
+& \hspace{15em} \todist \left(\sigma_+ B^{\mathrm{df}}_{\theta (t)},\frac{2}{\sigma_+} \left(B^{\mathrm{df}}_{\theta (t)}-\inf\{B^{\mathrm{df}}_{s}:s\leq \theta(t)\}\right) ,t\geq 0 \right)
 \end{align*}
 in $\D(\R_+,\R)^2$ as $n\to \infty$. 
 \end{lemma}
@@ -79,42 +79,42 @@ in $\D(\R_+,\R)^2$ as $n\to \infty$.
 \begin{proof}
 By \eqref{eq.constructionSp}, and by Lemma \ref{lemma.convergenceX+}, it is sufficient to show that for any $T>0$,
 $$n^{-1/3}\max_{k\leq \lfloor n^{2/3}T\rfloor}E(k)\overset{p}{\to}0.$$
-We remind the reader that $E(k)$ counts the number children of the $k^{th}$ vertex that are filler vertices in $(F^{pr}(k),k\geq 1)$, so
-$$n^{-1/3}\max_{k\leq \lfloor n^{2/3}T\rfloor}E(k)\leq n^{-1/3}\max_{k\leq \theta_n(\lfloor n^{2/3}T\rfloor)}(Y^{red}(k)-Y^{red}(k-1)+1),$$
-which converges to $0$ by tightness of $\left(n^{-2/3}\theta^{n}(\lfloor n^{2/3}T\rfloor)\right)_{n\geq 1}$ and the fact that $$\left(n^{-1/3}Y^{red}\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)$$ converges in distribution to a continuous process in $D(\R_+,\R)$ as $n\to\infty$.
+We remind the reader that $E(k)$ counts the number children of the $k^{th}$ vertex that are filler vertices in $(F^{\mathrm{df}}(k),k\geq 1)$, so
+$$n^{-1/3}\max_{k\leq \lfloor n^{2/3}T\rfloor}E(k)\leq n^{-1/3}\max_{k\leq \theta_n(\lfloor n^{2/3}T\rfloor)}(Y^{\mathrm{f}}(k)-Y^{\mathrm{f}}(k-1)+1),$$
+which converges to $0$ by tightness of $\left(n^{-2/3}\theta^{n}(\lfloor n^{2/3}T\rfloor)\right)_{n\geq 1}$ and the fact that $$\left(n^{-1/3}Y^{\mathrm{f}}\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)$$ converges in distribution to a continuous process in $D(\R_+,\R)$ as $n\to\infty$.
 \end{proof}
 
 The following lemma is the last ingredient in the proof of Proposition \ref{prop.heightprocessblackpurplered}.
 \begin{lemma}\label{lemma.heightprocesstimechange}
-We have that with probability $1$, $$\left(\frac{2}{\sigma_+} \left(B^{pr}_{\theta (t)}-\inf\{B^{pr}_{s}:s\leq \theta(t)\}\right), t\leq T \right)=\left(\frac{2}{\sigma_+} \left(B^{pr}_{\theta (t)}-\inf\{B^{pr}_{\theta(s)}:s\leq t\}\right), t\leq T \right),$$ which is continuous, and it is the height process corresponding to $\left(\sigma_+ B^{pr}_{\theta (t)},t\leq T\right)$. 
+We have that with probability $1$, $$\left(\frac{2}{\sigma_+} \left(B^{\mathrm{df}}_{\theta (t)}-\inf\{B^{\mathrm{df}}_{s}:s\leq \theta(t)\}\right), t\leq T \right)=\left(\frac{2}{\sigma_+} \left(B^{\mathrm{df}}_{\theta (t)}-\inf\{B^{\mathrm{df}}_{\theta(s)}:s\leq t\}\right), t\leq T \right),$$ which is continuous, and it is the height process corresponding to $\left(\sigma_+ B^{\mathrm{df}}_{\theta (t)},t\leq T\right)$. 
 \end{lemma}
 \begin{proof}
-From \cite{legallRandomTreesApplications2005}, we know that $\left(\frac{2}{\sigma_+}R^{pr}_t,t\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^{pr}_{t},t\geq 0\right)$. By definition of the height process, it is sufficient to show that (1) with probability $1$, $(B^{pr}_{\theta(t)},t\geq 0)$ is continuous, and (2) for all $t\geq 0$, and all $s$ such that $\theta(t-)<s<\theta(t)$, we have $B^{pr}_s > B^{pr}_{\theta(t)}$.
+From \cite{legallRandomTreesApplications2005}, we know that $\left(\frac{2}{\sigma_+}R^{\mathrm{df}}_t,t\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^{\mathrm{df}}_{t},t\geq 0\right)$. By definition of the height process, it is sufficient to show that (1) with probability $1$, $(B^{\mathrm{df}}_{\theta(t)},t\geq 0)$ is continuous, and (2) for all $t\geq 0$, and all $s$ such that $\theta(t-)<s<\theta(t)$, we have $B^{\mathrm{df}}_s > B^{\mathrm{df}}_{\theta(t)}$.
 
-Recall that $(B_t, t \geq 0)$ and $(B^{red}_t, t\geq 0)$ are two independent Brownian motions, $$\theta(t)=t+\inf\left\{s\geq 0 : \sigma_+ B^{red}_s< -\frac{\nu_-}{2\mu} t^2\right\},$$ and $\Lambda(t)=\inf\{s\geq 0:\theta(s)> t\}$. Then,
+Recall that $(B_t, t \geq 0)$ and $(B^{\mathrm{f}}_t, t\geq 0)$ are two independent Brownian motions, $$\theta(t)=t+\inf\left\{s\geq 0 : \sigma_+ B^{\mathrm{f}}_s< -\frac{\nu_-}{2\mu} t^2\right\},$$ and $\Lambda(t)=\inf\{s\geq 0:\theta(s)> t\}$. Then,
 \begin{equation*}
-  \left(B^{pr}_t,t \geq 0\right):=\left( B_{\Lambda(t)}+ B^{red}_{t-\Lambda(t)}, t\geq 0\right).
+  \left(B^{\mathrm{df}}_t,t \geq 0\right):=\left( B_{\Lambda(t)}+ B^{\mathrm{f}}_{t-\Lambda(t)}, t\geq 0\right).
 \end{equation*}
 
-Firstly, note that the jumps of $\theta$ correspond to excursions above the infimum of $B^{red}$.  With probability $1$, for each of these excursions, the minimum on the excursion is only attained at the endpoints. This can be seen by the almost sure uniqueness of local minima of Brownian motion. We will work on this event of probability 1.
+Firstly, note that the jumps of $\theta$ correspond to excursions above the infimum of $B^{\mathrm{f}}$.  With probability $1$, for each of these excursions, the minimum on the excursion is only attained at the endpoints. This can be seen by the almost sure uniqueness of local minima of Brownian motion. We will work on this event of probability 1.
 
 Now fix $t$ such that $\theta(t-)\neq \theta(t)$ and let $s\in (\theta(t-),\theta(t))$. Observe that $\Lambda$ is equal to $t$ on $[\theta(t-),\theta(t)]$. For $[\theta(t-),\theta(t))$ this follows by definition of $\Lambda$, and for $\theta(t)$ it follows since $(\theta(u):u\geq 0)$ is strictly increasing. This implies that
 \begin{equation*}
-  s-\Lambda(s)<\theta(t)-\Lambda(\theta(t))=\inf\left\{ u\geq 0: \sigma_+ B_u^{red}<-\frac{\nu_-}{2\mu} t^2\right\}. 
+  s-\Lambda(s)<\theta(t)-\Lambda(\theta(t))=\inf\left\{ u\geq 0: \sigma_+ B_u^{\mathrm{f}}<-\frac{\nu_-}{2\mu} t^2\right\}. 
 \end{equation*}
-By our assumption on the minima of the excursions above the infimum of $B^{red}$, this implies that
+By our assumption on the minima of the excursions above the infimum of $B^{\mathrm{f}}$, this implies that
 \begin{equation*}
-  B^{red}_{s-\Lambda(s)}>-\frac{\nu_-}{2\mu} t^2=B^{red}_{\theta(t)-\Lambda(\theta(t))}
+  B^{\mathrm{f}}_{s-\Lambda(s)}>-\frac{\nu_-}{2\mu} t^2=B^{\mathrm{f}}_{\theta(t)-\Lambda(\theta(t))}
 \end{equation*}
-where the last equality follows from continuity of $B^{red}$. Combining this with $\Lambda(s)=\Lambda(\theta(t))$ implies that
-$B^{pr}_s>B^{pr}_{\theta(t)}$.
+where the last equality follows from continuity of $B^{\mathrm{f}}$. Combining this with $\Lambda(s)=\Lambda(\theta(t))$ implies that
+$B^{\mathrm{df}}_s>B^{\mathrm{df}}_{\theta(t)}$.
 
 Finally, 
-$$B^{pr}_{\theta(t-)}=B_{\Lambda(\theta(t-))}+B^{red}_{\theta(t-)-\Lambda(\theta(t-))}
-=B_{t}+B^{red}_{\theta(t-)-t}$$
-and by continuity of $(B^{red}_s,s\geq 0)$,
-\begin{align*}B^{red}_{\theta(t-)-t}&=B^{red}\left({\lim_{s\uparrow t}\inf\{u:B^{red}_u<-\frac{\nu_-}{2\mu} s^2\}}\right)\\&=\lim_{s\uparrow t} B^{red}\left({\inf\left\{u:B^{red}_u<-\frac{\nu_-}{2\mu} s^2\right\}}\right)\\&= -\frac{\nu_-}{2\mu^2}t^2\\
-&=B^{red}_{\theta(t)-t}, \end{align*}
+$$B^{\mathrm{df}}_{\theta(t-)}=B_{\Lambda(\theta(t-))}+B^{\mathrm{f}}_{\theta(t-)-\Lambda(\theta(t-))}
+=B_{t}+B^{\mathrm{f}}_{\theta(t-)-t}$$
+and by continuity of $(B^{\mathrm{f}}_s,s\geq 0)$,
+\begin{align*}B^{\mathrm{f}}_{\theta(t-)-t}&=B^{\mathrm{f}}\left({\lim_{s\uparrow t}\inf\{u:B^{\mathrm{f}}_u<-\frac{\nu_-}{2\mu} s^2\}}\right)\\&=\lim_{s\uparrow t} B^{\mathrm{f}}\left({\inf\left\{u:B^{\mathrm{f}}_u<-\frac{\nu_-}{2\mu} s^2\right\}}\right)\\&= -\frac{\nu_-}{2\mu^2}t^2\\
+&=B^{\mathrm{f}}_{\theta(t)-t}, \end{align*}
 so 
-$B^{pr}_{\theta(t-)}=B^{pr}_{\theta(t)}.$
+$B^{\mathrm{df}}_{\theta(t-)}=B^{\mathrm{df}}_{\theta(t)}.$
 \end{proof}
