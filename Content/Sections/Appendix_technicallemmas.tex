@@ -21,7 +21,8 @@ These tree facts imply that $g_n(s_n)\subset [g(s-)-\epsilon,g(s-)+\epsilon]\cup
 Then, the second and third property follow immediately from the first property and the monotonicity of $g_n$ and $g$. \end{proof}
 
 \begin{proof}[Proof of Lemma \ref{lemma.extractexcursions}]
-First, note that $g_i^n$, $\sigma_i^n$, $g_i$, and $\sigma_i$ are well-defined for all $i\in [m]$, $n\geq 1$ by $f(t)\to -\infty$ as $t\to \infty$ and the convergence of $f_n$ to $f$. \\
+First, note that $g_i^n$, $\sigma_i^n$, $g_i$, and $\sigma_i$ are well-defined for all $i\in [m]$, $n\geq 1$ by $\inf\{f(t):t\leq T\}<\inf\{f(t):t\leq x_m\}$ and $\inf\{f_n(t):t\leq T\}<\inf\{f_n(t):t\leq x^n_m\}$.
+
 Fix $i$. We will first show that $g^n_i\to g_i$ and $\sigma_i^n\to \sigma_i$ as $n\to \infty$. Firstly, note that by the assumption that $f(x_i)-\inf\{f(s):s\leq x_i\}>0$ and the continuity of $f$, $g_i<x_i<g_i+\sigma_i$. Fix $0<\epsilon<\min\{x_i-g_i,g_i+\sigma_i-x_i\}/2$. We claim that the following conditions are sufficient for $g^n_i\to g_i$ and $\sigma_i^n\to \sigma_i$ as $n\to \infty$. For all $n$ large enough,
 \begin{enumerate}
     \item \label{cond.excursions1} $g_i+\epsilon<x^n_i<g_i+\sigma_i-\epsilon$
