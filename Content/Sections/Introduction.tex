@@ -70,13 +70,17 @@ Thus
     \right]
     \P \left[ D^- = k^-, D^+ = k^+ \right].
 \end{equation*}
-Using the law of large numbers, the above will converge to the law of the degree distribution size-biased by in-degree, that is
+Using the law of large numbers, the above will converge to
 \begin{equation*}
     \frac{k^-}{\E[D^-]} \P\left[ D^- = k^-, D^+ = k^+ \right].
 \end{equation*}
-Let $(Z^-, Z^+)$ follow this distribution, that is $P(Z^- = k^-, Z^+ = k^+)$ is given by the above expression. Any other fixed out-edge of $W_n$ is then distributed approximately like a uniformly chosen edge (here we are ignoring the fact that we have already sampled an edge) and so the out-degree of the head will have mean approximately the same distribution as $Z^-$. Thus if we were to look at the graph of all vertices leading from $W_n$, it would look approximately like a Bienaymé tree\footnote{For $\mu$ a probability distribution on $\N$, a Bienaymé tree with offspring distribution $\mu$ is the family tree of a branching process with offspring distribution $\mu$. Bienaymé trees are often referred to as Galton-Watson trees, but we decide to follow the name change suggested by \citet{addarioberry2021universal}.} with offspring distribution $Z^-$. It is well known that such trees exhibit a critical behaviour at $\E[Z^-] = 1$. This is equivalent to assuming $\E[D^-D^+] = E[D^-]$.
+Let $(Z^-, Z^+)$ be such that $P(Z^- = k^-, Z^+ = k^+)$ is given by the above expression. We say $(Z^-, Z^+)$ has the law of the \emph{degree distribution size-biased by in-degree}. For large $n$, any other fixed out-edge of $W_n$ is then distributed approximately like a uniformly chosen edge (here we are ignoring the fact that we have already sampled an edge) and so the out-degree of the head will have mean approximately the same distribution as $Z^-$. Thus if we were to look at the graph of all vertices leading from $W_n$, it would look approximately like a Bienaymé tree\footnote{For $\mu$ a probability distribution on $\N$, a Bienaymé tree with offspring distribution $\mu$ is the family tree of a branching process with offspring distribution $\mu$. Bienaymé trees are often referred to as Galton-Watson trees, but we decide to follow the name change suggested by \citet{addarioberry2021universal}.} with offspring distribution $Z^-$. It is well known that such trees exhibit a critical behaviour at $\E[Z^-] = 1$. This is equivalent to assuming $\E[D^-D^+] = E[D^-]$.
 
-\citet{cooperSizeLargestStrongly2004} studied this phase transition for deterministic degree sequeunces. They showed that, under additional assumptions, there exists a phase transition for the existence of a giant SCC depending on whether a parameter, corresponding to $\E[Z^-]$ for deterministic degree sequences, is strictly greater than or less than 1. Our work in this paper shows $\E[Z^-] = 1$ is also the correct criticality condition to take for i.i.d.\ random degree sequences.
+\citet{cooperSizeLargestStrongly2004} studied this phase transition for a deterministic degree sequence $\vd_1, \ldots, \vd_n$. They defined the parameter
+\begin{equation*}
+    d = \frac{\sum_{i=1}^n d_i^+ d_i^-}{\sum_{i=1}^n d_i^-}
+\end{equation*}
+which is a counterpart of $\E[Z^-]$ for deterministic degree sequences. They showed that, under additional assumptions, there exists a phase transition for the existence of a giant SCC depending on whether $d$ is strictly greater than or less than 1. Our work in this paper shows $\E[Z^-] = 1$ is also the correct criticality condition to take for i.i.d.\ random degree sequences.
 
 We define the following parameters that will determine the behaviour of the SCCs in the limit.
 \begin{enumerate}
