@@ -1,7 +1,7 @@
 \section{Multivariate triangular local limit theorem}
 \label{sec:llt}
 
-The goal of this section is to prove \cref{thm:multi-triangular-llt}. First we recall some definitions. An $\R^d$-valued random variable $\vX$ is lattice if it is non-degenerate and is supported on the translation of some lattice. The symmetrisation of $\vX$ is given by $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. If $\vX$ is lattice, the main lattice of $\vX$ is given by
+The goal of this section is to prove \cref{thm:multi-triangular-llt}. First, we recall some definitions. An $\R^d$-valued random variable $\vX$ is lattice if it is non-degenerate and is supported on the translation of some lattice. The symmetrisation of $\vX$ is given by $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. If $\vX$ is lattice, the main lattice of $\vX$ is given by
 \begin{equation*}
     \lattice = \bigcup_{m=1}^{\infty} \left\{ 
         \textstyle \sum_{i=1}^m n_i \vx^*_i : \text{$n_i \in \Z$ and $\vx^*_i \in \supp(\vX^*)$ for all $i = 1, \ldots, m$}
@@ -16,13 +16,13 @@ Before we prove \cref{thm:multi-triangular-llt}, we first prove a sequence of le
         e^{i \vu \cdot \vX}
     \right].
 \end{equation*}
-The following lemma shows the points at which the charactersitic function of a lattice random variables attains 1 in absolute value can be precisely characterised when the main lattice is know. This is an adaptation of \cite[P.67, T1]{spitzerPrinciplesRandomWalk1964}.
+The following lemma shows the points at which the characteristic function of a lattice random variables attains 1 in absolute value can be precisely characterised when the main lattice is known. This is an adaptation of \cite[P.67, T1]{spitzerPrinciplesRandomWalk1964}.
 \begin{lemma}
     \label{lem:cf-periodicity}
     Suppose $\vX$ is lattice with main lattice $\Z^d$ and characteristic function $\phi$. Then $\abs{\phi(\vu)} = 1$ if and only if $\vu \in (2 \pi \Z)^d$.
 \end{lemma}
 \begin{proof}
-    If every coordinate of $\vu$ is a multiple of $2\pi$ then $\vu \cdot \vX$ has support in $t + 2 \pi \Z$ for some $t \in \R$. Therefore $e^{i\vu \cdot \vX}$ is constant and hence $\abs{\phi(\vu)} = 1$.
+    If every coordinate of $\vu$ is a multiple of $2\pi$, then $\vu \cdot \vX$ has support in $t + 2 \pi \Z$ for some $t \in \R$. Therefore $e^{i\vu \cdot \vX}$ is constant and hence $\abs{\phi(\vu)} = 1$.
     
     For the converse, note the characteristic function of the symmetrisation $\vX^*$ satisfies
     \begin{equation*}
@@ -34,7 +34,7 @@ The following lemma shows the points at which the charactersitic function of a l
     \begin{equation*}
         \sum_{i=1}^m k_i \vx^*_i = (1, 0, \ldots, 0).
     \end{equation*}
-    Therefore
+    Therefore,
     \begin{equation*}
         u^{(1)} = \sum_{i=1}^m k_i \vu \cdot \vx^*_i \in 2 \pi \Z.
     \end{equation*}
@@ -43,7 +43,7 @@ The following lemma shows the points at which the charactersitic function of a l
 
 \begin{lemma}
     \label{lem:l2-cvgc-corrs}
-    Suppose conditions (1) and (2) of \cref{thm:multi-triangular-llt} hold. Then as $n \to \infty$, 
+    Suppose conditions (1) and (2) of \cref{thm:multi-triangular-llt} hold. Then, as $n \to \infty$, 
     \begin{equation*}
         \E[\vX_n] \to \E[\vX] \quad \text{and} \quad \cov(\vX_n) \to \cov(\vX).
     \end{equation*}
@@ -57,9 +57,9 @@ The following lemma shows the points at which the charactersitic function of a l
     \end{equation*}
 \end{lemma}
 \begin{proof}
-    By Skorokhod's representation theorem, we can assume without loss of generality that $(X_n)_{n \geq 1}$ and $\vX$ are in the same probability, moreover $X_n \to \vX$ almost surely as $n \to \infty$. Then the condition in \cref{eq:ui-condition} gives uniform integrability of $(\norm{\vX_n}_2^2)_{n \geq 1}$. Thus by Vitali's convergence theorem, $\vX_n \to \vX$ in $L^2$ as $n \to \infty$. Thus $\vX$ has finite second moment and the mean and covariance of $\vX_n$ converge to that of $\vX$.
+    By Skorokhod's representation theorem, we can assume without loss of generality that $(\vX_n)_{n \geq 1}$ and $\vX$ are in the same probability space and $\vX_n \to \vX$ almost surely as $n \to \infty$. Then, the condition in \cref{eq:ui-condition} gives uniform integrability of $(\norm{\vX_n}_2^2)_{n \geq 1}$. Thus, by Vitali's convergence theorem, $\vX_n \to \vX$ in $L^2$ as $n \to \infty$. Therefore, $\vX$ has finite second moment and the mean and covariance of $\vX_n$ converge to that of $\vX$.
 
-    Since the means converge, the centerings $\hat{\vX}_n \to \hat{\vX}$ in $L^2$ as $n \to \infty$ also. Thus $(\norm{\hat{\vX}_n}_2^2)_{n \geq 1}$ is uniformly integrable by the converse statement in Vitali's theorem, as required.
+    Since the means converge, the centerings $\hat{\vX}_n \to \hat{\vX}$ in $L^2$ as $n \to \infty$ also. Thus, $(\norm{\hat{\vX}_n}_2^2)_{n \geq 1}$ is uniformly integrable by the converse statement in Vitali's theorem, as required.
 \end{proof}
 
 The following lemma shows that we have a normal central limit theorem.
@@ -133,15 +133,15 @@ The last lemma we prove provides bounds on the absolute value of the characteris
     \end{equation*}
     We provide bounds on $R_n$ and $\abs{1 - \frac{1}{2} \vu \cdot \cov(\vX_n) \vu}$, starting with $\abs{1 - \frac{1}{2} \vu \cdot \cov(\vX_n) \vu}$.
 
-    Let $\mineval_n$ and $\maxeval_n$ be the minimum and maximum eigenvalues of $\cov(\vX_n)$ respectively. Then by standard theory for quadratic forms
+    Let $\mineval_n$ and $\maxeval_n$ be the minimum and maximum eigenvalues of $\cov(\vX_n)$ respectively. Then, by standard theory for quadratic forms,
     \begin{equation*}
         \mineval_n \norm{\vu}^2
         \leq \vu \cdot \cov(\vX_n) \vu
         \leq \maxeval_n \norm{\vu}^2.
     \end{equation*}
-    Moreover let $\mineval$ and $\maxeval$ be the minimum and maximum eigenvalues of $\cov(\vX)$ respectively. The eigenvalues of a matrix are continuous in its entries and $\cov(\vX_n) \to \cov(\vX)$ by \cref{lem:l2-cvgc-corrs}. Therefore $\mineval_n \to \mineval$ and $\maxeval_n \to \maxeval$ as $n \to \infty$.
+    Moreover, let $\mineval$ and $\maxeval$ be the minimum and maximum eigenvalues of $\cov(\vX)$ respectively. The eigenvalues of a matrix are continuous in its entries and $\cov(\vX_n) \to \cov(\vX)$ by \cref{lem:l2-cvgc-corrs}. Therefore $\mineval_n \to \mineval$ and $\maxeval_n \to \maxeval$ as $n \to \infty$.
 
-    We have assumed that $\cov(\vX)$ is non-degenerate thus $\mineval > 0$. Hence there exists $N$ such that for all $n \geq N$
+    We have assumed that $\cov(\vX)$ is non-degenerate thus $\mineval > 0$. Hence, there exists $N$ such that for all $n \geq N$,
     \begin{equation*}
         \frac{1}{2} \mineval \leq \mineval_n \leq \maxeval_n \leq 2 \maxeval.
     \end{equation*}
@@ -157,7 +157,7 @@ The last lemma we prove provides bounds on the absolute value of the characteris
         \quad \text{where} \quad
         E_n(\vu) = \E[\min\{\norm{\vu} \norm{\centeredX_n}, 1\} \norm{\centeredX_n}^2].
     \end{equation*}
-    Then for all $L > 0$, splitting the expectation into the case where $\norm{\centeredX_n}^2 \leq L^2$ and the case when $\norm{\centeredX_n}^2 > L^2$
+    Then for all $L > 0$, splitting the expectation into the case where $\norm{\centeredX_n}^2 \leq L^2$ and the case when $\norm{\centeredX_n}^2 > L^2$,
     \begin{align*}
         \sup_n E_n(\vu)
         &\leq L^2 \min\{L \norm{\vu}, 1\} +
@@ -166,7 +166,7 @@ The last lemma we prove provides bounds on the absolute value of the characteris
         &\to \sup_n \E\left[ \norm{\centeredX_n}^2 \one\left\{ \norm{\centeredX_n}^2 > L^2 \right\}
         \right] 
     \end{align*}
-    as $\vu \to 0$. This holds for all $L > 0$, hence taking the limit $L \to \infty$ and using \cref{eq:ui-mean-center} we obtain that $\lim_{\vu \to 0} \sup_n E_n(\vu) = 0$. Thus there exists $\delta_2$ such that for all $\vu \in S(\delta_2)$
+    as $\vu \to 0$. This holds for all $L > 0$, hence taking the limit $L \to \infty$ and using \cref{eq:ui-mean-center} we obtain that $\lim_{\vu \to 0} \sup_n E_n(\vu) = 0$. Thus, there exists $\delta_2$ such that for all $\vu \in S(\delta_2)$
     \begin{equation}
         \label{eq:rn-bound}
         R_n(\vu) \leq \frac{1}{8} \mineval \norm{\vu}^2.
@@ -192,7 +192,7 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     \begin{equation*}
         \one\{n = 0\} = \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{i n u} \dif u.
     \end{equation*}
-    For all $\vy \in \vc_n + \Z^d$, $\sum_{i=1}^n \vX_{n, i} - \vy \in \Z^d$ therefore 
+    For all $\vy \in \vc_n + \Z^d$, $\sum_{i=1}^n \vX_{n, i} - \vy \in \Z^d$, so 
     \begin{align*}
         \P\left( \sum_{i=1}^n \vX_{n, i} = \vy \right)
         &= \E\left[ 
@@ -204,12 +204,12 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     \begin{equation*}
         \vx_n = n^{-1/2}(\vy - n \E[\vX_n]).
     \end{equation*}
-    Then changing variables with $\vs = \sqrt{n} \vu$,
+    Then, changing variables with $\vs = \sqrt{n} \vu$,
     \begin{equation*}
         n^{d/2} \P\left( \sum_{i=1}^n \vX_{n, i} = \vy \right)
         = \frac{1}{(2 \pi)^d} \int_{S(\pi\sqrt{n})} \phi_n(\vs/\sqrt{n})^n e^{-i \vs \cdot \vx_n} \dif \vs.
     \end{equation*}
-    By the Fourier inversion theorem
+    By the Fourier inversion theorem,
     \begin{equation*}
         f(\vx) = \frac{1}{(2 \pi)^d} \int_{\R^d} \psi(\vs) e^{-i \vs \cdot \vx} \dif \vs
     \end{equation*}
