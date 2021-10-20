@@ -52,22 +52,26 @@ The first condition is required to ensure that the steps of a random walk used i
 
 The second and third conditions make sure the event $\{\sum_{i=1}^n D^-_i = \sum_{i=1}^n D^+_i\}$ is well-behaved. The second condition ensures that it is not a large deviation event. Using a result from \citet[Page 42, P1]{spitzerPrinciplesRandomWalk1964}, the third condition ensures that the event has positive probability for all $n \geq 1$. This condition can be relaxed by taking limits for $n \in p \N$ rather than $n \in \N$ where $p$ is the periodicity of $D^- - D^+$. However, for simplicity of presentation, we will keep it as an assumption.
 
-The fourth assumption is the criticality condition. To understand how this arises, consider the directed configuration model with a deterministic degree sequence $\vd_1, \ldots, \vd_n$ and let $(V, W)$ be a uniformly chosen edge. Since we choose an edge pairing uniformly at random, $W = v_i$ with probability proportional to $d^-_i$. Thus, the expected out-degree of $W$ is given by
+The fourth assumption is the criticality condition. To understand how this arises, consider the directed configuration model with a deterministic degree sequence $\vd_1, \ldots, \vd_n$ and let $(V_n, W_n)$ be a uniformly chosen edge. Since we choose an edge pairing uniformly at random, $W = v_i$ with probability proportional to $d^-_i$. Thus, the expected out-degree of $W_n$ is given by
 \begin{align*}
-    \E[d^+(W)]
+    \E[d^+(W_n)]
     &= \sum_{i=1}^n d_i^+ \frac{d_i^-}{\sum_{j=1}^n d_j^-}
     = \frac{\sum_{i=1}^n d_i^+ d_i^-}{\sum_{i=1}^n d_j^-}.
 \end{align*}
-We obtain an identical expression for $\E[d^-(V)]$. Call this quantity $d$. Any other fixed out-edge of $W$ is then distributed approximately like a uniformly chosen edge (here we are ignoring the fact that we have already sampled an edge) and so the out-degree of the head will have mean approximately $d$. Thus if we were to look at the graph of all vertices leading from $W$, it would look approximately like a Bienaymé tree with offspring distribution with mean $d$ \footnote{For $\mu$ a probability distribution on $\N$, a Bienaymé tree with offspring distribution $\mu$ is the family tree of a branching process with offspring distribution $\mu$. Bienaymé trees are often referred to as Galton-Watson trees, but we decide to follow the name change suggested by \citet{addarioberry2021universal}.}. \citet{cooperSizeLargestStrongly2004} show that, under additional assumptions, there exists a phase transition for the existence of a giant SCC depending on whether $d$ is strictly greater than or less than 1. Returning to the random degree sequence and, for now, ignoring conditioning on equal total in- and out-degrees we have
+We obtain an identical expression for $\E[d^-(V)]$. Call this quantity $d$. Any other fixed out-edge of $W_n$ is then distributed approximately like a uniformly chosen edge (here we are ignoring the fact that we have already sampled an edge) and so the out-degree of the head will have mean approximately $d$. Thus if we were to look at the graph of all vertices leading from $W_n$, it would look approximately like a Bienaymé tree\footnote{For $\mu$ a probability distribution on $\N$, a Bienaymé tree with offspring distribution $\mu$ is the family tree of a branching process with offspring distribution $\mu$. Bienaymé trees are often referred to as Galton-Watson trees, but we decide to follow the name change suggested by \citet{addarioberry2021universal}.} with offspring distribution with mean $d$ . \citet{cooperSizeLargestStrongly2004} show that, under additional assumptions, there exists a phase transition for the existence of a giant SCC depending on whether $d$ is strictly greater than or less than 1.
+
+Returning to the random degree sequence and, for now, ignore the conditioning on equal total in- and out-degrees. We can use the tower property to show that
 \begin{equation*}
-    \frac{\sum_{i=1}^n D_i^+ D_i^-}{\sum_{i=1}^n D_j^{-}}
-    \to \frac{\E[D^- D^+]}{\E[D^-]}
+    \P(d^-(W_n) = k^-, d^+(W_n) = k^+) = \E\left[ 
+        \frac{k^-}{\frac{1}{n}\left( k^- + \sum_{i=2}^n D_i^- \right)}
+    \right]
+    \P \left[ D^- = k^-, D^+ = k^+ \right].
 \end{equation*}
-almost surely as $n \to \infty$ by the law of large numbers. Thus, the results of Cooper and Frieze suggest the criticality condition to be $\E[D^- D^+] = \E[D^-]$. Our work in the sequel confirms that this is the case. Further the law of $(d^-(W), d^+(W))$ in the limit $n \to \infty$ will converge to that of the degree distribution sized biased by in-degree. This is the law of $\Z$ where
+Using the law of large numbers, the above will converge to the law of the degree distribution size-biased by in-degree. Specifically $(Z^-, Z^+)$ follows this distribution if
 \begin{equation*}
-    \P(Z^- = k^-, Z^+ = k^+) = \frac{k^-}{\mu} \P(D^- = k^-, D^+ = k^+).
+    \P(Z^- = k^-, Z^+ = k^+) = \frac{k^-}{\E[D^-]} \P\left[ D^- = k^-, D^+ = k^+ \right].
 \end{equation*}
-The criticality condition is then equivalent to assuming $\E[Z^+] = 1$.
+Thus, the results of Cooper and Frieze suggest the criticality condition to be $\E[Z^+] = 1$. This is equivalent to $\E[D^- D^+] = \E[D^-]$. Our work in the sequel confirms that this is the case.
 
 We define the following parameters that will determine the behaviour of the SCCs in the limit.
 \begin{enumerate}
