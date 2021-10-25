@@ -1,26 +1,26 @@
 \subsection{Exact form of the measure change}
 
-We first examine the exact law of the reordering of the vertices. Let $\Sigma_n: [R_n] \to \cI_n$ be the random bijection such that $\hat{\vD}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$.
-
+To determine the exact form of the measure change, we first need to know the law of the reordering of the first $R_n$ vertices. Let $\cI_n = \{i \in [n] : D_i^- > 0\}$. The first $R_n$ vertices we explore in \cref{alg:edfs} will have positive in-degree, thus there exists a random bijection $\Sigma_n: [R_n] \to \cI_n$ such that $\hat{\vD}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$. 
 \begin{lemma}
     $\Sigma_n$ has law
     \begin{equation*}
         \P(\Sigma_n = \sigma \mid \vD_1, \ldots, \vD_n)
         = \prod_{i=1}^{R_n} \frac{D^-_{\sigma(i)}}{\sum_{j=i}^{R_n} D^-_{\sigma(j)}}.
     \end{equation*}
+    for all bijections $\sigma: [R_n] \to \cI_n$.
 \end{lemma}
 \begin{proof}
-    The key idea is that the eDFS procedure can be adapted to carry out the pairing of in- and out-half-edges that is used the define the configuration model. Instead of keeping a stack of edges, we keep a stack of out-half-edges. When we examine an out-half-edge, we sample the head of the half-edge by picking a uniform choice from the unpaired in-half-edges. Thus when we are exploring a new vertex we are picking it with probability proportional to its in-degree. This is also why we start new out-components by picking a vertex with probability proportional to its in-degree.
+    In \cref{alg:edfs}, a vertex first becomes explored in two ways. Either it is at the start of an out-component or it is discovered when an out-half-edge is paired to one its in-half-edges.
 
-    Hence the probability of exploring the vertex $v_{\sigma(1)}$ is
-    \begin{equation*}
-        \frac{D_{\sigma(1)}^{-}}{\sum_{j=1}^{R_n} D_{\sigma(j)}}.
-    \end{equation*}
-    Conditional on the $\Sigma_n(1) = \sigma(1)$, the probability the next vertex we explore is $v_{\sigma(2)}$ is
-    \begin{equation*}
-        \frac{D_{\sigma(2)}^{-}}{\sum_{j=2}^{R_n} D_{\sigma(j)}}.
-    \end{equation*}
-    Continuing inductively gives the desired result.
+    Suppose we have explored $m$ vertices and $m < R_n$. If the next vertex is explored by pairing on of its in-half-edges, then we have chosen it with probability porportional to it's in-degree since in- and out-half-edges are paired uniformly at random. Otherwise if its at the start of its component, since $m < R_n$ there are still vertices of positive in-degree and thus we still pick a new vertex with probability proportional to it's in-degree.
+
+    This means that
+    \begin{align*}
+        &\P(\Sigma_n(m+1) = \sigma(m+1) \mid \Sigma_n(1) = \sigma(1), \ldots, \Sigma_n(m) = \sigma(m), \vD_1, \ldots, \vD_n) \\
+        =&  \frac{D^-_{\sigma(m+1)}}{\sum_{i \in \cI_n} D_i^- - \sum_{j=1}^m D^-_{\sigma(j)}}
+        = \frac{D^-_{\sigma(m+1)}}{\sum_{j=m+1}^{R_n} D^-_{\sigma(j)}}.
+    \end{align*} 
+    From this, repeated applications of the definition of conditional probability yields the desired result.
 \end{proof}
 
 Next we establish the form of the measure change when we condition on the exact value of $R_n$ but not $\Delta_n = 0$.
@@ -227,14 +227,14 @@ Using the previous lemma we can prove existence and give the exact form of the d
     \end{align*}
     where
     \begin{align*}
-        \tilde{\phi}^n_m(\vk_1, \ldots, \vk_m)
-        &= \sum_{r=m}^n \binom{n}{r} p^r (1-p)^{n-r} 
+        &\tilde{\phi}^n_m(\vk_1, \ldots, \vk_m) \\
+        =& \sum_{r=m}^n \binom{n}{r} p^r (1-p)^{n-r} 
         \E \left[
             \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
             \, \middle \vert \,
             R_{n-m} = r-m
         \right] \\
-        &= \sum_{l=1}^{n-m} \binom{n}{l+m} p^{l+m} (1-p)^{n-m-l} 
+        =& \sum_{l=1}^{n-m} \binom{n}{l+m} p^{l+m} (1-p)^{n-m-l} 
         \E \left[
             \frac{1}{p^m} \prod_{i=1}^m \frac{(l + m - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
             \, \middle \vert \,

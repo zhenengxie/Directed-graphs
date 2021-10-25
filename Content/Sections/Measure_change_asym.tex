@@ -1,10 +1,10 @@
 \subsection{Asymptotic lower bound on the measure change}
 
-Recall that our goal in \cref{lem:measure-change-no-crit} is to determine the limiting distribution of
+Recall that our goal in \cref{prop:measure-change-no-crit} is to determine the limiting distribution of
 \begin{equation*}
     \Phi(n, m) = \phi^n_m(\vZ_1, \ldots, \vZ_m),
 \end{equation*}
-as $n \to \infty$, in the regime where $m = \Theta(n^{2/3})$. When dealing with convergence in distribution, it suffices to work on a sequence of events occuring with high probability. In particular, for the proof of \cref{lem:measure-change-no-crit}, we work on the event $\walkDeviationEvent_m$ where
+as $n \to \infty$, in the regime where $m = \Theta(n^{2/3})$. When dealing with convergence in distribution, it suffices to work on a sequence of events occuring with high probability. In particular, for the proof of \cref{prop:measure-change-no-crit}, we work on the event $\walkDeviationEvent_m$ where
 \begin{align*}
     \walkDeviationEvent_m
     &= \Bigg\{ 
@@ -42,7 +42,7 @@ The following lemma is an analogue of \citet[Lemma 6.7]{conchon--kerjanStableGra
 \end{proposition}
 
 
-The fact that we only prove a lower bound may seem strange at first. To understand why this is sufficient, first note that all measure changes are non-negative random variables and have expectation 1. Hence if the sequence of lower bounds on the measure changes converge to a limit that also has expectation 1, then we have not have lost a significant amount of probability mass. It follows that the measure changes converge to the same limit as the lower bounds. This is made formal by \citet[Lemma 4.8]{conchon--kerjanStableGraphMetric2020}. In \cref{lem:measure-change-no-crit} we are considering the joint convergence of the measure change with two other random walks, and thus we adapt \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} to allow for an additional coordinate that is converging jointly with the first coordinate.
+The fact that we only prove a lower bound may seem strange at first. To understand why this is sufficient, first note that all measure changes are non-negative random variables and have expectation 1. Hence if the sequence of lower bounds on the measure changes converge to a limit that also has expectation 1, then we have not have lost a significant amount of probability mass. It follows that the measure changes converge to the same limit as the lower bounds. This is made formal by \citet[Lemma 4.8]{conchon--kerjanStableGraphMetric2020}. In \cref{prop:measure-change-no-crit} we are considering the joint convergence of the measure change with two other random walks, and thus we adapt \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} to allow for an additional coordinate that is converging jointly with the first coordinate.
 \begin{lemma}
     \label{lem:sandwiching-lemma}
     Let $(X_n, Y_n, Z_n)_{n \geq 1}$ be a sequence of $[0, \infty) \times [0, \infty) \times S$-valued random variables where $S$ is a metric space. Suppose there exists a $[0, \infty) \times S$-valued random variable $(Y, Z)$ such that the following holds:
@@ -129,7 +129,7 @@ Fortunately this kind of periodic behaviour can be mitigated by normalizing the 
     Hence the discrete local limit theorem (\cref{thm:discrete-llt}) tells you only that $\P\left(\sum_{i=1}^n X_i = s_n\right) = \littleo(n^{-1/2})$; it gives no precise characterization of the leading order term.
 \end{remark}
 
-While this remark will be important later, here $\Delta_n$ is centered and we are interested in the probability $\P(\Delta_n = 0)$. In addition, the strong aperiodicity condition in REF tells us exactly that the $D^- - D^+$ is lattice with span 1. Thus the following is a direct corollary of the discrete local limit theorem (\cref{thm:discrete-llt}).
+While this remark will be important later, here $\Delta_n$ is centered and we are interested in the probability $\P(\Delta_n = 0)$. In addition, the strong aperiodicity condition in \cref{subsec:model-description} tells us exactly that the $D^- - D^+$ is lattice with span 1. Thus the following is a direct corollary of the discrete local limit theorem (\cref{thm:discrete-llt}).
 \begin{corollary}
     \label{cor:measure-change-denominator-control}
     If $m = \Theta(m^{2/3})$, then
@@ -182,7 +182,7 @@ The second problem is that even in absence of the indicator function, the expect
     \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \E[\Xi_{n-m}^-]}
 \end{equation}
 
-It turns out that both of these issues by means introducing a sequence of exponentially tilted measures.  The first effect of the exponentially tilted measures will be to shift the mean of $\Delta_{n-m}$ and $\Xi_{n-m}$ in such a way that, after the tilting, the event $\lltEvent_n$ concerns only a typical deviation of $\Delta_{n-m}$ which can be addressed by a local limit theorem. The second effect is that the expectation being evaluated in \cref{eq:measure-change-numerator} will be dictated by the typical fluctations of $\Xi^-_{n-m}$ under the tilted measure. 
+It turns out that both of these issues can be addressed by means introducing a sequence of exponentially tilted measures.  The first effect of the exponentially tilted measures will be to shift the mean of $\Delta_{n-m}$ and $\Xi_{n-m}$ in such a way that, after the tilting, the event $\lltEvent_n$ concerns only a typical deviation of $\Delta_{n-m}$ which can be addressed by a local limit theorem. The second effect is that the expectation being evaluated in \cref{eq:measure-change-numerator} will be dictated by the typical fluctations of $\Xi^-_{n-m}$ under the tilted measure. 
 
 The next result defines this tilt and then gives asymptotic expansions for cumulant generating function of $D^-$, the mean of $D^-$ and the mean of $D^+$ under this tilting. 
 \begin{lemma}
@@ -269,6 +269,7 @@ under the tilting. Thus we will expand the numerator under the event
 \end{equation*}
 This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its tilted mean. The next lemma then expands numerator on the event $\omegaEvent_n$.
 \begin{lemma}
+    \label{lem:measure-change-numerator}
     We have that
     \begin{align*}
         \E\left[ 
@@ -402,7 +403,7 @@ Before we state the result we use, we first define some terminology regarding la
         \textstyle \sum_{i=1}^d n_i \va_i : n_i \in \Z \text{ for $i = 1, \ldots, d$}
     \right\}.
 \end{equation*}
-We say $\lattice$ is generated by $\va_1, \ldots, \va_d$. We can summarise the basis by a $n \times n$ matrix $A$ whose columns are $\va_1, \ldots, \va_n$. In other words $A_{ij} = \va_j^{(i)}$. The choice of basis generating a lattice is not unique, but any the following lemma from REF characterises when two basis generate the same lattice.
+We say $\lattice$ is generated by $\va_1, \ldots, \va_d$. We can summarise the basis by a $n \times n$ matrix $A$ whose columns are $\va_1, \ldots, \va_n$. In other words $A_{ij} = \va_j^{(i)}$. The choice of basis generating a lattice is not unique, and the following lemma adapted from \cite[Corollary 4.3a]{schrijverTheoryLinearInteger1998} characterises when two basis generate the same lattice.
 \begin{lemma}
     Let $A$ and $B$ be $n \times n$ matrices of full rank. Then the columns of $A$ and $B$ generate the same matrix if and only if there exists a matrix $U$ such that $U$ has integer entries, $\det(U) = \pm 1$ and $A = UB$.
 \end{lemma}
@@ -422,7 +423,7 @@ satisfying
     \item $a_{i, i} > 0$ for all $i = 1, \ldots, d$, and
     \item $a_{j, i} < a_{i, i}$ for all $j > i$.
 \end{enumerate}
-Then the following lemma gives existence of a canonical choice of basis generating an integer lattice.
+Then the following lemma, adapted from \cite[Corollary 1]{casselsIntroductionGeometryNumbers1997}, gives existence of a canonical choice of basis generating an integer lattice.
 \begin{lemma}
     \label{lem:hnf-basis}
     Suppose $\lattice \subset \Z^d$ is a lattice. Then there exists a $d \times d$ matrix $A$ in Hermite normal form such that the columns of $A$ form a basis which generates $\lattice$.
@@ -491,7 +492,7 @@ We now make a few remarks. Firstly $\vX$ is assumed to be lattice and thus non-d
         \Bigg).
 \end{equation*}
 
-Secondly, since the $\vX_1, \vX_2, \ldots$ do not necessarily live in the same probability space we should not technically refer to the sequence $(\norm{\vX_n}_2^2)_{n \geq 1}$ as uniformly integrable. However the condition in \cref{eq:ui-condition} is still well defined. 
+Secondly, since the $\vX_1, \vX_2, \ldots$ do not necessarily live in the same probability space we should not technically refer to the sequence $(\norm{\vX_n}^2)_{n \geq 1}$ as uniformly integrable. However the condition in \cref{eq:ui-condition} is still well defined. 
 
 We apply \Cref{thm:multi-triangular-llt} to $(\Xi_{n-m}^-, \Delta_{n-m})$. Let $\lattice$ be the main lattice of $(D^- - D^+, D^-)$. By \cref{lem:hnf-basis}, $\lattice$ is generated by the columns of a matrix $A$ in Hermite normal formal. Since $D^- - D^+$ has span 1, it must be the case that $A_{1, 1} = 1$. Thus there is some positive integer $q$ such that
 \begin{equation*}
@@ -535,24 +536,24 @@ Finally let $\Sigma$ be the covariance matrix of $(D^- - D^+, D^-)$. With this n
     For any $L > 0$,
     \begin{align*}
         \sup_n \E \left[ 
-            \norm{\vX_n}_2^2 \one\{\norm{\vX_n}_2^2 > L\}
+            \norm{\vX_n}^2 \one\{\norm{\vX_n}^2 > L\}
         \right]
         &=
         \sup_n \E \left[ 
             e^{- \theta_n D^- - \alpha(\theta_n)}
-            \norm{\vX}_2^2 \one\{\norm{\vX}_2^2 > L\}
+            \norm{\vX}^2 \one\{\norm{\vX}^2 > L\}
         \right] \\
         &\leq
         \left(\sup_n e^{- \alpha(\theta_n)}\right) 
         \E \left[ 
-            \norm{\vX}_2^2 \one\{\norm{\vX}_2^2 > L\}
+            \norm{\vX}^2 \one\{\norm{\vX}^2 > L\}
         \right]
     \end{align*}
     since $\theta_n$ and $D^-_n$ are non-negative. Since $\theta_n$ is convergent,
     \begin{equation*}
         \sup_n e^{-\alpha(\theta_n)} < \infty.
     \end{equation*}
-    Moreover $\E \left[ \norm{\vX}_2^2 \one\{\norm{\vX}_2^2 > L\} \right] \to 0$ as $L \to \infty$ as $\vX$ has finite second moment. Thus $(\norm{\vX_n}_2^2)_{n \geq 1}$ satisfies the uniform integrability condition in \cref{eq:ui-condition}.
+    Moreover $\E \left[ \norm{\vX}^2 \one\{\norm{\vX}^2 > L\} \right] \to 0$ as $L \to \infty$ as $\vX$ has finite second moment. Thus $(\norm{\vX_n}^2)_{n \geq 1}$ satisfies the uniform integrability condition in \cref{eq:ui-condition}.
 
     Finally the exponential tilt does not change the support of the random variables. Thus $\vX$ and $\vX_n$ share a common main lattice $\lattice$. In addition, $\det(\lattice) = q$.
 
@@ -678,6 +679,32 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
     This holds for all $M > 0$, and $\int_{-\infty}^{\infty} g(z) \dif z = 1$. Therefore,
     \begin{equation*}
         P_n \geq \frac{1}{\sqrt{2 \pi \sigma^2 n}} \left( 1 + \littleo(1) \right),
+    \end{equation*}
+    as required.
+\end{proof}
+
+\subsection{Proof of lower bound}
+
+Now we are ready to prove \cref{prop:measure-change-approx}.
+
+\begin{proof}[Proof of \cref{prop:measure-change-approx}]
+    By \cref{lem:measure-change-numerator} we have that
+    \begin{align*}
+        \phi(\vk_1, \ldots, \vk_m)
+        &\geq \left\{ \exp\left(
+            \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
+        \right) + \littleo(1) \right\} \frac{\P_n(\lltEvent_n \cap \omegaEvent_n)}{\P(\Delta_n = 0)}
+    \end{align*}
+    where the $\littleo(1)$ term is independent of $\vk_1, \ldots, \vk_m$ satisfying our assumptions. Then by \cref{lem:bivar-llt} and \cref{cor:measure-change-denominator-control} we have that
+    \begin{equation*}
+        \frac{\P_n(\lltEvent_n \cap \omegaEvent_n)}{\P(\Delta_n = 0)} \geq 1 + \littleo(1)
+    \end{equation*}
+    where the $\littleo(1)$ term is independent of $\vk_1, \ldots, \vk_m$ satisfying our assumptions. Thus
+    \begin{equation*}
+        \phi(\vk_1, \ldots, \vk_m) \geq
+        \exp\left(
+            \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
+        \right) + \littleo(1)
     \end{equation*}
     as required.
 \end{proof}

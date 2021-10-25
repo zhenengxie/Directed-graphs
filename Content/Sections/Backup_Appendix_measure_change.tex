@@ -26,7 +26,7 @@ The following theorem asserts the existence of a measure change under conditioni
 We observe that the criticality condition $\lambda_+ = 1$ is, in fact, not necssary for this to hold, and instead prove the following more general result.
 
 \begin{lemma}
-    \label{lem:measure-change-no-crit}
+    \label{prop:measure-change-no-crit}
     Define the centered random walks
     \begin{equation*}
         V^{\pm}(n) = \sum_{i=1}^n (Z^{\pm} - \lambda_{\pm}).
@@ -48,7 +48,7 @@ We observe that the criticality condition $\lambda_+ = 1$ is, in fact, not necss
     as $n \to \infty$, even in absence of the criticality condition.
 \end{lemma}
 
-\cref{thm:measure-change} then follows as a direct corollary of \cref{lem:measure-change-no-crit} by noting that
+\cref{thm:measure-change} then follows as a direct corollary of \cref{prop:measure-change-no-crit} by noting that
 \begin{equation*}
     \left( 
         Y^-(n), Y^+(n)
@@ -788,7 +788,7 @@ We are now ready to prove \cref{prop:measure-change-approx}.
 
 We are now ready to prove the main result of this section.
 
-\begin{proof}[Proof of \cref{lem:measure-change-no-crit}]
+\begin{proof}[Proof of \cref{prop:measure-change-no-crit}]
     The existence of the measure change is covered by \cref{lem:exact-measure-change}. Define
     \begin{equation*}
         \Gamma(n, m) = \exp \left( 

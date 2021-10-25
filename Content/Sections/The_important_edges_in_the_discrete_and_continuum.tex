@@ -62,7 +62,7 @@ This follows from Definition \ref{def.candidate} and \cref{lem:whatispartofscc}.
 
 \cref{prop:edgesinSCCs} implies that to sample the SCCs, we do not need to sample the heads corresponding to all dummy leaves. Instead, for every dummy leaf, we only need to know whether it is a candidate, and if so, where its head is. 
 \subsubsection{Sampling the out-forest}\label{subsubsec.samplingoutforest}
-This subsection discusses how to obtain the out-forest conditional on the order in which the vertices are discovered. We will study the law of the degrees in order of discovery in Subsection \ref{subsec.measurechange}. The out-forest is obtained in the following way. Let $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ be the degree pairs in order of discovery (i.e. the order given by $\exploredvertices$ in Algorithm \ref{alg:edfs}). Up to time-step $k$, suppose we have discovered the first $m\leq k<n$ elements of  $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$. Then, at time $k+1$,
+This subsection discusses how to obtain the out-forest conditional on the order in which the vertices are discovered. We will study the law of the degrees in order of discovery in \cref{sec:measure-change}. The out-forest is obtained in the following way. Let $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ be the degree pairs in order of discovery (i.e. the order given by $\exploredvertices$ in Algorithm \ref{alg:edfs}). Up to time-step $k$, suppose we have discovered the first $m\leq k<n$ elements of  $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$. Then, at time $k+1$,
 \begin{enumerate}
     \item If we have finished a component of the out-forest, let the next out-component have a root with out-degree $\hat{D}_{n,m+1}^+$. 
     \item Otherwise,

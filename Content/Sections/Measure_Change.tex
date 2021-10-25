@@ -1,45 +1,176 @@
-\begin{restatable}{proposition}{measurechange}
-    \label{prop:measure-change}
-    For all $m \leq n$ there exists a function $\phi^n_m: (\N \times \N)^m \to \R$ such that 
+\section{Analysis of the measure change}
+\label{sec:measure-change}
+
+Recall $(\hat{\vD}_{n, 1}, \hat{\vD}_{n, 2}, \ldots, \hat{\vD}_{n, n})$ are are the degree pairs of the vertices in order of discovery, and that $R_n$ is the number of vertices with positive in-degree. The behaviour of the $\hat{\vD}_{m, n}$ for $m < R_n$ and $m > R_n$ is rather different. Before $R_n$, new vertices are discovered with probability proportional to their in-degree. After $R_n$, all vertices with positive in-degree have only been discovered and we choose to explore the remaining vertices in some uniform order.
+
+We show later in \cref{sec.convSCCs} that we only need to consider timescales of the order of $m = \Theta(n^{2/3})$. Let $p = \P(D^- > 0)$ such that $R_n$ is distributed as a $\text{Binomial}(n, p)$ random variable. We show now that the probability that $m \leq R_n$ will converge exponentially to 1.
+\begin{lemma}
+    If $m = \Omega(n^{2/3})$ then there exists $c > 0$ such that $\P(R_n < m) < e^{-c n}$.
+\end{lemma}
+\begin{proof}
+    If $m = \Omega(n^{2/3})$ then $\E[R_n] - m = pn - m = \Omega(n)$. Thus by Hoeffding's inequality
     \begin{equation*}
-        \E\left[ 
-            u\left( 
-                \hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}
-             \right) 
-             \,\middle\vert\,
-             m \leq R_n, \Delta_n = 0
-         \right]
-        =
-        \E\left[ 
-            u\left( 
-                \vZ_1, \ldots, \vZ_m
-             \right)
-             \phi^n_m(\vZ_1, \ldots, \vZ_m)
-         \right].
+        \P(R_n < m)
+        = \P(\E[R_n] - R_n > \E[R_n] - m)
+        \leq e^{-\frac{2}{n} (\E[R_n] - m)^2} < e^{-cn}
     \end{equation*}
-    for all bounded measurable test functions $u: (\N \times \N) \to \R$. Define
-    \begin{align*}
+    for some $c > 0$.
+\end{proof}
+Hence it is sensible to prove results on the event that $m \leq R_n$.
+
+When discussing the criticality condition, we noted that the limiting distribution of $\hat{D}_{n, 1}$ is given by $\vZ$ where
+\begin{equation*}
+    \P(Z^- = k^-, Z^+ = k^+) = \frac{k^-}{\mu}\P(D^- = k^-, D^+ = k^+).
+\end{equation*}
+Similarly $\hat{D}_{n, 2}$ is also approximately disributed like $\vZ$ for large $n$, and so on. In this section we in fact prove a precise relation between $\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}$ and sequence $\vZ_1, \vZ_2, \ldots$ of i.i.d.\ copies of $\vZ$.
+
+The results proved in this section do not actually require the criticality condition, so let us define notation for the mean of the $Z_i^{\pm}$ and the corresponding centered random walks. Let
+\begin{equation*}
+    \lambda_{\pm} = \E[Z^{\pm}_1]
+    \quad \text{and} \quad
+    V^{\pm}(n) = \textstyle \sum_{i=1}^n (Z^{\pm}_i - \lambda_{\pm}).
+\end{equation*}
+The criticality condition is then equivalent to assuming $\lambda_+ = 1$. We also define the notation
+\begin{equation*}
+    \Xi^{\pm}_{n-m} = \sum_{i=m+1}^n D_i^{\pm}
+    \quad \text{and} \quad
+    \Delta_n = \Xi^-_n - \Xi^+_n
+\end{equation*}
+such that $\{\Delta_n = 0\}$ is the event that the total out-degree is equal to the total in-degree.
+
+The following lemma asserts the existence of the measure change $\phi^n_m$, and it's joint scaling limit with the random walks $V^-$ and $V^+$ when $m = \floor{n^{2/3} T}$ for some $T > 0$.
+\begin{proposition}
+    \label{prop:measure-change-no-crit}
+    For all positive integers $n$ and $m$ such that $m \leq n$, there exists a function $\phi^n_m: (\N \times \N)^n \to [0, \infty)$ such that 
+    \begin{equation*}
+        \E[u(\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}) \one\{R_n \geq m\} \mid \Delta_n = 0]
+        = \E[u(\vZ_1, \ldots, \vZ_m) \phi^n_m(\vZ_1, \ldots, \vZ_m)]
+    \end{equation*}
+    for all bounded test functions $u: (\N \times \N)^m \to \R$. Define
+    \begin{equation*}
         \Phi(n, m) = \phi^n_m(\vZ_1, \ldots, \vZ_m).
-    \end{align*}
-    Further let $(W^-, W^+)$ be a pair of correlated standard Brownian motions with correlation $\corr(Z^-_1, Z^+_1)$ and define
-    \begin{equation*}
-        \Phi(t) = \exp \left( 
-            - \frac{\sigma_-}{\mu} \int_0^t s \dif W^-_s - \frac{\sigma_-^2}{6 \mu^2} t^3
-         \right).
     \end{equation*}
-    Then,
+    Further let $(W^-, W^+)$ be a pair of correlated standard Bownian motions with correlations $\corr(Z_1^-, Z_1^+)$ and, for $T > 0$, define
+    \begin{equation*}
+        \Phi(T) = \exp\left( 
+            - \frac{\sigma_-}{\mu} \int_0^T s \dif W_s^- 
+            - \frac{\sigma_-^2}{6 \mu^2} T^3
+        \right).
+    \end{equation*}
+    Then for all $T > 0$,
     \begin{align*}
         &\left( 
-            \Phi(n, \floor{T n^{2/3}}),
+            \Phi(n, \floor{n^{2/3} T}),
             \left(
-                n^{-2/3} Y^-\left( \floor{n^{2/3} t} \right),
-                n^{-1/3} Y^+\left( \floor{n^{2/3} t} \right)
+                n^{-1/3} V^-\left( \floor{n^{2/3} t} \right),
+                n^{-1/3} V^+\left( \floor{n^{2/3} t} \right)
             \right)_{t \in [0, T]}
         \right) \\
-        & \hspace{20em} \todist \left( 
+        & \hspace{23em} \todist \left( 
             \Phi(T),
-            (\nu_- t, \sigma_+ W^+_t)_{t \in [0, T]}
+            (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
         \right)
     \end{align*}
-    in $\R \times \D([0, T], \R)$ as $n \to \infty$. Moreover $(\Phi(n, \floor{T n^{2/3}}))_{n \geq 1}$ is a uniformly integrable sequence of random variables.
-\end{restatable}
+    in $\R \times \D([0, T], \R^2)$ as $n \to \infty$, even in absence of the criticality condition.
+\end{proposition}
+The rest of this section is dedicated to proving this proposition.
+
+\input{Content/Sections/Measure_change_exact.tex}
+
+\input{Content/Sections/Measure_change_asym.tex}
+
+\subsection{Convergence of the measure change}
+
+We are now ready to prove the main result of this section.
+
+\begin{proof}[Proof of \cref{prop:measure-change-no-crit}]
+    The existence of the measure change is covered by \cref{lem:exact-measure-change}. Define
+    \begin{equation*}
+        \Gamma(n, m) = \exp \left( 
+            \frac{1}{\mu n} \sum_{i=0}^m \left( 
+                V^-(i) - V^-(m)
+             \right)
+             - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
+         \right).
+    \end{equation*}
+    Then by Donsker's invariance principle,
+    \begin{equation*}
+        \left( 
+            n^{-1/3} V^-(\floor{tn^{2/3}}),
+            n^{-1/3} V^+(\floor{tn^{2/3}})
+         \right)_{t \geq 0} \todist
+         \left( 
+             \sigma_- W^-_t,
+             \sigma_+ W^+_t
+          \right)_{t \geq 0}
+    \end{equation*}
+    in $\D\left([0, \infty), \R^2\right)$, where $(W^-_t, W^+_t)_{t \geq 0}$ are a pair of correlated standard Brownian motions with correlation $\corr(Z^-_1, Z^+_1)$. We can write
+    \begin{align*}
+        \frac{1}{n} \sum_{i=0}^{\floor{T n^{2/3}}} V^-(i)
+        &= n^{-2/3} \int_0^{\floor{T n^{2/3}} + 1} n^{-1/3} V^-(\floor{u}) \dif u \\
+        &= \int_0^{n^{-2/3}(\floor{T n^{2/3} + 1})} n^{-1/3} V^-(\floor{s n^{2/3}}) \dif s.
+    \end{align*}
+    Thus, by the continuous mapping theorem,
+    \begin{align*}
+        \frac{1}{n} \sum_{i=0}^{\floor{T n^{2/3}}} \left(V^-(i) - V^-(m) \right)
+        &\todist \int_0^T \left(W^-_s - W^-_T \right) \dif s
+        = - \int_0^T s \dif W^-_s.
+    \end{align*}
+    Hence,
+    \begin{align*}
+        &\left( 
+            \Gamma(n, \floor{T n^{2/3}}),
+            \left(
+                n^{-1/3} V^-(\floor{t n^{2/3}}),
+                n^{-1/3} V^+(\floor{t n^{2/3}})
+            \right)_{t \in [0, T]}
+         \right) \\
+         &\hspace{22em} \todist
+         \left( 
+             \Phi(T), (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
+          \right)
+    \end{align*}
+    in $\R \times \D([0, T], \R)$, as $n \to \infty$. Recall the event
+    \begin{equation*}
+        \walkDeviationEvent_m = \left\{ 
+            \max_{i=1, \ldots, m} \abs{V^-(i)} \leq m^{1/2} \log m
+            \quad \text{and} \quad
+            \max_{i=1, \ldots, m} \abs{V^+(i)} \leq m^{1/2} \log m
+         \right\}
+    \end{equation*}
+    By \cref{prop:measure-change-approx}, it is the case that
+    \begin{equation*}
+        \Phi(n, m) \geq (\Gamma(n, m) + \littleo(1)) \one_{\walkDeviationEvent_m}.
+    \end{equation*}
+    The processes $(V^{\pm}(n))_{n \geq 0}$ are discrete martingales. Therefore, by Doob's maximal inequality,
+    \begin{equation*}
+        \P\left(\max_{i=1, \ldots, m} \abs{V^{\pm}(i)} > m^{1/2} \log(m) \right)
+        \leq \frac{\E[(V^{\pm}(m))^2]}{m (\log m)^2} = \frac{\sigma_{\pm}^2}{(\log m)^2} \to 0
+    \end{equation*}
+    as $m \to \infty$. Thus $\P(\walkDeviationEvent_m) \to 1$ as $m \to \infty$. Hence, we still have that
+    \begin{align*}
+        &\left( 
+            (\Gamma(n, \floor{T n^{2/3}}) + \littleo(1))\one_{E_{\floor{T n^{2/3}}}} ,
+            \left(
+                n^{-1/3} V^-(\floor{t n^{2/3}}),
+                n^{-1/3} V^+(\floor{t n^{2/3}})
+            \right)_{t \in [0, T]}
+         \right) \\
+         & \hspace{22em} \todist
+         \left( 
+             \Phi(T), (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
+          \right).
+    \end{align*}
+    We have $\E[\Phi(T)] = 1$ by a standard stochastic calculus calculation. Therefore, by \cref{lem:sandwiching-lemma}, we get the desired result that
+    \begin{align*}
+        &\left( 
+            \Phi(n, \floor{T n^{2/3}}) ,
+            \left(n^{-1/3} V^-(\floor{t n^{2/3}}), n^{-1/3} V^+(\floor{t n^{2/3}}) \right)_{t \in [0, T]}
+         \right) \\
+        & \hspace{22em} \todist
+         \left( 
+             \Phi(T), (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
+          \right),
+    \end{align*}
+    and that $(\Phi(n, \floor{T n^{2/3}}))_{n \geq 1}$ is a uniformly integrable sequence.
+\end{proof}
