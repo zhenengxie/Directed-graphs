@@ -11,7 +11,7 @@ When considering such models, previous work by \citet{cooperSizeLargestStrongly2
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.6]{Content/Pictures/biggraph.eps}
+    \includegraphics[scale=0.6]{Content/Pictures/Fig1.eps}
     \caption{A directed graph on [17]. The strongly connected components have vertex sets $\{1,2,5,17\}$, $\{3,6,8,9,14,16\}$, $\{7,11\}$, $\{4\}$, $\{10\}$, $\{12\}$, $\{13\}$, and $\{15\}$. Edges that are not part of an SCC are depicted as dashed arrows. Taken from \cite{goldschmidtScalingLimitCritical2019} with permission of the authors.}
     \label{fig.SCCs}
 \end{figure}
@@ -19,7 +19,7 @@ When considering such models, previous work by \citet{cooperSizeLargestStrongly2
 There are two notions of connectivity when working with a directed graph: weak and strong connectivity. We will be working with the strong notation. We say a vertex $v$ leads to a vertex $w$, written $v \rightarrow w$, if there exists a directed path from $v$ to $w$ in the graph. We say $v$ is \emph{strongly connected to $w$}, written $v \leftrightarrow w$, if $v$ leads to $w$ and $w$ leads to $v$. By convention, $v$ leads to itself. A graph is \emph{strongly connected} if all pairs of vertices in the graph are strongly connected. The relation $v \leftrightarrow w$ is an equivalence relation; the digraphs induced by the equivalence classes of $\leftrightarrow$ are referred to as the \emph{strongly connected components} (SCCs). For each vertex $v$ in a directed graph $\vec{G}$, we will use the notation $d^-(v)$ for the in-degree of $v$ and $d^+(v)$ for the out-degree of $v$. Moreover, a directed edge $(v,w)$ has \emph{tail} $v$ and \emph{head} $w$ (see Figure \ref{fig.tailhead}).
 \begin{figure}
     \centering
-    \includegraphics{Content/Pictures/tail_head.eps}
+    \includegraphics{Content/Pictures/Fig2.eps}
     \caption{An edge $(v,w)$ will be depicted as an arrow from $v$ to $w$.}\label{fig.tailhead}
 \end{figure}
 
@@ -100,7 +100,7 @@ We define the following parameters that will determine the behaviour of the SCCs
 \begin{figure}[htbp]
     \centering
 
-    \includegraphics[width=\textwidth]{Content/Pictures/largest_sccs.eps}
+    \includegraphics[width=\textwidth]{Content/Pictures/Fig3.eps}
     
     \caption{The largest SCC from samples of a directed configuration model with independent $\text{Poisson(1)}$ in- and out-degrees}
     \label{fig:largest-sccs}
@@ -138,13 +138,13 @@ Consider an MDM $M$ and a vertex $w \in M$ with in-degree 1 and out-degree 1 whi
     \centering
     \begin{subfigure}[htbp]{0.45\textwidth}
         \centering
-        \includegraphics[width=0.95\textwidth]{Content/Pictures/smoothing1.eps}
+        \includegraphics[width=0.95\textwidth]{Content/Pictures/Fig4a.eps}
         \caption{The graph before smoothing $w$}
     \end{subfigure}
     \hfill
     \begin{subfigure}[htbp]{0.45\textwidth}
         \centering
-        \includegraphics[width=0.95\textwidth]{Content/Pictures/smoothing2.eps}
+        \includegraphics[width=0.95\textwidth]{Content/Pictures/Fig4b.eps}
         \caption{The graph after smoothing $w$}
     \end{subfigure}
     \caption{Smoothing a vertex $w$}
@@ -162,13 +162,13 @@ An example is shown in Figure \ref{fig:kernel}.
     \centering
     \begin{subfigure}[htbp]{0.45\textwidth}
         \centering
-        \includegraphics[width=0.90\textwidth]{Content/Pictures/kernel1.eps}
+        \includegraphics[width=0.90\textwidth]{Content/Pictures/Fig5a.eps}
         \caption{$\vec{G}$}
     \end{subfigure}
     \hfill
     \begin{subfigure}[htbp]{0.45\textwidth}
         \centering
-        \includegraphics[width=0.90\textwidth]{Content/Pictures/kernel2.eps}
+        \includegraphics[width=0.90\textwidth]{Content/Pictures/Fig5b.eps}
         \caption{Kernel of $\vec{G}$}
     \end{subfigure}
     \caption{An example of a digraph $\vec{G}$ and its kernel. The numbers indicate the edge lengths.}
