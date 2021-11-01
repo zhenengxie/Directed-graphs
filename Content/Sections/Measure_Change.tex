@@ -3,7 +3,7 @@
 
 Recall $(\hat{\vD}_{n, 1}, \hat{\vD}_{n, 2}, \ldots, \hat{\vD}_{n, n})$ are are the degree pairs of the vertices in order of discovery, and that $R_n$ is the number of vertices with positive in-degree. The behaviour of the $\hat{\vD}_{m, n}$ for $m \leq R_n$ and $m > R_n$ is rather different. Before $R_n$, new vertices are discovered with probability proportional to their in-degree. After $R_n$, all vertices with positive in-degree have already been discovered and we choose to explore the remaining vertices in some uniform order.
 
-We show later in \cref{sec.convSCCs} that we only need to consider timescales of the order of $m = \Theta(n^{2/3})$. Let $p = \P(D^- > 0)$ such that $R_n$ is distributed as a $\text{Binomial}(n, p)$ random variable. We show now that the probability that $m \leq R_n$ will converge exponentially to 1.
+Later in \cref{sec.convSCCs}, we show that we only need to consider timescales of the order of $m = \Theta(n^{2/3})$. Let $p = \P(D^- > 0)$ such that $R_n$ is distributed as a $\text{Binomial}(n, p)$ random variable. We show now that the probability that $m \leq R_n$ will converge exponentially to 1.
 \begin{lemma}
     If $m = \Theta(n^{2/3})$ then there exists $c > 0$ such that $\P(R_n < m) < e^{-c n}$.
 \end{lemma}
@@ -18,13 +18,13 @@ We show later in \cref{sec.convSCCs} that we only need to consider timescales of
 \end{proof}
 Hence it is sensible to prove results on the event that $m \leq R_n$.
 
-When discussing the criticality condition, we noted that the limiting distribution of $\hat{D}_{n, 1}$ is given by $\vZ$ where
+When discussing the criticality condition, we gave heuristics showing that the limiting distribution of $\hat{D}_{n, 1}$ is given by $\vZ$ where
 \begin{equation*}
     \P(Z^- = k^-, Z^+ = k^+) = \frac{k^-}{\mu}\P(D^- = k^-, D^+ = k^+).
 \end{equation*}
-Similarly, $\hat{D}_{n, 2}$ is also approximately distributed like $\vZ$ for large $n$, and so on. In this section we in fact prove a precise relation between $\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}$ and sequence $\vZ_1, \vZ_2, \ldots$ of i.i.d.\ copies of $\vZ$.
+Similarly, $\hat{D}_{n, 2}$ is also approximately distributed like $\vZ$ for large $n$, and so on. In this section we in fact prove a precise relation between $\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}$ and the sequence $\vZ_1, \vZ_2, \ldots$ of i.i.d.\ copies of $\vZ$.
 
-The results proved in this section do not actually require the criticality condition, so let us define notation for the mean of the $Z_i^{\pm}$ and the corresponding centered random walks. Let
+The results proved in this section do not actually require the criticality condition, so let us define notation for the mean of the $Z_i^{\pm}$ and the two corresponding centered random walks. Let
 \begin{equation*}
     \lambda_{\pm} = \E[Z^{\pm}_1]
     \quad \text{and} \quad

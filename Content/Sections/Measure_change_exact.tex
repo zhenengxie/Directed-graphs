@@ -12,9 +12,9 @@ To determine the exact form of the measure change, we first need to know the law
 \begin{proof}
     In \cref{alg:edfs}, a vertex first becomes explored in two ways. Either it is at the start of an out-component or it is discovered when an out-half-edge is paired to one its in-half-edges.
 
-    Suppose we have explored $m$ vertices and $m < R_n$. If the next vertex is explored by pairing on of its in-half-edges, then we have chosen it with probability proportional to its in-degree since in- and out-half-edges are paired uniformly at random. Otherwise, it is at the start of a new out-component, and since $m < R_n$, there are still vertices of positive in-degree. Thus we still pick a new vertex with probability proportional to its in-degree.
+    Suppose we have explored $m$ vertices and $m < R_n$. If the next vertex is explored by pairing one of its in-half-edges, then we have chosen it with probability proportional to its in-degree since in- and out-half-edges are paired uniformly at random. Otherwise, it is at the start of a new out-component, and since $m < R_n$, there are still vertices of positive in-degree. Thus we still pick a new vertex with probability proportional to its in-degree.
 
-    This means that
+    Therefore in all cases,
     \begin{align*}
         &\P(\Sigma_n(m+1) = \sigma(m+1) \mid \Sigma_n(1) = \sigma(1), \ldots, \Sigma_n(m) = \sigma(m), \vD_1, \ldots, \vD_n) \\
         =&  \frac{D^-_{\sigma(m+1)}}{\sum_{i \in \cI_n} D_i^- - \sum_{j=1}^m D^-_{\sigma(j)}}
@@ -43,7 +43,7 @@ Next we establish the form of the measure change when we condition on the exact 
         \psi_r(\vk_1, \ldots, \vk_r) =
         \frac{1}{p^r} \prod_{i=1}^r \frac{(r - i + 1)\mu}{\sum_{j=i}^r k_i^-}.
     \end{equation*}
-    and $E_1^+, E_2^+, \ldots$ are of i.i.d.\ random variables such that $E_i^+$ has the same distribution as $D^+$ conditioned on $D^- = 0$ and $p = \P(\D^- > 0)$. We take the sequences $(E_i^+)_{i \geq 1}$ and $(\vZ_i)_{i \geq 1}$ to be independent.
+    and $E_1^+, E_2^+, \ldots$ are i.i.d.\ random variables such that $E_i^+$ has the same distribution as $D^+$ conditioned on $D^- = 0$. We take the sequences $(E_i^+)_{i \geq 1}$ and $(\vZ_i)_{i \geq 1}$ to be independent.
 \end{lemma}
 
 \begin{proof}

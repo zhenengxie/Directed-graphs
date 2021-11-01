@@ -217,10 +217,10 @@ We are finally ready to prove \cref{thm:multi-triangular-llt}
     where $\psi$ is the characteristic function of the $N(0, \cov(\vX))$ distribution. Therefore
     \begin{align*}
         &\sup_{\vy \in \vc_n + \lattice} \abs*{
-            n^{d/2} \P\left( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \right) - f(\vx_n)
+            n^{d/2} \P\left( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \right) - f(\vx_n(\vy))
             } \nonumber \\
         &\hspace{6em} = \sup_{\vy \in \vc_n + \lattice} \abs*{
-            \int_{\R^d} \left(\one_{S(\pi \sqrt{n})}(\vs) \phi_n(\vs/\sqrt{n})^n - \psi(\vs)\right) e^{-i\vs \cdot \vx_n} \dif \vs
+            \int_{\R^d} \left(\one_{S(\pi \sqrt{n})}(\vs) \phi_n(\vs/\sqrt{n})^n - \psi(\vs)\right) e^{-i\vs \cdot \vx_n(\vy)} \dif \vs
             } \\
         &\hspace{6em} \leq \int_{\R^d} \abs*{ \one_{S(\pi \sqrt{n})}(\vs) \phi_n(\vs/\sqrt{n})^n - \psi(\vs)} \dif \vs.
     \end{align*}

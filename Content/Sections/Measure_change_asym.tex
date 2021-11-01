@@ -4,7 +4,7 @@ Recall that our goal in \cref{prop:measure-change-no-crit} is to determine the l
 \begin{equation*}
     \Phi(n, m) = \phi^n_m(\vZ_1, \ldots, \vZ_m),
 \end{equation*}
-as $n \to \infty$, in the regime where $m = \Theta(n^{2/3})$. When dealing with convergence in distribution, it suffices to work on a sequence of events occuring with high probability. In particular, for the proof of \cref{prop:measure-change-no-crit}, we work on the event $\walkDeviationEvent_m$ where
+as $n \to \infty$, in the regime where $m = \Theta(n^{2/3})$. When dealing with convergence in distribution, it is suffcient and necessary to work on a sequence of events occuring with high probability. In particular, for the proof of \cref{prop:measure-change-no-crit}, we work on the event $\walkDeviationEvent_m$ where
 \begin{align*}
     \walkDeviationEvent_m
     &= \Bigg\{ 
@@ -17,7 +17,7 @@ as $n \to \infty$, in the regime where $m = \Theta(n^{2/3})$. When dealing with 
     } \leq m^{1/2} \log(m)
     \Bigg\}.
 \end{align*}
-This says that the centered random walks corresponding to $Z^+_i$ and $Z^-_i$ both do not deviate by more than $m^{1/2} \log(m)$ in the first $m$ steps. Each $Z^+_i$ and $Z^-_i$ has finite variance, thus this event will occur with high probability. 
+This says that the centered random walks corresponding to $Z^+_i$ and $Z^-_i$ both do not deviate by more than $m^{1/2} \log(m)$ in the first $m$ steps. The conditions in \cref{subsec:model-description} ensure each $Z^+_i$ and $Z^-_i$ has finite variance, thus this event will occur with high probability. 
 
 The following lemma is an analogue of \citet[Lemma 6.7]{conchon--kerjanStableGraphMetric2020}. In it we prove a deterministic lower bound on $\phi^n_m(\vk_1, \ldots, \vk_m)$, for all $\vk_1, \ldots, \vk_m$ corresponding to the event $\walkDeviationEvent_m$, up to an error which vanishes as $n \to \infty$.
 \begin{proposition}
@@ -57,7 +57,7 @@ The proof of this lemma is obtained by simply adding the corresponding $Z_n$ or 
 
 \subsubsection{Discrete local limit theorem}
 
-To prove \cref{prop:measure-change-approx}, we first need to understand the denominator of $\phi^n_m$, which, as given by \cref{lem:exact-measure-change}, is $\P(\Delta_n = 0, R_n \geq m)$. We show at the end of this section that the asymptotic behaviour of $\P(\Delta_n = 0, R_n \geq m)$ is dominated by the event $\{\Delta_n = 0\}$. The random variable $\Delta_n$ is a sum of independent integer-valued random variables and the asymptotic behaviour of such a sum being equal to some value is described by the discrete local limit theorem. Such a theorem was first proven by \citet{gnedenkoLocalLimitTheorem1948}. Here we borrow the presentation from \citet[Section 3.5]{durrettProbabilityTheoryExamples2019}.
+To prove \cref{prop:measure-change-approx}, we first need to understand the denominator of $\phi^n_m$, which, as given by \cref{lem:exact-measure-change}, is $\P(\Delta_n = 0)$. The random variable $\Delta_n$ is a sum of independent integer-valued random variables and the asymptotic behaviour of such a sum being equal to some value is described by the discrete local limit theorem. Such a theorem was first proven by \citet{gnedenkoLocalLimitTheorem1948}. Here we borrow the presentation from \citet[Section 3.5]{durrettProbabilityTheoryExamples2019}.
 
 Let $X_1, X_2, \ldots$ be i.i.d.\ integer-valued random variables with mean $\mu$ and finite variance $\sigma^2$. Then, by the central limit theorem,
 \begin{equation*}
@@ -105,7 +105,7 @@ This, however, is not always the case. Suppose, for example, that each $X_i$ is 
 Fortunately this kind of periodic behaviour can be mitigated by normalizing the random variables. A one-dimensional random variable $X$ is \emph{lattice} if it is not almost surely constant, and there exists $h > 0$ and $c \in \R$ such that $X \in c + h\Z$ almost surely. The largest such $h$ is called the \emph{span} of $X$. For example, if $X$ is almost surely even then $X$ has span at least 2. If $X$ is lattice with span $h$ and $c$ is in the support of $X$, then the affine transform $\frac{1}{h}(X - c)$ is an integer-valued random variable with span 1, for which it can be shown that the approximation in \cref{eq:llt-approx} does hold. This gives us the discrete local limit theorem:
 \begin{theorem}[Discrete local limit theorem]
     \label{thm:discrete-llt}
-    Let $X_1, X_2, \ldots$ be i.i.d.\ $\R$-valued lattice random variables with span $h$ and fix arbitrary $c \in \supp(X)$. Then
+    Let $X_1, X_2, \ldots$ be i.i.d.\ $\R$-valued lattice random variables with span $h$ and fix arbitrary $c \in \supp(X_1)$. Then
     \begin{equation*}
         \sup_{s \in n c + h \Z} \abs*{
             \P\big( \textstyle \sum_{i=1}^n X_i = s \big) 
@@ -132,7 +132,7 @@ Fortunately this kind of periodic behaviour can be mitigated by normalizing the 
 While this remark will be important later, here $\Delta_n$ is centered and we are interested in the probability $\P(\Delta_n = 0)$. In addition, the strong aperiodicity condition in \cref{subsec:model-description} tells us exactly that the $D^- - D^+$ is lattice with span 1. Thus the following is a direct corollary of the discrete local limit theorem (\cref{thm:discrete-llt}).
 \begin{corollary}
     \label{cor:measure-change-denominator-control}
-    If $m = \Theta(m^{2/3})$, then
+    We have
     \begin{equation*}
         \P(\Delta_n = 0) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} + \littleo(n^{-1/2})
     \end{equation*}
@@ -149,7 +149,7 @@ Next we turn to the numerator of $\phi^n_m$. By \cref{lem:exact-measure-change},
     \label{eq:measure-change-numerator}
     \E\left[ 
         \one \left\{ \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-) \right\}
-        \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \Xi_{n-m}^-}
+        \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-}
     \right].
 \end{equation}
 For convenience, let $\lltEvent_n$ denote the event in the indicator function, i.e.
@@ -171,18 +171,18 @@ which is, in general, non-zero. Then $m = \Theta(n^{2/3})$ whereas, if $\vk_1, \
 \begin{equation*}
     \sum_{i=1}^m (k_i^- - k_i^+) = \Theta(n^{2/3}).
 \end{equation*}
-In contrast, $\Delta_{n-m}$ is centered, so $\lltEvent$ is looking at the event that $\Delta_{n-m}$ takes a value at distance $\Theta(n^{2/3})$ away from its mean. As stated in \cref{rem:llt-limitations}, the discrete local limit theorem provides no useful information in this regime. 
+In contrast, $\Delta_{n-m}$ is centered, so $\lltEvent_n$ is looking at the event that $\Delta_{n-m}$ takes a value at distance $\Theta(n^{2/3})$ away from its mean. As stated in \cref{rem:llt-limitations}, the discrete local limit theorem provides no useful information in this regime. 
 
-The second problem is that even in absence of the indicator function, the expectation being evaluated in \cref{eq:measure-change-numerator} is not dictated by the typical fluctuations of the random variables $\Xi^-_{n-m}$. In other words it is not the case that
+The second problem is that even in absence of the indicator function, the expectation being evaluated in \cref{eq:measure-change-numerator} is not dictated by the typical fluctuations of the random variables $\Xi^-_{n-m}$. In other words, it is not the case that
 \begin{equation}
     \E\left[ 
-        \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \Xi_{n-m}^-}
+        \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-}
     \right]
     \not \approx
-    \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=1}^m k_j^- + \E[\Xi_{n-m}^-]}
+    \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \E[\Xi_{n-m}^-]}
 \end{equation}
 
-It turns out that both of these issues can be addressed by means introducing a sequence of exponentially tilted measures.  The first effect of the exponentially tilted measures will be to shift the mean of $\Delta_{n-m}$ and $\Xi_{n-m}$ in such a way that, after the tilting, the event $\lltEvent_n$ concerns only a typical deviation of $\Delta_{n-m}$ which can be addressed by a local limit theorem. The second effect is that the expectation being evaluated in \cref{eq:measure-change-numerator} will be dictated by the typical fluctations of $\Xi^-_{n-m}$ under the tilted measure. 
+It turns out that both of these issues can be addressed by introducing a sequence of exponentially tilted measures.  The first effect of the exponentially tilted measures will be to shift the mean of $\Delta_{n-m}$ in such a way that, after the tilting, the event $\lltEvent_n$ concerns only a typical deviation of $\Delta_{n-m}$ which can be addressed by a local limit theorem. The second effect is that the expectation being evaluated in \cref{eq:measure-change-numerator} will be dictated by the typical fluctations of $\Xi^-_{n-m}$ under the tilted measure. 
 
 The next result defines this tilt and then gives asymptotic expansions for cumulant generating function of $D^-$, the mean of $D^-$ and the mean of $D^+$ under this tilting. 
 \begin{lemma}
@@ -267,7 +267,7 @@ under the tilting. Thus we will expand the numerator under the event
         \abs{\Xi^-_{n-m} - \mu n + \lambda_- m} \leq n^{1/2} \log(n)
      \right\}.
 \end{equation*}
-This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its tilted mean. The next lemma then expands numerator on the event $\omegaEvent_n$.
+This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its tilted mean. The next lemma then expands the numerator of $\phi^n_m$ on the event $\omegaEvent_n$.
 \begin{lemma}
     \label{lem:measure-change-numerator}
     We have that
@@ -287,19 +287,19 @@ This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its til
 \begin{proof}
     Firstly,
     \begin{equation*}
-        \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} = \exp(X_n - Y_n),
+        \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^m k_j^- + \Xi^-_{n-m}} = \exp(X_n - Y_n),
     \end{equation*}
     where
     \begin{equation*}
         X_n = \sum_{i=1}^m \log\left( 1 - \frac{i-1}{n} \right)
         \quad \text{and} \quad
-        Y_n = \sum_{i=1}^m \log\left( \frac{\sum_{k=i}^m k_i^- + \Xi^-_{n-m}}{\mu n} \right).
+        Y_n = \sum_{i=1}^m \log\left( \frac{\sum_{j=i}^m k_j^- + \Xi^-_{n-m}}{\mu n} \right).
     \end{equation*}
     Note that
     \begin{equation*}
-        \sum_{j=i}^m k^-_j = s^-(m) - s^-(i - 1) + (m - i + 1) \lambda_-,
+        \sum_{j=i}^m k^-_j = s^-(m) - s^-(i - 1) + (m - i + 1) \lambda_-.
     \end{equation*}
-    and define
+    For convenience, define
     \begin{equation*}
         \Omega^-_n = \Xi^-_{n-m} - \mu n + \lambda_- m
     \end{equation*}
@@ -330,7 +330,7 @@ This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its til
     Therefore,
     \begin{align*}
         Y_n
-        &= \sum_{i=1}^m (A_{i, n} + B_{i, n} + - \tfrac{1}{2} B_{i, n}^2) + \littleo(1) \\
+        &= \sum_{i=1}^m (A_{i, n} + B_{i, n} - \tfrac{1}{2} B_{i, n}^2) + \littleo(1) \\
         &= - \frac{1}{\mu n} \sum_{i=0}^m \left( s^-(i) - s^-(m) \right)
         + \frac{m}{\mu n} \Omega_n^-
         - \frac{\lambda_-}{2\mu} \frac{m^2}{n} - \frac{\lambda_-^2}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1),
@@ -344,7 +344,7 @@ This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its til
 
     Thus,
     \begin{align*}
-        &\one_{\lltEvent_n \cap \omegaEvent_n} \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}} \\
+        &\one_{\lltEvent_n \cap \omegaEvent_n} \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^m k_j^- + \Xi^-_{n-m}} \\
         = &\exp \Bigg( \frac{1}{\mu n} \sum_{i=1}^m (s^-(i) - s^-(m)) \nonumber
          - \frac{m}{\mu n} \Omega^-_n + \frac{(\lambda_- - \mu)}{2 \mu} \frac{m^2}{n} + \frac{(\lambda_-^2 - \mu^2)}{6 \mu^2} \frac{m^3}{n^2} + \littleo(1) \Bigg) \one_{\lltEvent_n \cap \omegaEvent_n}.
     \end{align*}
@@ -359,12 +359,12 @@ This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its til
     \begin{align*}
         &\E\left[ 
             \one_{\lltEvent_n \cap \omegaEvent_n}
-            \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}}
+            \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^m k^-_j + \Xi^-_{n-m}}
         \right] \\
         =& \E_n\left[ 
             \frac{\dif \P}{\dif \P_n}
             \one_{\lltEvent_n \cap \omegaEvent_n}
-            \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{k=i}^m k^-_i + \Xi^-_{n-m}}
+            \prod_{i=1}^m \frac{(n-i+1)\mu}{\sum_{j=i}^m k^-_j + \Xi^-_{n-m}}
         \right] \\
         =& \E_n \left[ 
             \one_{\lltEvent_n \cap \omegaEvent_n}
@@ -389,13 +389,13 @@ To complete the proof of \cref{prop:measure-change-approx} we need to understand
         \Delta_{n-m} = \textstyle \sum_{i=1}^m (k_i^+ - k_i^-)
     \right\}
 \end{equation*}
-can be addressed by the local limit theorem. However, due to the tilting, $\P_n$ changes with $n$. In effect, $\Delta_n$ under $\P_n$ has the same distribution as $\sum_{i=1}^n X_{n, i}$ where $(X_{n, i})_{i=1}^n$ has the same joint distribution as $(D_i^- - D_i^+)_{i=1}^n$ under $\P_n$. Then $X_{n, 1}, \ldots, X_{n, n}$ are i.i.d.\ but the distribution of $X_{n, 1}$ can change with $n$. A collection of random variables $(X_{n, 1}, \ldots, X_{n, n})_{n = 1}^{\infty}$ satisfying this property is a \emph{row-wise i.i.d.\ triangular array}. Thus we require a generalisation of the discrete local limit theorem which can deal with such arrays. In addition, to deal with the event
+can be addressed by the local limit theorem. However, due to the tilting, $\P_n$ changes with $n$. In effect, $\Delta_n$ under $\P_n$ has the same distribution as $\sum_{i=1}^{n-m} X_{n, i}$ where $(X_{n, i})_{i=1}^n$ has the same joint distribution as $(D_i^- - D_i^+)_{i=1}^n$ under $\P_n$. Then $X_{n, 1}, \ldots, X_{n, n}$ are i.i.d.\ but the distribution of $X_{n, 1}$ can change with $n$. A collection of random variables $(X_{n, 1}, \ldots, X_{n, n})_{n = 1}^{\infty}$ satisfying this property is a \emph{row-wise i.i.d.\ triangular array}. Thus we require a generalisation of the discrete local limit theorem which can deal with such arrays. In addition, to deal with the event
 \begin{equation*}
     \omegaEvent_n = \left\{ 
         \abs*{\Xi_{n-m}^- - \mu n + \lambda_- m} \leq n^{1/2} \log n
     \right\},
 \end{equation*}
-we will prove a multivariate local limit theorem applicable to $(\Delta_n, \Xi^-_n)$ under $\P_n$ and then sum over the possible values of $\Xi^-_n$.
+we will prove a multivariate local limit theorem applicable to $(\Delta_{n-m}, \Xi^-_{n-m})$ under $\P_n$ and then sum over the possible values of $\Xi^-_n$.
 
 Before we state the result we use, we first define some terminology regarding lattices in $\R^d$. A set of points in $\R^d$ is a \emph{lattice} if there exists a basis $\va_1, \ldots, \va_d$ of $\R^d$ such that
 \begin{equation*}
@@ -407,7 +407,7 @@ We say $\lattice$ is generated by $\va_1, \ldots, \va_d$. We can summarise the b
 \begin{lemma}
     Let $A$ and $B$ be $n \times n$ matrices of full rank. Then the columns of $A$ and $B$ generate the same matrix if and only if there exists a matrix $U$ such that $U$ has integer entries, $\det(U) = \pm 1$ and $A = UB$.
 \end{lemma}
-Therefore we can define $\det(\lattice)$ to be $\abs{\det(A)}$ for any matrix $A$ whose columns generate $\lattice$.
+Therefore we can define $\det(\lattice)$ to be $\abs{\det(A)}$ for any matrix $A$ whose columns generate $\lattice$, and this definition is independent of the choice of $A$.
 
 For integer lattices, we can obtain a canonical choice of the basis generating the lattice. We say a $d \times d$ matrix $A$ is in \emph{Hermite normal form} if $A$ is lower triangular with entries 
 \begin{equation*}
@@ -429,7 +429,7 @@ Then the following lemma, adapted from \cite[Corollary 1]{casselsIntroductionGeo
     Suppose $\lattice \subset \Z^d$ is a lattice. Then there exists a $d \times d$ matrix $A$ in Hermite normal form such that the columns of $A$ form a basis which generates $\lattice$.
 \end{lemma}
 
-An $\R^d$-valued random variable $\vX$ is \emph{non-degenerate} if it is not supported on an affine hyperplane of $\R^d$. $\vX$ is \emph{lattice} if it is non-degenerated and support on a translation of a lattice. To avoid dealing with translations, it is convenient to work with the \emph{symmetrisation} of $\vX$. This is the random variable $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. For each lattice $\lattice$, $\vX$ is supported on a translation of $\lattice$ if and only if $\vX^*$ is supported on $\lattice$ without translation.
+An $\R^d$-valued random variable $\vX$ is \emph{non-degenerate} if it is not supported on an affine hyperplane of $\R^d$. $\vX$ is \emph{lattice} if it is non-degenerate and supported on a translation of a lattice. To avoid dealing with translations, it is convenient to work with the \emph{symmetrisation} of $\vX$. This is the random variable $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. For each lattice $\lattice$, $\vX$ is supported on a translation of $\lattice$ if and only if $\vX^*$ is supported on $\lattice$ without translation.
 
 If $\vX$ is lattice, the \emph{main lattice} $\lattice(\vX)$ of $\vX$ is the intersection of all lattices containing the support of $\vX^*$. This is in itself a lattice, and is explicitly given by
 \begin{equation*}
@@ -471,20 +471,20 @@ where $\theta_n = \frac{m}{\mu n}$. Since $\theta_n \to 0$, the distribution of 
         \P\Big(
             \textstyle \sum_{i=1}^n \vX_{n, i} = \vy
         \Big)
-        = n^{-d/2} \det(\lattice) f\left( \vx_n \right) + \littleo \left( n^{-d/2} \right)
+        = n^{-d/2} \det(\lattice) f\left( \vx_n(\vy) \right) + \littleo \left( n^{-d/2} \right)
         \quad \text{where} \quad
-        \vx_n = \frac{\vy - n \E[\vX_n]}{\sqrt{n}}
+        \vx_n(\vy) = \frac{\vy - n \E[\vX_n]}{\sqrt{n}}
     \end{equation*}
     and $f$ is the density of a $N(0, \cov(\vX))$ distribution. This means that
     \begin{equation*}
         \lim_{n \to \infty} \sup_{\vy \in \vc_n + \lattice} \abs*{
             n^{d/2} \P\Big( \textstyle \sum_{i=1}^n \vX_{n, i} = \vy \Big)
-            - \det(\lattice) f(\vx_n)
+            - \det(\lattice) f(\vx_n(\vy))
         } = 0.
     \end{equation*}
 \end{restatable}
 
-We now make a few remarks. Firstly $\vX$ is assumed to be lattice and thus non-degenerate. Hence $\cov(\vX)$ is invertible, ensuring $N(0, \cov(\vX))$ has a valid density $f$, explicitly given by
+We now make a few remarks. Firstly $\vX$ is assumed to be lattice and thus non-degenerate. Hence $\cov(\vX)$ is invertible, ensuring $N(0, \cov(\vX))$ has a valid density $f$, which is explicitly given by
 \begin{equation*}
     f(\vx) = \frac{1}{\sqrt{(2 \pi)^d \det(\cov(\vX))}}
     \exp \Bigg(
@@ -494,7 +494,7 @@ We now make a few remarks. Firstly $\vX$ is assumed to be lattice and thus non-d
 
 Secondly, since the $\vX_1, \vX_2, \ldots$ do not necessarily live in the same probability space we should not technically refer to the sequence $(\norm{\vX_n}^2)_{n \geq 1}$ as uniformly integrable. However the condition in \cref{eq:ui-condition} is still well defined. 
 
-We apply \Cref{thm:multi-triangular-llt} to $(\Xi_{n-m}^-, \Delta_{n-m})$. Let $\lattice$ be the main lattice of $(D^- - D^+, D^-)$. By \cref{lem:hnf-basis}, $\lattice$ is generated by the columns of a matrix $A$ in Hermite normal formal. Since $D^- - D^+$ has span 1, it must be the case that $A_{1, 1} = 1$. Thus there is some positive integer $q$ such that
+We apply \Cref{thm:multi-triangular-llt} to $(\Xi_{n-m}^-, \Delta_{n-m})$. Suppose $(D^- - D^+, D^-)$ is non-degenerate and let $\lattice$ be its main lattice. By \cref{lem:hnf-basis}, $\lattice$ is generated by the columns of a matrix $A$ in Hermite normal formal. Since $D^- - D^+$ has span 1, it must be the case that $A_{1, 1} = 1$. Thus there is some positive integer $q$ such that
 \begin{equation*}
     A = \begin{pmatrix}
         1 & 0 \\ 
@@ -504,7 +504,7 @@ We apply \Cref{thm:multi-triangular-llt} to $(\Xi_{n-m}^-, \Delta_{n-m})$. Let $
 Finally let $\Sigma$ be the covariance matrix of $(D^- - D^+, D^-)$. With this notation, the following lemma holds:
 \begin{lemma}
     \label{lem:bivar-llt}
-    For each $n$, let $\vc_n$ be in the support of $(\Delta_{n-m}, \Xi^-_{n-m})$. Then uniformly for $(x, y) \in \vc_n + \Lambda$,
+    Suppose $(D^- - D^+, D^-)$ is non-degenerate. For each $n$, let $\vc_n$ be in the support of $(\Delta_{n-m}, \Xi^-_{n-m})$. Then uniformly for $(x, y) \in \vc_n + \Lambda$,
     \begin{align*}
         &\P_n\left(
             \Delta_{n-m} = \E \big[ \Delta_{n-m} \big] + x, \ 
@@ -580,7 +580,24 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
             \abs{\Xi^-_{n-m} - \E_n[\Xi^-_{n-m}]} \leq n^{\frac{1}{2}} \log n
         \right).
     \end{equation*}
-    Define
+    Firstly, suppose $(D^- - D^+, D^-)$ is degenerate. Then since we assume that $D^- - D^+$ is non-constant, it must be the case that either $D^-$ or $D^+$ is constant. Either way, it becomes the case that
+    \begin{equation*}
+        \left\{
+            \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-), \ 
+            \abs{\Xi^-_{n-m} - \E_n[\Xi^-_{n-m}]} \leq n^{\frac{1}{2}} \log n
+        \right\}
+        =
+        \left\{
+            \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-)
+        \right\}.
+    \end{equation*}
+    Then applying \cref{thm:multi-triangular-llt}, as we did in the proof of \cref{lem:bivar-llt}, shows that
+    \begin{equation*}
+        \P\left( 
+            \Delta_{n-m} = \textstyle \sum_{i=1}^m (k_i^+ - k_i^-)
+        \right) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} (1 + \littleo(1)).
+    \end{equation*}
+    Otherwise assume that $(D^- - D^+, D^-)$ is non-degenerate. Define
     \begin{equation*}
         a_n = \sum_{i=1}^m (k_i^+ - k_i^-) - \E_n[\Delta_{n-m}].
     \end{equation*}
@@ -688,7 +705,7 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
 Now we are ready to prove \cref{prop:measure-change-approx}.
 
 \begin{proof}[Proof of \cref{prop:measure-change-approx}]
-    By \cref{lem:measure-change-numerator} we have that
+    By \cref{lem:exact-measure-change} and \cref{lem:measure-change-numerator} we have that
     \begin{align*}
         \phi(\vk_1, \ldots, \vk_m)
         &\geq \left\{ \exp\left(
