@@ -5,7 +5,7 @@
 
 Edges in real-world networks are often directed, such as links on the world wide web, ``follows'' on Twitter, financial transactions or disease transmission in a social network. When analysing networks, the first quantity that is often considered is the distribution of the degrees of nodes in the network.  In this paper we will consider sampling an i.i.d.\ sequence of in- and out-degrees, conditional on the total in-degree being equal to the total out-degree. We will then sample a uniform directed graph (digraph) with the given degree sequence. Results on such graphs are a useful benchmark, exposing additional underlying structure of a real-world network compared to a uniformly random graph with its degree sequence.
 
-When considering such models, previous work by \citet{cooperSizeLargestStrongly2004} (which we will discuss in more detail in Section \ref{sec.previouswork} below) shows that there exists a phase transition in the strong directed connectivity of the graph. Two vertices are part of the same \emph{strongly connected component} (SCC) if and only if there exists a directed cycle that contains both of them. Above some threshold, there will exist a unique giant SCC that occupies a positive proportion of the vertices whereas, below the threshold no SCC will occupy a positive proportion of the vertices. In Figure \ref{fig.SCCs}, a directed graph and its strongly connected components are depicted. In this paper we will prove the first detailed results about the critical case - specifically, that there exists a sequence of random weighted directed multigraphs that can be understood as the scaling limit of the SCCs when viewed in decreasing order of size.
+When considering such models, previous work by \citet{cooperSizeLargestStrongly2004} (which we will discuss in more detail in Section \ref{sec.previouswork}) shows that there exists a phase transition in the strong directed connectivity of the graph. Two vertices are part of the same \emph{strongly connected component} (SCC) if and only if there exists a directed cycle that contains both of them. Above some threshold, there will exist a unique giant SCC that occupies a positive proportion of the vertices whereas, below the threshold no SCC will occupy a positive proportion of the vertices. In Figure \ref{fig.SCCs}, a directed graph and its strongly connected components are depicted. In this paper we will prove the first detailed results about the critical case - specifically, that there exists a sequence of random weighted directed multigraphs that can be understood as the scaling limit of the SCCs when viewed in decreasing order of size.
 
 \subsection{Directed graphs}
 
@@ -16,7 +16,7 @@ When considering such models, previous work by \citet{cooperSizeLargestStrongly2
     \label{fig.SCCs}
 \end{figure}
 
-There are two notions of connectivity when working with a directed graph: weak and strong connectivity. We will be working with the strong notation. We say a vertex $v$ leads to a vertex $w$, written $v \rightarrow w$, if there exists a directed path from $v$ to $w$ in the graph. We say $v$ is \emph{strongly connected to $w$}, written $v \leftrightarrow w$, if $v$ leads to $w$ and $w$ leads to $v$. By convention, $v$ leads to itself. A graph is \emph{strongly connected} if any pair of vertices in the graph are strongly connected. The relation $v \leftrightarrow w$ is an equivalence relation; the digraphs induced by the equivalence classes of $\leftrightarrow$ are referred to as the \emph{strongly connected components} (SCCs). For each vertex $v$ in a directed graph $\vec{G}$, we will use the notation $d^-(v)$ for the in-degree of $v$ and $d^+(v)$ for the out-degree of $v$. Moreover, a directed edge $(v,w)$ has \emph{tail} $v$ and \emph{head} $w$ (see Figure \ref{fig.tailhead}).
+There are two notions of connectivity when working with a directed graph: weak and strong connectivity. We will be working with the strong notation. We say a vertex $v$ leads to a vertex $w$, written $v \rightarrow w$, if there exists a directed path from $v$ to $w$ in the graph. We say $v$ is \emph{strongly connected to $w$}, written $v \leftrightarrow w$, if $v$ leads to $w$ and $w$ leads to $v$. By convention, $v$ leads to itself. A graph is \emph{strongly connected} if all pairs of vertices in the graph are strongly connected. The relation $v \leftrightarrow w$ is an equivalence relation; the digraphs induced by the equivalence classes of $\leftrightarrow$ are referred to as the \emph{strongly connected components} (SCCs). For each vertex $v$ in a directed graph $\vec{G}$, we will use the notation $d^-(v)$ for the in-degree of $v$ and $d^+(v)$ for the out-degree of $v$. Moreover, a directed edge $(v,w)$ has \emph{tail} $v$ and \emph{head} $w$ (see Figure \ref{fig.tailhead}).
 \begin{figure}
     \centering
     \includegraphics{Content/Pictures/tail_head.eps}
@@ -28,11 +28,11 @@ There are two notions of connectivity when working with a directed graph: weak a
 
 \label{subsec:model-description}
 
-First consider a deterministic degree sequence $\vd_1, \ldots, \vd_n$ where $\vd_i = (d_i^-, d_i^+)\in \N \times \N$ for $i = 1, \ldots, n$. We say a directed graph with vertex set $\{1,\dots,n\}$ has degree sequence $\vd_1, \ldots, \vd_n$ if $(d^-(i), d^+(i)) = (d_i^-, d_i^+)$ for $i = 1, \ldots, n$.
+First consider a deterministic degree sequence $\vd_1, \ldots, \vd_n$ where $\vd_i = (d_i^-, d_i^+)\in \N \times \N$ for $i = 1, \ldots, n$. We say a directed graph with vertex set $[n]$, where $[n] = \{1,\dots,n\}$, has degree sequence $\vd_1, \ldots, \vd_n$ if $(d^-(i), d^+(i)) = (d_i^-, d_i^+)$ for $i = 1, \ldots, n$.
 
-In order to sample a uniformly random graph with a given degree sequence, we first consider the \emph{directed configuration model} introduced by \citet{cooperSizeLargestStrongly2004}. Take $n$ vertices $v_1, \ldots, v_n$ such that $v_i$ has $d^-_i$ in-half-edges and $d^+_i$ out-half-edges. Then construct a multigraph by choosing a uniformly random pairing of the in-half-edges with the out-half-edges. \citet{cooperSizeLargestStrongly2004} proved that if we condition on the resulting multigraph being simple, we obtain a uniformly chosen random digraph with the given degree sequence.
+In order to sample a uniformly random graph with a given degree sequence, we first consider the \emph{directed configuration model} introduced by \citet{cooperSizeLargestStrongly2004}. Take $n$ vertices $v_1, \ldots, v_n$ such that $v_i$ has $d^-_i$ in-half-edges and $d^+_i$ out-half-edges. Then construct a multigraph by choosing a uniformly random pairing of the in-half-edges with the out-half-edges. \citet[Sec.\ 2.1]{cooperSizeLargestStrongly2004} proved that if we condition on the resulting multigraph being simple, we obtain a uniformly chosen random digraph with the given degree sequence.
 
-In this paper we will consider the case where the degree sequence  consists of $n$ i.i.d.\ random variables conditioned on the total in-degree being equal to the total out-degree. So, let $\nu$ be a distribution on $\N \times \N$, and let $\vD_1, \ldots, \vD_n$ be a sequence of i.i.d.\ random variables with distribution $\nu$. We condition on the event
+In this paper we will consider the case where the degree sequence  consists of $n$ i.i.d.\ random variables conditioned on the total in-degree being equal to the total out-degree. Let $\nu$ be a distribution on $\N \times \N$, and let $\vD_1, \ldots, \vD_n$ be a sequence of i.i.d.\ random variables with distribution $\nu$. We condition on the event
 \begin{equation*}
     \left\{ \textstyle \sum_{i=1}^n D_i^- = \sum_{i=1}^n D_i^+ \right\},
 \end{equation*}
@@ -52,15 +52,15 @@ Suppose $(D^-, D^+)$ has law $\nu$. We will require the following assumptions to
 
 The first condition is required to ensure that the steps of a random walk used in the proof have finite variance, so that the random walk will convergence under rescaling to a Brownian motion. It also ensures similar regularity of other random variables that we use to encode the directed graph. (We discuss relaxing the moment conditions in Subsection \ref{subsec.openproblems}.)
 
-The second and third conditions make sure the event $\{\sum_{i=1}^n D^-_i = \sum_{i=1}^n D^+_i\}$ is well-behaved. The second condition ensures that it is not a large deviation event. Using a result from \citet[Page 42, P1]{spitzerPrinciplesRandomWalk1964}, the third condition ensures that the event has positive probability for all $n \geq 1$. This condition can be relaxed by taking limits for $n \in p \N$ rather than $n \in \N$ where $p$ is the periodicity of $D^- - D^+$. However, for simplicity of presentation, we will keep it as an assumption.
+The second and third conditions make sure the event $\{\sum_{i=1}^n D^-_i = \sum_{i=1}^n D^+_i\}$ is well-behaved. The second condition ensures that it is not a large deviation event. Using a result from \citet[Page 42, P1]{spitzerPrinciplesRandomWalk1964}, the third condition ensures that the event has positive probability for all sufficiently large $n \geq 1$. This condition can be relaxed to assuming that $D^- - D^+$ is non-constant by taking limits for $n \in p \N$ rather than $n \in \N$ where $p$ is the periodicity of $D^- - D^+$. However, for simplicity of presentation, we will keep it as an assumption.
 
 The fourth assumption is the criticality condition. To understand how this arises, consider the directed configuration model and let $(V_n, W_n)$ be a uniformly chosen edge. For now, ignore the conditioning on the total in- and out-degrees being equal. We consider the distribution of the in- and out-degree of $W_n$. Because the degree sequence is an i.i.d.\ sequence, $W_n$ is equally likely to be any vertex $i$. Thus for any $\vk = (k^-, k^+)$,
 \begin{align*}
     \P(d^-(W_n) = k^-, d^+(W_n) = k^+)
-    &= n \P(W_n = 1 \mid \vD_1 = \vk) \P(\vD_1 = \vk) \\
+    &= n \P(W_n = 1, \vD_1 = \vk) \\
     &= n \E[\P(W_n = 1 \mid \vD_1 = \vk, \vD_2, \ldots, \vD_n)] \P(\vD_1 = \vk)
 \end{align*}
-Conditionally on the degree sequence, we have that $W = i$ with probability proportional to $D^-_i$ since we used an uniform pairing of the in- and out-half-edges. Therefore
+Conditionally on the degree sequence, we have that $W_n = i$ with probability proportional to $D^-_i$ since we used an uniform pairing of the in- and out-half-edges. Therefore
 \begin{align*}
     \P(W_n = 1 \mid \vD_1 = \vk, \vD_2, \ldots, \vD_n)
     &= \frac{k^-}{k^- + \sum_{i=2}^n D_i^-}.
@@ -76,13 +76,13 @@ Using the law of large numbers, the above will converge to
 \begin{equation*}
     \frac{k^-}{\E[D^-]} \P\left[ D^- = k^-, D^+ = k^+ \right].
 \end{equation*}
-Let $(Z^-, Z^+)$ be such that $P(Z^- = k^-, Z^+ = k^+)$ is given by the above expression. We say $(Z^-, Z^+)$ has the law of the \emph{degree distribution size-biased by in-degree}. For large $n$, any other fixed out-edge of $W_n$ is then distributed approximately like a uniformly chosen edge (here we are ignoring the fact that we have already sampled an edge) and so the out-degree of the head will have approximately the same distribution as $Z^+$. Thus if we were to look at the graph of all vertices leading from $W_n$, it would look approximately like a Bienaymé tree\footnote{For $\mu$ a probability distribution on $\N$, a Bienaymé tree with offspring distribution $\mu$ is the family tree of a branching process with offspring distribution $\mu$. Bienaymé trees are often referred to as Galton-Watson trees, but we decide to follow the name change suggested by \citet{addarioberry2021universal}.} with offspring distribution $Z^+$. It is well known that such trees exhibit a critical behaviour at $\E[Z^+] = 1$. This is equivalent to assuming $\E[D^-D^+] = E[D^-]$.
+Let $(Z^-, Z^+)$ be such that $P(Z^- = k^-, Z^+ = k^+)$ is given by the above expression. We say $(Z^-, Z^+)$ has the law of the \emph{degree distribution size-biased by in-degree}. For large $n$, any other fixed out-edge of $W_n$ is then also distributed approximately like a uniformly chosen edge (here we are ignoring the fact that we have already sampled an edge) since we chose the in- and out-edge pairing uniformly at random. Therefore the out-degree of the head will have approximately the same distribution as $Z^+$. Thus if we were to look at the graph of all vertices leading from $W_n$, it would look approximately like a Bienaymé tree\footnote{For $\mu$ a probability distribution on $\N$, a Bienaymé tree with offspring distribution $\mu$ is the family tree of a branching process with offspring distribution $\mu$. Bienaymé trees are often referred to as Galton-Watson trees, but we decide to follow the name change suggested by \citet{addarioberry2021universal}.} with offspring distribution $Z^+$. It is well known that such trees exhibit critical behaviour in whether or not the tree is finite at $\E[Z^+] = 1$. This is equivalent to assuming $\E[D^-D^+] = E[D^-]$.
 
 \citet{cooperSizeLargestStrongly2004} studied this phase transition for a deterministic degree sequence $\vd_1, \ldots, \vd_n$. They defined the parameter
 \begin{equation*}
     d = \frac{\sum_{i=1}^n d_i^+ d_i^-}{\sum_{i=1}^n d_i^-}
 \end{equation*}
-which is a counterpart of $\E[Z^-]$ for deterministic degree sequences. They showed that, under additional assumptions, there exists a phase transition for the existence of a giant SCC depending on whether $d$ is strictly greater than or less than 1. Our work in this paper shows $\E[Z^-] = 1$ is also the correct criticality condition to take for i.i.d.\ random degree sequences.
+which is a counterpart of $\E[Z^-]$ for deterministic degree sequences. They then showed that, under additional assumptions, there exists a phase transition for the existence of a giant SCC depending on whether $d$ is strictly greater than or less than 1. Our work in this paper shows our corresponding condition, $\E[Z^-] = 1$, is also the correct criticality condition to take for i.i.d.\ random degree sequences.
 
 We define the following parameters that will determine the behaviour of the SCCs in the limit.
 \begin{enumerate}
@@ -106,30 +106,30 @@ We define the following parameters that will determine the behaviour of the SCCs
     \label{fig:largest-sccs}
 \end{figure}
 
-Figure \ref{fig:largest-sccs} shows the largest SCC from samples of a directed configuration model. As can be seen, while the lengths of paths in the SCC are long, the actual structure of the SCC is often quite simple. Previous work by \citet{goldschmidtScalingLimitCritical2019} shows that this is true for the \emph{directed Erdős--Rényi model in the critical window}. The \emph{directed Erd\H{o}s--Rényi model on $n$ vertices with parameter $p$}, denoted by $\vec{G}(n,p)$, is a random digraph with vertex set $\{1,\dots, n\}$ in which each of the $n(n-1)$ possible directed edges is included with probability $p$ independently. The cases $p=(1+\lambda n^{-1/3})/n$ for $\lambda\in\R$ are referred to as \emph{the critical window}, and the case $p=1/n$ is called \emph{criticality}. In \cite{goldschmidtScalingLimitCritical2019}, it was shown that, for the directed Erdős--Rényi model in the critical window, while the lengths of paths in the SCC scale like $n^{1/3}$, the combinatorial structure of the SCC remains finite. The same turns out to be true in our more general setting.
+Figure \ref{fig:largest-sccs} shows the largest SCC from samples of a directed configuration model. As can be seen, while the lengths of paths in the SCC are long, the actual structure of the SCC is often quite simple. Previous work by \citet{goldschmidtScalingLimitCritical2019} shows that this is true for the \emph{directed Erdős--Rényi model} in the \emph{critical window}. The \emph{directed Erd\H{o}s--Rényi model} on $n$ vertices with parameter $p$, denoted by $\vec{G}(n,p)$, is a random digraph with vertex set $[n]$ in which each of the $n(n-1)$ possible directed edges is included with probability $p$ independently. The cases $p=(1+\lambda n^{-1/3})/n$ for $\lambda\in\R$ are referred to as \emph{the critical window}, and the case $p=1/n$ is called \emph{criticality}. In \cite{goldschmidtScalingLimitCritical2019}, it was shown that, for the directed Erdős--Rényi model in the critical window, while the lengths of paths in the SCCs scale like $n^{1/3}$, the combinatorial structure of the SCCs remains finite. The same turns out to be true in our setting.
 
-This idea was formalised in \cite{goldschmidtScalingLimitCritical2019}, and we will use the same formalism in this work. We will first introduce \emph{metric directed multigraphs} (MDMs). These are simply weighted directed multigraphs, but in our context it is more appropriate to think of the weights as lengths, which motivates the change in naming. Formally, a directed multigraph is a tuple $(V, E, r)$ where
+This idea was formalised in \cite{goldschmidtScalingLimitCritical2019}, and we will use the same formalism in this work. We will first introduce \emph{metric directed multigraphs} (MDMs). These are simply weighted directed multigraphs, but in our context it is more appropriate to think of the weights as lengths, which motivates the change in naming. Formally, a \emph{directed multigraph} is a tuple $(V, E, r)$ where
 \begin{enumerate}
-    \item $V$ is a set of vertices,
-    \item $E$ is a set of edges, and
-    \item $r: E \to V \times V$ is a function mapping each edge to its head and tail; associated with $r$ are two functions $r_1: E \to V$ and $r_2: E \to V$ such that
+    \item $V$ is a set of \emph{vertices},
+    \item $E$ is a set of \emph{edges}, and
+    \item $r: E \to V \times V$ is a function mapping each edge to its \emph{head} and \emph{tail}; associated with $r$ are two functions $r_1: E \to V$ and $r_2: E \to V$ such that
 \begin{equation*}
     r(e) = (r_1(e), r_2(e))
 \end{equation*}
 for all $e \in E$. $r_1(e)$ is the tail of the edge $e$ and $r_2(e)$ is the head of the edge $e$.
 \end{enumerate}
- Then a metric directed multigraph (MDM) is a tuple $M = (V, E, r, l)$ where $(V, E, r)$ is a directed multigraph and $l:E \to [0, \infty)$. Let $\zeroloop$ denote the MDM consisting of a single vertex with a self-loop of length 0.
+ Then a \emph{metric directed multigraph (MDM)} is a tuple $M = (V, E, r, l)$ where $(V, E, r)$ is a directed multigraph and $l:E \to [0, \infty)$. Let $\zeroloop$ denote the MDM consisting of a single vertex with a self-loop of length 0.
 
 An \emph{isomorphism} between two MDMs $M = (V, E, r, l)$ and $M' = (V', E', r', l')$ is a pair of functions $(i_V, i_E)$ where $i_V: V \to V'$ and $i_E: E \to E'$ are bijections satisfying the relation
 \begin{equation*}
     r'(i_E(e)) = (i_V(r_1(e)), i_V(r_2(e)))
 \end{equation*}
-for all $e \in E$. We say two MDMs are \emph{isomorphic} if there exists an isomorphism between them. In other words, the MDMs have the same graph structures for their underlying directed multigraphs up to a relabelling of the edges and vertices. Write $\iso(M, M')$ for the set of all isomorphisms between $M$ and $M'$.
+for all $e \in E$. We say two MDMs are \emph{isomorphic} if there exists an isomorphism between them. In other words, isomorphic MDMs have the same graph structures for their underlying directed multigraphs up to a relabelling of the edges and vertices. Write $\iso(M, M')$ for the set of all isomorphisms between $M$ and $M'$.
 
 We now define a distance $\distmdm$ between two MDMs $M$ and $M'$.  Any isomorphism between $M$ and $M'$ gives a correspondence between the edges of $M$ and the edges of $M'$. We can then take an $\ell_{\infty}$ distance between the lengths of the edges and finally take the isomorphism which minimizes this distance. If $M$ and $M'$ are not isomorphic, we set the distance to be infinite. Formally,
 \begin{equation*}
     \distmdm(M, M') = \begin{cases}
-        \inf_{(i_V, i_E) \in \iso(M, M')} \sup_{e \in E} \abs{l(e) - l(i_E(e))} & \text{if $M$ and $M'$ are isomorphic,} \\
+        \inf_{(i_V, i_E) \in \iso(M, M')} \sup_{e \in E} \abs{l(e) - l'(i_E(e))} & \text{if $M$ and $M'$ are isomorphic,} \\
         \infty & \text{otherwise.}
     \end{cases}
 \end{equation*}
@@ -157,7 +157,7 @@ Then the kernel of a digraph $\vec{G}$ is obtained by doing the following:
     \item Iteratively smooth vertices with in-degree 1 and out-degree 1 that are not self-loops until there are none remaining.
     \item Replace all singletons by $\zeroloop$.
 \end{enumerate}
-Denote the resulting MDM by $\kernel(\vec{G})$. An example is shown in Figure \ref{fig:kernel}.
+An example is shown in Figure \ref{fig:kernel}.
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[htbp]{0.45\textwidth}
@@ -169,9 +169,9 @@ Denote the resulting MDM by $\kernel(\vec{G})$. An example is shown in Figure \r
     \begin{subfigure}[htbp]{0.45\textwidth}
         \centering
         \includegraphics[width=0.90\textwidth]{Content/Pictures/kernel2.eps}
-        \caption{$\kernel(\vec{G})$}
+        \caption{Kernel of $\vec{G}$}
     \end{subfigure}
-    \caption{An example of a digraph $\vec{G}$ and its kernel $\kernel(\vec{G})$. The numbers indicate the edge lengths.}
+    \caption{An example of a digraph $\vec{G}$ and its kernel. The numbers indicate the edge lengths.}
     \label{fig:kernel}
 \end{figure}
 
@@ -179,32 +179,32 @@ Denote the resulting MDM by $\kernel(\vec{G})$. An example is shown in Figure \r
 
 \subsection{Our results}
 
-For $M$ an MDM and $c\in (0,\infty)$, let $cM$ be equal to $M$ with all lengths multiplied by $c$. Let $C_i(n)$ for $i\geq 1$ be the kernels of the SCCs of $\vec{G}_n(\nu)$, listed in decreasing order of size, breaking ties arbitrarily. Complete the list with an infinite repeat of $\zeroloop$. Then, our main theorem is as follows.
+For $M$ an MDM and $c\in (0,\infty)$, let $cM$ be equal to $M$ with all lengths multiplied by $c$. Let $C_i(n)$ for $i\geq 1$ be the kernels of the SCCs of $\vec{G}_n(\nu)$, listed in decreasing order of number of edges, breaking ties arbitrarily. Complete the list with an infinite repeat of $\zeroloop$. Then, our main theorem is as follows.
 \begin{theorem}\label{thm.main}
-There exists a sequence $\cC=(\cC_i,i\in \N)$ of random strongly connected MDMs such that, for each $i\geq 1$, $\cC_i$ is either $3$-regular or a loop, and such that 
+There exists a sequence $\cC=(\cC_i,i\in \N)$ of random strongly connected MDMs such that 
 $$\left(n^{-1/3}C_i(n),i\in \N\right)\todist\left(\cC_i,i\in \N\right)$$
-as $n\to \infty$, with respect to the product $d_{\vec{\cG}}$-topology. The law of $\cC=(\cC_i,i\in \N)$ depends only on the parameters $\mu$, $\sigma_+$, and $(\sigma_{-+}+\nu_-)/\mu$.
+as $n\to \infty$, with respect to the product $d_{\vec{\cG}}$-topology. The law of $\cC=(\cC_i,i\in \N)$ depends only on the parameters $\mu$, $\sigma_+$, and $(\sigma_{-+}+\nu_-)/\mu$. Further, for each $i\geq 1$, $\cC_i$ is either $3$-regular or a loop.
 \end{theorem}
-We will describe the limit object and some of its properties in Subsection \ref{subsec.limitobject}.
+We will describe the limit object and some of its further properties in Subsection \ref{subsec.limitobject}.
 
-We see here why it is important to consider singletons as loops of length zero. For any fixed $k$, the $k$th largest SCC will not be a singleton with high probability. Therefore, no component of our limiting object will be a singleton. Thus we need to pad our SCCs by $\zeroloop$ and consider the kernel of singletons to be $\zeroloop$, to prevent the distance, as defined by $d_{\vec{G}}$, between a singleton in $\left(n^{-1/3}C_i(n),i\in \N\right)$ and any element of $\left(\cC_i,i\in \N\right)$ being infinite.
+The law of the limit object places some particular cases of our model in the universality class of the directed Erd\H{o}s--Rényi model as studied by \citet{goldschmidtScalingLimitCritical2019}. This is the content of the following corollary. Note however that their result holds in a stronger topology: they use an $\ell_1$-like topology on the space of sequences of MDMs, whereas we show our result in the product topology. Due to this, it is important in their paper to consider singletons as loops of length zero. For any fixed $k$, the $k$th largest SCC will not be a singleton with high probability as $n \to \infty$. Therefore, no component of our limiting object will be a singleton. Thus they need to pad their SCCs by $\zeroloop$ and consider the kernel of singletons to be $\zeroloop$, to prevent the $\ell_1$-distance, as defined by $d_{\vec{G}}$, between $\left(n^{-1/3}C_i(n),i\in \N\right)$ and $\left(\cC_i,i\in \N\right)$ being infinite. We follow the same convention.
 
-The law of the limit object places some particular cases of our model in the universality class of the directed Erd\H{o}s--Rényi model as studied by \citet{goldschmidtScalingLimitCritical2019}. This is the content of the following corollary. Note however that their result holds in a stronger topology: they use an $\ell_1$-like topology on the space of sequences of MDMs, whereas we show our result in the product topology. 
-\begin{corollary}\label{cor.erdosrenyi}
+\begin{theorem}\label{cor.erdosrenyi}
 Consider $\vec{G}_n(\nu)$, with $\nu$ such that $$\mu=\sigma_+=\sigma_{-+}+\nu_-=1.$$ 
 Let $(C^\nu_i(n), i\geq 1)$ be the kernels of the SCCs of $\vec{G}_n(\nu)$. Furthermore, let $(C^{ER}_i(n), i\geq 1)$ be the kernels of the SCCs of $\vec{G}(n,1/n)$. Then, $\left(n^{-1/3}C^\nu_i(n),i\in \N\right)$ and 
 $\left(n^{-1/3}C^{ER}_i(n),i\in \N\right)$ have the same limit in distribution in the product-$d_{\vec{\cG}}$-topology as $n\to \infty$. 
-\end{corollary}
+\end{theorem}
 Note that the condition in Corollary \ref{cor.erdosrenyi} is satisfied by $\nu(k^-,k^+)=\nu_1(k^-)\nu_2(k^+)$, with $\nu_1$ and $\nu_2$ the law of a $\operatorname{Poisson}(1)$ random variable.
 
 Moreover, Theorem \ref{thm.main} has the following trivial corollaries, which were previously unknown. 
 \begin{corollary}\label{cor.componentsizes}
-There exists a random sequence $(E_i,i\in \N)\in \R_+^\infty$, such that for $(E^n_i,i\in \N)$ the total number of edges in the SCCs of $\vec{G}_n(\nu)$ ordered by decreasing number of edges and for $(V^n_i,i\in\N)$ the number of vertices in the the SCCs of $\vec{G}_n(\nu)$ ordered by decreasing number of vertices, both appended with an infinite repeat of $0$,
+Let $E^i_n$ and $V^i_n$ be the number of edges and vertices in $C_i(n)$ respectively, both appended with infinite repeats of $0$. Then there exists a random sequence $(E_i,i\in \N)\in \R_+^\infty$, such that
 $$\left(n^{-1/3}E^n_i,n^{-1/3}V^n_i, i\in \N\right)\todist\left(E_i,E_i,i\in \N\right)$$
 as $n\to \infty$ in the product topology on $(\R^2)^\infty$. 
 \end{corollary}
+In particular, note that, in the above corollary, the number of vertices and number of edges have the exact same scaling limit.
 \begin{corollary}\label{cor.diameter}
-For $v,w\in \vec{G}_n(\nu)$ such that $v\to w$, let $d(v,w)$ denote the length of the shortest directed path from $v$ to $w$, and let $$\operatorname{Diam}\left(\vec{G}_n(\nu)\right)=\max_{v,w\in V}\{d(v,w):v\to w\}$$ be the \emph{diameter} of $\vec{G}_n(\nu)$. Then, for any $\epsilon>0$, there is a $\delta>0$ such that $$\P\left( n^{-1/3}\operatorname{Diam}\left(\vec{G}_n(\nu)\right)>\delta\right)>1-\epsilon$$ for all $n$ large enough.
+For $v,w\in \vec{G}_n(\nu)$ such that $v\to w$, let $d(v,w)$ denote the length of the shortest directed path from $v$ to $w$, and let $$\operatorname{Diam}\left(\vec{G}_n(\nu)\right)=\max_{v,w\in V}\{d(v,w):v\to w\}$$ be the \emph{diameter} of $\vec{G}_n(\nu)$. Then, for any $\epsilon>0$, there is a $\delta>0$ such that $$\P\left( n^{-1/3}\operatorname{Diam}\left(\vec{G}_n(\nu)\right)>\delta\right)>1-\epsilon$$ for all $n$ large enough. Equivalently, $\operatorname{Diam}\left( \vec{G}_n(\nu) \right) = \Omega_p(n^{1/3})$.
 \end{corollary}
 
 
@@ -217,7 +217,7 @@ Configuration models with a random degree sequence are considered in \cite{josep
 
 Some results have been obtained for other directed graph models. \citet{caoConnectivityGeneralClass2019} consider a class of inhomogeneous directed random graphs. Their results include a phase transition for the existence of a giant SCC. This is a generalisation of work by Bloznelis, Götze and Jaworski in \cite{Bloznelis2012}, in which a smaller class of inhomogeneous directed graphs is considered. Samorodnitsky, Resnick, Towsley, Davis, Willis and Wan \cite{Samorodnitsky2016} studied the tails of the degree distribution in the directed preferential attachment model. \citet{goldschmidtScalingLimitCritical2019} studied the directed Erd\H{o}s-R\'enyi model, and were the first to obtain metric space convergence of the SCCs of a directed graph. Our methods build on their techniques.
 
-The directed configuration model was first considered by \citet{cooperSizeLargestStrongly2004}. They consider a deterministic degree sequence under a number of conditions. Let $\mu$ be the expected in-degree of a uniformly chosen vertex and $\rho$ be the expected product of the in-degree and out-degree of a uniformly chosen vertex. As discussed previously, a phase transition for the SCCs occurs when $d=\rho/\mu=1$. They show that for $d<1$, with high probability, all SCCs contain $O(\Delta\log(n))$ vertices, for $\Delta$ the maximal degree. On the other hand, for $d>1$, there is a unique SCC that contains a positive proportion of the vertices and edges. Their conditions are restrictive, and include finite second moments for both the in- and out-degree of a uniformly chosen vertex, and a bound of size $n^{1/12}/\log(n)$ on the largest degree. Their proofs are based on an algorithm to explore the directed graph. The condition on the largest degree was later relaxed to $O(n^{1/4})$ by \citet{Graf2016}. These results are in contrast with Corollary \ref{cor.componentsizes}, which says that in our set-up the number of vertices and edges in the largest strongly connected components are $\Theta(n^{1/3})$ in probability.
+The directed configuration model was first considered by \citet{cooperSizeLargestStrongly2004}. They consider a deterministic degree sequence under a number of conditions. As discussed previously in \cref{subsec:model-description}, a phase transition for the SCCs occurs when a parameter $d=1$. They show that for $d<1$, with high probability, all SCCs contain $O(\Delta\log(n))$ vertices, for $\Delta$ the maximal degree. On the other hand, for $d>1$, there is a unique SCC that contains a positive proportion of the vertices and edges. Their conditions are restrictive, and include finite second moments for both the in- and out-degree of a uniformly chosen vertex, and a bound of size $n^{1/12}/\log(n)$ on the largest degree. Their proofs are based on an algorithm to explore the directed graph. The condition on the largest degree was later relaxed to $O(n^{1/4})$ by \citet{Graf2016}. These results are in contrast with the critical case, with Corollary \ref{cor.componentsizes}, which says that in our set-up the number of vertices and edges in the largest strongly connected components are $\Theta(n^{1/3})$ in probability.
 
 Recently, Cai and Perarnau have obtained a number of results on the directed configuration model with deterministic degrees. In \cite{caiDiameterDirectedConfiguration2020}, they show, under first and second moment conditions of the degree of a uniformly picked vertex, for $d\neq 1$ (i.e. not at criticality), that the diameter of the model on $n$ vertices, rescaled by $\log(n)$ converges to a constant that they identify. This is in contrast with Corollary \ref{cor.diameter}, which says that in our set-up the diameter is $\Omega(n^{1/3})$ in probability at criticality. Then, in \cite{caiGiantComponentDirected2020}, they show a law of large numbers for the number of vertices and edges in the largest SCC, under slightly stronger moment conditions, and again away from the critical point. In \cite{cai2021rw}, they study the behaviour of a random walk on a directed configuration model.
  
@@ -239,21 +239,28 @@ The techniques we will use to investigate the graph model are a combination of t
 Our techniques use height processes and \L ukasiewicz paths, which are standard objects used to encode trees and forests (see for instance \cite[Chapter 0]{AST_2002__281__R1_0}). We will introduce these here. Let $T=(V,E,\rho)$ be an ordered rooted finite tree with vertex set $V$, edge set $E$ and root vertex $\rho$; say $|V|=n$. Let $v_0,\dots,v_{n-1}$ denote the vertices of the tree visited in depth-first order, so that $v_0=\rho$. We can view $T$ as a metric space by regarding all edges as line segments of length $1$ that are connected via the vertices. The distance $d_T$ between points $a_1$ and $a_2$ on line segments $l_1$ and $l_2$ respectively is then defined as the length of the unique non-self-intersecting path between $a_1$ and $a_2$ that traverses the line segments of the tree. Denote $(T,d_T)$ by $\mathrm{T}$.\\
 We will define the height process and \L ukasiewicz path of $\mathrm{T}$. Both of these functions uniquely characterize $\mathrm{T}$. The height process of $\mathrm{T}$, referred to as $h$, is defined as $$h(i)=d_T(v_i,v_0),$$ i.e.  for all $i$, $h(i)$ equals the distance from $v_i$ to the root.
 Moreover, for all $i=1,\dots,n$, let $y_i$ be the number of children of $v_{i-1}$, and set $y_0=1$. Then, the \L ukasiewicz path of $\mathrm{T}$ is defined by $$s(i)=\sum\limits_{j\leq i} (y_j-1)$$ for $i=0,\dots,n$. Then, $s(i)$ is the total number of younger siblings of $v_i$ and its ancestors.
-For a sequence of ordered rooted finite trees (with or without edge lengths), we define its height process by concatenating the height processes of the trees in the sequence. The \L ukasiewicz path is defined similarly. 
+For a sequence of ordered rooted finite trees, we define its height process by concatenating the height processes of the trees in the sequence. The \L ukasiewicz path is defined similarly. 
 
-We will study the law of the SCCs of a uniform directed graph with degree sequence $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, conditional on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$ by executing the configuration model in a depth-first manner. This sampling naturally gives rise to a directed subforest of the resulting multigraph, which we call the \emph{out-forest}. The sampling procedure is  described in \cref{alg:edfs}, and is also illustrated in Figure \ref{fig.configuration model}. The definition of the out-forest is illustrated in Figure \ref{fig.configuration modeloutforest}.  
+We will study the law of the SCCs of a uniform directed graph with degree sequence $(\mathbf{D}_1,\dots,\mathbf{D}_n)$, conditional on $\sum_{i=1}^n D^-_i=\sum_{i=1}^n D^+_i$ by exploring the configuration model in a depth-first manner. This sampling naturally gives rise to a directed subforest of the resulting multigraph, which we call the \emph{out-forest}. The sampling procedure is  described in \cref{alg:edfs}, and is also illustrated in Figure \ref{fig.configuration model}. The definition of the out-forest is illustrated in Figure \ref{fig.configuration modeloutforest}.  
 
 \begin{figure}
-    \centering
-    \includegraphics[scale=1]{Content/Pictures/configuration_model.eps}
-    \caption{The gray arrows represent unpaired out-half-edges of vertices that have been discovered. One by one, in depth first order, these are paired to a uniform unpaired in-half-edge.}
-    \label{fig.configuration model}
-\end{figure}
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[scale=1]{Content/Pictures/configuration_model_out_forest.eps}
-    \caption{The out-forest is defined based on the exploration of the digraph. For each surplus edge, we add a dummy leaf. The labels of the vertices correspond to the time step in the exploration at which the vertex is added. The gray edges lead to vertices of which we do not know whether it is a dummy vertex, and if not, what its degree is. }
-    \label{fig.configuration modeloutforest}
+    \begin{subfigure}[htbp]{\textwidth}
+        \centering
+        \includegraphics[scale=1]{Content/Pictures/configuration_model.eps}
+        \caption{The gray arrows represent unpaired out-half-edges of vertices that have been discovered. One by one, in depth first order, these are paired to a uniform unpaired in-half-edge.}
+        \label{fig.configuration model}
+    \end{subfigure} \\
+
+    \vspace{2em}
+
+    \begin{subfigure}[htbp]{\textwidth}
+        \centering
+        \includegraphics[scale=1]{Content/Pictures/configuration_model_out_forest.eps}
+        \caption{The out-forest is defined based on the exploration of the digraph. For each surplus edge, we add a dummy leaf. The labels of the vertices correspond to the time step in the exploration at which the vertex is added. The gray edges lead to vertices of which we do not know whether it is a dummy vertex, and if not, what its degree is. }
+        \label{fig.configuration modeloutforest}
+    \end{subfigure}
+
+    \caption{Partial constructions of the configuration model and out-forest}
 \end{figure}
 
 % This procedure differs from the exploration used by \citet{goldschmidtScalingLimitCritical2019}.  The eDFS takes as input a directed multigraph and uses a stack (ordered list) of edges. When the stack is empty, we are at the start of a new out-component and pick a new vertex $w$ with probability proportional to its in-degree. Otherwise we remove the last edge $(v, w)$ from the stack. In both cases, if $w$ is not yet in the list of discovered vertices, we add the out-edges from this vertex to the \emph{end} of the stack of edges (this choice is what makes the exploration depth-first) and add $w$ to the list of discovered vertices $\exploredvertices$.  The order in which vertices are added to $\exploredvertices$ is referred to as their \emph{order of discovery}. Note that we will not discover any vertex with in-degree 0. From the perspective of finding the SCCs, this is not a problem since such vertices will form singleton SCC.
