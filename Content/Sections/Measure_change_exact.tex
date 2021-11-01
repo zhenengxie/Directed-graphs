@@ -1,6 +1,6 @@
 \subsection{Exact form of the measure change}
 
-To determine the exact form of the measure change, we first need to know the law of the reordering of the first $R_n$ vertices. Let $\cI_n = \{i \in [n] : D_i^- > 0\}$. The first $R_n$ vertices we explore in \cref{alg:edfs} will have positive in-degree, thus there exists a random bijection $\Sigma_n: [R_n] \to \cI_n$ such that $\hat{\vD}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$. 
+To determine the exact form of the measure change, we first need to know the law of the ordering of the first $R_n$ vertices. Let $\cI_n = \{i \in [n] : D_i^- > 0\}$. The first $R_n$ vertices we explore in \cref{alg:edfs} will have positive in-degree, thus there exists a random bijection $\Sigma_n: [R_n] \to \cI_n$ such that $\hat{\vD}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$. 
 \begin{lemma}
     $\Sigma_n$ has law
     \begin{equation*}
@@ -12,7 +12,7 @@ To determine the exact form of the measure change, we first need to know the law
 \begin{proof}
     In \cref{alg:edfs}, a vertex first becomes explored in two ways. Either it is at the start of an out-component or it is discovered when an out-half-edge is paired to one its in-half-edges.
 
-    Suppose we have explored $m$ vertices and $m < R_n$. If the next vertex is explored by pairing on of its in-half-edges, then we have chosen it with probability porportional to it's in-degree since in- and out-half-edges are paired uniformly at random. Otherwise if its at the start of its component, since $m < R_n$ there are still vertices of positive in-degree and thus we still pick a new vertex with probability proportional to it's in-degree.
+    Suppose we have explored $m$ vertices and $m < R_n$. If the next vertex is explored by pairing on of its in-half-edges, then we have chosen it with probability proportional to its in-degree since in- and out-half-edges are paired uniformly at random. Otherwise, it is at the start of a new out-component, and since $m < R_n$, there are still vertices of positive in-degree. Thus we still pick a new vertex with probability proportional to its in-degree.
 
     This means that
     \begin{align*}

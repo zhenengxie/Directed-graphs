@@ -21,30 +21,28 @@ The proof is structured as follows.
 \begin{enumerate}
     \item \label{item.measurechangeexists} Recall that $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ are the degree pairs of the vertices in order of discovery. Also recall $\mathbf{Z}_1, \mathbf{Z}_2, \ldots$ in an i.i.d.\ sequence of $\N\times \N$-valued random variables, $\mathbf{Z}_i:=(Z_i^-,Z_i^+)$, such that 
     $$\P(Z_i^-=k^-, Z_i^+=k^+)=\frac{k^-\P(D^-=k^-,D^+=k^+)}{\mu}.$$
-    In \cref{sec:measure-change} we showed that the law of $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ conditional on $\sum_{i=1}^n D_i^-=\sum_{i=1}^n D_i^+$ and $m \leq R_n$ is absolutely continuous with respect to that of $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and we show the convergence under rescaling of the Radon-Nikodym derivative $\phi_m^n$ for $m=\lfloor T n^{2/3}\rfloor$. 
+    In \cref{sec:measure-change}, we showed that the law of $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,m})$ conditional on $\sum_{i=1}^n D_i^-=\sum_{i=1}^n D_i^+$ and $m \leq R_n$ is absolutely continuous with respect to that of $(\mathbf{Z}_1,\dots, \mathbf{Z}_m)$, and we showed the convergence under rescaling of the Radon-Nikodym derivative $\phi_m^n$ for $m=\lfloor T n^{2/3}\rfloor$. 
     \item Point \ref{item.measurechangeexists} motivates us to study a Bienaymé forest with offspring distributed as $Z_1^+$. The convergence of the \L ukasiewicz path of this forest under rescaling follows from Donsker's theorem.
     \item In Subsection \ref{subsec.purpleleavesGWforest}, we modify the Bienaymé forest in order to include dummy leaves. We add extra randomness, approximating the procedure described in \cref{prop:sampleoutforest}, in such a way that at some time-steps, a dummy leaf is added. We call the resulting forest \emph{the forest with dummy leaves}. We respect the order of the degrees in the Bienaymé forest, in the sense that for any $k$, the $k$th true vertex in the forest with dummy leaves has the same number of children as the $k$th vertex in the Bienaymé forest. The law of the forest with dummy leaves depends on $n$, because the probability of finding a dummy leaf depends on $n$. We then show that the \L ukasiewicz path and height process of the forest with dummy leaves converge under rescaling, jointly with the convergence of the \L ukasiewicz path and height process of the Bienaymé forest under rescaling up to time $\lfloor T n^{2/3}\rfloor$.
     \item We show convergence under rescaling of the out-forest up to time $\lfloor T n^{2/3}\rfloor$ by applying the measure change to the forest with dummy leaves and showing that the resulting forest is a good approximation of the out-forest. 
 \end{enumerate}
 
 \subsection{Convergence before adding the dummy leaves}
-We let
-$$ \hat{Y}^+(k)=\sum\limits_{i=1}^k (\hat{D}^+_{n,i}-1)$$
-encode the out-degrees in order of discovery, while 
-$$ \hat{Y}^-(k)=\sum\limits_{i=1}^k (\hat{D}^-_{n,i}-1)$$
-encodes the in-degrees in order of discovery.
+We let the two processes
+$$ \hat{Y}^{\pm}(k)=\sum\limits_{i=1}^k (\hat{D}^{\pm}_{n,i}-1)$$
+for $1\leq k\leq n$ encode the degrees in order of discovery.
 
 We will study these processes via the measure change that we defined in \cref{sec:measure-change}. Let
 \begin{equation*}
   Y^{\pm}(k) = \sum_{i=1}^k (Z_i^{\pm} - 1)
 \end{equation*}
-be the corresponding walks for $(\vZ_i)_{i=1}^{\infty}$. Then in the critical case, these are related to the centered random walks $V^{\pm}$ by
+be the corresponding walks for $(\vZ_i)_{i=1}^{\infty}$. Then, in the critical case, these are related to the centered random walks $V^{\pm}$ by
 \begin{equation*}
   Y^+(k) = V^+(k)
   \quad \text{and} \quad
   Y^-(k) = V^-(k) - (\lambda_- - 1) k = V^-(k) - \nu_- k.
 \end{equation*}
-Therefore as a corollary of \cref{prop:measure-change-no-crit}, we have that
+Therefore, we obtain the following corollary of \cref{prop:measure-change-no-crit}.
 \begin{corollary}
   \label{cor:measure-change}
   Suppose we are in the setting of \cref{prop:measure-change-no-crit} and that the criticality condition holds. Then for all $T > 0$,
