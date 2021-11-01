@@ -1,6 +1,6 @@
 \section{Convergence of the SCCs under rescaling}\label{sec.convSCCs}
 
-In this section, we will use the convergence of the out-forest that we obtained in Section \ref{sec.convoutforest} to show that the SCCs ordered by decreasing length converge under rescaling in the $d_{\vec{\cG}}$-product topology. 
+In this section, we will use the convergence of the out-forest that we obtained in Section \ref{sec.convoutforest} to show that the SCCs ordered by decreasing number of edges converge under rescaling in the $d_{\vec{\cG}}$-product topology. 
 % \begin{itemize}
 %     \item In Subsection XXX, we categorise the different type of surplus edges, and identify which of them are part of an SCC. We call these \emph{important} surplus edges.
 %     \item A key category of \emph{important} surplus edges is the \emph{ancestral surplus edges}. Namely, a component of $\hat{F}_n(k)$ can not contain a non-trivial SCC if it does not contain an ancestral surplus edge. In Subsection XXX, we use this fact to identify the components of $\hat{F}_n\left(\lfloor n^{2/3}T\rfloor \right)$ that contain a non-trivial SCC, and show that their metric structure converges jointly with the position of their first ancestral surplus edge. 
@@ -249,7 +249,7 @@ in the $\vec{\cG}$-product topology, as $n\to \infty$.
 This follows from Proposition \ref{prop.extractexcursions}, \cref{prop:sccsinonetreeconverge}, and the fact that all SCCs in the limit object have a different length by \cref{prop:allengthsaredifferent}. 
 \end{proof}
 
-Finally, we claim that we can choose $T$ large enough such that the largest SCCs are explored before time $\lfloor Tn^{2/3}\rfloor$. This is the content of the following lemma. The proof is in the same spirit as \citet[Lemma 9]{aldous_1991}.
+Finally, we claim that we can choose $T$ large enough such that the SCCs with the highest number of edges are explored before time $\lfloor Tn^{2/3}\rfloor$. This is the content of the following lemma. The proof is in the same spirit as \citet[Lemma 9]{aldous_1991}.
 \begin{lemma}\label{lemma.largesccfoundfirst}
 For $\delta>0$ and $I$ an interval, let $SCC(n,I,\delta)$ denote the number of SCCs whose vertices have at total of at least $\delta n^{1/3}$ in-edges (including those which are not part of the SCC) and whose time of first discovery is in $n^{2/3}I$. Then,
 $$\lim_{s\to \infty}\limsup_{n} \P\left(SCC(n,(s,\infty),\delta)\geq 1\right)=0\text{ for all }\delta>0.$$
@@ -270,7 +270,7 @@ We conclude that
     \P(SCC\left(n,(s,\infty),\delta\right)\geq 1)\leq 2\epsilon. \qedhere
 \end{equation*}
 \end{proof}
-Note that the size of an SCC is bounded from below by the total number of in-edges of vertices in the SCC.
+Note that the number of edges in an SCC is bounded from below by the total number of in-edges of vertices in the SCC.
 
 We now show that for any $j$ and any $\epsilon>0$, we can pick $T$ large enough such the $j$ largest components in $(\cC_i,i\geq 1)$ are contained in $(\cC^T_i,i \geq 1)$ with probability at least $1-\epsilon$.
 

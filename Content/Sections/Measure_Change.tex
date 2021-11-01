@@ -1,17 +1,17 @@
 \section{Analysis of the measure change}
 \label{sec:measure-change}
 
-Recall $(\hat{\vD}_{n, 1}, \hat{\vD}_{n, 2}, \ldots, \hat{\vD}_{n, n})$ are are the degree pairs of the vertices in order of discovery, and that $R_n$ is the number of vertices with positive in-degree. The behaviour of the $\hat{\vD}_{m, n}$ for $m < R_n$ and $m > R_n$ is rather different. Before $R_n$, new vertices are discovered with probability proportional to their in-degree. After $R_n$, all vertices with positive in-degree have only been discovered and we choose to explore the remaining vertices in some uniform order.
+Recall $(\hat{\vD}_{n, 1}, \hat{\vD}_{n, 2}, \ldots, \hat{\vD}_{n, n})$ are are the degree pairs of the vertices in order of discovery, and that $R_n$ is the number of vertices with positive in-degree. The behaviour of the $\hat{\vD}_{m, n}$ for $m \leq R_n$ and $m > R_n$ is rather different. Before $R_n$, new vertices are discovered with probability proportional to their in-degree. After $R_n$, all vertices with positive in-degree have already been discovered and we choose to explore the remaining vertices in some uniform order.
 
 We show later in \cref{sec.convSCCs} that we only need to consider timescales of the order of $m = \Theta(n^{2/3})$. Let $p = \P(D^- > 0)$ such that $R_n$ is distributed as a $\text{Binomial}(n, p)$ random variable. We show now that the probability that $m \leq R_n$ will converge exponentially to 1.
 \begin{lemma}
-    If $m = \Omega(n^{2/3})$ then there exists $c > 0$ such that $\P(R_n < m) < e^{-c n}$.
+    If $m = \Theta(n^{2/3})$ then there exists $c > 0$ such that $\P(R_n < m) < e^{-c n}$.
 \end{lemma}
 \begin{proof}
-    If $m = \Omega(n^{2/3})$ then $\E[R_n] - m = pn - m = \Omega(n)$. Thus by Hoeffding's inequality
+    If $m = \Theta(n^{2/3})$ then $\E[R_n] - m = pn - m = \Theta(n)$. Thus by Hoeffding's inequality
     \begin{equation*}
         \P(R_n < m)
-        = \P(\E[R_n] - R_n > \E[R_n] - m)
+        = \P\left(\E[R_n] - R_n > \E[R_n] - m\right)
         \leq e^{-\frac{2}{n} (\E[R_n] - m)^2} < e^{-cn}
     \end{equation*}
     for some $c > 0$.
@@ -22,7 +22,7 @@ When discussing the criticality condition, we noted that the limiting distributi
 \begin{equation*}
     \P(Z^- = k^-, Z^+ = k^+) = \frac{k^-}{\mu}\P(D^- = k^-, D^+ = k^+).
 \end{equation*}
-Similarly $\hat{D}_{n, 2}$ is also approximately disributed like $\vZ$ for large $n$, and so on. In this section we in fact prove a precise relation between $\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}$ and sequence $\vZ_1, \vZ_2, \ldots$ of i.i.d.\ copies of $\vZ$.
+Similarly, $\hat{D}_{n, 2}$ is also approximately distributed like $\vZ$ for large $n$, and so on. In this section we in fact prove a precise relation between $\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}$ and sequence $\vZ_1, \vZ_2, \ldots$ of i.i.d.\ copies of $\vZ$.
 
 The results proved in this section do not actually require the criticality condition, so let us define notation for the mean of the $Z_i^{\pm}$ and the corresponding centered random walks. Let
 \begin{equation*}
@@ -38,19 +38,19 @@ The criticality condition is then equivalent to assuming $\lambda_+ = 1$. We als
 \end{equation*}
 such that $\{\Delta_n = 0\}$ is the event that the total out-degree is equal to the total in-degree.
 
-The following lemma asserts the existence of the measure change $\phi^n_m$, and it's joint scaling limit with the random walks $V^-$ and $V^+$ when $m = \floor{n^{2/3} T}$ for some $T > 0$.
+The following lemma asserts the existence of the measure change $\phi^n_m$, and its joint scaling limit with the random walks $V^-$ and $V^+$ when $m = \floor{n^{2/3} T}$ for some $T > 0$.
 \begin{proposition}
     \label{prop:measure-change-no-crit}
     For all positive integers $n$ and $m$ such that $m \leq n$, there exists a function $\phi^n_m: (\N \times \N)^n \to [0, \infty)$ such that 
     \begin{equation*}
-        \E[u(\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}) \one\{R_n \geq m\} \mid \Delta_n = 0]
+        \E\left[\left.u(\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}) \one\{R_n \geq m\} \right| \Delta_n = 0\right]
         = \E[u(\vZ_1, \ldots, \vZ_m) \phi^n_m(\vZ_1, \ldots, \vZ_m)]
     \end{equation*}
     for all bounded test functions $u: (\N \times \N)^m \to \R$. Define
     \begin{equation*}
         \Phi(n, m) = \phi^n_m(\vZ_1, \ldots, \vZ_m).
     \end{equation*}
-    Further let $(W^-, W^+)$ be a pair of correlated standard Bownian motions with correlations $\corr(Z_1^-, Z_1^+)$ and, for $T > 0$, define
+    Further, let $(W^-, W^+)$ be a pair of correlated standard Brownian motions with correlation $\corr(Z_1^-, Z_1^+)$ and, for $T > 0$, define
     \begin{equation*}
         \Phi(T) = \exp\left( 
             - \frac{\sigma_-}{\mu} \int_0^T s \dif W_s^- 
@@ -71,7 +71,7 @@ The following lemma asserts the existence of the measure change $\phi^n_m$, and 
             (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
         \right)
     \end{align*}
-    in $\R \times \D([0, T], \R^2)$ as $n \to \infty$, even in absence of the criticality condition.
+    in $\R \times \D([0, T], \R^2)$ as $n \to \infty$, even in the absence of the criticality condition.
 \end{proposition}
 The rest of this section is dedicated to proving this proposition.
 
