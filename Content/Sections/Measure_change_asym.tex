@@ -19,7 +19,7 @@ as $n \to \infty$, in the regime where $m = \Theta(n^{2/3})$. When dealing with 
 \end{align*}
 This says that the centered random walks corresponding to $Z^+_i$ and $Z^-_i$ both do not deviate by more than $m^{1/2} \log(m)$ in the first $m$ steps. The conditions in \cref{subsec:model-description} ensure each $Z^+_i$ and $Z^-_i$ has finite variance, thus this event will occur with high probability. 
 
-The following lemma is an analogue of \citet[Lemma 6.7]{conchon--kerjanStableGraphMetric2020}. In it we prove a deterministic lower bound on $\phi^n_m(\vk_1, \ldots, \vk_m)$, for all $\vk_1, \ldots, \vk_m$ corresponding to the event $\walkDeviationEvent_m$, up to an error which vanishes as $n \to \infty$.
+The following lemma is an analogue of \citet[Lemma 6.7]{conchon--kerjanStableGraphMetric2021}. In it we prove a deterministic lower bound on $\phi^n_m(\vk_1, \ldots, \vk_m)$, for all $\vk_1, \ldots, \vk_m$ corresponding to the event $\walkDeviationEvent_m$, up to an error which vanishes as $n \to \infty$.
 \begin{proposition}
     \label{prop:measure-change-approx}
     Define
@@ -42,7 +42,7 @@ The following lemma is an analogue of \citet[Lemma 6.7]{conchon--kerjanStableGra
 \end{proposition}
 
 
-The fact that we only prove a lower bound may seem strange at first. To understand why this is sufficient, first note that all measure changes are non-negative random variables and have expectation 1. Hence if the sequence of lower bounds on the measure changes converge to a limit that also has expectation 1, then we have not have lost a significant amount of probability mass. It follows that the measure changes converge to the same limit as the lower bounds. This is made formal by \citet[Lemma 4.8]{conchon--kerjanStableGraphMetric2020}. In \cref{prop:measure-change-no-crit} we are considering the joint convergence of the measure change with two other random walks, and thus we adapt \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} to allow for an additional coordinate that is converging jointly with the first coordinate.
+The fact that we only prove a lower bound may seem strange at first. To understand why this is sufficient, first note that all measure changes are non-negative random variables and have expectation 1. Hence if the sequence of lower bounds on the measure changes converge to a limit that also has expectation 1, then we have not have lost a significant amount of probability mass. It follows that the measure changes converge to the same limit as the lower bounds. This is made formal by \citet[Lemma 4.8]{conchon--kerjanStableGraphMetric2021}. In \cref{prop:measure-change-no-crit} we are considering the joint convergence of the measure change with two other random walks, and thus we adapt \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2021} to allow for an additional coordinate that is converging jointly with the first coordinate.
 \begin{lemma}
     \label{lem:sandwiching-lemma}
     Let $(X_n, Y_n, Z_n)_{n \geq 1}$ be a sequence of $[0, \infty) \times [0, \infty) \times S$-valued random variables where $S$ is a metric space. Suppose there exists a $[0, \infty) \times S$-valued random variable $(Y, Z)$ such that the following holds:
@@ -53,7 +53,7 @@ The fact that we only prove a lower bound may seem strange at first. To understa
     \end{enumerate}
     Then $(X_n, Z_n) \todist (Y, Z)$ also. Moreover $(X_n)_{n \geq 1}$ is a sequence of uniformly integrable random variables.
 \end{lemma}
-The proof of this lemma is obtained by simply adding the corresponding $Z_n$ or $Z$ coordinate to quantities in the proof of \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2020} and so we will not repeat it here.
+The proof of this lemma is obtained by simply adding the corresponding $Z_n$ or $Z$ coordinate to quantities in the proof of \cite[Lemma 4.8]{conchon--kerjanStableGraphMetric2021} and so we will not repeat it here.
 
 \subsubsection{Discrete local limit theorem}
 
