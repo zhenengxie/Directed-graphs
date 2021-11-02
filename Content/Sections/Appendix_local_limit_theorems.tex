@@ -1,7 +1,9 @@
 \section{Multivariate triangular local limit theorem}
 \label{sec:llt}
 
-The goal of this section is to prove \cref{thm:multi-triangular-llt}. First, we recall some definitions. An $\R^d$-valued random variable $\vX$ is lattice if it is non-degenerate and is supported on the translation of some lattice. The symmetrisation of $\vX$ is given by $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. If $\vX$ is lattice, the main lattice of $\vX$ is given by
+The goal of this section is to prove \cref{thm:multi-triangular-llt}. This can be deduced from \citet[Corollary 1]{mukhinLocalLimitTheorems1992}. However, Mukhin's result is more general than is needed to prove \cref{thm:multi-triangular-llt}. As a result, the conditions which we need to check in order to apply Mukhin's result are rather complicated. Instead, we offer here an elementary proof.
+
+First, we recall some definitions. An $\R^d$-valued random variable $\vX$ is lattice if it is non-degenerate and is supported on the translation of some lattice. The symmetrisation of $\vX$ is given by $\vX^* = \vX_1 - \vX_2$ where $\vX_1$ and $\vX_2$ are independent copies of $\vX$. If $\vX$ is lattice, the main lattice of $\vX$ is given by
 \begin{equation*}
     \lattice = \bigcup_{m=1}^{\infty} \left\{ 
         \textstyle \sum_{i=1}^m n_i \vx^*_i : \text{$n_i \in \Z$ and $\vx^*_i \in \supp(\vX^*)$ for all $i = 1, \ldots, m$}
