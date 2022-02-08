@@ -50,16 +50,16 @@ Therefore, we obtain the following corollary of \cref{prop:measure-change-no-cri
       &\left( 
           \Phi(n, \floor{n^{2/3} T}),
           \left(
-              n^{-2/3} Y^-\left( \floor{n^{2/3} t} \right),
-              n^{-1/3} Y^+\left( \floor{n^{2/3} t} \right)
+              n^{-1/3} V^-\left( \floor{n^{2/3} t} \right),
+              n^{-1/3} V^+\left( \floor{n^{2/3} t} \right)
           \right)_{t \in [0, T]}
       \right) \\
       & \hspace{23em} \todist \left( 
           \Phi(T),
-          (\nu_- t, \sigma_+ W^+_t)_{t \in [0, T]}
+          (\sigma_- W^+_t, \sigma_+ W^+_t)_{t \in [0, T]}
       \right)
   \end{align*}
-  in $\R \times \D([0, T], \R^2)$ as $n \to \infty$.
+  in $\R \times \D([0, T], \R^2)$ as $n \to \infty$ and $\left(\Phi(n,\floor{n^{2/3} T})\right)_{n\geq 1}$ is uniformly integrable.
 \end{corollary}
 Let $(\hat{B}_t,t\geq 0)$ be distributed as follows. For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
 \begin{align*} &\E\left[F(\sigma_+ \hat{B}_t,0\leq t \leq T)\right]\\&=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B_t,   0\leq t \leq T)\right].\end{align*}
@@ -93,12 +93,53 @@ in the Skorokhod topology as $n\to \infty$.
 Let $(B^1_t,t\geq 0)$ and $(B^2_t,t\geq 0)$ be two independent Brownian motions, so that we may define $$(\sigma_-W^-_t,\sigma_+W^+_t,t\geq 0)=\left(\frac{\sigma_{-+}}{\sigma_+}B_t^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2} B_t^2, \sigma_+ B_t^1, t\geq 0\right).$$ 
  Then, \cref{cor:measure-change} implies that for $F$ a continuous, bounded test function, 
  \begin{align*}&\E\left[F\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right) \right]\\
- &=\E\left[F\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right)\one_{\lfloor Tn^{2/3}\rfloor \leq R_n} \right]+o(1)
- \\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
- &=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB^1_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B^1_t,   0\leq t \leq T)\right].\end{align*}
- For the details of the argument, we refer the reader to the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2021}. Then, the fact that $(Y(k),k\geq 1)$ is a random walk with steps of mean $\nu_-$ implies that
+ &=\E\left[F\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right)\one_{\lfloor Tn^{2/3}\rfloor \leq R_n} \right]+o(1)\\
+ &= \E\left[\Phi(n,\floor{n^{2/3}T})F\left(n^{-1/3}{V}^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right) \right]+o(1).\end{align*}
+By the proof of Proposition \ref{prop:measure-change-no-crit}, we see that for $$\Gamma(n,m)=\exp\left(\frac{1}{\mu n} \sum_{i=0}^m(V^-(i)-V^-(m))-\frac{\sigma_-}{6\mu^2}\frac{m^3}{n^2}\right),$$
+we have that 
+$$\E\left[\left|\Phi(n,\lfloor n^{2/3}T\rfloor)-\Gamma(n,\lfloor n^{2/3}T\rfloor)\right|\right]\to  0$$
+as $n\to\infty$, so it sufficient to show that 
+$$\E\left[ \Gamma(n,\lfloor n^{2/3}T\rfloor)F\left(n^{-1/3}V^+\left(\lfloor n^{2/3}t\rfloor\right), 0\leq t \leq T \right)\right] \to \E\left[F\left(\sigma_+\hat{B}_t,0\leq t\leq T\right)\right].$$
+Write 
+$V^+_{(n)}(t)=n^{-1/3}{V}^+\left(\lfloor n^{2/3}t\rfloor\right)$ and $V^-_{(n)}(t)=n^{-1/3}V^-\left(\lfloor n^{2/3}t\rfloor\right)$. 
+Then we observe that 
+ $$\Gamma(n,\floor{n^{2/3}T})=\exp\left(\frac{1}{\mu}\int_0^T\left({V}^-_{(n)}(t)-{V}^-_{(n)}(T)\right)dt-\frac{\sigma_-}{6\mu^2}\frac{\lfloor Tn^{2/3}\rfloor^3}{n^2}\right).$$
+For a path $x\in \D([0,T],\R)$, let 
+$$\Theta(x,T)= \exp\left(\frac{1}{\mu}\int_0^T\left(x(t)-x(T)\right)dt-\frac{\sigma_-}{6\mu^2}T^3\right)$$
+so that $\Theta$ is a continuous functional of its first argument and 
+$$\E\left[\left|\Gamma(n,\floor{n^{2/3}T})-\Theta({V}^-_{(n)} ,T)\right|\right]\to 0$$
+as $n\to\infty$. This implies that it suffices to show that 
+$$\E\left[\Theta({V}^-_{(n)} ,T)F\left(V^+_{(n)}(t), 0\leq t \leq T \right)\right] \to \E\left[F\left(\sigma_+\hat{B}_t,0\leq t\leq T\right)\right].$$
+But, by the continuity of $\Theta$ and Corollary \ref{cor:measure-change}, we get that 
+\begin{align*}&\E\left[\Theta({V}^-_{(n)} ,T)F\left(V^+_{(n)}(t), 0\leq t \leq T \right)\right]\to \E\left[\Theta(\sigma_- W_t^- ,T)F\left(\sigma_+W_t^+, 0\leq t \leq T \right)\right]\\
+&\qquad=\E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
+ &\qquad=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB^1_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B^1_t,   0\leq t \leq T)\right].\end{align*}
+
+
+
+
+%  {\color{red}UNFINISHED, I will continue here}
+ % Then, by the proof of Proposition \ref{prop:measure-change-no-crit}, we see that for $$\Gamma(n,m)=\exp\left(\frac{1}{\mu n} \sum_{i=0}^m(Y^-(i)-Y^-(m)+\nu_-(m-i))-\frac{\sigma_-}{6\mu^2}\frac{m^3}{n^2}\right),$$
+% we have that 
+% $$\E\left[\left|\Phi(n,m)-\Gamma(n,m)\right|\right]\to  0$$
+% as $n\to\infty$, so it sufficient to show that 
+% $$\E\left[ \Gamma(n,m)f\left(V^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right] \to \E\left[\Phi(T)f\left(\sigma_+ W^+_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].$$
+% Then we observe that 
+% $$\Gamma(n,m)=\exp\left(\frac{1}{\mu}\int_0^T\left({V}^-_{(n)}(t)-{V}^-_{(n)}(T)\right)dt-\frac{\sigma_-}{6\mu^2}\frac{\lfloor Tn^{2/3}\rfloor^3}{n^2}\right).$$
+% Therefore, for a path $x\in \D([0,T],\R)$, let 
+% $$\Theta(x,T)= \exp\left(\frac{1}{\mu}\int_0^T\left(x(t)-x(T)\right)dt-\frac{\sigma_-}{6\mu^2}T^3\right)$$
+% so that $\Theta$ is a continuous functional of its first argument and 
+% $$\E\left[\left|\Gamma(n,m)-\Theta({V}^-_{(n)}(t) ,T)\right|\right]\to 0$$
+% as $n\to\infty$. 
+% Therefore, it suffices to show that 
+% $$\E\left[ \Theta({V}^-_{(n)}(t) ,T)f\left(V^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right] \to \E\left[\Theta(W^- ,T)f\left(\sigma_+ W^+_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].$$
+ 
+%  \\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
+%  &=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB^1_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B^1_t,   0\leq t \leq T)\right].\end{align*}
+%  For the details of the argument, we refer the reader to the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2021}.
+ Then, the fact that $(Y(k),k\geq 1)$ is a random walk with steps of mean $\nu_-$ implies that
  $$\left(n^{-2/3}Y^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\toprob\left(\nu_- t,t\geq 0\right),$$
- and then, by \cref{cor:measure-change}, also 
+ and then, by repeating the argument above, noting that the change of measure does not affect the deterministic process $(\nu_- t,t\geq 0)$, also 
  $$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\toprob\left(\nu_- t,t\geq 0\right),$$
  which proves the statement.
  \end{proof}
@@ -414,27 +455,44 @@ $$\sum_{i=1}^{\lfloor n^{2/3}T\rfloor }|q_i-\tilde{q}_i|\toprob0$$
 as $n\to \infty$. 
 Therefore, under the right coupling, 
 $$\P\left(\max_{k\leq \lfloor n^{2/3} T \rfloor}|\hat{P}_n(k)-\tilde{P}_n(k)|>0\right)\to 0.$$
-In other words, we can couple the out-forest and the approximate out-forest in such a way that we do not see any difference on the scale of interest. Therefore, we can show convergence under rescaling of the encoding processes of the approximate out-forest instead. To avoid further complicating notation, we will from now on refer to its encoding processes as $$(\hat{S}^{+}_n(k),\hat{H}_n, \hat{S}^-_n(k), \hat{P}_n(k),k\leq \lfloor n^{2/3}T\rfloor).$$ Then, these processes are constructed out of sample paths of $(\hat{Y}^+(k),\hat{Y}^-(k), k\leq \lfloor n^{2/3}T\rfloor )$ and independent randomness in exactly the same way as the sample paths of $$({S}_n^{+}(k),{H}_n^+(k),{S}_n^-(k),P_n(k), k \leq \lfloor n^{2/3}T\rfloor )$$  (corresponding to the forest with dummy vertices) are constructed out of sample paths of $(Y^+(k),Y^-(k), k\leq \lfloor n^{2/3}T\rfloor )$ and independent randomness. 
+In other words, we can couple the out-forest and the approximate out-forest in such a way that we do not see any difference on the scale of interest. Therefore, we can show convergence under rescaling of the encoding processes of the approximate out-forest instead. To avoid further complicating notation, we will from now on refer to its encoding processes as $$(\hat{S}^{+}_n(k),\hat{H}_n, \hat{S}^-_n(k), \hat{P}_n(k),1\leq k\leq \lfloor n^{2/3}T\rfloor).$$ Then, these processes are constructed out of sample paths of $(\hat{Y}^+(k),\hat{Y}^-(k), 1\leq k\leq \lfloor n^{2/3}T\rfloor )$ and independent randomness in exactly the same way as the sample paths of $$({S}_n^{+}(k),{H}_n^+(k),{S}_n^-(k),P_n(k),1\leq  k \leq \lfloor n^{2/3}T\rfloor )$$  (corresponding to the forest with dummy vertices) are constructed out of sample paths of $(Y^+(k),Y^-(k),1\leq  k\leq \lfloor n^{2/3}T\rfloor )$ and independent randomness. 
 We will use the following notation:\begin{align*}
+    \hat{Y}^+_{(n)}&:=\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
     \hat{S}^{+}_{(n)}&:=\left(n^{-1/3}\hat{S}^{+}_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
     \hat{H}_{(n)}&:=\left(n^{-1/3}\hat{H}_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
-    \hat{Y}^+_{(n)}&:=\left(n^{-1/3}\hat{Y}^+\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
+    {Y}^+_{(n)}&:=\left(n^{-1/3}{Y}^+\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
      {S}^{+}_{(n)}&:=\left(n^{-1/3}{S}^{+}_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
-    {H}^+_{(n)}&:=\left(n^{-1/3}{H}^+_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)\\
-    {Y}^+_{(n)}&:=\left(n^{-1/3}{Y}^+\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right).
+    {H}^+_{(n)}&:=\left(n^{-1/3}{H}^+_n\left(\lfloor n^{2/3} t \rfloor\right),0\leq t \leq T\right)
+    % {V}^-_{(n)}&:=\left(n^{-1/3}\left({Y}^-\left(\lfloor n^{2/3} t \rfloor\right)-\nu_- \lfloor n^{2/3} t \rfloor\right) ,0\leq t \leq T\right).
 \end{align*}
 Let $f:D([0,T],\R)^3\to \R$ be a bounded, continuous test-function. Then, for $m=\lfloor n^{2/3}T\rfloor$
 \begin{align*}\E\left[f\left(\hat{Y}^+_{(n)}, \hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]&= \E\left[f\left(\hat{Y}^+_{(n)}, \hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \one_{R_n\geq m} \right]+o(1)\\
 &=\E\left[ \E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right|\hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m} \right]\one_{R_n\geq m} \right]+o(1)
  \\&=\E\left[ \Phi(n,m)\E\left[\left.f\left(Y^+_{(n)}, S^+_{(n)},  H^+_{(n)}\right)\right| \mathbf{Z}_1,\dots, \mathbf{Z}_m\right]\right]+o(1)\\&=\E\left[ \Phi(n,m)f\left(Y^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right]+o(1),
 \end{align*}
-where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right| \hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m}\right]$ and $\one_{R_n\geq m}$ are bounded, adapted functions of $\hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m}$, and that $\Phi(n,m)$ is the measure change from  $(\hat{\mathbf{Z}}_{1},\dots, \hat{\mathbf{Z}}_{m})$ to $(\hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m})$. Then, using \cref{cor:measure-change} and \cref{prop:convheightprocesspurple}, following the proof of \cite[Theorem 4.1]{conchon--kerjanStableGraphMetric2021} gives us that 
+where we use that $\E\left[\left. f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right)\right| \hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m}\right]$ and $\one_{R_n\geq m}$ are bounded, adapted functions of $\hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m}$, and that $\Phi(n,m)$ is the measure change from  $({\mathbf{Z}}_{1},\dots, {\mathbf{Z}}_{m})$ to $(\hat{\mathbf{D}}_{n,1},\dots, \hat{\mathbf{D}}_{n,m})$.
+% Then, by the proof of Proposition \ref{prop:measure-change-no-crit}, we see that for $$\Gamma(n,m)=\exp\left(\frac{1}{\mu n} \sum_{i=0}^m(Y^-(i)-Y^-(m)+\nu_-(m-i))-\frac{\sigma_-}{6\mu^2}\frac{m^3}{n^2}\right),$$
+% we have that 
+% $$\E\left[\left|\Phi(n,m)-\Gamma(n,m)\right|\right]\to  0$$
+% as $n\to\infty$, so it sufficient to show that 
+% $$\E\left[ \Gamma(n,m)f\left(V^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right] \to \E\left[\Phi(T)f\left(\sigma_+ W^+_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].$$
+% Then we observe that 
+% $$\Gamma(n,m)=\exp\left(\frac{1}{\mu}\int_0^T\left({V}^-_{(n)}(t)-{V}^-_{(n)}(T)\right)dt-\frac{\sigma_-}{6\mu^2}\frac{\lfloor Tn^{2/3}\rfloor^3}{n^2}\right).$$
+% Therefore, for a path $x\in \D([0,T],\R)$, let 
+% $$\Theta(x,T)= \exp\left(\frac{1}{\mu}\int_0^T\left(x(t)-x(T)\right)dt-\frac{\sigma_-}{6\mu^2}T^3\right)$$
+% so that $\Theta$ is a continuous functional of its first argument and 
+% $$\E\left[\left|\Gamma(n,m)-\Theta({V}^-_{(n)}(t) ,T)\right|\right]\to 0$$
+% as $n\to\infty$. 
+% Therefore, it suffices to show that 
+% $$\E\left[ \Theta({V}^-_{(n)}(t) ,T)f\left(V^+_{(n)},S^+_{(n)},  H^+_{(n)}\right)\right] \to \E\left[\Theta(W^- ,T)f\left(\sigma_+ W^+_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].$$
+Then, if we repeat the proof of Proposition \ref{prop:convaftermeasurechange}, using Proposition  \ref{prop:convheightprocesspurple} to include the convergence of $S^+_{(n)}$ and $H^+_{(n)}$, we obtain that 
+% Then, using \cref{cor:measure-change} and \cref{prop:convheightprocesspurple}, following the proof of \cite[Theorem 4.1]{conchon--kerjanStableGraphMetric2021} gives us that 
 \begin{align*}
-    &\E\left[f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]\\
-    &\to \E\left[\Phi(T)f\left(\sigma_+ B_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].
+    \E\left[f\left(\hat{Y}^+_{(n)},\hat{S}^+_{(n)},  \hat{H}_{(n)}\right) \right]
+    \to \E\left[\Phi(T)f\left(\sigma_+ B_t,\sigma_+ B^+_t,\frac{2}{\sigma_+}R^+_t,0\leq t \leq T\right)\right].
 \end{align*}
 Since $$(B^+_t,t\geq 0)=\left(B_t-\frac{\nu_-}{2\sigma_+ \mu}t^2,t\geq 0\right),$$
- \cref{prop:characterizelimitprocess} implies the convergence under rescaling of $(\hat{S}^+_n(k),\hat{H}_n(k),k\geq 0)$. By \cref{prop:convheightprocesspurple}, $S^{-}_n$ converges in distribution under rescaling to a deterministic process, which will not be affected by the measure change. This completes the proof. 
+ \cref{prop:characterizelimitprocess} implies that the limit object has the right law. By \cref{prop:convheightprocesspurple}, $S^{-}_n$ converges in distribution under rescaling to a deterministic process, which will not be affected by the measure change. This completes the proof. 
 \end{proof}
 \input{Content/Sections/anomalousedges}
 % \subsection{The convergence of the out-forest holds conditionally on the multigraph being simple}

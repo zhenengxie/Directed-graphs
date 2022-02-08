@@ -169,7 +169,7 @@ Using the previous lemma we can prove existence and give the exact form of the d
             \right\} \times \\
             &\hspace{5em}
             \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \sum_{j=m+1}^r Z_j^-}
-            \frac{1}{p^{m-r}} \prod_{i=m+1}^r \frac{(r - i + 1) \mu}{\sum_{j=i}^r Z_j^-}
+            \frac{1}{p^{r-m}} \prod_{i=m+1}^r \frac{(r - i + 1) \mu}{\sum_{j=i}^r Z_j^-}
         \Bigg] \\
         &= \E \Bigg[ 
             \one \left\{ 
@@ -177,7 +177,7 @@ Using the previous lemma we can prove existence and give the exact form of the d
             \right\} \times \\
             &\hspace{5em}
             \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \sum_{j=1}^{r-m} Z_j^-}
-            \frac{1}{p^{m-r}} \prod_{i=1}^{r-m} \frac{(r - m - i + 1) \mu}{\sum_{j=i}^{r-m} Z_j^-}
+            \frac{1}{p^{r-m}} \prod_{i=1}^{r-m} \frac{(r - m - i + 1) \mu}{\sum_{j=i}^{r-m} Z_j^-}
         \Bigg],
     \end{align*}
     since $(\vZ_i)_{i=m+1}^r$ has the same law as $(\vZ_i)_{i=1}^{r-m}$. Then applying \cref{lem:exact-measure-change-no-conditioning} again shows that
@@ -234,7 +234,7 @@ Using the previous lemma we can prove existence and give the exact form of the d
             \, \middle \vert \,
             R_{n-m} = r-m
         \right] \\
-        =& \sum_{l=1}^{n-m} \binom{n}{l+m} p^{l+m} (1-p)^{n-m-l} 
+        =& \sum_{l=0}^{n-m} \binom{n}{l+m} p^{l+m} (1-p)^{n-m-l} 
         \E \left[
             \frac{1}{p^m} \prod_{i=1}^m \frac{(l + m - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
             \, \middle \vert \,
