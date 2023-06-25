@@ -206,7 +206,7 @@ in the $(2N+1)$-pointed Gromov-Hausdorff topology.
 For $S$ a subset of the vertices of $T^n_{g_n}$, let $T^n_{g_n}(S)$ denote the subtree of $T^n_{g_n}$ spanned by $S$. By definition, for $m\leq N_n$, $W^n_m$ is the vertex corresponding to a uniform unpaired in-half-edge of the vertices in $T^n_{g_n}\left(\{g_n+1,V^n_1,\dots,V^n_{m}\}\right)$. By  \cref{prop:heightprocesswithlengths} and Slutsky's lemma,
 $$\left(\frac{\hat{H}_n^\ell\left(\lfloor t n^{2/3}\rfloor \right)}{\hat{H}_n\left(\lfloor t n^{2/3}\rfloor \right)},t\geq 0\right)\overset{a.s.}{\to} \left(\frac{\sigma_{-+}+\nu_-}{2\mu},t\geq 0\right)$$
 in $\D(\R_+,\R)$ as $n\to \infty$, which implies that the law of $W^n_m$ converges to the law of a uniform vertex in $T^n_{g_n}\left(\{g_n+1,V^n_1,\dots,V^n_{m}\}\right)$. 
-Note that, by Theorem \ref{prop:convoutforest},  Propositions \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates}, we know that the height process of $T^n_{g_n}$ converges under rescaling to the height process of $\cT_g$, jointly with the convergence under rescaling of the positions of the candidates. By the proof of Proposition 5.4 in \cite{goldschmidtScalingLimitCritical2019}, this implies that
+Note that, by Theorem \ref{prop:convoutforest},  Propositions \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates}, we know that the height process of $T^n_{g_n}$ converges under rescaling to the height process of $\cT_g$, jointly with the convergence under rescaling of the positions of the candidates. By the proof of Proposition 5.4 in \cite{goldschmidtScalingLimitCritical2021}, this implies that
 $$\left(n^{-1/3}T^n_{g_n},n^{-2/3}g_n+1,n^{-2/3}V^n_1,\dots,n^{-2/3}V^n_{m}\right)\overset{a.s.}{\to}\left(\cT_g, g,V_1,\dots,V_m\right)$$
 in the $(m+1)$-pointed Gromov-Hausdorff topology. Since the relation $$\left|T^n_{g_n}\left(\{g_n+1,V^n_1,\dots,V^n_{m}\}\right)\right|=\left|T^n_{g_n}\left(\{g_n+1,V^n_1,\dots,V^n_{m}, W^n_{m}\}\right)\right|$$ passes to the limit, with $|\cdot|$ denoting the length in the tree as encoded by $(\hat{H}_n(k),k\geq 1)$, the limit in distribution of $n^{-2/3}W^n_m$ is a uniform point on the subtree of $\cT_g$ spanned by $\left(g,V_1,\dots,V_m\right)$, which is equal to the law of $W_m$. This proves the statement.
 \end{proof}
@@ -229,14 +229,14 @@ $n^{-1/3}M^n_{g_n}\overset{a.s.}{\to} \cM_g$
 in $\vec{\cG}$.
 \end{proposition}
 \begin{proof}
-The proof is analogous to the proof of Proposition 5.6 in \cite{goldschmidtScalingLimitCritical2019}.
+The proof is analogous to the proof of Proposition 5.6 in \cite{goldschmidtScalingLimitCritical2021}.
 \end{proof}
 \begin{proposition}
 \label{prop:sccsinonetreeconverge}
 On the probability space where the convergence in Propositions \ref{prop.convergencestartingpointscandidates} and \ref{prop.convergenceheadscandidates} holds almost surely, the SCCs in $n^{-1/3}M^n_{g_n}$, listed in decreasing order of length, converge to the SCCs in $\cM_g$, listed in decreasing order of length, in $\vec{\cG}$ almost surely as $n\to \infty$.
 \end{proposition}
 \begin{proof}
-This follows from Proposition 5.3 in \cite{goldschmidtScalingLimitCritical2019}. This proposition requires that the lengths of the SCCs in $\cM_{g}$ have different lengths almost surely, which is the content of Proposition \ref{prop:allengthsaredifferent}. 
+This follows from Proposition 5.3 in \cite{goldschmidtScalingLimitCritical2021}. This proposition requires that the lengths of the SCCs in $\cM_{g}$ have different lengths almost surely, which is the content of Proposition \ref{prop:allengthsaredifferent}. 
 \end{proof}
 
 \begin{proposition}
@@ -279,7 +279,7 @@ For all $j$ holds that
 $$\lim_{T\to\infty}\P\left(\forall i\leq j, \cC_i\in (\cC^T_i,i \geq 1)\right)=1.$$
 \end{lemma}
 \begin{proof}
-Fix $\epsilon>0$. By \cite[Proposition 5.10]{goldschmidtScalingLimitCritical2019} adapted to our limit object, for $k$ large enough, with probability $1-\epsilon/2$, the $j$ largest components of $(\cC_i,i\geq 1)$ are contained in the $k$ largest components of the out-forest with identifications. Moreover, for $T$ large enough, with probability $1-\epsilon/2$, the $k$ largest excursions above the infimum of a Brownian motion with negative parabolic drift occur before time $T$  (see \cite[Section 3]{aldousBrownianExcursionsCritical1997}). This implies the statement.
+Fix $\epsilon>0$. By \cite[Proposition 5.10]{goldschmidtScalingLimitCritical2021} adapted to our limit object, for $k$ large enough, with probability $1-\epsilon/2$, the $j$ largest components of $(\cC_i,i\geq 1)$ are contained in the $k$ largest components of the out-forest with identifications. Moreover, for $T$ large enough, with probability $1-\epsilon/2$, the $k$ largest excursions above the infimum of a Brownian motion with negative parabolic drift occur before time $T$  (see \cite[Section 3]{aldousBrownianExcursionsCritical1997}). This implies the statement.
 \end{proof}
 \Cref{thm.main} then follows from \cref{prop:sccordereduptotimeT}, \cref{lemma.largesccfoundfirst} and \cref{lem:largeSCCfoundfirstcont}.
 
