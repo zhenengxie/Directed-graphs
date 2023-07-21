@@ -57,7 +57,7 @@ The proof of this lemma is obtained by simply adding the corresponding $Z_n$ or 
 
 \subsubsection{Discrete local limit theorem}
 
-To prove \cref{prop:measure-change-approx}, we first need to understand the denominator of $\phi^n_m$, which, as given by \cref{lem:exact-measure-change}, is $\P(\Delta_n = 0)$. The random variable $\Delta_n$ is a sum of independent integer-valued random variables and the asymptotic behaviour of such a sum being equal to some value is described by the discrete local limit theorem. Such a theorem was first proven by \citet{gnedenkoLocalLimitTheorem1948}. Here we borrow the presentation from \citet[Section 3.5]{durrettProbabilityTheoryExamples2019}.
+To prove \cref{prop:measure-change-approx}, we first need to understand the denominator of $\phi^n_m$, which, as given by \cref{lem:exact-measure-change}, is $\P(\Delta_n = 0)$. The random variable $\Delta_n$ is a sum of independent integer-valued random variables and the asymptotic behaviour of such a sum being equal to some value is described by the discrete local limit theorem. Such a theorem was first proven by \citet{gnedenkoLocalLimitTheorem1948}. In this subsection, we discuss the standard one-dimensional local limit theorem in the finite variance case. For this we borrow the presentation from \citet[Section 3.5]{durrettProbabilityTheoryExamples2019}. Then, in \cref{subsec:multivarlocallimit}, we prove a multivariate version of this. 
 
 Let $X_1, X_2, \ldots$ be i.i.d.\ integer-valued random variables with mean $\mu$ and finite variance $\sigma^2$. Then, by the central limit theorem,
 \begin{equation*}
@@ -65,15 +65,7 @@ Let $X_1, X_2, \ldots$ be i.i.d.\ integer-valued random variables with mean $\mu
     \todist
     N(0, 1)
 \end{equation*}
-as $n \to \infty$. Thus we expect $\sum_{i=1}^n X_i$ to be distributed like a $N(n \mu, n \sigma^2)$ random variable for large values of $n$. Therefore the probability mass function of $\sum_{i=1}^n X_i$ should be well approximated by the probability density function of a $N(n \mu, n \sigma^2)$ distribution, i.e.
-\begin{equation*}
-    \P\big( \textstyle \sum_{i=1}^n X_i = s \big)
-    \approx
-    \frac{1}{\sqrt{2 \pi n \sigma^2}}  \exp \left(
-        \frac{-(s - n \mu)^2}{2 n \sigma^2}
-    \right)
-\end{equation*}
-for all integers $s$. Specifically we hope that
+as $n \to \infty$. This suggests that the probability mass function of $\sum_{i=1}^n X_i$ should be well approximated by the probability density function of a $N(n \mu, n \sigma^2)$ distribution, and in particular we hope that
 \begin{equation}
     \label{eq:llt-approx}
     \sup_{s \in \Z} \abs*{
@@ -126,7 +118,7 @@ Fortunately this kind of periodic behaviour can be mitigated by normalizing the 
         \right)
         = \littleo(n^{-1/2}).
     \end{equation*}
-    Hence the discrete local limit theorem (\cref{thm:discrete-llt}) tells you only that $\P\left(\sum_{i=1}^n X_i = s_n\right) = \littleo(n^{-1/2})$; it gives no precise characterization of the leading order term.
+    Hence the discrete local limit theorem (\cref{thm:discrete-llt}) tells us only that $\P\left(\sum_{i=1}^n X_i = s_n\right) = \littleo(n^{-1/2})$; it gives no precise characterization of the leading order term.
 \end{remark}
 
 While this remark will be important later, here $\Delta_n$ is centered and we are interested in the probability $\P(\Delta_n = 0)$. In addition, the strong aperiodicity condition in \cref{subsec:model-description} tells us exactly that the $D^- - D^+$ is lattice with span 1. Thus the following is a direct corollary of the discrete local limit theorem (\cref{thm:discrete-llt}).
@@ -152,11 +144,11 @@ Next we turn to the numerator of $\phi^n_m$. By \cref{lem:exact-measure-change},
         \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-}
     \right].
 \end{equation}
-For convenience, let $\lltEvent_n$ denote the event in the indicator function, i.e.
+Like in the proof of Lemma \ref{lem:exact-measure-change} we denote 
 \begin{equation*}
-    \lltEvent_n = \left\{ \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-) \right\}.
+    \lltEvent =\lltEvent_n (\vk_1, \ldots, \vk_m)= \left\{ \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-) \right\}.
 \end{equation*}
-When the $\vk_1, \ldots, \vk_m$ satisfy the condition in \cref{eq:s-condition}, we face two problems in evaluating the expectation in \cref{eq:measure-change-numerator}.
+From now on, we assume that the $\vk_1, \ldots, \vk_m$ satisfy the condition in \cref{eq:s-condition}. We face two problems in evaluating the expectation in \cref{eq:measure-change-numerator}.
 
 
 The first problem concerns the event $\lltEvent_n$. To evaluate the expectation we need to understand the asymptotic probability of this event. Unfortunately a naïve application of the discrete local limit theorem will not work in this case, as we now explain. Firstly, note that
@@ -167,7 +159,7 @@ We have that
 \begin{equation*}
     \lambda_+ - \lambda_- = \E[Z^- - Z^+] = \tfrac{1}{\mu} \E[D^-D^+ - (D^-)^2]
 \end{equation*}
-which is, in general, non-zero. Then $m = \Theta(n^{2/3})$ whereas, if $\vk_1, \ldots, \vk_n$ satisfy \cref{eq:s-condition}, $s^{-}(m)$ and $s^+(m)$ are both of order $\bigo(n^{1/3} \log n)$. Therefore
+which is, in general, non-zero. Then $m = \Theta(n^{2/3})$ whereas, under our assumptions on $\vk_1, \ldots, \vk_n$, $s^{-}(m)$ and $s^+(m)$ are both of order $\bigo(n^{1/3} \log n)$. Therefore
 \begin{equation*}
     \sum_{i=1}^m (k_i^- - k_i^+) = \Theta(n^{2/3}).
 \end{equation*}
@@ -249,7 +241,7 @@ where $\theta_n = \frac{m}{\mu n}$. This factorises and so $\vD_1, \ldots, \vD_n
 \end{align*}
 Hence,
 \begin{align*}
-    \textstyle \sum_{i=1}^m (k_i^+ - k_i^-) - \E_n[\Delta_{n-m}] 
+    \textstyle \sum_{i=1}^m (k_i^- - k_i^+) - \E_n[\Delta_{n-m}] 
     &= s^-(m) - s^+(m) + \Big[ m(\lambda_+ - \lambda_-) - \E_n[\Delta_{n-m}] \Big] \\
     &= \bigo(n^{1/3} \log n),
 \end{align*}
@@ -282,7 +274,7 @@ This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its til
         \right) + \littleo(1) \right\} \\
         & \hspace{18em} \times \P_n(\lltEvent_n \cap \omegaEvent_n)
     \end{align*}
-    where the $\littleo(1)$ term is bounded independently of $\vk_1, \ldots, \vk_m$ satisfying the assumption in \vref{eq:s-condition}.
+    where the $\littleo(1)$ term is bounded uniformly in all $\vk_1, \ldots, \vk_m$ that satisfy assumption \cref{eq:s-condition}.
 \end{lemma}
 \begin{proof}
     Firstly,
@@ -318,14 +310,14 @@ This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its til
     \end{align*}
     Then on the event $\omegaEvent_n$,
     \begin{equation*}
-        \max_{i=1, \ldots, m} \abs{A_n^i} = \bigo(n^{-1/2} \log n)
+        \max_{i=1, \ldots, m} \abs{A_{i,n}} = \bigo(n^{-1/2} \log n)
         \quad \text{and} \quad
-        \max_{i=1, \ldots, m} \abs{B_n^i} = \bigo(n^{-1/3}).
+        \max_{i=1, \ldots, m} \abs{B_{i,n}} = \bigo(n^{-1/3}).
     \end{equation*}
-    where the $\bigo$ bounds are uniform for $\vk_1, \ldots, \vk_m$ satifying \cref{eq:s-condition}. There are $m = \theta(n^{2/3})$ terms in the summation. Thus to keep all terms of order $\Omega(1)$, we keep terms of order $\Omega(n^{-2/3})$, uniformly in $i$, when expanding $\log(1 + A_{i, n} + B_{i, n})$. The only such terms are $A_{i, n}, B_{i, n}$ and $B_{i, n}^2$. Moreover,
+    where the $\bigo$ bounds are uniform for $\vk_1, \ldots, \vk_m$ satifying \cref{eq:s-condition}. There are $m = \Theta(n^{2/3})$ terms in the summation. Thus to keep all terms of order $\Omega(1)$, we keep terms of order $\Omega(n^{-2/3})$, uniformly in $i$, when expanding $\log(1 + A_{i, n} + B_{i, n})$. The only such terms are $A_{i, n}, B_{i, n}$ and $B_{i, n}^2$. Moreover,
     \begin{equation*}
-        \sum_{i=1}^m B_n^i = - \frac{\lambda_-}{2 \mu} \frac{m^2}{n} + \littleo(1) \quad \text{and} \quad
-        \sum_{i=1}^m (B_n^i)^2 = \frac{\lambda_-^2}{3 \mu^2} \frac{m^3}{n^2} + \littleo(1).
+        \sum_{i=1}^m B_{i,n} = - \frac{\lambda_-}{2 \mu} \frac{m^2}{n} + \littleo(1) \quad \text{and} \quad
+        \sum_{i=1}^m (B_{i,n})^2 = \frac{\lambda_-^2}{3 \mu^2} \frac{m^3}{n^2} + \littleo(1).
     \end{equation*}
     Therefore,
     \begin{align*}
@@ -337,9 +329,9 @@ This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its til
     \end{align*}
     where we use that $\sum_{i=1}^m \left( s^-(i-1) - s^-(m) \right) = \sum_{i=0}^m \left( s^-(i) - s^-(m) \right)$.
 
-    Similarly we can expand $X_n$ as
+    Similarly, the Taylor expansion of $X_n$ has the form
     \begin{equation*}
-        X_n = - \frac{m}{2 n} - \frac{m^3}{3 n^2} + \littleo(1).
+        X_n = - \frac{m^2}{2 n} - \frac{m^3}{6n^2} + \littleo(1).
     \end{equation*}
 
     Thus,
@@ -381,7 +373,7 @@ This event is saying that $\Xi_{n-m}^-$ is at `typical fluctations' from its til
     as required.
 \end{proof}
 
-\subsubsection{Multivariate Local Limit Theorem}
+\subsubsection{Multivariate Local Limit Theorem}\label{subsec:multivarlocallimit}
 
 To complete the proof of \cref{prop:measure-change-approx} we need to understand the asymptotic behaviour of $\P_n(\lltEvent_n \cap \omegaEvent_n)$. Recall an effect of the tilting was to center $\Delta_{n-m}$ in such a way that the probability of the event
 \begin{equation*}
@@ -397,7 +389,7 @@ can be addressed by the local limit theorem. However, due to the tilting, $\P_n$
 \end{equation*}
 we will prove a multivariate local limit theorem applicable to $(\Delta_{n-m}, \Xi^-_{n-m})$ under $\P_n$ and then sum over the possible values of $\Xi^-_n$.
 
-Before we state the result we use, we first define some terminology regarding lattices in $\R^d$. A set of points in $\R^d$ is a \emph{lattice} if there exists a basis $\va_1, \ldots, \va_d$ of $\R^d$ such that
+Before we state the result we use, we first define some terminology regarding lattices in $\R^d$. A set $\lattice$ of points in $\R^d$ is a \emph{lattice} if there exists a basis $\va_1, \ldots, \va_d$ of $\R^d$ such that
 \begin{equation*}
     \lattice = \left\{ 
         \textstyle \sum_{i=1}^d n_i \va_i : n_i \in \Z \text{ for $i = 1, \ldots, d$}
@@ -439,7 +431,7 @@ If $\vX$ is lattice, the \emph{main lattice} $\lattice(\vX)$ of $\vX$ is the int
         \textstyle \sum_{i=1}^k n_i \vx^*_i : \text{$n_i \in \Z$ and $\vx^*_i \in \supp(\vX^*)$ for $i = 1, \ldots, k$}
     \right\}.
 \end{equation*}
-It will turn out that if $\vX$ is an $\R^d$-valued lattice random variable with main lattice $\lattice$, then $\det(\lattice)$ can be seen as a generalisation of the span of an $\R$-valued random variable.
+It will turn out that if $\vX$ is an $\R^d$-valued lattice random variable with main lattice $\lattice$, then $\det(\lattice(\vX))$ can be seen as a generalisation of the span of an $\R$-valued random variable.
 
 To deal with the triangular array, we recall the exponential tilt is given by
 \begin{equation*}
@@ -562,7 +554,7 @@ Finally let $\Sigma$ be the covariance matrix of $(D^- - D^+, D^-)$. With this n
     Hence the result follows by \cref{thm:multi-triangular-llt}. There is a small change in that we are considering a sum of $n - m$ random variables rather than $n$. However since $m = \littleo(n)$, the same asymptotic result holds.
 \end{proof}
 
-Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour as $\P(\Delta_n = 0)$. We only prove a lower bound, but this is sufficient for proving \cref{prop:measure-change-approx}.
+Now we show $\P(\lltEvent_n\cap  \omegaEvent_n)$ has the same asymptotic behaviour as $\P(\Delta_n = 0)$. We only prove a lower bound, but this is sufficient for proving \cref{prop:measure-change-approx}.
 \begin{lemma}
     \label{lem:mod-dev-local}
     Under the assumptions of \cref{prop:measure-change-approx},
@@ -582,7 +574,7 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
             \abs{\Xi^-_{n-m} - \E_n[\Xi^-_{n-m}]} \leq n^{\frac{1}{2}} \log n
         \right).
     \end{equation*}
-    Firstly, suppose $(D^- - D^+, D^-)$ is degenerate. Then since we assume that $D^- - D^+$ is non-constant, it must be the case that either $D^-$ or $D^+$ is constant. Either way, it becomes the case that
+    Firstly, suppose $(D^- - D^+, D^-)$ is degenerate. Then since we assume that $D^- - D^+$ is non-deterministic, it must be the case that either $D^-$ or $D^+$ is deterministic. Either way, it becomes the case that
     \begin{equation*}
         \left\{
             \Delta_{n-m} = \sum_{i=1}^m (k_i^+ - k_i^-), \ 
@@ -595,7 +587,7 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
     \end{equation*}
     Then applying \cref{thm:multi-triangular-llt}, as we did in the proof of \cref{lem:bivar-llt}, shows that
     \begin{equation*}
-        \P\left( 
+        \P_n\left( 
             \Delta_{n-m} = \textstyle \sum_{i=1}^m (k_i^+ - k_i^-)
         \right) = \frac{1}{\sqrt{2 \pi \sigma^2 n}} (1 + \littleo(1)).
     \end{equation*}
@@ -607,8 +599,9 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
     \begin{equation*}
         L_n = \Big\{
             y : \bigg( \textstyle\sum_{i=1}^m (k_i^+ - k_i^-), y \bigg) \in \vc_n + \lattice
-            \Big\}.
+            \Big\},
     \end{equation*}
+    where $\vc_n$ is an arbitrary element in the support of $\sum_{i=1}^n \vX_{n, i}$, as in the statement of \cref{thm:multi-triangular-llt}. 
     $L_n$ has a simpler representation. Fix any $y_0 \in L_n$. Then if $\lattice$ is generated by the columns of
     \begin{equation*}
         \begin{pmatrix}
@@ -627,7 +620,7 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
          \frac{q}{2\pi \det(\Sigma)^{1/2} \: n} \exp\left( 
             \frac{-1}{2n} \vectwo{a_n}{y} \cdot \Sigma^{-1} \vectwo{a_n}{y}
          \right)
-         + \littleo( n^{-1/2} )
+         + \littleo( n^{-1/2} ).
     \end{equation*}
 
     We wish to factorise the summand. To this end, we make a change of variables. There exists $c \in \R$ such that
@@ -635,14 +628,14 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
         \cov(D^- - c(D^- - D^+), D^- - D^+) = 0.
     \end{equation*}
     Let $\tau^2$ be the variance of $D^- - c(D^- - D^+)$. Then
-    \begin{align*}
+    \begin{align}
          &\frac{q}{2\pi \det(\Sigma)^{1/2} \: n} \exp\left( 
             \frac{1}{2n} \vectwo{a_n}{y} \cdot \Sigma^{-1} \vectwo{a_n}{y}
          \right) \nonumber \\
          & \hspace{5em} =
          \frac{1}{\sqrt{2 \pi \sigma^2 n}} \exp \left( - \frac{1}{2 \sigma^2} \frac{a_n^2}{n} \right)
-         \frac{q}{\sqrt{2 \pi \tau^2 n}} \exp \left( - \frac{1}{2 \tau^2} \frac{(y - ca_n)^2}{n} \right).
-    \end{align*}
+         \frac{q}{\sqrt{2 \pi \tau^2 n}} \exp \left( - \frac{1}{2 \tau^2} \frac{(y - ca_n)^2}{n} \right).\label{eq:approx_a_n}
+    \end{align}
     We now examine the asymptotic behaviour of $a_n$. By \cref{lem:asym-expansions},
     \begin{align*}
         \E_n[\Delta_{n-m}]
@@ -653,13 +646,15 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
     \begin{equation*}
         a_n = s_+(m) - s_-(m) + \bigo(n^{1/3}) = \bigo(n^{1/3} \log n),
     \end{equation*}
-    by the assumption in \cref{eq:s-condition}. Thus
+    by the assumption in \cref{eq:s-condition}, so 
+    \[\exp \left( - \frac{1}{2 \sigma^2} \frac{a_n^2}{n} \right)=1+o(1) \]
+    and \cref{eq:approx_a_n} yields that 
     \begin{equation*}
         P_n \geq
         \frac{1}{\sqrt{2 \pi \sigma^2 n}}(1 + \littleo(1))
         \sum_{\substack{y \in L_n \\ \abs{y} \leq M n^{1/2}}}
         \frac{q}{\sqrt{2 \pi \tau^2 n}} \exp \left( - \frac{1}{2 \tau^2} \frac{(y - ca_n)^2}{n} \right)
-        + \littleo(n^{-1/2})
+        + \littleo(n^{-1/2}).
     \end{equation*}
     Note that
     \begin{equation*}
@@ -685,7 +680,7 @@ Now we show $\P(\lltEvent_n, \omegaEvent_n)$ has the same asymptotic behaviour a
     \begin{equation*}
         \tilde{L}_n = \frac{L_n - ca_n}{\sqrt{n}}.
     \end{equation*}
-    Then $\tilde{L}_n \cap [-\frac{1}{2}M, \frac{1}{2}M]$ is a partition of $[-\frac{1}{2}M, \frac{1}{2}M]$ where adjacent points are distance $q/\sqrt{n}$ apart from each other. Thus \cref{eq:riemann-sum} is a Riemann sum approximation of an integral. Hence
+    Then $\tilde{L}_n \cap [-\frac{1}{2}M, \frac{1}{2}M]$ is a partition of $[-\frac{1}{2}M, \frac{1}{2}M]$ where adjacent points are distance $q/\sqrt{n}$ apart from each other. Thus \cref{eq:riemann-sum} is a Riemann sum approximation of the integral of the continuous function $g$. Hence
     \begin{equation*}
         \sum_{\substack{y \in L_n \\ \abs{y} \leq M n^{1/2}}}
         \frac{q}{\sqrt{2 \pi \tau^2 n}} \exp \left( - \frac{1}{2 \tau^2} \frac{(y - ca_n)^2}{n} \right)
@@ -714,7 +709,7 @@ Now we are ready to prove \cref{prop:measure-change-approx}.
             \frac{1}{\mu n} \sum_{i=0}^m (s^-(i) - s^-(m)) - \frac{\sigma_-}{6 \mu^2} \frac{m^3}{n^2}
         \right) + \littleo(1) \right\} \frac{\P_n(\lltEvent_n \cap \omegaEvent_n)}{\P(\Delta_n = 0)}
     \end{align*}
-    where the $\littleo(1)$ term is independent of $\vk_1, \ldots, \vk_m$ satisfying our assumptions. Then by \cref{lem:bivar-llt} and \cref{cor:measure-change-denominator-control} we have that
+    where the $\littleo(1)$ term is independent of $\vk_1, \ldots, \vk_m$ satisfying our assumptions. Then by \cref{lem:mod-dev-local} and \cref{cor:measure-change-denominator-control} we have that
     \begin{equation*}
         \frac{\P_n(\lltEvent_n \cap \omegaEvent_n)}{\P(\Delta_n = 0)} \geq 1 + \littleo(1)
     \end{equation*}

@@ -42,10 +42,10 @@ be the corresponding walks for $(\vZ_i)_{i=1}^{\infty}$. Then, in the critical c
   \quad \text{and} \quad
   Y^-(k) = V^-(k) - (\lambda_- - 1) k = V^-(k) - \nu_- k.
 \end{equation*}
-Therefore, we obtain the following corollary of \cref{prop:measure-change-no-crit}.
+Therefore, applying the more general \cref{prop:measure-change-no-crit} to our setting yields the following result.
 \begin{corollary}
   \label{cor:measure-change}
-  Suppose we are in the setting of \cref{prop:measure-change-no-crit} and that the criticality condition holds. Then for all $T > 0$,
+  It holds that for all $T > 0$,
   \begin{align*}
       &\left( 
           \Phi(n, \floor{n^{2/3} T}),
@@ -56,13 +56,38 @@ Therefore, we obtain the following corollary of \cref{prop:measure-change-no-cri
       \right) \\
       & \hspace{23em} \todist \left( 
           \Phi(T),
-          (\sigma_- W^+_t, \sigma_+ W^+_t)_{t \in [0, T]}
+          (\sigma_- W^-_t, \sigma_+ W^+_t)_{t \in [0, T]}
       \right)
   \end{align*}
   in $\R \times \D([0, T], \R^2)$ as $n \to \infty$ and $\left(\Phi(n,\floor{n^{2/3} T})\right)_{n\geq 1}$ is uniformly integrable.
 \end{corollary}
-Let $(\hat{B}_t,t\geq 0)$ be distributed as follows. For $F$ a suitable test function, and for $(B_t)_{t\geq 0}$ a Brownian motion,
+We will first show that the law of $(\hat{B}_t,t\geq 0)$ is locally absolutely continuous to a Brownian motion and we characterise the Radon--Nikodym derivative. This is the content of the next proposition. 
+
+ \begin{proposition}
+ \label{prop:characterizelimitprocess}
+It holds that for $F$ a continuous bounded function, and for $(B_t)_{t\geq 0}$ a standard Brownian motion,
 \begin{align*} &\E\left[F(\sigma_+ \hat{B}_t,0\leq t \leq T)\right]\\&=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B_t,   0\leq t \leq T)\right].\end{align*}
+ \end{proposition}
+ \begin{proof}
+ Firstly, we have that for any $t\in [0,T]$ and $\theta>0$,
+ \begin{align*}
+     \E \left[\exp\left(-\theta\left(\sigma_+ B_t - \frac{\sigma_{-+}}{2\mu} t^2\right)\right)\right]&=\exp\left(\frac{\sigma_+^2 t}{2}\theta^2+\frac{\sigma_{-+} t^2}{2\mu}\theta \right)\\
+     &=\exp\left(-\frac{\sigma_{-+}^2}{2\sigma_+^2 \mu^2}\int_0^t \left(s+\frac{\sigma_+^2\theta \mu}{\sigma_{-+}}\right)^2 ds -\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\\
+     &=\E\left[\exp \left( -\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t \left(s+\frac{\sigma_+^2\theta \mu}{\sigma_{-+}}\right) dB_s -\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\right]\\
+     &=\E \left[ \exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t s dB_s-\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\exp\left(-\theta\sigma_+ B_t  \right)\right]
+ \end{align*}
+ 
+ Then, more generally, for $m>0$, $0=t_0\leq t_1\leq \cdots \leq t_m=t$, and $\theta_1, \dots, \theta_m \in \R_+$, 
+ \begin{align*}
+     &\E \left[\exp\left(-\sum_{i=1}^m\theta_i\left(\sigma_+ (B_t-B_{t_i}) - \frac{\sigma_{-+}}{2\mu} (t_i^2-t_{i-1}^2)\right)\right)\right]\\
+     &=\prod_{i=1}^m \exp\left(\frac{ \sigma_+^2 (t_i-t_{i-1}) }{2}\theta_i^2+\frac{\sigma_{-+} (t_i^2-t_{i-1}^2)}{2\mu}\theta_i \right)\\
+     &= \prod_{i=1}^m  \exp\left( -\frac{\sigma_{-+}^2}{2\sigma_+^2 \mu^2}\int_{t_{i-1}}^{t_i}\left(s+\frac{\sigma_+^2\theta_i\mu}{\sigma_{-+}}\right)^2 ds - \frac{\sigma_{-+}^2 (t_i^3-t_{i-1}^3)}{6\sigma_+^2 \mu^2} \right)\\
+     &= \prod_{i=1}^m \E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+\mu} \int _{t_{i-1}}^{t_i} s dB_s-\frac{\sigma_{-+}^2 (t_i^3-t_{i-1}^3)}{6\sigma_+^2 \mu^2}-\theta_i \sigma_+  (B_{t_i}-B_{t_{i-1}})\right)\right]\\
+     &= \E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t s dB_s-\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2} \right) \exp\left(-\sum_{i=1}^m \theta_i(\sigma_+{B}_{t_i}-\sigma_+{B}_{t_{i-1}})\right)\right],
+ \end{align*}
+ 
+ which proves the result.
+ \end{proof}
 
  
 %  Recall that 
@@ -137,39 +162,39 @@ But, by the continuity of $\Theta$ and Corollary \ref{cor:measure-change}, we ge
 %  \\\to& \E\left[\exp\left(-\frac{1}{\mu}\int_0^Tsd\left(\frac{\sigma_{-+}}{\sigma_+}B_s^1+\left(\sigma_-^2-\frac{\sigma_{-+}^2}{\sigma_+^2}\right)^{1/2}B_s^2\right) - \frac{T^3 \sigma_-^2}{6\mu^2}\right) F\left(\sigma_+ B_t^1, 0\leq t \leq T\right)\right]\\
 %  &=\E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu} \int_0^T s dB^1_s -\frac{\sigma_{-+}^2 T^3}{6\sigma_+^2 \mu^2}\right)F(\sigma_+ B^1_t,   0\leq t \leq T)\right].\end{align*}
 %  For the details of the argument, we refer the reader to the proof of Theorem 4.1 in \cite{conchon--kerjanStableGraphMetric2021}.
- Then, the fact that $(Y(k),k\geq 1)$ is a random walk with steps of mean $\nu_-$ implies that
+ Then, we observe that, while $(V^-(k),k\geq 1)$ is centered, the random walk  $(Y^-(k),k\geq 1)$ has steps of mean $\nu_-$, so the process $Y^-\left(\lfloor n^{2/3}t\rfloor\right)$  is $\Theta(n^{2/3})$ and has a deterministic scaling limit by the strong law of large numbers. To be precise,
  $$\left(n^{-2/3}Y^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\toprob\left(\nu_- t,t\geq 0\right),$$
  and then, by repeating the argument above, noting that the change of measure does not affect the deterministic process $(\nu_- t,t\geq 0)$, also 
  $$\left(n^{-2/3}\hat{Y}^-\left(\lfloor n^{2/3}t\rfloor\right),t\geq 0\right)\toprob\left(\nu_- t,t\geq 0\right),$$
  which proves the statement.
  \end{proof}
- The following proposition characterises the distribution of $(\hat{B}_t, {0\leq t\leq T})$.
- \begin{proposition}
- \label{prop:characterizelimitprocess}
- We have that
- $$(\sigma_+ \hat{B}_t, {0\leq t\leq T})\overset{d}{=}\left(\sigma_+ B_t-\frac{\sigma_{-+}}{2\mu}t^2, {0\leq t\leq T}\right),$$
- where $(B_t)_{t\geq 0}$ is a standard Brownian motion.
- \end{proposition}
- \begin{proof}
- Firstly, we have that for any $t\in [0,T]$ and $\theta>0$,
- \begin{align*} \E\left[\exp(-\theta \sigma_+ \hat{B}_t)\right] &= \E \left[ \exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t s dB_s-\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}-\theta\sigma_+ B_t  \right)\right]\\
- &=\E\left[\exp \left( -\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t \left(s+\frac{\sigma_+^2\theta \mu}{\sigma_{-+}}\right) dB_s -\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\right] \\
- &= \exp\left(-\frac{\sigma_{-+}^2}{2\sigma_+^2 \mu^2}\int_0^t \left(s+\frac{\sigma_+^2\theta \mu}{\sigma_{-+}}\right)^2 ds -\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\\
- &=\exp\left(\frac{\sigma_+^2 t}{2}\theta^2+\frac{\sigma_{-+} t^2}{2\mu}\theta \right)\\
- &= \E \left[\exp\left(-\theta\left(\sigma_+ B_t - \frac{\sigma_{-+}}{2\mu} t^2\right)\right)\right].
- \end{align*}
- Then, more generally, for $m>0$, $0=t_0\leq t_1\leq \cdots \leq t_m=T$, and $\theta_1, \dots, \theta_m \in \R_+$, 
- \begin{align*}
-     &\E\left[\exp\left(-\sum_{i=1}^m \theta_i(\sigma_+\hat{B}_{t_i}-\sigma_+\hat{B}_{t_{i-1}})\right)\right]\\
-    %  &=\E \left[ \exp\left(-\frac{\sigma}{\mu} \sum_{i=1}^m \int _{t_{i-1}}^{t_i} s dB_s^1-\frac{\sigma_-^2}{2\mu^2}\sum_{i=1}^m \int_{t_{i-1}}^{t_i}s^2ds-\frac{ \sigma_{-+}}{\sigma} \sum_{i=1}^m \theta_i(B_{t_i}^1-B_{t_{i-1}}^1)- 
-    %  \left(\sigma_+^2-\frac{\sigma_{-+}^2}{\sigma_-^2}\right)^{1/2}\sum_{i=1}^m \theta_i(B_{t_i}^2-B_{t_{i-1}}^2)\right)\right]\\
-     &= \prod_{i=1}^m \E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+\mu} \int _{t_{i-1}}^{t_i} s dB_s-\frac{\sigma_{-+}^2 (t_i^3-t_{i-1}^3)}{6\sigma_+^2 \mu^2}-\theta_i \sigma_+  (B_{t_i}-B_{t_{i-1}})\right)\right]\\
-     &= \prod_{i=1}^m  \exp\left( -\frac{\sigma_{-+}^2}{2\sigma_+^2 \mu^2}\int_{t_{i-1}}^{t_i}\left(s+\frac{\sigma_+^2\theta_i\mu}{\sigma_{-+}}\right)^2 ds - \frac{\sigma_{-+}^2 (t_i^3-t_{i-1}^3)}{6\sigma_+^2 \mu^2} \right)\\
-     &=  \prod_{i=1}^m \exp\left(\frac{ \sigma_+^2 (t_i-t_{i-1}) }{2}\theta_i^2+\frac{\sigma_{-+} (t_i^2-t_{i-1}^2)}{2\mu}\theta_i \right)\\
-     &=\E \left[\exp\left(-\sum_{i=1}^m\theta_i\left(\sigma_+ (B_t-B_{t_i}) - \frac{\sigma_{-+}}{2\mu} (t_i^2-t_{i-1}^2)\right)\right)\right],
- \end{align*}
- which proves the result.
- \end{proof}
+ % The following proposition characterises the distribution of $(\hat{B}_t, {0\leq t\leq T})$.
+ % \begin{proposition}
+ % \label{prop:characterizelimitprocess}
+ % We have that
+ % $$(\sigma_+ \hat{B}_t, {0\leq t\leq T})\overset{d}{=}\left(\sigma_+ B_t-\frac{\sigma_{-+}}{2\mu}t^2, {0\leq t\leq T}\right),$$
+ % where $(B_t)_{t\geq 0}$ is a standard Brownian motion.
+ % \end{proposition}
+ % \begin{proof}
+ % Firstly, we have that for any $t\in [0,T]$ and $\theta>0$,
+ % \begin{align*} \E\left[\exp(-\theta \sigma_+ \hat{B}_t)\right] &= \E \left[ \exp\left(-\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t s dB_s-\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}-\theta\sigma_+ B_t  \right)\right]\\
+ % &=\E\left[\exp \left( -\frac{\sigma_{-+}}{\sigma_+ \mu}\int_0^t \left(s+\frac{\sigma_+^2\theta \mu}{\sigma_{-+}}\right) dB_s -\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\right] \\
+ % &= \exp\left(-\frac{\sigma_{-+}^2}{2\sigma_+^2 \mu^2}\int_0^t \left(s+\frac{\sigma_+^2\theta \mu}{\sigma_{-+}}\right)^2 ds -\frac{\sigma_{-+}^2 t^3}{6\sigma_+^2\mu^2}\right)\\
+ % &=\exp\left(\frac{\sigma_+^2 t}{2}\theta^2+\frac{\sigma_{-+} t^2}{2\mu}\theta \right)\\
+ % &= \E \left[\exp\left(-\theta\left(\sigma_+ B_t - \frac{\sigma_{-+}}{2\mu} t^2\right)\right)\right].
+ % \end{align*}
+ % Then, more generally, for $m>0$, $0=t_0\leq t_1\leq \cdots \leq t_m=T$, and $\theta_1, \dots, \theta_m \in \R_+$, 
+ % \begin{align*}
+ %     &\E\left[\exp\left(-\sum_{i=1}^m \theta_i(\sigma_+\hat{B}_{t_i}-\sigma_+\hat{B}_{t_{i-1}})\right)\right]\\
+ %    %  &=\E \left[ \exp\left(-\frac{\sigma}{\mu} \sum_{i=1}^m \int _{t_{i-1}}^{t_i} s dB_s^1-\frac{\sigma_-^2}{2\mu^2}\sum_{i=1}^m \int_{t_{i-1}}^{t_i}s^2ds-\frac{ \sigma_{-+}}{\sigma} \sum_{i=1}^m \theta_i(B_{t_i}^1-B_{t_{i-1}}^1)- 
+ %    %  \left(\sigma_+^2-\frac{\sigma_{-+}^2}{\sigma_-^2}\right)^{1/2}\sum_{i=1}^m \theta_i(B_{t_i}^2-B_{t_{i-1}}^2)\right)\right]\\
+ %     &= \prod_{i=1}^m \E\left[\exp\left(-\frac{\sigma_{-+}}{\sigma_+\mu} \int _{t_{i-1}}^{t_i} s dB_s-\frac{\sigma_{-+}^2 (t_i^3-t_{i-1}^3)}{6\sigma_+^2 \mu^2}-\theta_i \sigma_+  (B_{t_i}-B_{t_{i-1}})\right)\right]\\
+ %     &= \prod_{i=1}^m  \exp\left( -\frac{\sigma_{-+}^2}{2\sigma_+^2 \mu^2}\int_{t_{i-1}}^{t_i}\left(s+\frac{\sigma_+^2\theta_i\mu}{\sigma_{-+}}\right)^2 ds - \frac{\sigma_{-+}^2 (t_i^3-t_{i-1}^3)}{6\sigma_+^2 \mu^2} \right)\\
+ %     &=  \prod_{i=1}^m \exp\left(\frac{ \sigma_+^2 (t_i-t_{i-1}) }{2}\theta_i^2+\frac{\sigma_{-+} (t_i^2-t_{i-1}^2)}{2\mu}\theta_i \right)\\
+ %     &=\E \left[\exp\left(-\sum_{i=1}^m\theta_i\left(\sigma_+ (B_t-B_{t_i}) - \frac{\sigma_{-+}}{2\mu} (t_i^2-t_{i-1}^2)\right)\right)\right],
+ % \end{align*}
+ % which proves the result.
+ % \end{proof}
 \subsection{Adding dummy leaves to a Bienaymé forest}\label{subsec.purpleleavesGWforest}
 We would like to add dummy leaves to the forest encoded by $(Y^+(l),1\leq l \leq k)$. However, in the absence of a true stack of in-edges, we need to approximate the probability of adding a dummy leaf. We do this by approximating the stack size by its mean $\mu n$. 
 % \begin{lemma}
@@ -184,7 +209,7 @@ We use this idea to define the forest with dummy leaves and its \L ukasiewicz pa
 \begin{enumerate} 
     \item Set $P_n(1)=0$, $S_n^{+}(1)=Z_1^+-1$, $S_n^{-}(1)=Z_1^-$. 
     \item Suppose we are given $(P_n(l),S_n^{+}(l),S_n^{-}(l), 1\leq l \leq k)$. Define 
-    $I^{+}(k)=\min\{S_n^{+}(l), l\leq k\}$. Then, with probability $$p_{k+1}:=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}},$$ independent from everything else, set $P_n(k+1)=P_n(k)+1$. Otherwise, set $P_n(k+1)=P_n(k)$. 
+    $I^{+}(k)=\min\{S_n^{+}(l), l\leq k\}$. Then, with probability $$p_{k+1}:=\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k)=I^{+}(k-1)\}},$$ independently of everything else, set $P_n(k+1)=P_n(k)+1$. Otherwise, set $P_n(k+1)=P_n(k)$. 
     \item Set $$S_n^{+}(k+1)=Y^+(k+1-P_n(k+1))-P_n(k+1),$$ and $$S_n^{-}(k+1)=Y^-(k+1-P_n(k+1))-P_n(k+1)-I^{+}(k)+1.$$
 \end{enumerate}
 Let the forest with dummy leaves be the forest with \L ukasiewicz path $(S_n^{+}(k), k\geq 1)$ in which the $k$th vertex is a dummy leaf if and only if $P^n(k)-P^n(k-1)=1$. 
@@ -198,9 +223,10 @@ To show the convergence of the \L ukasiewicz path corresponding to the forest wi
  \end{lemma}
  \begin{proof}
 Set $m=\lfloor  n^{2/3}t\rfloor$ and fix $\epsilon>0$. It is trivial that for any $k\leq m$, $$S^{-}(k)\leq \sum_{i=1}^k Z^-_i=Y^-(k)+k.$$ Moreover, $\mu n - k -I^{+}(l)+1>\mu n-k$.  Therefore, $$p_{k+1}\leq \frac{Y^-(k)+k}{\mu n - k}.$$
-This upper bound is increasing in $k$. Consequently, conditional on $(Y^+(j),Y^-(j),j\geq 1),$ $n^{-1/3}P_n(m)$ is stochastically dominated by a binomial random variable with parameters  $m$ and $$\frac{Y^-(m)+m}{\mu n - m}\wedge 1.$$
+This upper bound is increasing in $k$. Consequently, conditional on $(Y^+(j),Y^-(j),j\geq 1),$ $P_n(m)$ is stochastically dominated by a binomial random variable with parameters  $m$ and $$\frac{Y^-(m)+m}{\mu n - m}\wedge 1.$$
 Since $(Y^-(k)+k,k\geq 1)$ is a random walk with steps of finite mean, $\left(n^{-2/3}(Y^-(m)+m)\right)_{n\geq 1}$ is tight. Therefore,
-$$\left(n^{1/3} \frac{Y^-(m)+m}{\mu n - m}\right)_{n\geq 1}$$ is tight, which implies that a binomial random variable with parameters  $m$ and $$\frac{Y^-(m)+m}{\mu n - m}\wedge 1$$
+$$\left(n^{1/3} \frac{Y^-(m)+m}{\mu n - m}\right)_{n\geq 1}$$ is tight, which implies that a binomial random variable with parameters  $m$ and $$\frac{Y^-(m)+m}{\mu n - m}\wedge 1,$$
+rescaled by $n^{-1/3}$,
 is tight. The statement follows.
 \end{proof}
 \begin{lemma}\label{lemma.convergenceQandP}
@@ -220,12 +246,12 @@ E^p(m)&:=\sum_{k=0}^{m-1}\frac{S_n^{-}(k)}{\mu n - k -I^{+}(k)+1}\one_{\{I^{+}(k
 so since $I^{+}(m)$ is of order $n^{1/3}$ and $\frac{Y^{-}(m)+m}{\mu n - m}$ is of order $n^{-1/3}$, $(E^p(m))_{n\geq 1}$ is tight.  This means that if we allow the roots to be dummy leaves, with high probability, we would only sample $O(1)$ roots that are dummy leaves up to time $O(n^{2/3})$. This does not affect $(P_n(k),k\leq m)$ on the scale of interest. \\
  Then, the convergence under rescaling of $Y^-$ and $Y^+$ shown in \cref{cor:measure-change}, the tightness of $\left(n^{-1/3}I^{+}(\lfloor n^{2/3} t \rfloor)\right)_{n\geq 1}$ and Lemma \ref{lemma.tightnesssurplusedges} imply that
 \begin{align}\begin{split}\label{eq.convergenceprob}
-  &\left(n^{1/3}\frac{S_n^{-}\left(\lfloor n^{2/3} t \rfloor\right)}{\mu n - \lfloor n^{2/3} t \rfloor -I^{p,+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
+  &\left(n^{1/3}\frac{S_n^{-}\left(\lfloor n^{2/3} t \rfloor\right)}{\mu n - \lfloor n^{2/3} t \rfloor -I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
  &=\left(n^{1/3}\frac{Y^-\left(\lfloor n^{2/3} t \rfloor-P_n\left(\lfloor n^{2/3} t \rfloor\right)\right)-P_n\left(\lfloor n^{2/3} t \rfloor\right)-I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1}{\mu n - \lfloor n^{2/3} t \rfloor -I^{+}\left(\lfloor n^{2/3} t \rfloor\right)+1},t\geq 0\right)\\
  &\toprob \left(\frac{\nu_-}{\mu}t,t\geq 0\right)\end{split}\end{align}
 in $D(\R_+,\R)$ as $n\to \infty$. 
 Then, by the continuous mapping theorem and the tightness of $(E^p(m))_{n\geq 1}$,
-$$\left(n^{-1/3}\sum_{i=0}^{\lfloor n^{2/3}t \rfloor} p_k , t \geq 0\right)\toprob \left(\frac{\nu_-}{2\mu}t^2,t\geq 0\right)$$
+$$\left(n^{-1/3}\sum_{k=0}^{\lfloor n^{2/3}t \rfloor} p_k , t \geq 0\right)\toprob \left(\frac{\nu_-}{2\mu}t^2,t\geq 0\right)$$
 in $D(\R_+,\R)$ as $n\to \infty$. \\
 Let $\cG=(\cG_k,k\geq 1)$ denote the filtration such that $\cG_{k}$ contains the information on the shape of the forest until time $k$, including which of the first $k$ vertices are dummy vertices. Then, 
 $$M_n(k):=\sum_{i=1}^k (\one_{\{P_n(i)-P_n(i-1)=1\}}-p_i)$$ is a $\cG$-martingale. We claim that $(n^{-1/3}M_n(\lfloor n^{2/3} t\rfloor ), t\geq 0)$ converges to $0$ in probability in $D(\R_+,\R)$. Indeed, for any $t\geq 0$,
@@ -288,7 +314,7 @@ The formal procedure is as follows. Suppose we are given $(Y^+(k),S^{+}_n(k),P_n
 \end{enumerate}
 By removing the filler vertices from the forest with dummy and filler vertices, we obtain the original forest with dummy leaves. We make the following observations.
 \begin{enumerate}
-    \item We claim that $\theta_n(k)$ is equal to index in depth first order of the $k$th true or dummy vertex in the forest with dummy and filler vertices. Indeed, note that $\min\{j: Y^{\mathrm{f}}(j)=-P_n(k-1)\}$ is equal to the number of vertices in the first $P_n(k-1)$ trees in the forest encoded by $Y^{\mathrm{f}}$, so that $$\min\{j: Y^{\mathrm{f}}(j)=-P_n(k-1)\}-P_n(k-1)$$ is equal to the number of filler vertices in depth-first order until the $k$th true or dummy vertex. 
+    \item We claim that $\theta_n(k)$ is equal to the index in depth first order of the $k$th true or dummy vertex in the forest with dummy and filler vertices. Indeed, note that $\min\{j: Y^{\mathrm{f}}(j)=-P_n(k-1)\}$ is equal to the number of vertices in the first $P_n(k-1)$ trees in the forest encoded by $Y^{\mathrm{f}}$, so that $$\min\{j: Y^{\mathrm{f}}(j)=-P_n(k-1)\}-P_n(k-1)$$ is equal to the number of filler vertices in depth-first order until the $k$th true or dummy vertex. 
     \item Note that $\Lambda_n(k)$ is the number of true vertices amongst the first $k$ vertices. This follows from the fact that $\max\{j:\theta_n(j)\leq k\}$ is the number of true or dummy vertices amongst the first $k$ vertices. 
     \item By the previous remark, $(\Lambda_n(k),k\geq 1)$ only takes steps of size $0$ or $1$. Both $(Y^+(k),k\geq 1)$ and $(Y^{\mathrm{f}}(k),k\geq 1)$ are random walks with steps distributed as $Z^+-1$, so, by construction, $(Y^{\mathrm{df}}(k),k\geq 1)$ is a random walk with steps distributed as $Z^+-1$, so the forest with dummy and filler vertices is a Bienaymé forest with offspring distributed as $Z^+$.
     \item By construction, $(H^{\mathrm{df}}(\theta_n(k)),k\geq 1)$ is the height process corresponding to the forest with dummy vertices. Moreover,
@@ -330,9 +356,7 @@ in $D(\R_+,\R)^2$ as $n\to \infty$ jointly with the other convergences.
 In the proof of Lemma \ref{lemma.convergenceX+} we use the following straightforward technical result that follows immediately from the characterization of convergence in the Skorokhod topology given in Ethier and Kurtz \cite[Proposition 3.6.5]{ethierMarkovProcessesCharacterization1986}, .
 
 \begin{lemma}\label{lemma.technicalcomposedfunctions}
-If $h_n\to h$ and $f_n\to f$ in $\D(\R_+,\R)$ as $n\to\infty$, and $h_n$ and $h$ are monotone non-decreasing and $h$ is continuous, then 
-$$h_n\circ f_n \to h\circ f$$
-and 
+Suppose $h_n\to h$ in $\D(\R_+,\R_+)$ and $f_n\to f$ in $\D(\R_+,\R)$ as $n\to\infty$. Then, if $h_n$ and $h$ are non-decreasing and $h$ is continuous, or if $f$ is continuous, then 
 $$f_n\circ h_n \to f\circ h$$
 in $\D(\R_+,\R)$ as $n\to\infty$.
 \end{lemma}
@@ -347,14 +371,14 @@ in $\D(\R_+,\R)$ as $n\to\infty$.
 
 
 \begin{proof}[Proof of Lemma \ref{lemma.convergenceX+}]
-Firstly, note that since $(Y^{\mathrm{df}}(k),k\geq 1)$ encodes a critical Galton-Watson forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \citet{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
+Firstly, note that since $(Y^{\mathrm{df}}(k),k\geq 1)$ encodes a critical Bienaym\'e forest with offspring variance $\sigma_+^2$, the proof of Theorem 1.8 in \citet{legallRandomTreesApplications2005} gives us that for $(B^*_s,s\geq 0)$ a Brownian motion,
 \begin{align}\label{eq.convergenceX}
 &\left(n^{-1/3}Y^{\mathrm{df}}\left(\lfloor n^{2/3}s\rfloor \right), n^{-1/3}H^{\mathrm{df}}\left(\lfloor n^{2/3}s\rfloor \right), s\geq 0 \right) \nonumber \\
 & \hspace{15em} \todist \left(\sigma_+ B^*_s,\frac{2}{\sigma_+} \left(B^*_s-\inf\{B^*_u:u\leq s\}\right),  s\geq 0\right)
 \end{align} 
  in $D(\R_+,\R)^2$ as $n\to \infty$, and that $\left(\frac{2}{\sigma_+}(B^*_s-\inf\{B^*_u,u\leq s\}),s\geq 0\right)$ is the height process corresponding to $\left(\sigma_+ B^*_s,s \geq 0\right)$. Then, we note that since $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{\mathrm{df}}(k),k\geq 1)$, so that also
  $$\left(n^{-1/3}Y^+\left(\lfloor n^{2/3} t\rfloor \right),t\geq 0\right)\todist\left(\sigma_+ B_t, t\geq 0\right)$$
-in $D(\R_+,\R)$ as $n\to \infty$. Then, since also $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{\mathrm{f}}(k),k\geq 1)$ and by Lemma \ref{lem.technicalhittingtimes} and the almost sure uniqueness of the local minima of Brownian, we get that
+in $D(\R_+,\R)$ as $n\to \infty$. Then, since also $(Y^+(k),k\geq 1)\overset{d}{=}(Y^{\mathrm{f}}(k),k\geq 1)$ and by Lemma \ref{lem.technicalhittingtimes} and the almost sure uniqueness of the local minima of Brownian motion, we get that
 \begin{align}\begin{split}\label{eq.convergencebychaumont}&\left(n^{-1/3}Y^{\mathrm{f}}\left(\lfloor n^{2/3} s \rfloor \right), n^{-2/3}\inf\left\{k:n^{-1/3}Y^{\mathrm{f}}(k) \leq -x\right\}, s \geq 0, x\geq 0 \right)\\
 &\hspace{15em}\todist\left( \sigma_+ B^{\mathrm{f}}_s, \inf\left\{u:\sigma_+ B^{\mathrm{f}}_u < -x\right\}, s\geq 0, x \geq 0\right)\end{split}\end{align}
 in $D(\R_+,\R)^2$ as $n\to \infty$.
@@ -368,7 +392,7 @@ Recall that
 $$\Lambda_n(k)=\max\{j:\theta_n(j)\leq k\}-P_n(\max\{j:\theta_n(j)\leq k\}). $$ By definition, for all $n$, $(\theta_n(k),k\geq 1)$ and $(\theta(t),t\geq 0)$ are strictly increasing, so
 $$\left(n^{-2/3}\max\{j:\theta_n(j)\leq \lfloor n^{2/3} t \rfloor\} ),t\geq 0\right)\todist\left( \Lambda(t),t\geq0 \right)$$
 in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \cref{eq.convergencebychaumont} and \cref{eq.convergencetheta}. Since $\max\{j:\theta_n(j)\leq \lfloor n^{2/3} t \rfloor\}$ is of order $n^{2/3}$, and, by Lemma \ref{lemma.convergenceQandP}, $P_n(\lfloor n^{2/3}t\rfloor)$ is of order $n^{1/3}$, we get that 
-$$\left(n^{-2/3}\Lambda_n\left(\lfloor n^{2/3} t \rfloor\} \right),t\geq 0\right)\todist\left( \Lambda(t),t\geq0 \right)$$
+$$\left(n^{-2/3}\Lambda_n\left(\lfloor n^{2/3} t \rfloor \right),t\geq 0\right)\todist\left( \Lambda(t),t\geq0 \right)$$
 in $D(\R_+,\R)$ as $n\to \infty$ jointly with the convergence in \cref{eq.convergencebychaumont} and \cref{eq.convergencetheta}.\\
 To finish the proof, we examine the construction of $(Y^{\mathrm{df}}(k),k\geq 1)$ in \cref{eq.definitionYdf} and the construction of $(B^{\mathrm{df}}_s,s\geq 0)$ in \cref{eq.definitionBpr}. 
 Note that $\Lambda_n(k)$ and $k-\Lambda_n(k)$ are non-decreasing. Again, by Lemma \ref{lemma.technicalcomposedfunctions}, this implies that 
@@ -389,7 +413,7 @@ in $\D(\R_+,\R)^2$ as $n\to \infty$.
 \begin{proof}
 By \cref{eq.constructionSp}, and by Lemma \ref{lemma.convergenceX+}, it is sufficient to show that for any $t>0$,
 $$n^{-1/3}\max_{k\leq \lfloor n^{2/3}t\rfloor}E(k)\toprob0.$$
-We remind the reader that $E(k)$ counts the number children of the $k$th vertex in the forest with dummy and filler vertices that are filler vertices, so
+We remind the reader that $E(k)$ counts the number children of the $k$th vertex in the forest with dummy and filler vertices that are filler vertices, and so
 $$n^{-1/3}\max_{k\leq \lfloor n^{2/3}t\rfloor}E(k)\leq n^{-1/3}\max_{k\leq \theta_n(\lfloor n^{2/3}t\rfloor)}(Y^{\mathrm{f}}(k)-Y^{\mathrm{f}}(k-1)+1),$$
 which converges to $0$ by tightness of $\left(n^{-2/3}\theta^{n}(\lfloor n^{2/3}t\rfloor)\right)_{n\geq 1}$ and the fact that $$\left(n^{-1/3}Y^{\mathrm{f}}\left(\lfloor n^{2/3}s\rfloor\right),s\geq 0\right)$$ converges in distribution to a continuous process in $D(\R_+,\R)$ as $n\to\infty$.
 \end{proof}
@@ -437,21 +461,25 @@ $B^{\mathrm{df}}_{\theta(t-)}=B^{\mathrm{df}}_{\theta(t)}.$
 We will now combine the convergence of the measure change under rescaling, which is the content of \cref{cor:measure-change}, and the convergence of the encoding processes of the forest with dummy leaves, which is the content of \cref{prop:convheightprocesspurple}, in order to prove \cref{prop:convoutforest}.
 
 \begin{proof}[Proof of \cref{prop:convoutforest}]
-Recall that $\hat{P}_n(k)$ denotes the number of dummy leaves amongst the first $k$ vertices in the forest with dummy leaves. Then, as shown in \cref{prop:sampleoutforest}, the probability that the $(k+1)$th vertex in the out-forest is purple, given the degrees in order of discovery and the dummy leaves amongst the first $k$ vertices is equal to
+Recall that $\hat{P}_n(k)$ denotes the number of dummy leaves amongst the first $k$ vertices in the forest with dummy leaves. Then, as shown in \cref{prop:sampleoutforest}, the probability that the $(k+1)$th vertex in the out-forest is a dummy leaf, given the degrees in order of discovery and the dummy leaves amongst the first $k$ vertices is equal to
 $$q_{k+1}:=\frac{\hat{S}^-_n(k)}{\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)}\one_{\left\{\hat{I}^+_n(k-1)= \hat{I}^+_n(k)\right\}},$$
 where $\hat{I}^+_n(k)=\min\{\hat{S}^{+}_n(l):l\leq k\}$.
 In order to use the results on the forest with dummy leaves, we need to replace the term $\sum_{i=1}^n D^-_i$ in the denominator by $\mu n$. Therefore, define a new forest, \emph{the approximate out-forest}, in which the degrees in order of discovery are the same as in the out-forest. However, in this forest, the probability that the $(k+1)$th vertex is a dummy leaf, given the degrees in order of discovery and the dummy leaves amongst the first $k$ vertices, is equal to
 $$\tilde{q}_{k+1}:=\frac{\tilde{S}^-_n(k)}{\mu n-k-\tilde{I}_n(k)}\one_{\left\{\tilde{I}_n(k-1)=\tilde{I}_n(k)\right\}},$$
 where $\tilde{S}^-_n(k)$ is the number of unused in-edges of previously discovered vertices in the approximate out-forest up to time $k$ and $-\tilde{I}^+_n(k)$ is the number of components in the approximate out-forest up to time $k$. We let $\tilde{P}_n(k)$ denote the number of dummy leaves amongst the first $k$ vertices in the approximate out-forest. 
-We claim that there exists a coupling such that
+We claim that there exists a coupling between our real process  and our approximate process such that
 $$\sum_{i=1}^{\lfloor n^{2/3}T\rfloor }|q_i-\tilde{q}_i|\toprob0$$
 as $n\to \infty$. 
 Indeed, by the convergence in \cref{prop:convaftermeasurechange}, 
-$$\left(n^{-2/3}\sum_{i=1}^{\lfloor n^{2/3}T\rfloor} \widehat{D}^n_i\right)_{n>0}$$ is tight. Moreover, with a slight adaptation to the proof of Lemma \ref{lemma.tightnesssurplusedges}, we can show that $\left(n^{-1/3}\tilde{P}_n\left(\lfloor n^{2/3}T\rfloor \right)\right)_{n>0}$ is tight. This, combined with the convergence under rescaling of $(\hat{Y}^+_n(k),k\geq 1)$, implies that also $\left(n^{-1/3}\tilde{I}^+_n\left(\lfloor n^{2/3}T\rfloor \right)\right)_{n>0}$ is tight.  Since $D^-_1,\dots,D^-_n$ are i.i.d.\ random variables with mean $\mu$ and finite variance,
-$\left(n^{-1/2}\left(\sum_{i=1}^{n}D^-_i-\mu n\right)\right)_{n>0}$ is tight. By using the trivial identity $a/b-c/d=(b(a-c)-c(d-b))/bd$, this implies that
-$\left(n^{2/3}\max_{k\leq \lfloor n^{2/3}T\rfloor }|q_k-\tilde{q}_k|\right)_{n>0}$ is tight, which implies that there exists a coupling such that $\left(\max_{k\leq \lfloor n^{2/3}T\rfloor } |\hat{P}_n(k)-\tilde{P}_n(k)|\right)_{n>1}$ and $\left(\max_{k\leq \lfloor n^{2/3}T\rfloor } |\hat{I}^+_n(k)-\tilde{I}^+_n(k)|\right)_{n>1}$ are tight, which implies that, again by $a/b-c/d=(b(a-c)-c(d-b))/bd$, 
-$\left(n^{5/6}\max_{k\leq \lfloor n^{2/3}T\rfloor }|q_k-\tilde{q}_k|\right)_{n>0}$ is tight, which implies that 
-$$\sum_{i=1}^{\lfloor n^{2/3}T\rfloor }|q_i-\tilde{q}_i|\toprob0$$
+$$\left(n^{-2/3}\sum_{i=1}^{\lfloor n^{2/3}T\rfloor} \hat{D}^n_i\right)_{n>0}$$ is tight. Moreover, with a trivial adaptation to the proof of Lemma \ref{lemma.tightnesssurplusedges}, we can show that $\left(n^{-1/3}\tilde{P}_n\left(\lfloor n^{2/3}T\rfloor \right)\right)_{n>0}$ is tight. This, combined with the convergence under rescaling of $(\hat{Y}^+_n(k),k\geq 1)$, implies that also $\left(n^{-1/3}\tilde{I}^+_n\left(\lfloor n^{2/3}T\rfloor \right)\right)_{n>0}$ is tight.  Since $D^-_1,\dots,D^-_n$ are i.i.d.\ random variables with mean $\mu$ and finite variance,
+$\left(n^{-1/2}\left(\sum_{i=1}^{n}D^-_i-\mu n\right)\right)_{n>0}$ is tight. The trivial identity $a/b-c/d=(b(a-c)-c(d-b))/bd$ yields that, for $k=O(n^{2/3})$, on the event that $\hat{I}^+_n(k-1)= \hat{I}^+_n(k)$ and $\tilde{I}^+_n(k-1)= \tilde{I}^+_n(k)$, 
+\begin{align*}|q_k-q'_k|&\leq \frac{\mu n \left| \tilde{S}^-_n(k)-\bar{S}^-_n(k)\right|+\left|\tilde{S}^-_n(k)\right|\left(\left|\sum_{i=1}^n D^-_i-\mu n \right|+ \left|\hat{I}^+_n(k)- \tilde{I}^+_n(k) \right|\right) }{\left|\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)\right| \left|\mu n-k-\tilde{I}_n(k)\right|}\\
+&=\frac{ O(n)O\left(\max_{k\leq \lfloor n^{2/3} T \rfloor}|\hat{P}_n(k)-\tilde{P}_n(k)|\right)+O(n^{2/3})\left(O(n^{1/2})+O(n^{1/3})\right)}{\Theta(n^2)}\end{align*} 
+in probability.
+The suboptimal bound \[\max_{k\leq \lfloor n^{2/3} T \rfloor}|\hat{P}_n(k)-\tilde{P}_n(k)|\leq \hat{P}_n\left(\lfloor n^{2/3} T \rfloor\right)+\tilde{P}_n\left(\lfloor n^{2/3} T \rfloor\right)=O(n^{1/3})\]
+shows that this ratio is $O(n^{-2/3})$ in probability. 
+For the $\Theta(n^{1/3})$ times that $\hat{I}^+_n(k-1)\neq \hat{I}^+_n(k)$ or  $\tilde{I}^+_n(k-1)\neq \tilde{I}^+_n(k)$, we use the bound that $|q_k-q'_k|\leq \max \{q_k,q'_k\}=O(n^{-1/3})$. 
+These two bounds imply that there exists a coupling such that $\left(\max_{k\leq \lfloor n^{2/3}T\rfloor } |\hat{P}_n(k)-\tilde{P}_n(k)|\right)_{n>1}$ is tight, which implies that, by improving the suboptimal bound above, $$\sum_{i=1}^{\lfloor n^{2/3}T\rfloor }|q_i-\tilde{q}_i|\toprob0.$$
 as $n\to \infty$. 
 Therefore, under the right coupling, 
 $$\P\left(\max_{k\leq \lfloor n^{2/3} T \rfloor}|\hat{P}_n(k)-\tilde{P}_n(k)|>0\right)\to 0.$$

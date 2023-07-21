@@ -16,7 +16,7 @@ When considering such models, previous work by \citet{cooperSizeLargestStrongly2
     \label{fig.SCCs}
 \end{figure}
 
-There are two notions of connectivity when working with a directed graph: weak and strong connectivity. We will be working with the strong notation. We say a vertex $v$ leads to a vertex $w$, written $v \rightarrow w$, if there exists a directed path from $v$ to $w$ in the graph. We say $v$ is \emph{strongly connected to $w$}, written $v \leftrightarrow w$, if $v$ leads to $w$ and $w$ leads to $v$. By convention, $v$ leads to itself. A graph is \emph{strongly connected} if all pairs of vertices in the graph are strongly connected. The relation $v \leftrightarrow w$ is an equivalence relation; the digraphs induced by the equivalence classes of $\leftrightarrow$ are referred to as the \emph{strongly connected components} (SCCs). For each vertex $v$ in a directed graph $\vec{G}$, we will use the notation $d^-(v)$ for the in-degree of $v$ and $d^+(v)$ for the out-degree of $v$. Moreover, a directed edge $(v,w)$ has \emph{tail} $v$ and \emph{head} $w$ (see Figure \ref{fig.tailhead}).
+There are two notions of connectivity when working with a directed graph: weak and strong connectivity. We will be working with the strong notion. We say a vertex $v$ leads to a vertex $w$, written $v \rightarrow w$, if there exists a directed path from $v$ to $w$ in the graph. We say $v$ is \emph{strongly connected to $w$}, written $v \leftrightarrow w$, if $v$ leads to $w$ and $w$ leads to $v$. By convention, $v$ leads to itself. A graph is \emph{strongly connected} if all pairs of vertices in the graph are strongly connected. The relation $v \leftrightarrow w$ is an equivalence relation; the digraphs induced by the equivalence classes of $\leftrightarrow$ are referred to as the \emph{strongly connected components} (SCCs). For each vertex $v$ in a directed graph $\vec{G}$, we will use the notation $d^-(v)$ for the in-degree of $v$ and $d^+(v)$ for the out-degree of $v$. Moreover, a directed edge $(v,w)$ has \emph{tail} $v$ and \emph{head} $w$ (see Figure \ref{fig.tailhead}).
 \begin{figure}
     \centering
     \includegraphics{Content/Pictures/Fig2.eps}
@@ -36,7 +36,7 @@ In this paper we will consider the case where the degree sequence  consists of $
 \begin{equation*}
     \left\{ \textstyle \sum_{i=1}^n D_i^- = \sum_{i=1}^n D_i^+ \right\},
 \end{equation*}
-observing that this is an asymptotically singular event as $n\to\infty$. Let $\vec{G}_n(\nu)$ be a digraph chosen uniformly at random from all digraphs with degree sequence $\vD_1, \ldots, \vD_n$. We are interested in the limit under rescaling of the SCCs of $\vec{G}_n(\nu)$ as $n\to \infty$.
+observing that this is an asymptotically singular event as $n\to\infty$. We also condition on the existence of a digraph with the degree sequence. Let $\vec{G}_n(\nu)$ be a digraph chosen uniformly at random from all digraphs with degree sequence $\vD_1, \ldots, \vD_n$. We are interested in the limit under rescaling of the SCCs of $\vec{G}_n(\nu)$ as $n\to \infty$.
 
 Suppose $(D^-, D^+)$ has law $\nu$. We will require the following assumptions to hold:
 \begin{enumerate}
@@ -72,22 +72,22 @@ Thus
     \right]
     \P \left[ D^- = k^-, D^+ = k^+ \right].
 \end{equation*}
-Using the law of large numbers, the above will converge to
+Using the strong law of large numbers and the bounded convergence theorem, the above will converge to
 \begin{equation*}
     \frac{k^-}{\E[D^-]} \P\left[ D^- = k^-, D^+ = k^+ \right].
 \end{equation*}
-Let $(Z^-, Z^+)$ be such that $P(Z^- = k^-, Z^+ = k^+)$ is given by the above expression. We say $(Z^-, Z^+)$ has the law of the \emph{degree distribution size-biased by in-degree}. For large $n$, any other fixed out-edge of $W_n$ is then also distributed approximately like a uniformly chosen edge (here we are ignoring the fact that we have already sampled an edge) since we chose the in- and out-edge pairing uniformly at random. Therefore the out-degree of the head will have approximately the same distribution as $Z^+$. Thus if we were to look at the graph of all vertices leading from $W_n$, it would look approximately like a Bienaymé tree\footnote{For $\mu$ a probability distribution on $\N$, a Bienaymé tree with offspring distribution $\mu$ is the family tree of a branching process with offspring distribution $\mu$. Bienaymé trees are often referred to as Galton--Watson trees, but we decide to follow the name change suggested by \citet{addario-berryUniversalHeightWidth2021}.} with offspring distribution $Z^+$. It is well known that such trees exhibit critical behaviour in whether or not the tree is finite at $\E[Z^+] = 1$. This is equivalent to assuming $\E[D^-D^+] = E[D^-]$.
+Let $(Z^-, Z^+)$ be such that $P(Z^- = k^-, Z^+ = k^+)$ is given by the above expression. We say $(Z^-, Z^+)$ has the law of the \emph{degree distribution size-biased by in-degree}. For large $n$, any fixed out-edge of $W_n$ is then also distributed approximately like a uniformly chosen edge (here we are ignoring the fact that we have already sampled an edge) since we chose the in- and out-edge pairing uniformly at random. Therefore the out-degree of the head will have approximately the same distribution as $Z^+$. Thus if we were to look at the graph of all vertices leading from $W_n$, it would look approximately like a Bienaymé tree\footnote{For $\mu$ a probability distribution on $\N$, a Bienaymé tree with offspring distribution $\mu$ is the family tree of a branching process with offspring distribution $\mu$. Bienaymé trees are often referred to as Galton--Watson trees, but we decide to follow the name change suggested by \citet{addario-berryUniversalHeightWidth2021}.} with offspring distribution $Z^+$. It is well known that such trees exhibit critical behaviour in whether or not the tree is finite at $\E[Z^+] = 1$. This is equivalent to assuming $\E[D^-D^+] = E[D^-]$.
 
 \citet{cooperSizeLargestStrongly2004} studied this phase transition for a deterministic degree sequence $\vd_1, \ldots, \vd_n$. They defined the parameter
 \begin{equation*}
     d = \frac{\sum_{i=1}^n d_i^+ d_i^-}{\sum_{i=1}^n d_i^-}
 \end{equation*}
-which is a counterpart of $\E[Z^-]$ for deterministic degree sequences. They then showed that, under additional assumptions, there exists a phase transition for the existence of a giant SCC depending on whether $d$ is strictly greater than or less than 1. Our work in this paper shows our corresponding condition, $\E[Z^-] = 1$, is also the correct criticality condition to take for i.i.d.\ random degree sequences.
+which is a counterpart of $\E[Z^+]$ for deterministic degree sequences. They then showed that, under additional assumptions, there exists a phase transition for the existence of a giant SCC depending on whether $d$ is strictly greater than or less than 1. Our work in this paper shows our corresponding condition, $\E[Z^+] = 1$, is also the correct criticality condition to take for i.i.d.\ random degree sequences.
 
 We define the following parameters that will determine the behaviour of the SCCs in the limit.
 \begin{enumerate}
     \item $\mu:=\E[D^-]=\E[D^+]=\E[D^-D^+]$
-    \item $\nu_-:= \E[Z^-] - 1 = \frac{\E[(D^-)^2]-\mu}{\mu}$ 
+    \item $\nu_-:= \E[Z^-] - 1 = \frac{\E[(D^-)^2]-\mu}{\mu}>0$ 
     \item $\sigma_-^2 := \var(Z^-) = \frac{\mu\E[(D^-)^3]-\E[(D^-)^2]^2}{\mu^2}$ 
     \item $\sigma_+^2 := \var(Z^+) = \frac{\E[D^-(D^+)^2]-\mu}{\mu}$ 
     \item $\sigma_{-+} := \cov(Z^-, Z^+) = \frac{\E[(D^-)^2D^+]-\E[(D^-)^2]}{\mu}$ 
@@ -179,7 +179,7 @@ An example is shown in Figure \ref{fig:kernel}. We expect the graph structure of
 
 For $M$ an MDM and $c\in (0,\infty)$, let $cM$ be equal to $M$ with all lengths multiplied by $c$. Let $C_i(n)$ for $i\geq 1$ be the kernels of the SCCs of $\vec{G}_n(\nu)$, listed in decreasing order of number of edges, breaking ties arbitrarily. Complete the list with an infinite repeat of $\zeroloop$. Then, our main theorem is as follows.
 \begin{theorem}\label{thm.main}
-There exists a sequence $\cC=(\cC_i,i\in \N)$ of random strongly connected MDMs such that 
+There exists a random sequence $\cC=(\cC_i,i\in \N)$ of strongly connected MDMs such that 
 $$\left(n^{-1/3}C_i(n),i\in \N\right)\todist\left(\cC_i,i\in \N\right)$$
 as $n\to \infty$, with respect to the product $d_{\vec{\cG}}$-topology. The law of $\cC=(\cC_i,i\in \N)$ depends only on the parameters $\mu$, $\sigma_+$, and $(\sigma_{-+}+\nu_-)/\mu$. Further, for each $i\geq 1$, $\cC_i$ is either $3$-regular or a loop.
 \end{theorem}
@@ -196,7 +196,7 @@ $\left(n^{-1/3}C^{ER}_i(n),i\in \N\right)$ have the same limit in distribution i
 \end{theorem}
 Note that the condition in \Cref{thm.erdosrenyi} is satisfied by $\nu(k^-,k^+)=\nu_1(k^-)\nu_2(k^+)$, with $\nu_1$ and $\nu_2$ the law of a $\operatorname{Poisson}(1)$ random variable.
 
-Moreover, Theorem \ref{thm.main} has the following trivial corollaries, which were previously unknown. 
+Moreover, Theorem \ref{thm.main} has the following immediate corollaries, which were previously unknown. 
 \begin{corollary}\label{cor.componentsizes}
 Let $E^i_n$ and $V^i_n$ be the number of edges and vertices in $C_i(n)$ respectively, both appended with infinite repeats of $0$. Then there exists a random sequence $(E_i,i\in \N)\in \R_+^\infty$, such that
 $$\left(n^{-1/3}E^n_i,n^{-1/3}V^n_i, i\in \N\right)\todist\left(E_i,E_i,i\in \N\right)$$
