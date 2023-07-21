@@ -473,7 +473,7 @@ An important motivation for studying the out-forest is the fact that the vertex 
 
 Our technique relies on dismissing surplus edges that cannot be part of a strongly connected component (for example, surplus edges between two different out-components cannot form a directed cycle and are never part of a strongly connected component). We define a necessary condition for a surplus edge to be part of an SCC (see Definition \ref{def.candidate} and \cref{prop:edgesinSCCs}), and we call dummy leaves that correspond to surplus edges with this property \emph{candidates}. Then, we define a procedure to sample only the out-forest and the edges corresponding to candidates, which allows us to find the SCCs.
 
-We note the following key facts. Firstly, the order in which the true vertices are discovered does not depend on the positions of the dummy leaves. Secondly, the positions of the dummy leaves do not depend on the position of the heads of the surplus edges. Finally, whether a dummy leaf is a candidate does not depend on the position of the heads of the surplus edges. This allows us to define the following step-by-step sampling procedure. 
+We note the following key facts. Firstly, the order in which the true vertices are discovered does not depend on the positions of the dummy leaves. Secondly, the positions of the dummy leaves do not depend on the position of the heads of the surplus edges. Finally, whether a dummy leaf is a candidate does not depend on the position of the heads of the surplus edges. This allows us to define the following step-by-step sampling procedure.
 \begin{enumerate}
     \item We sample the order of discovery of the true vertices.
     \item We sample at which time steps we add a dummy leaf instead of a true vertex. 
