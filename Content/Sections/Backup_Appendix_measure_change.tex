@@ -11,7 +11,7 @@ We defined
 \begin{equation*}
     \cI_n = \{ i \in [n] : D_i^- > 0 \} \quad \text{and} \quad R_n = \abs{\cI_n}.
 \end{equation*}
-Then $\hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, R_n}$ are the elements of $\{\vD_i : u \in \cI_n\}$ in order of discovery according to the eDFS procedure. We will compare this against a sequence of i.i.d.\ $\N \times \N$-valued random variables $\vZ_1, \vZ_2, \ldots$, where for each $i \geq 1$ $\vZ_i$ has law
+Then $\mathbf{\widehat{D}}_{n, 1}, \ldots, \mathbf{\widehat{D}}_{n, R_n}$ are the elements of $\{\vD_i : u \in \cI_n\}$ in order of discovery according to the eDFS procedure. We will compare this against a sequence of i.i.d.\ $\N \times \N$-valued random variables $\vZ_1, \vZ_2, \ldots$, where for each $i \geq 1$ $\vZ_i$ has law
 \begin{equation*}
     \P(Z_i^- = k^-, Z_i^+ = k^+) = \frac{k^-}{\mu} \P(D^- = k^-, D^+ = k^+).
 \end{equation*}
@@ -61,7 +61,7 @@ and using the continuous mapping theorem. The proof of this result is based upon
 
 \subsection{Exact form of the measure change}
 
-We first examine the exact law of the reordering of the vertices. Let $\Sigma_n: [R_n] \to \cI_n$ be the random bijection such that $\hat{\vD}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$.
+We first examine the exact law of the reordering of the vertices. Let $\Sigma_n: [R_n] \to \cI_n$ be the random bijection such that $\mathbf{\widehat{D}}_{n, i} = \vD_{\Sigma_n(i)}$ for $i = 1, \ldots, R_n$.
 
 \begin{lemma}
     $\Sigma_n$ has law
@@ -91,7 +91,7 @@ Next we establish the form of the measure change when we condition on the exact 
     For all integers $0 \leq r \leq n$ and test functions $u: (\N \times \N)^r \times \N \to \R$,
     \begin{equation*}
         \E \left[ u\left( 
-            \hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, r}, \textstyle \sum_{i \in \cI_n^c} D_i^+
+            \mathbf{\widehat{D}}_{n, 1}, \ldots, \mathbf{\widehat{D}}_{n, r}, \textstyle \sum_{i \in \cI_n^c} D_i^+
         \right) \,\middle\vert\, R_n = r \right] \\
         =
         \E \left[
@@ -110,7 +110,7 @@ Next we establish the form of the measure change when we condition on the exact 
 \begin{proof}
     For any $\vk_1, \ldots, \vk_m \in \N^+ \times \N$ for all $i$ and $s \in \N$.
     \begin{align*}
-        & \P\left(\hat{\vD}_{n, 1} = \vk_1, \ldots, \hat{\vD}_{n, r} = \vk_r, \textstyle \sum_{i \in \cI_n^c} D_i^+ = s, R_n = r \right) \\
+        & \P\left(\mathbf{\widehat{D}}_{n, 1} = \vk_1, \ldots, \mathbf{\widehat{D}}_{n, r} = \vk_r, \textstyle \sum_{i \in \cI_n^c} D_i^+ = s, R_n = r \right) \\
         =& \sum_{\substack{I \subset [n] \\ \abs{I} = r}} \sum_{\sigma: [r] \to I}
         \P\left(\vD_{\Sigma_n(1)} = \vk_1, \ldots, \vD_{\Sigma_n(r)} = \vk_r, \textstyle \sum_{i \in \cI_n^c} D_i^+ = s, \cI_n = I, \Sigma_n = \sigma \right)
     \end{align*}
@@ -149,7 +149,7 @@ Next we establish the form of the measure change when we condition on the exact 
     \end{align*}
     Therefore
     \begin{align*}
-        & \P\left(\hat{\vD}_{n, 1} = \vk_1, \ldots, \hat{\vD}_{n, r} = \vk_r, \textstyle \sum_{i \in \cI_n^c} D_i^+ = s, R_n = r \right) \\
+        & \P\left(\mathbf{\widehat{D}}_{n, 1} = \vk_1, \ldots, \mathbf{\widehat{D}}_{n, r} = \vk_r, \textstyle \sum_{i \in \cI_n^c} D_i^+ = s, R_n = r \right) \\
         =& \binom{n}{r} \times r!
         \times \prod_{i=1}^r \frac{\mu}{\sum_{j=i}^r k_j^-} \times (1-p)^{n-r}
         \times \P\left(\vZ_1 = \vk_1, \ldots, \vZ_r = \vk_r, \textstyle \sum_{i=1}^{n-r} E_i^+ = s \right) \\
@@ -166,7 +166,7 @@ Using the previous lemma we can prove existence and give the exact form of the d
     For all $m \leq n$ and test functions $u: (\N \times \N)^m \to \R$,
     \begin{equation*}
         \E \left[
-            u\left( \hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m} \right)
+            u\left( \mathbf{\widehat{D}}_{n, 1}, \ldots, \mathbf{\widehat{D}}_{n, m} \right)
             \,\middle\vert\,
             R_n \geq m,
             \Delta_n = 0
@@ -192,7 +192,7 @@ Using the previous lemma we can prove existence and give the exact form of the d
     \begin{align*}
         &\E \left[ 
             u\left( 
-                \hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}
+                \mathbf{\widehat{D}}_{n, 1}, \ldots, \mathbf{\widehat{D}}_{n, m}
              \right)
             \one\{\Delta_n = 0\}
             \, \middle\vert \,
@@ -246,19 +246,19 @@ Using the previous lemma we can prove existence and give the exact form of the d
         \tilde{\gamma}^{n, m}_r (\vk_1, \ldots, \vk_m)
         &= \E \Bigg[ 
             \one \left\{ 
-                \sum_{i=1}^{r-m} (\hat{D}_{n-m,i}^- - \hat{D}_{n-m,i}^+) - \sum_{i \in \cI_{n-m}^c} D_i^+ = \sum_{i=1}^m (k_i^+ - k_i^-)
+                \sum_{i=1}^{r-m} (\widehat{D}_{n-m,i}^- - \widehat{D}_{n-m,i}^+) - \sum_{i \in \cI_{n-m}^c} D_i^+ = \sum_{i=1}^m (k_i^+ - k_i^-)
             \right\} \times \\
             &\hspace{8em}
-            \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \sum_{j=1}^{r-m} \hat{D}_{n-m,j}^-}
+            \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \sum_{j=1}^{r-m} \widehat{D}_{n-m,j}^-}
             \Biggm|
             R_{n-m} = r-m
         \Bigg].
     \end{align*}
     Conditional on $R_{n-m} = r-m$, we have
     \begin{equation*}
-        \sum_{j=1}^{r-m} (\hat{D}_{n-m,j}^- - \hat{D}_{n-m,j}^+) - \sum_{i \in \cI_{n-m}^c} D_i^+ = \Delta_{n-m}
+        \sum_{j=1}^{r-m} (\widehat{D}_{n-m,j}^- - \widehat{D}_{n-m,j}^+) - \sum_{i \in \cI_{n-m}^c} D_i^+ = \Delta_{n-m}
         \quad \text{and} \quad
-        \sum_{j=1}^{r-m} \hat{D}_{n-m, j}^- = \Xi^-_{n-m}.
+        \sum_{j=1}^{r-m} \widehat{D}_{n-m, j}^- = \Xi^-_{n-m}.
     \end{equation*}
     Therefore,
     \begin{align*}
@@ -277,7 +277,7 @@ Using the previous lemma we can prove existence and give the exact form of the d
     \begin{align*}
         \E \left[ 
             u\left( 
-                \hat{\vD}_{n, 1}, \ldots, \hat{\vD}_{n, m}
+                \mathbf{\widehat{D}}_{n, 1}, \ldots, \mathbf{\widehat{D}}_{n, m}
              \right)
             \one\{R_n \geq m, \Delta_n = 0\}
          \right]

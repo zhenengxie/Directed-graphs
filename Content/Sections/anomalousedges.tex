@@ -58,37 +58,37 @@ We adapt the proof of \cite[Lemma 7.1]{josephComponentSizesCritical2014} and of 
 \begin{proof}
 We distinguish between the following types of anomalous edges.\\
 Self-loops occur when the out-half-edge of a vertex is paired to an in-half-edge of the same vertex.  Let $B^1_n(k)$ be the number of self-loops that are found up to time $k$. For $v$ explored up to time $\lfloor n^\beta\rfloor$, a vertex with in-degree $d^-_v$ and out-degree $d^+_v$, there are $d^-_v d^+_v$ possible combinations of an in-half-edge and an out-half-edge that form a self-loop connected to $v$. Any of these combinations of half-edges is paired with probability bounded above by 
-$$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n\hat{D}^-_i}.$$
+$$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n\widehat{D}^-_i}.$$
 Parallel edges occur when an out-half-edge of a vertex is paired to an in-half-edge of one of its previously explored children. Let $B^2_n(k)$ be the number of parallel edges that are found up to time $k$. For any vertex $v$ with in-degree $d^-_v$, and a parent $p(v)$ with out-degree $d^+_{p(v)}$, there are at most $d^-_v d^+_{p(v)}$ possible combinations of an in-half-edge and an out-half-edge that form a parallel edge from $p(v)$ to $v$. Again, any of these combinations of half-edges is paired with probability bounded above by 
-$$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}.$$
+$$\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \widehat{D}^-_i}.$$
 The last type of anomalous edges is a surplus edge with multiplicity greater than 1. Let $B^3_n(k)$ be the number of surplus edges with multiplicity greater than 1 that are found up to time $k$. For a vertex $w$ with out-degree $d^+_w$ and a vertex $v$ with in-degree $d^-_v$, a multiple surplus edge from $w$ to $v$ can only occur if $v$ is discovered before $w$. In that case, there are at most $(d^+_w)^2(d^-_v)^2$ possible pairs of combinations of half-edges, and each of these pairs appears with probability bounded above by
-$$\left(\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\right)^2.$$
-Let $p(i)$ denote the index of the parent of the vertex with index $i$. Also, denote $$\cG^n=\sigma\left(\hat{D}^-_1,\hat{D}^+_1,\dots,\hat{D}^-_n,\hat{D}^+_n \right).$$ Then, by the conditional version of Markov's inequality, 
+$$\left(\frac{1}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \widehat{D}^-_i}\right)^2.$$
+Let $p(i)$ denote the index of the parent of the vertex with index $i$. Also, denote $$\cG^n=\sigma\left(\widehat{D}^-_1,\widehat{D}^+_1,\dots,\widehat{D}^-_n,\widehat{D}^+_n \right).$$ Then, by the conditional version of Markov's inequality, 
 
-\begin{align*}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\hat{D}^+_i}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\wedge 1,\\
-\P\left(\left.B^2_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\wedge 1,\\
-\P\left(\left.B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor}\sum_{j<i} (\hat{D}^+_i)^2 (\hat{D}^-_j)^2 }{\left(\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i\right)^2 }\wedge 1,\end{align*}
+\begin{align*}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \widehat{D}^-_i\widehat{D}^+_i}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \widehat{D}^-_i}\wedge 1,\\
+\P\left(\left.B^2_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \widehat{D}^-_i\E\left[\left.\widehat{D}^+_{p(i)}\right|\cG^n\right]}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \widehat{D}^-_i}\wedge 1,\\
+\P\left(\left.B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor}\sum_{j<i} (\widehat{D}^+_i)^2 (\widehat{D}^-_j)^2 }{\left(\sum_{i=\lfloor n^\beta \rfloor+1}^n \widehat{D}^-_i\right)^2 }\wedge 1,\end{align*}
 where we note that $p(i)$ is not adapted to $\cG^n$, because ancestral relations in the tree also depend on the surplus edges. However, we observe that by the Cauchy-Schwarz inequality,
-{\allowdisplaybreaks \begin{align*}\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]&\leq \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} \E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]^2\right)^{1/2}\\
-&= \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{j=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_{j})^2\sum_{i=1}^{\lfloor n^\beta \rfloor}\E\left[\left.\one_{j=p(i)}\right| \cG^n\right]\right)^{1/2}\\ 
-&\leq\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_i)^3\right)^{1/2}.\end{align*}}
+\begin{align*}\sum_{i=1}^{\lfloor n^\beta \rfloor} \widehat{D}^-_i\E\left[\left.\widehat{D}^+_{p(i)}\right|\cG^n\right]&\leq \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\widehat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} \E\left[\left.\widehat{D}^+_{p(i)}\right|\cG^n\right]^2\right)^{1/2}\\
+&= \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\widehat{D}^-_i)^2\right)^{1/2}\left(\sum_{j=1}^{\lfloor n^\beta \rfloor} (\widehat{D}^+_{j})^2\sum_{i=1}^{\lfloor n^\beta \rfloor}\E\left[\left.\one_{j=p(i)}\right| \cG^n\right]\right)^{1/2}\\ 
+&\leq\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\widehat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\widehat{D}^+_i)^3\right)^{1/2}.\end{align*}
 We will show that \begin{equation}\label{eq.conditionalprobanamolousedges}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)+B^2_n(\lfloor n^\beta \rfloor)+B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)\overset{p}{\to}0\end{equation} as $n\to\infty$. We note that 
-$$\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\hat{D}^-_i,$$
+$$\sum_{i=\lfloor n^\beta \rfloor+1}^n \widehat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\widehat{D}^-_i,$$
 and by the weak law of large numbers, $\frac{1}{n}\sum_{i=1}^n D^-_i\overset{p}{\to} \mu n$, so \cref{eq.conditionalprobanamolousedges} follows if we show that 
 \begin{enumerate}
-    \item $\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}_i^-\overset{p}{\to}0 $, 
-    \item $\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}\hat{D}_i^- \hat{D}_i^+\overset{p}{\to}0$,
-    \item $\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}(\hat{D}_i^-)^2\overset{p}{\to}0$, and 
-    \item $\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}(\hat{D}_i^+)^3\overset{p}{\to}0$
+    \item $\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor} \widehat{D}_i^-\overset{p}{\to}0 $, 
+    \item $\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}\widehat{D}_i^- \widehat{D}_i^+\overset{p}{\to}0$,
+    \item $\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}(\widehat{D}_i^-)^2\overset{p}{\to}0$, and 
+    \item $\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}(\widehat{D}_i^+)^3\overset{p}{\to}0$
 \end{enumerate}
 as $n\to \infty$. The proposition will then follow from the bounded convergence theorem.
 
-Note that we can only show the convergence of the Radon-Nikodym derivative $\Phi(n,m)$ under rescaling for $m=O(n^{2/3})$, so it is not straightforward to use the measure change to prove results on the time scale $O(n^\beta)$ for $\beta>2/3$, such as the convergences above. Therefore, instead, we will use \emph{Poissonization} to sample $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{R_n,n})$. This technique was also used by Joseph in \cite{josephComponentSizesCritical2014}. 
+Note that we can only show the convergence of the Radon-Nikodym derivative $\Phi(n,m)$ under rescaling for $m=O(n^{2/3})$, so it is not straightforward to use the measure change to prove results on the time scale $O(n^\beta)$ for $\beta>2/3$, such as the convergences above. Therefore, instead, we will use \emph{Poissonization} to sample $(\mathbf{\widehat{D}}_{n,1},\dots,\mathbf{\widehat{D}}_{R_n,n})$. This technique was also used by Joseph in \cite{josephComponentSizesCritical2014}. 
 
  Let $R_n$ be as before, and, conditional on $R_n$, let $D^{0,+}_1,\dots,D^{0,+}_{n-R_n}$ i.i.d.\ random variables with the law of $D^+$ conditional on the event $\{D^-=0\}$, and set $S_n=\sum_{i=1}^{n-R_n}D^{0,+}_i$. Suppose $R_n=r$ and $S_n=s$. 
 Let
 $$\pi_0(dt,k_1,k_2)=r\P(D^-=k_1,D^+=k_2|D^->0)k_1\exp(-k_1 t)dt$$
-be a measure on $\R_+\times \N^2$, and let $\Pi_0$ be a Poisson point process with intensity measure $\pi_0$ conditional on $\Pi_0(\R,\N,\N)=r$. We view the first coordinate as the time coordinate, and refer to the second and third coordinate as the \emph{point}. Then, the points in $\Pi_0$ ordered by time have the same law as $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{r,n})$ (before conditioning on the event $\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\}$).  
+be a measure on $\R_+\times \N^2$, and let $\Pi_0$ be a Poisson point process with intensity measure $\pi_0$ conditional on $\Pi_0(\R,\N,\N)=r$. We view the first coordinate as the time coordinate, and refer to the second and third coordinate as the \emph{point}. Then, the points in $\Pi_0$ ordered by time have the same law as $(\mathbf{\widehat{D}}_{n,1},\dots,\mathbf{\widehat{D}}_{r,n})$ (before conditioning on the event $\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\}$).  
 The intensity of this process is not constant in $t$, so we perform a time change. Define
 $$\cL_{\mathbf{D}}(x,y)=\E\left[\left.\exp(-xD^--yD^+)\right|D^->0 \right],$$
 and set 
@@ -99,7 +99,8 @@ on $(0,r)\times \N^2$, we have that for $t\in (0,r)$, there exists a probability
 $$\pi_r(dt,k_1,k_2)=P_t(D^-=k_1,D^+=k_2)dt.$$
 Observe that $P_t$ depends on $r$; to avoid overcomplicating notation we do not make this dependency explicit.
 
-Let ${\Pi}^r$ be a Poisson point process with intensity $\pi_r$. (This random measure may be sampled as follows: sample a Poisson process with intensity $dt$ on $(0,r)$ and if there is a jump at time $s$, sample the corresponding point with law $P_s$.)  Define $N_r= {\Pi}_r((0,r),\N,\N)$ and $\Delta_r=\int_{(0,r)\times \N^2}(k_1-k_2){\Pi}^r(dt,k_1,k_2)=s$. Then, let ${\Pi}^{r,s}$ have the law of ${\Pi}_r$ conditional on the events $\{N_r=r\}$ and $\{\Delta_r=s\}$. Then, the points of ${\Pi}^{r,s}$ ordered by time are distributed as $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,R_n})$ conditional on the events $\left\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\right\}$, $\{R_n=r\}$ and $\{S_n=s\}$. Let ${\lambda}^{r,s}_t$ be the marginal density of ${\Pi}^{r,s}$ in $t$, so that there exists a probability distribution ${P}^{r,s}_t(k_1,k_2)$ on $\N^2$ such that for ${\pi}^{r,s}_t(k_1,k_2)$ the marginal intensity measure on $\N^2$ of ${\Pi}^{r,s}$ in $t$, 
+Let ${\Pi}^r$ be a Poisson point process with intensity $\pi_r$. (This random measure may be sampled as follows: sample a Poisson process with intensity $dt$ on $(0,r)$ and if there is a jump at time $s$, sample the corresponding point with law $P_s$.)  Define $N_r= {\Pi}_r((0,r),\N,\N)$ and $\Delta_r=\int_{(0,r)\times \N^2}(k_1-k_2){\Pi}^r(dt,k_1,k_2)=s$. Then, let ${\Pi}^{r,s}$ have the law of ${\Pi}_r$ conditional on the events $\{N_r=r\}$ and $\{\Delta_r=s\}$. Then, the points of ${\Pi}^{r,s}$ ordered by time are distributed as $(\mathbf{\widehat{D}}_{n,1},\dots,\mathbf{\widehat{D}}_{n,R_n})$ conditional on the events $\left\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\right\}$, $\{R_n=r\}$ and $\{S_n=s\}$. Let ${\lambda}^{r,s}_t$ be the marginal density of ${\Pi}^{r,s}$ in $t$, so that there exists a probability distribution ${P}^{r,s}_t(k_1,k_2)$ on $\N^2$ such that for ${\pi}^{r,s}_t(k_1,k_2)$ the marginal intensity measure on $\N^2$ of ${\Pi}^{r,s}$ in $t$, 
+
 $${\pi}^{r,s}_t(k_1,k_2)={\lambda}^{r,s}_t{P}^{r,s}_t(k_1,k_2)$$
 for all $k_1,k_2\in \N$.
 
@@ -121,15 +122,15 @@ By the fact that $\Pi_r$ is a Poisson point process, we have that for $k_1$, $k_
 $$\P\left[ \Delta_r=s, N_r=r \left| \Pi_r(t,k_1,k_2)=1\right.\right]=\P\left[ \Delta_r=s+k_2-k_1, N_r=r-1 \right],$$
 so that, since $N_r\sim \operatorname{Poisson}(r)$, and since on the event $\{N_r=r-1\}$ (resp. $\{N_r=r\}$),  $\Delta_r-s$ is the sum of $r-1$ (resp. $r$) i.i.d. random variables with finite variance and mean at most $O(n^{-1/2})$, we observe that, by the local limit theorem,
 \begin{align*}
-    \P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]&=O(n^{-1/2})\text{, and}\\
+    \P\left[ \Delta_r=s, N_r=r \left| \widehat{D}^-_t=k_1,\widehat{D}^+_t=k_2\right.\right]&=O(n^{-1/2})\text{, and}\\
     \P\left[ \Delta_r=s, N_r=r \right]&=\Theta(n^{-1/2})
 \end{align*} for any $k_1$ and $k_2$, and any $r$ and $s$ that we consider on $\cE_L$. Therefore, there exists a $c_1$ such that
-$$\frac{\P\left[ \Delta_r=s, N_r=r \left| \hat{D}^-_t=k_1,\hat{D}^+_t=k_2\right.\right]}{\P\left[ \Delta_r=s, N_r=r\right]}<c_1$$
-for any $k_1$, $k_2$, $t$ and $n$, and any $r$ and $s$ that we consider on $\cE_L$. If we show that for some $c_2$ $${E}^r_t\left[\hat{D}^-\hat{D}^+\right]<c_2$$ for all $r$ in the interval that we consider and all $t<2n^\beta$, it follows that there is a $c_3$ such that
-$${E}^{r,s}_t\left[\hat{D}^-\hat{D}^+\right]<c_3$$ 
+$$\frac{\P\left[ \Delta_r=s, N_r=r \left| \widehat{D}^-_t=k_1,\widehat{D}^+_t=k_2\right.\right]}{\P\left[ \Delta_r=s, N_r=r\right]}<c_1$$
+for any $k_1$, $k_2$, $t$ and $n$, and any $r$ and $s$ that we consider on $\cE_L$. If we show that for some $c_2$ $${E}^r_t\left[\widehat{D}^-\widehat{D}^+\right]<c_2$$ for all $r$ in the interval that we consider and all $t<2n^\beta$, it follows that there is a $c_3$ such that
+$${E}^{r,s}_t\left[\widehat{D}^-\widehat{D}^+\right]<c_3$$ 
 for any $k_1$, $k_2$, $t$ and $n$, and any $r$ and $s$ that we consider on $\cE_L$.
 We note that by definition of $\pi_r(dt,k_1,k_1)$, 
-$${E}^r_t\left[\hat{D}^-\hat{D}^+\right]=\frac{\frac{d^3}{dx^2 dy}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}{\frac{d}{dx}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}.$$
+$${E}^r_t\left[\widehat{D}^-\widehat{D}^+\right]=\frac{\frac{d^3}{dx^2 dy}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}{\frac{d}{dx}\cL_{\mathbf{D}}(x,y)|_{(\psi(t/r),0)}}.$$
 Careful analysis of $\cL_{\mathbf{D}}(x,y)$ and $\psi(s)$ implies that this quantity is bounded uniformly for all $n$, all $r$ in the interval that we consider and all $t\in(0,2n^\beta)$. We refer the reader to the proof of   \cite[Lemma A.1]{josephComponentSizesCritical2014} for the details of a similar argument in the undirected setting.
 This implies that 
 $$\E\left[\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{r,s}(dt,k_1,k_2) \right]\leq \frac{C}{n}\E\left[\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)\right].$$
@@ -145,6 +146,6 @@ $$\E\left[\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{r,s}(dt,k_1,k_2) 
 as $n\to \infty$ uniformly in all $r$ and $s$ of interest, so for $n$ large enough,
 $$\P\left(\left.\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi^{R_n,S_n}(dt,k_1,k_2)>\epsilon  \right|\cE_L \right)<\epsilon.$$
 This implies that
-$$\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}\hat{D}_i^- \hat{D}_i^+\overset{p}{\to}0.$$
+$$\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}\widehat{D}_i^- \widehat{D}_i^+\overset{p}{\to}0.$$
 The other convergences are proved similarly, and the result follows. 
 \end{proof}

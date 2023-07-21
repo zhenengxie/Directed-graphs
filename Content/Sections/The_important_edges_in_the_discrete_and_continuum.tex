@@ -49,7 +49,7 @@ Finally, \ref{item.factsonsccs2} and \ref{item.factsonsccs4} imply \ref{item.fac
 A dummy vertex is a \emph{candidate} if one of the following statements holds for the surplus edge that it corresponds to. 
 \begin{itemize}
     \item It is an ancestral surplus edge, or
-    \item Its head is the ancestor of a candidate.
+    \item Its head is an ancestor of a candidate.
 \end{itemize}
 \end{definition}
 The following proposition is at the core of our strategy to study the SCCs.
@@ -62,25 +62,25 @@ This follows from Definition \ref{def.candidate} and \cref{lem:whatispartofscc}.
 
 \cref{prop:edgesinSCCs} implies that to sample the SCCs, we do not need to sample the heads corresponding to all dummy leaves. Instead, for every dummy leaf, we only need to know whether it is a candidate, and if so, where its head is. 
 \subsubsection{Sampling the out-forest}\label{subsubsec.samplingoutforest}
-This subsection discusses how to obtain the out-forest conditional on the order in which the vertices are discovered. We will study the law of the degrees in order of discovery in \cref{sec:measure-change}. The out-forest is obtained in the following way. Let $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$ be the degree pairs in order of discovery (i.e. the order given by $\exploredvertices$ in Algorithm \ref{alg:edfs}). Up to time-step $k$, suppose we have discovered the first $m\leq k<n$ elements of  $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,n})$. Then, at time $k+1$,
+This subsection discusses how to obtain the out-forest conditional on the order in which the vertices are discovered. We will study the law of the degrees in order of discovery in \cref{sec:measure-change}. The out-forest is obtained in the following way. Let $(\mathbf{\widehat{D}}_{n,1},\dots,\mathbf{\widehat{D}}_{n,n})$ be the degree pairs in order of discovery (i.e. the order given by $\exploredvertices$ in Algorithm \ref{alg:edfs}). Up to time-step $k$, suppose we have discovered the first $m\leq k<n$ elements of  $(\mathbf{\widehat{D}}_{n,1},\dots,\mathbf{\widehat{D}}_{n,n})$. Then, at time $k+1$,
 \begin{enumerate}
-    \item If we have finished a component of the out-forest, let the next out-component have a root with out-degree $\hat{D}_{n,m+1}^+$. 
+    \item If we have finished a component of the out-forest, let the next out-component have a root with out-degree $\widehat{D}_{n,m+1}^+$. 
     \item Otherwise,
-    \begin{enumerate}\item With probability proportional to the total in-degree of the undiscovered vertices, i.e. $\sum_{i={m+1}}^{n} \hat{D}_{n,i}^-$, let the next vertex in depth-first order be a true vertex with out-degree $\hat{D}_{n,m+1}^+$. 
+    \begin{enumerate}\item With probability proportional to the total in-degree of the undiscovered vertices, i.e. $\sum_{i={m+1}}^{n} \widehat{D}_{n,i}^-$, let the next vertex in depth-first order be a true vertex with out-degree $\widehat{D}_{n,m+1}^+$. 
     \item With probability proportional to the number of unpaired in-half-edges of the $m$ discovered vertices, let the next vertex in depth-first order be a dummy leaf, and reduce the total number of unpaired in-edges of the $m$ discovered vertices by $1$.
 \end{enumerate}
 \end{enumerate}
 We make this rigorous in the following proposition.
 \begin{proposition}\label{prop:sampleoutforest}
-Suppose that the sequence of degrees in order of discovery $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n, n})$ is given. Suppose that after time-step $k$, there are still unpaired out-half-edges. Suppose that for $1\leq l\leq k$, that up to time $l$, $\hat{P}_n(l)$ surplus edges have been sampled. Then, $$\left(\hat{S}^+_n(l),1\leq l\leq k \right):=\left(\sum_{i=1}^{l-\hat{P}_n(l)}\hat{D}^+_{n,i}-l,1\leq l\leq k\right)$$ is the \L ukasiewicz path of the out-forest up to time $k$. Moreover, for $$\left(\hat{I}^+_n(l),1\leq l\leq k\right):=\left(\min\left\{\hat{S}^+_n(m):0\leq m \leq l\right\},1\leq l \leq k \right),$$
+Suppose that the sequence of degrees in order of discovery $(\mathbf{\widehat{D}}_{n,1},\dots,\mathbf{\widehat{D}}_{n, n})$ is given. Suppose that after time-step $k$, there are still unpaired out-half-edges. Suppose that for $1\leq l\leq k$, that up to time $l$, $\hat{P}_n(l)$ surplus edges have been sampled. Then, $$\left(\hat{S}^+_n(l),1\leq l\leq k \right):=\left(\sum_{i=1}^{l-\hat{P}_n(l)}\widehat{D}^+_{n,i}-l,1\leq l\leq k\right)$$ is the \L ukasiewicz path of the out-forest up to time $k$. Moreover, for $$\left(\hat{I}^+_n(l),1\leq l\leq k\right):=\left(\min\left\{\hat{S}^+_n(m):1\leq m \leq l\right\},1\leq l \leq k \right),$$
 define 
-$$\left(\hat{S}^-_n(l),1\leq l \leq k\right):=\left(\sum_{i=1}^{l-\hat{P}_n(l)}\hat{D}^-_{n,i}-l-\hat{I}^+_n(l)+1,1\leq l\leq k\right),$$
+$$\left(\hat{S}^-_n(l),1\leq l \leq k\right):=\left(\sum_{i=1}^{l-\hat{P}_n(l)}\widehat{D}^-_{n,i}-l-\hat{I}^+_n(l)+1,1\leq l\leq k\right),$$
 so that $\hat{S}^-_n(k)$ is equal to the number of unpaired in-half-edges of discovered vertices at time $k$. Then, the probability that we sample a surplus edge at the $(k+1)$th time-step is given by
 $$\frac{\hat{S}^-_n(k)}{\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)+1}\one_{\left\{\hat{I}^+_n(k)=\hat{I}^+_n(k-1)\right\}}.$$
 We do not need to know the position of the heads of the surplus edges in order to sample the out-forest.
 \end{proposition}
 \begin{proof}
-Note that if up to time $k$, $\hat{P}_n(k)$ surplus edges have been sampled, this implies that $k-\hat{P}_n(k)$ true vertices have been discovered. Thus, up to time $k$, the out-forest contains $\hat{P}_n(k)$ dummy leaves, and true vertices with degrees $(\hat{D}^+_{n,1},\dots,\hat{D}^+_{n,k-\hat{P}_n(k)})$, so by definition of the \L ukasiewicz path, its value is indeed equal to $\hat{S}^+_n(k)$ at time $k$. Moreover, up to time $k$, the total in-degree of the discovered true vertices is equal to $\sum_{i=1}^{k-\hat{P}_n(k)}\hat{D}^-_{n,i}$. At every time-step, we pair one in-half-edge of a discovered vertex, unless we start a new component. The value $-\hat{I}^+_n(k)$ corresponds to the number of out-components that are fully explored up to time $k$, so the total number of unpaired in-half-edges of discovered vertices at time $k$ is equal to $\hat{S}^-_n(k)$. By the same reasoning, the total number of unpaired in-half-edges is equal to $ \sum_{i=1}^{k-\hat{P}_n(k)}\hat{D}^-_{n,i}-k-\hat{I}^+_n(k)+1$. The probability of sampling a surplus edge at step $(k+1)$ follows. We note that this probability does not depend on the positions of the heads of the surplus edges, but only on their number, which implies that we can sample the out-forest without sampling the positions of the heads.
+Note that if up to time $k$, $\hat{P}_n(k)$ surplus edges have been sampled, this implies that $k-\hat{P}_n(k)$ true vertices have been discovered. Thus, up to time $k$, the out-forest contains $\hat{P}_n(k)$ dummy leaves, and true vertices with degrees $(\widehat{D}^+_{n,1},\dots,\widehat{D}^+_{n,k-\hat{P}_n(k)})$, so by definition of the \L ukasiewicz path, its value is indeed equal to $\hat{S}^+_n(k)$ at time $k$. Moreover, up to time $k$, the total in-degree of the discovered true vertices is equal to $\sum_{i=1}^{k-\hat{P}_n(k)}\widehat{D}^-_{n,i}$. At every time-step, we pair one in-half-edge of a discovered vertex, unless we start a new component. The value $-\hat{I}^+_n(k)$ corresponds to the number of out-components that are fully explored up to time $k$, so the total number of unpaired in-half-edges of discovered vertices at time $k$ is equal to $\hat{S}^-_n(k)$. By the same reasoning, the total number of unpaired in-half-edges is equal to $\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)+1$. The probability of sampling a surplus edge at step $(k+1)$ follows. We note that this probability does not depend on the positions of the heads of the surplus edges, but only on their number, which implies that we can sample the out-forest without sampling the positions of the heads.
 \end{proof}
 \subsubsection{Sampling the candidates}\label{subsubsec.samplecandidates}
 We will now study the law of the candidates and their heads conditional on the out-forest. We will first identify the candidates amongst the dummy leaves, and then we will sample the positions of their heads. 
@@ -96,7 +96,7 @@ Recall from Lemma \ref{lem:whatispartofscc} that the surplus edge corresponding 
 
 \begin{proposition}\label{prop:probancestral}
 Consider the exploration of the out-forest at time $k$. If no ancestral surplus edge has been sampled in the current component, then the probability that the $k$th vertex in depth-first order is a candidate is given by 
-$$\frac{\hat{H}^\ell(k)}{\hat{S}_n^-(k)}\one_{\{\hat{P}_n(k)-\hat{P}_n(k-1)=1\}}.$$
+$$\frac{\hat{H}^\ell_n(k)}{\hat{S}_n^-(k)}\one_{\{\hat{P}_n(k)-\hat{P}_n(k-1)=1\}}.$$
 This event is conditionally independent of the positions of the heads of the surplus edges that were found before time $k$, given that none of them were ancestral in the current component.
 % If $k$ is the tail of an ancestral surplus edge, then the position of the end point $Y$ has the following law. Let $U$ be uniform on $[0,\hat{H}^\ell(k)]$. Then, let $Y_k$ be the height of youngest ancestor $l$ of $k$ such that $H^{\ell}(l)<U$. 
 \end{proposition}
@@ -135,12 +135,12 @@ Propositions \ref{prop:sampleoutforest}, \ref{prop:probancestral}, \ref{prop:sam
     \item Define a counting process $(A_n(k),k\leq N)$, with the probability of an increment at time $k$ given by $$\frac{\hat{H}_n^\ell(k)}{\hat{S}_n^-(k)}\one_{\{\hat{P}_n(k)-\hat{P}_n(k-1)=1\}}.$$
     \item For $i\geq 1$, let $X_i^n=\min\{k:A_n(k)=i\}$ be the time that the $i$th ancestral surplus edge is sampled. For $i\geq 1$, let $G_i^n$ be the left endpoint of the excursion of $\hat{S}^{+}_n$ above its running infimum that encodes the out-component that contains the $i$th ancestral surplus edge, and let $\Sigma_i^n$ be the length of this excursion, i.e. 
 \begin{align*}G_i^n&=\min\left\{k\geq 1:\hat{S}^{+}_n(k)=\min\{\hat{S}^{+}_n(l):l\leq X_i^n\}\right\}\\
-\Sigma_i^n&=\min\left\{k \geq 1: \min\left\{\hat{S}^{+}_n(l):l\leq G_i^n+k\right\} < \min\left\{\hat{S}^{+}_n(l):l\leq X_i^n\right\}\right\},
+\Sigma_i^n&=\min\left\{k \geq 1: \min\left\{\hat{S}^{+}_n(l):l\leq G_i^n+k\right\} < \hat{S}^{+}_n(G^n_i)\right\},
 \end{align*}
 so that for each $i\geq 1$, the excursion $\left(\hat{S}^+(k),k\in [G_i^n+1,G_i^n+\Sigma_i^n]\right)$ encodes the out-tree containing $X_i^n$. For each $(g_n,\sigma_n)\in \{(G_i^n,\Sigma_i^n)\}$, let $T^n_{g_n}$ be the tree in out-forest with root $g_n+1$, and do the following.
     \begin{enumerate}
-    \item \label{item.procedure3} Set $V_1^n=\min\{m\geq 1:A_n(m)=A_n(g_n)+1\}$, and find the other candidates $\{V_2^n,\dots ,V_{N_n}^n\}$ according to the procedure described in the statement of \cref{prop:samplecandidates}.
-    \item \label{item.procedure4} For the tails $V_1^n,\dots, V_{N_n}^n$, sample their corresponding heads $W_1^n,\dots ,W_{N_n}^n$ respectively according to the procedure described in the statement of \cref{prop:samplecandidates}.
+    \item \label{item.procedure3} Set $V_1^n=\min\{m\geq 1:A_n(m)=A_n(g_n)+1\}$, and find the other candidates $\{V_2^n,\dots ,V_{N_n}^n\}$ using the probabilities described in the statement of \cref{prop:samplecandidates}.
+    \item \label{item.procedure4} For the tails $V_1^n,\dots, V_{N_n}^n$, sample their corresponding heads $W_1^n,\dots ,W_{N_n}^n$ respectively according to the distribution described in the statement of \cref{prop.sampleheadcandidates}.
     \item Let $T^{n,\mathrm{mk}}(g_n)$ be the subtree of $T^n_{g_n}$ spanned by $\{g_n+1,V_1^n,\dots ,V_{N_n}^n\}$. Then, quotient it by the equivalence relation $\sim$ which identifies $V_i^n$ and $W_i^n$ for each $1\leq i\leq N_n$ to obtain a rooted metric space with surplus $N_n$ $$M^n_{g_n}=T^{n,\mathrm{mk}}(g_n)/\sim.$$ 
 \end{enumerate}
 \end{enumerate}
@@ -180,7 +180,7 @@ We will now define the continuous counterpart of the sampling procedure of the o
 \input{Content/Sections/Real_Trees.tex}
 
 \subsubsection{The limit object}\label{subsubsec.samplecontinuousobject}
-Let $(B_t,t\geq 0)$ be a standard Brownian motion, and set $$\left(\hat{B}_t,t\geq 0\right)=\left(B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+\mu}t^2,t\geq 0\right).$$ 
+Let $B = (B_t,t\geq 0)$ be a standard Brownian motion, and set $$\hat{B} = \left(\hat{B}_t,t\geq 0\right)=\left(B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+\mu}t^2,t\geq 0\right).$$ 
 \begin{remark}
 We note that the coefficient of the parabolic drift of $\hat{B}$ is negative. Indeed, by definition of $\sigma_{-+}$ and $\nu_-$, the sign of the parabolic drift is the same as the sign of $\mu-\E[(D^-)^2D^+]$, and we note that
 $$\frac{\E[(D^-)^2D^+]}{\E[D^+]}-\left(\frac{\E[D^+D^-]}{\E[D^+]}\right)^2=\frac{\E[(D^-)^2D^+]}{\mu}-1$$
@@ -188,7 +188,7 @@ is the variance of $D^-$ under the law of $\mathbf{D}$ size-biased by $D^+$, whi
 
 \end{remark}
 Define the reflected process
-$$(\hat{R}_t,t\geq 0)= \left(\hat{B}_t-\inf\left\{\hat{B}_s: s\leq t\right\},t\geq 0\right).$$
+$$\hat{R} = (\hat{R}_t,t\geq 0)= \left(\hat{B}_t-\inf\left\{\hat{B}_s: s\leq t\right\},t\geq 0\right).$$
 Then, it follows from the argument in Section \ref{sec.convoutforest} that $\left(\frac{2}{\sigma_+}\hat{R}_t,t\geq 0\right)$ is the height process corresponding to an $\R$-forest with \L ukasiewicz path $\left(\sigma_+\hat{B}_t,t\geq 0\right)$. Call this forest the out-$\R$-forest. \\
 Conditionally on $\hat{R}$, let $(A_t,t\geq 0)$ be a Cox process of intensity $$\frac{2(\sigma_{-+}+\nu_-)}{\sigma_+\mu^2} \hat{R}_t$$ at time $t$. Then, for $i$ in $\left\{1,2, \dots \right\}$, set $X_i=\min\{t:A_t=i\}$. For $i$ in $\left\{1,2,\dots \right\}$, define
 \begin{align*}
@@ -205,11 +205,11 @@ Then,
 $$\P\left(N=\infty \right)=\P\left(N=\infty\text{ and }\sup\{V_i:i\in \N\}<g+\sigma\right)\leq \P\left(\sum_{i=2}^\infty E_k\leq g+\sigma-V_1\right).$$
 However, $\sum_{i=2}^\infty E_k=\infty$ a.s., because the harmonic series diverges, so, indeed, $\P\left(N<\infty \right)=1$. \\
 Finally, for $1\leq i \leq N$, let the head corresponding to $V_i$, which we call $W_i$, be a uniform pick from the length measure on $T^{\mathrm{mk}}_{V_i}$. \\
-Let $T^{\mathrm{mk}}(g)$ be the subtree of $\cT^{g}$ spanned by $\{g,V_1,\dots,V_N\}$. Then quotient $T^{\mathrm{mk}}(g)$ by the equivalence relation $\sim$ which identifies  $V_i$ and $W_i$ for each $1\leq i\leq N$ to obtain a rooted metric space $$\cM_{g}:=T^{\mathrm{mk}}(g)/\sim.$$ 
-View $\cM_{g}$ as an element of $\vec{\cG}$ in the natural way. To be precise,  let the vertex set of $\cM_l$ consist of $g$, $W_i$ for $i\leq N$, and the branch points $V_i\wedge V_j$ for $i\neq j\leq N$. The directions are inherited from $\cT^l$, by considering all edges directed away from the root. Remove all edges that do not lie in an SCC of $\cM_{g}$ and delete any isolated vertices that are thus created. Then, apply the smoothing operation as defined in Subsection \ref{subsec.mdmkernels}. This creates a collection $\cC_g$ of strongly connected MDMs. Doing this for each $(g,\sigma)\in \{[G_i,\Sigma_i]\}$ yields the collection of strongly connected MDMs $\cC$ that has the law of the limit in Theorem \ref{thm.main}.
+Let $T^{\mathrm{mk}}(g)$ be the subtree of $\cT_{g}$ spanned by $\{g,V_1,\dots,V_N\}$. Then quotient $T^{\mathrm{mk}}(g)$ by the equivalence relation $\sim$ which identifies  $V_i$ and $W_i$ for each $1\leq i\leq N$ to obtain a rooted metric space $$\cM_{g}:=T^{\mathrm{mk}}(g)/\sim.$$ 
+View $\cM_{g}$ as an element of $\vec{\cG}$ in the natural way. To be precise,  let the vertex set of $\cM_g$ consist of $g$, $W_i$ for $i\leq N$, and the branch points $V_i\wedge V_j$ for $i\neq j\leq N$. The directions are inherited from $\cT_g$, by considering all edges directed away from the root. Remove all edges that do not lie in an SCC of $\cM_{g}$ and delete any isolated vertices that are thus created. Then, apply the smoothing operation as defined in Subsection \ref{subsec.mdmkernels}. This creates a collection $\cC_g$ of strongly connected MDMs. Doing this for each $(g,\sigma)\in \{[G_i,\Sigma_i]\}$ yields the collection of strongly connected MDMs $\cC$ that has the law of the limit in Theorem \ref{thm.main}.
 
 \subsubsection{Properties of the limit object}
-We note that the limit object is encoded by $3$ parameters: the out-$\R$-forest is encoded by a Brownian motion with variance $\sigma_+^2$ and parabolic drift with coefficient $-(\sigma_{-+}+\nu_-)/(2\mu)$, and the identifications are a Cox process with intensity $(\sigma_{-+}+\nu_-)/\mu^2$ on the length measure of the subtree spanned by the previously found candidates and the currently explored vertex as described in Subsection \ref{subsubsec.samplecontinuousobject}. The limit object that is studied in \cite{goldschmidtScalingLimitCritical2021} corresponding to $\lambda=0$ (i.e. at criticality) is equal to our limit object in the case $\sigma_+^2=1$, $-(\sigma_{-+}+\nu_-)/(2\mu)=-1/2$, and $(\sigma_{-+}+\nu_-)/(\mu^2)=1$. Note that these three conditions are satisfied if we let $D^-$ and $D^-$ be independent $\operatorname{Poisson}(1)$ random variables. In \cite{goldschmidtScalingLimitCritical2021}, some properties of the limit object corresponding to these specific parameters are shown. A quick check shows that the proofs do not depend on the values of the parameters, so we deduce that the same properties also hold for our limit object. Let $\cM:=\bigcup_{G_i}\cM_{G_i}$.
+We note that the distribution of the limit object is encoded by $3$ parameters: the out-$\R$-forest is encoded by a Brownian motion with variance $\sigma_+^2$ and parabolic drift with coefficient $-(\sigma_{-+}+\nu_-)/(2\mu)$, and the identifications are a Cox process with intensity $(\sigma_{-+}+\nu_-)/\mu^2$ on the length measure of the subtree spanned by the previously found candidates and the currently explored vertex as described in Subsection \ref{subsubsec.samplecontinuousobject}. The limit object that is studied in \cite{goldschmidtScalingLimitCritical2021} corresponding to $\lambda=0$ (i.e. at criticality) is equal to our limit object in the case $\sigma_+^2=1$, $-(\sigma_{-+}+\nu_-)/(2\mu)=-1/2$, and $(\sigma_{-+}+\nu_-)/(\mu^2)=1$. Note that these three conditions are satisfied if we let $D^-$ and $D^+$ be independent $\operatorname{Poisson}(1)$ random variables. In \cite{goldschmidtScalingLimitCritical2021}, some properties of the limit object corresponding to these specific parameters are shown. A quick check shows that the proofs do not depend on the values of the parameters, so we deduce that the same properties also hold for our limit object. Let $\cM:=\bigcup_{G_i}\cM_{G_i}$.
 
 \begin{proposition}
 \begin{enumerate}
