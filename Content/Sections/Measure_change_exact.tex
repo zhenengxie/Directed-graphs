@@ -203,14 +203,14 @@ Using the previous lemma we can prove existence and give the exact form of the d
     \begin{align*}
         \tilde{\gamma}^{n, m}_r (\vk_1, \ldots, \vk_m)
         &= \E \left[
-            \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
+            \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{\lltEvent_n}
             \, \middle \vert \,
             R_{n-m} = r-m
         \right],
     \end{align*}
     where
     \begin{equation*}
-        A_n(\vk_1, \ldots, \vk_m) = \left\{ \Delta_{n-m} =  \sum_{i=1}^m (k_i^+ - k_i^-) \right\}.
+        \lltEvent_n=\lltEvent_n(\vk_1, \ldots, \vk_m) = \left\{ \Delta_{n-m} =  \sum_{i=1}^m (k_i^+ - k_i^-) \right\}.
     \end{equation*}
     Hence,
     \begin{align*}
@@ -230,13 +230,13 @@ Using the previous lemma we can prove existence and give the exact form of the d
         &\tilde{\phi}^n_m(\vk_1, \ldots, \vk_m) \\
         =& \sum_{r=m}^n \binom{n}{r} p^r (1-p)^{n-r} 
         \E \left[
-            \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
+            \frac{1}{p^m} \prod_{i=1}^m \frac{(r - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{\lltEvent_n}
             \, \middle \vert \,
             R_{n-m} = r-m
         \right] \\
         =& \sum_{l=0}^{n-m} \binom{n}{l+m} p^{l+m} (1-p)^{n-m-l} 
         \E \left[
-            \frac{1}{p^m} \prod_{i=1}^m \frac{(l + m - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
+            \frac{1}{p^m} \prod_{i=1}^m \frac{(l + m - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{\lltEvent_n}
             \, \middle \vert \,
             R_{n-m} = l
         \right].
@@ -251,19 +251,19 @@ Using the previous lemma we can prove existence and give the exact form of the d
         \tilde{\phi}^n_m(\vk_1, \ldots, \vk_m)
         &= \sum_{l=1}^{n-m} \binom{n-m}{l} p^l (1-p)^{n-m-l}
         \E \left[
-            \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
+            \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{\lltEvent_n}
             \, \middle \vert \,
             R_{n-m} = l
         \right] \\
         &= \E\left[ 
             \E \left[
-                \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
+                \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{\lltEvent_n}
                 \, \middle \vert \,
                 R_{n-m}
             \right]
          \right] \\
          &= \E \left[
-            \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{A_n}
+            \prod_{i=1}^m \frac{(n - i + 1) \mu}{\sum_{j=i}^m k_j^- + \Xi_{n-m}^-} \one_{\lltEvent_n}
         \right].
     \end{align*}
     Finally, dividing by $\P(\Delta_n = 0)$ yields the desired form of $\phi^n_m$.

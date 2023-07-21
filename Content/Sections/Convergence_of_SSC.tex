@@ -29,7 +29,7 @@ $$\left(n^{-2/3}\hat{S}_n^-\left(\lfloor n^{2/3}t\rfloor \right), n^{-1/3}\hat{P
 in $\D([0,T],\R)^2$ as $n\to \infty$.
 \end{proposition}
 \begin{proof}
-We use \citet[Theorem 1]{deraphelisScalingLimitMultitype2017}, which states the convergence of the height process of a Bienaymé forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the Bienaymé forest with dummy and filler vertices, as defined in Subsection \ref{subsubsec.convheightprocess}. 
+We use result \cite[Theorem 1]{deraphelisScalingLimitMultitype2017} by de Raphélis, which states the convergence of the height process of a Bienaymé forest with edge-lengths under a few conditions on the degree and edge length distribution. We will apply this result to the Bienaymé forest with dummy and filler vertices, as defined in Subsection \ref{subsubsec.convheightprocess}. 
 
 We equip this forest with edge lengths similarly to how we equipped the out-forest with edge-lengths when we described how to sample the candidates in Subsection \ref{subsubsec.samplecandidates}. We do this as follows. For a dummy or filler vertex with out degree $d^+$, sample its in-degree with law $Z^-$ for $\mathbf{Z}$ conditional on the event $\{Z^+=d^+\}$. The in-degree of the true vertices is encoded by $(Y^{-}(k),k\geq 1)$.  Then, for a vertex with in-degree $d^-$, let the edges connecting it to its children have length $d^--1$ (unless it is the root of the component, then let the edges connecting it to its children have length $d^-$). Let $(H^{\mathrm{df},\ell}(k),k\geq 1)$ be the height process of the resulting forest.\\
 We will translate the conditions of Theorem 1 in \cite{deraphelisScalingLimitMultitype2017} to our setting and check them. The conditions are as follows.
@@ -88,7 +88,7 @@ in $D(\R_+,\R)$ as $n\to\infty$. If we combine this with the convergence under r
 
 \subsection{Finding the important components in the out-forest}\label{subsec.componentswithancestral}
 
-In this subsection, we will show that, conditional on the convergence under rescaling in Proposition \ref{prop.convergenceancestraledges}, the sequence of intervals that encode the trees with ancestral surplus edges sampled up to time $\lfloor Tn^{2/3}/2\rfloor $ converges as well under rescaling. We want all of the trees that contain such an ancestral surplus edge to be fully explored by time $\lfloor Tn^{2/3}\rfloor$, so we let $T$ be large enough so that this is likely. To be precise, fix $\epsilon>0$ and, from now on, let $T$ be large enough such that $\inf\{\hat{B}_t, t\leq T\}<\inf\{\hat{B}_t, t\leq T/2\}$ with probability at least $1-\epsilon$.
+In this subsection, we will show that, conditional on the convergence under rescaling in Proposition \ref{prop.convergenceancestraledges}, the sequence of intervals that encode the trees with ancestral surplus edges sampled up to time $\lfloor Tn^{2/3}/2\rfloor $ converges as well under rescaling. We want all of the trees that contain such an ancestral surplus edge to be fully explored by time $\lfloor Tn^{2/3}\rfloor$, so we let $T$ be large enough so that this is likely. To be precise, fix $\epsilon>0$ and, from now on, let $T$ be large enough such that $\inf\{\hat{B}_t, t\leq T\}<\inf\{\hat{B}_t, t\leq T/2\}$ with probability at least $1-\epsilon$. (Such $T$ exists for a Brownian motion with parabolic downwards drift; morally because the mean of $\hat{B}_s$ is $-cs^2$ for some $c$ while the variance is $s$. This can be made rigorous as follows. With the reflection principle for Brownian motion and the second moment method one can show that $\inf\{\hat{B}_t, t\leq T/2\}>-\tfrac{c}{2}T^2$ with probability at least $1-\epsilon/2$ while, again by the second moment method $\hat{B}_t<-\tfrac{c}{2}T^2$ with probability at least $1-\epsilon/2$.)
 
 Lemma \ref{lemma.extractexcursions} is a statement about extracting excursion intervals from deterministic functions with marks, which we will apply to the sample paths of $(\hat{S}_n^{+}(k),k\geq 1)$ with the increase times of $(A_n(k),k\geq 1)$ playing the rôle of the marks. The lemma tells us that if the sample paths and increase times converge under rescaling, then the beginnings and endpoints of the excursions above the running infimum that contain the increase times converge as well. 
 
@@ -121,7 +121,7 @@ and for $i\in \left\{1,\dots, A\left(T/2\right)\right\}$,
 G_i&=\inf\left\{t\geq 0:\sigma_+\hat{B}_t=\inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}\text{ and}\\
 \Sigma_i&=\inf\left\{ t\geq 0: \inf\{\sigma_+\hat{B}_s:s\leq G_i+t\} < \inf\{\sigma_+\hat{B}_s:s\leq X_i\}\right\}.
 \end{align*}
-We recall that the function $\operatorname{ord}$ sorts a set of elements by decreasing second coordinate and appends an infinite sequence of zeroes; the formal definition was given before the statement of Lemma \ref{lemma.extractexcursions}. 
+
 \begin{proposition}\label{prop.extractexcursions}
 It holds that
 $$\operatorname{ord}\left(\left\{\left(n^{-2/3}G_i^n,n^{-2/3}\Sigma_i^n\right):1\leq i \leq A_n\left(\lfloor T n^{2/3}/2\rfloor\right)\right\}\right)\todist \operatorname{ord}\left(\left\{(G_i,\Sigma_i):1\leq i \leq A(T/2)\right\}\right)$$
@@ -159,7 +159,7 @@ in $\D(\R_+,\R)$ as $n\to \infty$, we observe that for all $i\in \{1,\dots,A(T/2
 % \end{proof}
 
 \subsection{Convergence of the set of candidates}
-By \cref{lemma.extractexcursions}, we know that the intervals that encode the out-components that contain an ancestral surplus edge converge under rescaling. This convergence holds jointly with the convergence under rescaling of the first time-step at which an ancestral surplus edge is found in each of these components. We will show that the positions of the other candidates in a component converge as well under rescaling. Recall the procedure to sample candidates that is described in Subsection \ref{subsubsec.samplecandidates}. 
+By \cref{prop.extractexcursions}, we know that the intervals that encode the out-components that contain an ancestral surplus edge converge under rescaling. This convergence holds jointly with the convergence under rescaling of the first time-step at which an ancestral surplus edge is found in each of these components. We will show that the positions of the other candidates in a component converge as well under rescaling. Recall the procedure to sample candidates that is described in Subsection \ref{subsubsec.samplecandidates}. 
 % \begin{lemma}\label{lemma.samplingprocedure}
 % Suppose we are exploring the component of $(\hat{F}_n(k),k\geq 1)$ that contains vertex $k$, and suppose $k$ is purple. Denote this component by $\cT$, with root $l$. Moreover, suppose the tails of all important surplus edges in $\cT$ that are discovered up to time $k$ are contained in $C_k\subset\{g+1,\dots,k-1\}$. Then, for $S$ a subset of the vertices of $\cT$, let $\cT(S)$ be the subtree of $\cT$ spanned by $S$. Then, $k$ is the tail of an important surplus edge only if the surplus edge corresponding to $k$ has its head in $\cT(C_k\cup\{g,k
 % \})$. 
@@ -182,7 +182,7 @@ in the product topology.
 We will find a coupling such that $n^{-2/3}\mathbf{V}_n(g_n)\overset{a.s.}{\to}\mathbf{V}(g).$ By the convergence in Propositions \ref{prop.convergenceancestraledges} and \ref{prop.extractexcursions}, $n^{-2/3}V_1^n\overset{a.s.}{\to}V_1$. In general, let $V_m^n$ denote the $m^{th}$ candidate that is found in $T^n_{g_n}$, and let $V_m$ denote the $m^{th}$ candidate that is found in $\cT_g$. Suppose that, for some $m$, we have found a coupling such that 
 \begin{equation}\label{eq.convergencemcandidates}n^{-2/3}(V_1^n,\dots,V_m^n)\overset{a.s.}{\to}(V_1,\dots,V_m).\end{equation}
 Then, $V_{m+1}^n$ is distributed as the position of the first jump of a counting process $K^n_{m+1}(k)$ on $[0,\infty)$ with compensator 
-$$K^n_{comp,m+1}(k)=\sum_{i=V_m^n+1}^k \frac{\ell\left(T^{n,\text{mk}}_{i}\right)-m}{\hat{S}^-(i)}  \one{\left\{P_n(i)=P_n(i-1)+1\right\}}$$
+$$K^n_{comp,m+1}(k)=\sum_{i=V_m^n+1}^k \frac{\ell\left(T^{n,\text{mk}}_{i}\right)-m}{\hat{S}^-(i)}  \one_{\left\{P_n(i)=P_n(i-1)+1\right\}}$$
 for $k\in [V_m^n+1,g_n+\sigma_n]$ and $0$ otherwise, where $T^{n,\text{mk}}_{i}$ is the subtree of $T^n_{g_n}$ spanned by $\{g_n+1,V^n_1,\dots,V^n_m,i\}$. 
 Moreover, for $T_s$ the subtree of $\cT_g$ spanned by $\{g,V_1,\dots,V_m, s\}$, and $|T_s|$ its length as encoded by $\left(\frac{2}{\sigma_+}\hat{R}_t,t\geq 0\right)$, $V_{m+1}$ is the first jump in a counting process $K_{m+1}(t)$ on $[0,\infty)$ with compensator 
 $$K_{comp,m+1}(t)= \int_{V_m}^t\frac{\sigma_{-+}+\nu_-}{\mu^2}|T_s|ds$$
@@ -195,12 +195,12 @@ $$n^{-2/3}V_{m+1}^n\overset{a.s.}{\to}V_{m+1}.$$
 If $K_m(\infty)=0$, set $\mathbf{V}(g)=(V_1,\dots,V_m)$, $\mathbf{V}_n(g_n)=(V^n_1,\dots,V^n_m)$, and the statement follows. If $K_m(\infty)>0$, apply the induction step to $(V_1,\dots,V_{m+1})$ and $(V^n_1,\dots,V^n_{m+1})$. The fact that $|\mathbf{V}(g)|<\infty$ almost surely, as shown in Subsection \ref{subsubsec.samplecontinuousobject}, implies that the induction terminates.
 \end{proof}
 
-The following proposition shows that also the law of the heads of the surplus edges corresponding to a candidate converges under rescaling. Moreover, we show convergence under rescaling in the pointed Gromov-Hausdorff topology of an out-component with the location of the candidates and the heads of their corresponding surplus edges. 
+The following proposition shows that also the law of the heads of the surplus edges corresponding to a candidate converges under rescaling. Moreover, we show convergence under rescaling in the pointed Gromov-Hausdorff topology of an out-component with the location of the candidates and the heads of their corresponding surplus edges. (Note that the number of marked points may vary; we define the topology by setting the distance between two pointed metric spaces as $\infty$ if they do not have the same number of marked points, and if they both have $m$ marked points we use the distance in the $m$-pointed Gromov-Hausdorff metric.) 
 \begin{proposition}\label{prop.convergenceheadscandidates}
 Suppose the convergence in Propositions \ref{prop.convergenceancestraledges}, \ref{prop.extractexcursions} and \ref{prop.convergencestartingpointscandidates} holds almost surely. Then, for $\mathbf{V}_n(g_n)=(V^n_1,\dots, V^n_{N_n})$, $\mathbf{V}(g)=(V_1,\dots, V_{N})$, let $W^n_i$ be the index of the vertex that the surplus edge corresponding to $V^n_i$ connects to. Similarly, let $W_i$ be the index of the vertex that the surplus edge corresponding to $V_i$ connects to. Then, 
 \begin{align*}&\left(n^{-1/3}T^n_{g_n}, n^{-2/3}(g_n+1), \left(n^{-2/3}V^n_1,n^{-2/3}W^n_1\right) \dots, \left(n^{-2/3}V^n_{N_n}, n^{-2/3}W^n_{N_n}\right)\right)\\
 &\todist\left(\cT_g, l, (V_1,W_1),\dots, (V_{N},W_{N})\right)\end{align*}
-in the $(2N+1)$-pointed Gromov-Hausdorff topology. 
+in the pointed Gromov-Hausdorff topology. 
 \end{proposition}
 \begin{proof}
 For $S$ a subset of the vertices of $T^n_{g_n}$, let $T^n_{g_n}(S)$ denote the subtree of $T^n_{g_n}$ spanned by $S$. By definition, for $m\leq N_n$, $W^n_m$ is the vertex corresponding to a uniform unpaired in-half-edge of the vertices in $T^n_{g_n}\left(\{g_n+1,V^n_1,\dots,V^n_{m}\}\right)$. By  \cref{prop:heightprocesswithlengths} and Slutsky's lemma,
@@ -218,7 +218,7 @@ By Skorokhod's representation theorem, we may work on a probability space where 
     &\left(n^{-1/3}T^{n,\text{mk}}(g_n), n^{-2/3}(g_n+1), \left(n^{-2/3}V^n_1,n^{-2/3}W^n_1\right) \dots, \left(n^{-2/3}V^n_{N_n}, n^{-2/3}W^n_{N_n}\right)\right)\\
     &\to \left(T^{\text{mk}}(g), g, (V_1,W_1),\dots, (V_{N},W_{N})\right)
 \end{align*}
-almost surely in the $(2N+1)$-pointed Gromov-Hausdorff topology as $n\to \infty$. Also the total length in the trees converges, i.e.
+almost surely in the pointed Gromov-Hausdorff topology as $n\to \infty$. Also the total length in the trees converges, i.e.
 $$n^{-1/3}\left|T^{n,\text{mk}}(g_n)\right|\to \left| T^{\text{mk}}(g)\right|$$
 almost surely as $n\to\infty$.
 \end{proposition}

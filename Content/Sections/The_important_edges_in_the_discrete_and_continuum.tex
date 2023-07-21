@@ -35,7 +35,7 @@ The following facts hold for SCCs.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-We start with \ref{item.factsonsccs1}. Let $v$ and $w$ be two vertices in the same SCC. Without loss of generality, $v$ is explored first in depth-first order in the out-direction. Since $v$ and $w$ are part of the same SCC, we know that there is a path from $v$ to $w$ in the out-direction. This implies that $w$ will be part of the out-subtree consisting of the descendants of $v$. This implies that they are part of the same component of the out-forest.
+We start with \ref{item.factsonsccs1}. Consider an SCC and let $v$ be the vertex in the SCC that is explored first in depth-first order in the out-direction. We know that there exists a directed path from $v$ to every other vertex in the SCC consisting solely of vertices in the SCC. The out-subtree rooted at $v$ contains precisely of all vertices that can be reached from $v$ by an directed path of vertices which are unexplored when $v$ is explored (excluding $v$ itself). These two observations imply that every other vertex in the SCC will be in this out-subtree. This implies that they are all part of the same component of the out-forest.
 
 To prove \ref{item.factsonsccs2}, suppose there is an ancestral surplus edge from $v$ to $w$. This implies that $w$ is an ancestor of $v$ in an out-component, which implies that there is a path from $w$ to $v$ as well. It follows that $w$ and $v$ are in the same SCC and that the ancestral surplus edge from $v$ to $w$ is in this SCC as well. 
 
@@ -72,15 +72,15 @@ This subsection discusses how to obtain the out-forest conditional on the order 
 \end{enumerate}
 We make this rigorous in the following proposition.
 \begin{proposition}\label{prop:sampleoutforest}
-Suppose that the sequence of degrees in order of discovery $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n, n})$ is given. Suppose that after time-step $k$, there are still unpaired out-half-edges. Suppose that for $1\leq l\leq k$, that up to time $l$, $\hat{P}_n(l)$ surplus edges have been sampled. Then, $$\left(\hat{S}^+_n(l),1\leq l\leq k \right):=\left(\sum_{i=1}^{l-\hat{P}_n(l)}\hat{D}^+_{n,i}-l,1\leq l\leq k\right)$$ is the \L ukasiewicz path of the out-forest up to time $k$. Moreover, for $$\left(\hat{I}^+_n(l),1\leq l\leq k\right):=\left(\min\left\{\hat{S}^+_n(m):1\leq m \leq l\right\},1\leq l \leq k \right),$$
+Suppose that the sequence of degrees in order of discovery $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n, n})$ is given. Suppose that after time-step $k$, there are still unpaired out-half-edges. Suppose that for $1\leq l\leq k$, that up to time $l$, $\hat{P}_n(l)$ surplus edges have been sampled. Then, $$\left(\hat{S}^+_n(l),1\leq l\leq k \right):=\left(\sum_{i=1}^{l-\hat{P}_n(l)}\hat{D}^+_{n,i}-l,1\leq l\leq k\right)$$ is the \L ukasiewicz path of the out-forest up to time $k$. Moreover, for $$\left(\hat{I}^+_n(l),1\leq l\leq k\right):=\left(\min\left\{\hat{S}^+_n(m):0\leq m \leq l\right\},1\leq l \leq k \right),$$
 define 
 $$\left(\hat{S}^-_n(l),1\leq l \leq k\right):=\left(\sum_{i=1}^{l-\hat{P}_n(l)}\hat{D}^-_{n,i}-l-\hat{I}^+_n(l)+1,1\leq l\leq k\right),$$
 so that $\hat{S}^-_n(k)$ is equal to the number of unpaired in-half-edges of discovered vertices at time $k$. Then, the probability that we sample a surplus edge at the $(k+1)$th time-step is given by
-$$\frac{\hat{S}^-_n(k+1)}{\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)+1}\one_{\left\{\hat{I}^+_n(k)=\hat{I}^+_n(k-1)\right\}}.$$
+$$\frac{\hat{S}^-_n(k)}{\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)+1}\one_{\left\{\hat{I}^+_n(k)=\hat{I}^+_n(k-1)\right\}}.$$
 We do not need to know the position of the heads of the surplus edges in order to sample the out-forest.
 \end{proposition}
 \begin{proof}
-Note that if up to time $k$, $\hat{P}_n(k)$ surplus edges have been sampled, this implies that $k-\hat{P}_n(k)$ true vertices have been discovered. Thus, up to time $k$, the out-forest contains $\hat{P}_n(k)$ dummy leaves, and true vertices with degrees $(\hat{D}^+_{n,1},\dots,\hat{D}^+_{n,k-\hat{P}_n(k)})$, so by definition of the \L ukasiewicz path, its value is indeed equal to $\hat{S}^+_n(k)$ at time $k$. Moreover, up to time $k$, the total in-degree of the discovered true vertices is equal to $\sum_{i=1}^{k-\hat{P}_n(k)}\hat{D}^-_{n,i}$. At every time-step, we pair one in-half-edge of a discovered vertex, unless we start a new component. The value $-\hat{I}^+_n(k)$ corresponds to the number of out-components that are fully explored up to time $k$, so the total number of unpaired in-half-edges of discovered vertices at time $k$ is equal to $\hat{S}^-_n(k)$. By the same reasoning, the total number of unpaired in-half-edges is equal to $\sum_{i=1}^n D^-_i-k-\hat{I}^+_n(k)+1$. The probability of sampling a surplus edge at step $(k+1)$ follows. We note that this probability does not depend on the positions of the heads of the surplus edges, but only on their number, which implies that we can sample the out-forest without sampling the positions of the heads.
+Note that if up to time $k$, $\hat{P}_n(k)$ surplus edges have been sampled, this implies that $k-\hat{P}_n(k)$ true vertices have been discovered. Thus, up to time $k$, the out-forest contains $\hat{P}_n(k)$ dummy leaves, and true vertices with degrees $(\hat{D}^+_{n,1},\dots,\hat{D}^+_{n,k-\hat{P}_n(k)})$, so by definition of the \L ukasiewicz path, its value is indeed equal to $\hat{S}^+_n(k)$ at time $k$. Moreover, up to time $k$, the total in-degree of the discovered true vertices is equal to $\sum_{i=1}^{k-\hat{P}_n(k)}\hat{D}^-_{n,i}$. At every time-step, we pair one in-half-edge of a discovered vertex, unless we start a new component. The value $-\hat{I}^+_n(k)$ corresponds to the number of out-components that are fully explored up to time $k$, so the total number of unpaired in-half-edges of discovered vertices at time $k$ is equal to $\hat{S}^-_n(k)$. By the same reasoning, the total number of unpaired in-half-edges is equal to $ \sum_{i=1}^{k-\hat{P}_n(k)}\hat{D}^-_{n,i}-k-\hat{I}^+_n(k)+1$. The probability of sampling a surplus edge at step $(k+1)$ follows. We note that this probability does not depend on the positions of the heads of the surplus edges, but only on their number, which implies that we can sample the out-forest without sampling the positions of the heads.
 \end{proof}
 \subsubsection{Sampling the candidates}\label{subsubsec.samplecandidates}
 We will now study the law of the candidates and their heads conditional on the out-forest. We will first identify the candidates amongst the dummy leaves, and then we will sample the positions of their heads. 
@@ -174,7 +174,7 @@ Then, all SCCs of $\vec{G}_n(\nu)$ are sub-digraphs of $\left\{M^n_{G_i^n}, i\ge
 
 \subsection{The continuum case}\label{subsec.limitobject}
 
-We will define now define the continuous counterpart of the sampling procedure of the out-forest and the candidates. This is a modification of the procedure defined in Subsection 3.2.2 of \cite{goldschmidtScalingLimitCritical2021}.
+We will now define the continuous counterpart of the sampling procedure of the out-forest and the candidates. This is a modification of the procedure defined in Subsection 3.2.2 of \cite{goldschmidtScalingLimitCritical2021}.
 
 \subsubsection{\texorpdfstring{$\R$}{R}-trees and their encoding}
 \input{Content/Sections/Real_Trees.tex}
@@ -182,7 +182,7 @@ We will define now define the continuous counterpart of the sampling procedure o
 \subsubsection{The limit object}\label{subsubsec.samplecontinuousobject}
 Let $(B_t,t\geq 0)$ be a standard Brownian motion, and set $$\left(\hat{B}_t,t\geq 0\right)=\left(B_t-\frac{\sigma_{-+}+\nu_-}{2\sigma_+\mu}t^2,t\geq 0\right).$$ 
 \begin{remark}
-We note that the coefficient of the parabolic drift of $\hat{B}$ is negative. Indeed, by definition of $\sigma_{+-}$ and $\nu_-$, the sign of the parabolic drift is the same as the sign of $\mu-\E[(D^-)^2D^+]$, and we note that
+We note that the coefficient of the parabolic drift of $\hat{B}$ is negative. Indeed, by definition of $\sigma_{-+}$ and $\nu_-$, the sign of the parabolic drift is the same as the sign of $\mu-\E[(D^-)^2D^+]$, and we note that
 $$\frac{\E[(D^-)^2D^+]}{\E[D^+]}-\left(\frac{\E[D^+D^-]}{\E[D^+]}\right)^2=\frac{\E[(D^-)^2D^+]}{\mu}-1$$
 is the variance of $D^-$ under the law of $\mathbf{D}$ size-biased by $D^+$, which is positive. Hence $\E[D^+(D^-)^2]/\mu\geq 1$, and the claimed negativity follows. 
 

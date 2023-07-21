@@ -1,5 +1,52 @@
-\subsection{The convergence of the out-forest holds conditionally on the multigraph being simple}
-We will now show that the parts of the directed multigraph we observe far beyond the timescale of interest are with high probability simple. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that \cref{prop:convoutforest} holds conditional on the resulting multigraph being simple. We let $B_n(k)$ be the number of `bad edges' up to time $k$; to be precise, it equals be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k$th vertex of the out-forest. Following \cite{conchon--kerjanStableGraphMetric2021}, we call these anomalous edges. 
+\subsection{Conditioning on simplicity}
+In this section, we will first show that, with high probability, there exists a simple graph with the degree sequence that we sample and we show that the multigraph resulting from the configuration model is simple with probability asymptotically bounded away from $0$. Then, we show that when we sample the configuration model according to Algorithm \ref{alg:edfs}, we do not see any loops or multiple edges far beyond our time scale of interest. We will then use an argument by Joseph \cite{josephComponentSizesCritical2014} to show that this implies that \cref{prop:convoutforest} holds conditional on the resulting multigraph being simple.
+
+We start by showing that with high probability, there exists a simple graph with the degree sequence that we sample. For this, we need the following lemma. 
+
+\begin{lemma}\label{lem:wlln_conditioned}
+On the event $\left\{\sum_{i=1}^n D_i^-=\sum_{i=1}^n D_i^+ \right\}$,  for all integers $i$ and $j$ with $1\leq i+j \leq 3$ or $\{i,j\}=\{1,3\}$ it holds that 
+$$\frac{1}{n}\sum_{k=1}^n (D_k^-)^i(D_k^+)^j \toprob \E\left[ (D^-)^i(D^+)^j \right].$$
+\end{lemma}
+\begin{proof}
+First, for $l,m \in \N$, define $\rho_m(l)=\P\left(\sum_{k=1}^m (D_k^--D_k^+)=l \right)$. Then, since the second moment of $D^--D^+$ is finite, the discrete local limit theorem implies that there exists a $C>0$ such that $\rho_m(l)<Cm^{-1/2}$ for all $l,m$. Moreover, again by the discrete local limit theorem and because $D^- - D^+$ is strongly aperiodic, there exists a $c>0$ such that $\rho_m(0)>cm^{-1/2}$ for all $m$ large enough.
+
+Now, let $i,j$ be as in the statement of the lemma. Fix $\epsilon>0$.  Then,
+\begin{align*} 
+&\P\left(\left. \frac{1}{n}\left|\sum_{k=1}^{\lfloor n \rfloor}\left((D_k^-)^i(D_k^+)^j- \E\left[ (D^-)^i(D^+)^j \right]\right)\right|>\epsilon\;\; \right|\;\; \sum_{k=1}^n D_k^-=\sum_{k=1}^n D_k^+ \right)\\
+&\leq \P\left(\left. \frac{1}{n}\left|\sum_{k=1}^{\lfloor n/2\rfloor}\left((D_k^-)^i(D_k^+)^j- \E\left[ (D^-)^i(D^+)^j \right]\right)\right|>\epsilon/2\;\; \right|\;\; \sum_{k=1}^n D_k^-=\sum_{k=1}^n D_k^+ \right)\\
+&\quad +  \P\left(\left. \frac{1}{n}\left|\sum_{k={\lfloor n/2\rfloor}+1}^{n}\left((D_k^-)^i(D_k^+)^j- \E\left[ (D^-)^i(D^+)^j \right]\right)\right|>\epsilon/2\;\; \right|\;\; \sum_{k=1}^n D_k^-=\sum_{k=1}^n D_k^+ \right)
+\end{align*}
+by the triangle inequality, so by symmetry it suffices to show that the second term goes to $0$ as $n\to \infty$. Denote $$A_n=A_n(\mathbf{D}_{\lfloor n/2\rfloor +1 },\dots,\mathbf{D}_n)=\left\{\frac{1}{n}\left|\sum_{k={\lfloor n/2\rfloor}+1}^{n}\left((D_k^-)^i(D_k^+)^j- \E\left[ (D^-)^i(D^+)^j \right]\right)\right|>\epsilon/2\right\}$$
+so that $\P(A_n)\to 0$ as $n\to\infty$ by the weak law of large numbers.
+We note that 
+\begin{align*}
+    &\P\left(A_n\;\; \left|\;\; \sum_{k=1}^n D_k^-=\sum_{k=1}^n D_k^+ \right. \right)\\
+    &=\frac{ \E\left[ \one_{A_n} \P\left(\left.\sum_{k=1}^{\lfloor n/2 \rfloor} (D_k^--D_k^+)=\sum_{k=\lfloor n/2\rfloor+1}^{n}(D_k^+-D_k^-) \right| \mathbf{D}_{\lfloor n/2\rfloor +1 },\dots,\mathbf{D}_n  \right)\right]}{
+  \P\left(\sum_{k=1}^n (D_k^--D_k^+)=0\right)}\\
+    &= \E\left[ \one_{A_n} \frac{\rho_{\lfloor n/2\rfloor}\left(\sum_{k=\lfloor n/2\rfloor+1}^{n}(D_k^+-D_k^-)\right)}{\rho_n(0)}\right]
+\end{align*}
+where we use the definition of conditional probability and the tower property in the second line and the independence between $\{\mathbf{D}_1,\dots\mathbf{D}_{\lfloor n/2 \rfloor}\}$ and $\{\mathbf{D}_{\lfloor n/2  \rfloor+1},\dots\mathbf{D}_n\}$ in the third line. However, by our observations above, there is a $C'$ such that $\frac{\rho_{\lfloor n/2\rfloor}(k)}{\rho_n(0)}<C'$ for all $n$ large enough and for all $k$, so
+$$\P\left(A_n\;\; \left|\;\; \sum_{k=1}^n D_k^-=\sum_{k=1}^n D_k^+ \right. \right)\leq C'\P(A_n)$$
+which tends to $0$.
+\end{proof}
+This yields the following proposition.
+\begin{proposition}\label{prop:simple}
+Let $\left(\mathbf{D}_{1,n},\dots,\mathbf{D}_{n,n}\right)$ be a progression of  sequences of i.i.d.\ samples from $\nu$, conditional on the event that $\left\{\sum_{k=1}^n D_{k,n}^-=\sum_{k=1}^n D_{k,n}^+ \right\}$. Then, the probability that there exists a simple digraph with degree sequence $\left(\mathbf{D}_{1,n},\dots,\mathbf{D}_{n,n}\right)$ tends to $1$ as $n\to \infty$. Moreover, the probability that the configuration model on $\left(\mathbf{D}_{1,n},\dots,\mathbf{D}_{n,n}\right)$ yields a simple graph tends to 
+$$\exp\left(-1-\frac{(\E[(D^-)^2]-\mu)(\E[(D^+)^2]-\mu)}{\mu^2}\right)$$ as $n\to \infty$. 
+\end{proposition}
+\begin{proof}
+By Lemma \ref{lem:wlln_conditioned}, we may work on a probability space where for all non-negative integers $i$ and $j$ with $1\leq i+j \leq 3$ or $\{i,j\}=\{1,3\}$ it holds that 
+$$\frac{1}{n}\sum_{k=1}^n (D_{k,n}^-)^i(D_{k,n}^+)^j\rightarrow \E\left[ (D^-)^i(D^+)^j \right]$$
+almost surely as $n\to \infty$.
+
+Now, let $(\mathbf{d}_{1,n},\dots, \mathbf{d}_{n,n})_{n\geq 1}$ be a progression of sequences with $\mathbf{d}_{k,n}=(d_{k,n}^-,d_{k,n}^+)\in \N\times \N$ for each $k,n$. Assume that for each $n$ it holds that, firstly, $\sum_{k=1}^n {d}^-_{k,n}=\sum_{k=1}^n {d}^+_{k,n}$, secondly, $\max_{k\leq n} d_{k,n}^-\vee d_{k,n}^+ =o(\sqrt{n})$, and, finally, for all non-negative integers $i,j$ such that $1\leq i+j\leq 2$ there exist positive $a_{i,j}$ such that
+$$\frac{1}{n}\sum_{k=1}^n (d_{k,n}^-)^i(d_{k,n}^+)^j\rightarrow a_{i,j}.$$ Then, for $S_n$ the number of self-loops and $M_n$ the number of directed edges with multiplicity exceeding $1$ in the directed configuration model on vertex set $[n]$ with degree sequence $(\mathbf{d}_{1,n},\dots, \mathbf{d}_{n,n})$, it holds that $(S_n,M_n)$ converges in distribution to $(S,M)$, for $S$ and $M$ two independent Poisson random variables with means $a_{1,1}/a_{1,0}$ and $(a_{2,0}-a_{1,0})(a_{0,2}-a_{0,1})/a_{1,0}^2$ respectively. This follows from a trivial adaptation of the proof of \cite[Proposition 7.13]{hofstadRandomGraphsComplex2017}, where an analogous property is shown for the undirected configuration model.
+
+Therefore, on the coupling on degree sequences that we consider above, almost surely, the number of self-loops and multiple edges in the configuration model on degree sequence $\left(\mathbf{D}_{1,n},\dots,\mathbf{D}_{n,n}\right)$ converges in distribution to $(S,M)$ for $S$ and $M$ two independent Poisson random variables with means $\E[D^-D^+]/\E[D^-]=1$ and $(\E[(D^-)^2]-\E[D^-])(\E[(D^+)^2]-\E[D^+])/\E[D^-]^2$ respectively, and in particular, almost surely, the asymptotic probability of sampling a simple graph is bounded away from $0$. Here we use that the almost sure convergence of $\frac{1}{n}\sum_{k=1}^n (D_{k,n}^-)^3$ implies that $\max\{D^-_{k,n}\}=o(\sqrt{n})$ almost surely and, similarly, we have that $\max\{D^+_{k,n}\}=o(\sqrt{n})$ almost surely. The result follows. 
+\end{proof}
+
+
+We will now show that when we sample the configuration model according to Algorithm \ref{alg:edfs}, we do not see any loops or multiple edges far beyond our time scale of interest.  We let $B_n(k)$ be the number of `bad edges' up to time $k$; to be precise, it equals be the number of self-loops and edges created parallel to an existing edge in the same direction as that edge, up until discovery of the $k$th vertex of the out-forest. Following \cite{conchon--kerjanStableGraphMetric2021}, we call these anomalous edges. 
 \begin{proposition}\label{prop.anomalousedges}
 Suppose $\beta<1$. Then we have
 $$\P\left(B_n(\lfloor n^\beta \rfloor)>0\right)\to 0$$
@@ -22,9 +69,9 @@ Let $p(i)$ denote the index of the parent of the vertex with index $i$. Also, de
 \P\left(\left.B^2_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]}{\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i}\wedge 1,\\
 \P\left(\left.B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)&\leq \frac{\sum_{i=1}^{\lfloor n^\beta \rfloor}\sum_{j<i} (\hat{D}^+_i)^2 (\hat{D}^-_j)^2 }{\left(\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i\right)^2 }\wedge 1,\end{align*}
 where we note that $p(i)$ is not adapted to $\cG^n$, because ancestral relations in the tree also depend on the surplus edges. However, we observe that by the Cauchy-Schwarz inequality,
-\begin{align*}\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]&\leq \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} \E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]^2\right)^{1/2}\\
+{\allowdisplaybreaks \begin{align*}\sum_{i=1}^{\lfloor n^\beta \rfloor} \hat{D}^-_i\E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]&\leq \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} \E\left[\left.\hat{D}^+_{p(i)}\right|\cG^n\right]^2\right)^{1/2}\\
 &= \left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{j=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_{j})^2\sum_{i=1}^{\lfloor n^\beta \rfloor}\E\left[\left.\one_{j=p(i)}\right| \cG^n\right]\right)^{1/2}\\ 
-&\leq\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_i)^3\right)^{1/2}.\end{align*}
+&\leq\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^-_i)^2\right)^{1/2}\left(\sum_{i=1}^{\lfloor n^\beta \rfloor} (\hat{D}^+_i)^3\right)^{1/2}.\end{align*}}
 We will show that \begin{equation}\label{eq.conditionalprobanamolousedges}\P\left(\left.B^1_n(\lfloor n^\beta \rfloor)+B^2_n(\lfloor n^\beta \rfloor)+B^3_n(\lfloor n^\beta \rfloor)>0\right| \cG^n \right)\overset{p}{\to}0\end{equation} as $n\to\infty$. We note that 
 $$\sum_{i=\lfloor n^\beta \rfloor+1}^n \hat{D}^-_i=\sum_{i=1}^n D^-_i-\sum_{i=1}^{\lfloor n^\beta \rfloor -1}\hat{D}^-_i,$$
 and by the weak law of large numbers, $\frac{1}{n}\sum_{i=1}^n D^-_i\overset{p}{\to} \mu n$, so \cref{eq.conditionalprobanamolousedges} follows if we show that 
@@ -50,25 +97,27 @@ so that, by a trivial adaptation of \cite[Lemma 4.1]{josephComponentSizesCritica
 $$\pi_r(dt,k_1,k_2):=\P(D^-=k_1,D^+=k_2|D^->0)k_1\exp\left(-k_1 \psi(t/r)\right)\psi'(t/r)dt$$
 on $(0,r)\times \N^2$, we have that for $t\in (0,r)$, there exists a probability measure $P_t$ on $\N^2$ such that
 $$\pi_r(dt,k_1,k_2)=P_t(D^-=k_1,D^+=k_2)dt.$$
-Let ${\Pi}^r$ be a Poisson point process with intensity $\pi_r$. Define $N_r= {\Pi}_r((0,r),\N,\N)$ and $\Delta_r=\int_{(0,r)\times \N^2}(k_1-k_2){\Pi}^r(dt,k_1,k_2)=s$. Then, let ${\Pi}^{r,s}$ have the law of ${\Pi}_r$ conditional on the events $\{N_r=r\}$ and $\{\Delta_r=s\}$. Then, the points of ${\Pi}^{r,s}$ ordered by time are distributed as $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,R_n})$ conditional on the events $\left\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\right\}$, $\{R_n=r\}$ and $\{S_n=s\}$. Let ${\lambda}^{r,s}_t$ be the marginal density of ${\Pi}^{r,s}$ in $t$, so that there exists a probability distribution ${P}^{r,s}_t(k_1,k_2)$ on $\N^2$ such that for ${\pi}^{r,s}_t(k_1,k_2)$ the marginal intensity measure on $\N^2$ of ${\Pi}^{r,s}$ in $t$, 
+Observe that $P_t$ depends on $r$; to avoid overcomplicating notation we do not make this dependency explicit.
+
+Let ${\Pi}^r$ be a Poisson point process with intensity $\pi_r$. (This random measure may be sampled as follows: sample a Poisson process with intensity $dt$ on $(0,r)$ and if there is a jump at time $s$, sample the corresponding point with law $P_s$.)  Define $N_r= {\Pi}_r((0,r),\N,\N)$ and $\Delta_r=\int_{(0,r)\times \N^2}(k_1-k_2){\Pi}^r(dt,k_1,k_2)=s$. Then, let ${\Pi}^{r,s}$ have the law of ${\Pi}_r$ conditional on the events $\{N_r=r\}$ and $\{\Delta_r=s\}$. Then, the points of ${\Pi}^{r,s}$ ordered by time are distributed as $(\mathbf{\hat{D}}_{n,1},\dots,\mathbf{\hat{D}}_{n,R_n})$ conditional on the events $\left\{\sum_{i=1}^nD^-_i=\sum_{i=1}^nD^+_i\right\}$, $\{R_n=r\}$ and $\{S_n=s\}$. Let ${\lambda}^{r,s}_t$ be the marginal density of ${\Pi}^{r,s}$ in $t$, so that there exists a probability distribution ${P}^{r,s}_t(k_1,k_2)$ on $\N^2$ such that for ${\pi}^{r,s}_t(k_1,k_2)$ the marginal intensity measure on $\N^2$ of ${\Pi}^{r,s}$ in $t$, 
 $${\pi}^{r,s}_t(k_1,k_2)={\lambda}^{r,s}_t{P}^{r,s}_t(k_1,k_2)$$
 for all $k_1,k_2\in \N$.
 
 For any $L>0$, define
 $$\cE_L=\left\{|R_n-\E[R_n]|\leq Ln^{1/2},  |S_n-\E[S_n]|\leq Ln^{1/2}\right\}.$$
 Then, note that 
-\begin{align*}\P\left(\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta\rfloor} \hat{D}_i^-\hat{D}_i^+>\epsilon \right)\leq & \P(\cE_L^c) + \P\left(\left.\Pi_{R_n,S_n}\left((0,2n^\beta),\N^2\right)<n^\beta\right|\cE_L \right)\\
-&+\P\left(\left.\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{R_n,S_n}(dt,k_1,k_2)>\epsilon  \right|\cE_L \right)\end{align*}
+\begin{align*}\P\left(\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta\rfloor} \hat{D}_i^-\hat{D}_i^+>\epsilon \right)\leq & \P(\cE_L^c) + \P\left(\left.\Pi^{R_n,S_n}\left((0,2n^\beta),\N^2\right)<n^\beta\right|\cE_L \right)\\
+&+\P\left(\left.\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi^{R_n,S_n}(dt,k_1,k_2)>\epsilon  \right|\cE_L \right)\end{align*}
 Fix $\epsilon>0$. By the central limit theorem, we can pick an $L$ such that $\P(\cE_L^c)<\epsilon$ for all $n$. We condition on $\cE_L$. Suppose $R_n=r$ and $S_n=s$. Then, for $P$ a Poisson random variable with rate $2n^\beta$,
  $$\P\left(\Pi_{r,s}\left((0,2n^\beta),\N^2\right)<n^\beta\right)\leq \frac{\P\left(P<n^\beta\right)}{\P(\Delta_r=s, N_r=r)}$$
- We note that the numerator is the probability of a large-deviation event and decreases exponentially fast in $n^\beta$, while the local limit theorem yields that the denominator is of order $n^{-1/2}$ uniformly in all $r$ and $s$ that we consider on $\cE_L$. This implies that $$\P\left(\left.\Pi_{R_n,S_n}\left((0,2n^\beta),\N^2\right)<n^\beta\right|\cE_L\right)\to 0$$
+ We note that the numerator is the probability of a large-deviation event and decreases exponentially fast in $n^\beta$, while the local limit theorem yields that the denominator is of order $n^{-1/2}$ uniformly in all $r$ and $s$ that we consider on $\cE_L$. This implies that $$\P\left(\left.\Pi^{R_n,S_n}\left((0,2n^\beta),\N^2\right)<n^\beta\right|\cE_L\right)\to 0$$
 as $n\to \infty$.  
 Now, note that for $E^{r,s}_t$ denoting the expectation with respect to $P_t^{r,s}$,
 $$\E\left[\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{r,s}(dt,k_1,k_2) \right]=\frac{1}{n}\int_{(0,2n^\beta)}\lambda^{r,s}_t E^{r,s}_t[D^- D^+]dt,$$
 so we start by bounding $E^{r,s}_t[D^- D^+]$. 
 We note that
-$$E^{r,s}_t\left[{D}^-{D}^+\right]={E}^r_t\left[\left.{D}^-{D}^+\right| \Delta_r=s, N_r=r\right]={E}^r_t\left[{D}^-{D}^+\frac{\P\left[\left. \Delta_n=s, N_r=r \right|\Pi_r(t,D^-,D^+)=1\right]}{\P\left[ \Delta_r=s, N_r=r\right]}\right].$$
-By the fact that $\Pi_r$ is a point process, we have that for $k_1$, $k_2$ in $\N$, 
+$$E^{r,s}_t\left[{D}^-{D}^+\right]={E}_t\left[\left.{D}^-{D}^+\right| \Delta_r=s, N_r=r\right]={E}^r_t\left[{D}^-{D}^+\frac{\P\left[\left. \Delta_n=s, N_r=r \right|\Pi_r(t,D^-,D^+)=1\right]}{\P\left[ \Delta_r=s, N_r=r\right]}\right].$$
+By the fact that $\Pi_r$ is a Poisson point process, we have that for $k_1$, $k_2$ in $\N$, 
 $$\P\left[ \Delta_r=s, N_r=r \left| \Pi_r(t,k_1,k_2)=1\right.\right]=\P\left[ \Delta_r=s+k_2-k_1, N_r=r-1 \right],$$
 so that, since $N_r\sim \operatorname{Poisson}(r)$, and since on the event $\{N_r=r-1\}$ (resp. $\{N_r=r\}$),  $\Delta_r-s$ is the sum of $r-1$ (resp. $r$) i.i.d. random variables with finite variance and mean at most $O(n^{-1/2})$, we observe that, by the local limit theorem,
 \begin{align*}
@@ -88,13 +137,13 @@ Then, we note that for any $x>0$, for $P$ a Poisson random variable with rate $2
 $$\P\left(\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)>(x+1)2n^\beta\right)\leq \frac{\P\left[P>(x+1)2n^\beta \right]}{\P\left[ \Delta_r=s, N_r=r\right]}.$$
 Then, by the local limit theorem and the exponential tail of the Poisson distribution, we obtain that there exist $c_4,c_5>0$ such that for all $n$, all $r$ and $s$ in the interval of interest and all $x>1$,
 $$\P\left(\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)>(x+1)2n^\beta\right)\leq c_4\exp(-c_5xn^\beta).$$
-This implies that there is a constant $c_6$ such that 
+This shows that there is a constant $c_6$ such that 
 $$\E\left[\Pi_{r,s}\left((0,2n^\beta),\N,\N\right)\right]\leq c_6 n^\beta$$
 for all $n$ and all $r$ and $s$ that we consider under $\cE_L$. 
 It then follows that 
 $$\E\left[\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{r,s}(dt,k_1,k_2) \right]\to 0$$
 as $n\to \infty$ uniformly in all $r$ and $s$ of interest, so for $n$ large enough,
-$$\P\left(\left.\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi_{R_n,S_n}(dt,k_1,k_2)>\epsilon  \right|\cE_L \right)<\epsilon.$$
+$$\P\left(\left.\frac{1}{n}\int_{(0,2n^\beta)\times \N^2}k_1k_2 \Pi^{R_n,S_n}(dt,k_1,k_2)>\epsilon  \right|\cE_L \right)<\epsilon.$$
 This implies that
 $$\frac{1}{n}\sum_{i=1}^{\lfloor n^\beta \rfloor}\hat{D}_i^- \hat{D}_i^+\overset{p}{\to}0.$$
 The other convergences are proved similarly, and the result follows. 
